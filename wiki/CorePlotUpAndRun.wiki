@@ -36,7 +36,7 @@ iOS平台上的[http://code.google.com/p/core-plot/ CorePlot]是要以静态库�
 
 [http://www.kerneldiy.com/images/includeCP.png]
 
-接下来，我们要在XCode里面设置项目依赖关系，选择Project->Edit Active Target "CorePlotTest"，在弹出窗口的General tab里，添加CorePlot-CocoaTouch：
+接下来，我们要在XCode里面设置项目依赖关系，选择Project->Edit Active Target "CorePlotTest"，在弹出窗口的General tab里，添加`CorePlot-CocoaTouch`：
 
 [http://www.kerneldiy.com/images/addCPDep.png]
 
