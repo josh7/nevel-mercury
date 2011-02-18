@@ -1,5 +1,5 @@
 #labels CorePlt,iOS
-# 本文用于描述[http://code.google.com/p/core-plot/ CorePlot]在iOS上的开发环境设置。
+#How to setup Xcode to up and run CorePlot on iOS.
 
 = Introduction =
 
