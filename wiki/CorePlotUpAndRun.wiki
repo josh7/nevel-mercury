@@ -18,15 +18,15 @@
 
 [http://www.kerneldiy.com/images/dragCP.png]
 
-在弹出的对话框中，不要选择Copy items into destination group's folder这个Checkbox。单击Add按钮。这时，你就可以在Groups & Files里看到CorePlot项目了。
+在弹出的对话框中，不要选择Copy items into destination group's folder这个Checkbox。单击Add按钮。这时，你就可以在Groups & Files里看到[http://code.google.com/p/core-plot/ CorePlot]项目了。
 
 [http://www.kerneldiy.com/images/leaveCopy.png]
 
 [http://www.kerneldiy.com/images/cpAdded.png]
 
-== 把CorePlot静态库添加到项目 ==
+== 把[http://code.google.com/p/core-plot/ CorePlot]静态库添加到项目 ==
 
-iOS平台上的CorePlot是要以静态库的形式编译到程序中的，因此，我们要把CorePlot_CocoaTouch中的静态库添加进来。打开CorePlot-CocoaTouch.xcodeproj节点，把libCorePlot_CocoaTouch.a拖动到Targets/CorePlotTest/Link Binary With Libraries节点里：
+iOS平台上的CorePlot是要以静态库的形式编译到程序中的，因此，我们要把`CorePlot_CocoaTouch`中的静态库添加进来。打开`CorePlot-CocoaTouch.xcodeproj`节点，把libCorePlot_CocoaTouch.a拖动到Targets/CorePlotTest/Link Binary With Libraries节点里：
 
 [http://www.kerneldiy.com/images/addStaticLib.png]
 
