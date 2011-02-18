@@ -1,4 +1,4 @@
-#本文用于描述CorePlot的开发环境设置
+#本文用于描述[CorePlot]的开发环境设置
 
 = Introduction =
 
