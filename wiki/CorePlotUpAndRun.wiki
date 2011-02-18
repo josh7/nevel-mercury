@@ -32,9 +32,13 @@ iOS平台上的[http://code.google.com/p/core-plot/ CorePlot]是要以静态库�
 
 [http://www.kerneldiy.com/images/addStaticLib.png]
 
-之后，把[http://code.google.com/p/core-plot/ CorePlot]的代码路径告诉给XCode，相对或者绝对路径都可以。
+之后，把[http://code.google.com/p/core-plot/ CorePlot]的代码路径告诉给XCode，相对或者绝对路径都可以，记得要选择recursive，因为其他的头文件都在这个目录的子目录里：
 
 [http://www.kerneldiy.com/images/includeCP.png]
+
+接下来，我们要在XCode里面设置项目依赖关系，选择Project->Edit Active Target "CorePlotTest"，在弹出窗口的General tab里，添加CorePlot-CocoaTouch：
+
+[http://www.kerneldiy.com/images/addCPDep.png]
 
 在XCode里添加一个Linker option：-ObjC。我们需要这个选项是因为[http://code.google.com/p/core-plot/ CorePlot]对现有的Cocoa Framework中的类使用了Category，不加-ObjC选项的话，当[http://code.google.com/p/core-plot/ CorePlot]作为静态库编译的时候，那些Categories的部分不会被链接到生成的应用程序里。
 
