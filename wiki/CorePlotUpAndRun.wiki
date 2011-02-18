@@ -1,5 +1,5 @@
+#summary How to setup Xcode to up and run CorePlot on iOS.
 #labels CorePlot,iOS
-# How to setup Xcode to up and run CorePlot on iOS.
 
 
 = Introduction =
