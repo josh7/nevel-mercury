@@ -6,15 +6,15 @@
 
 本文用于描述[http://code.google.com/p/core-plot/ CorePlot]在iOS平台开发需要进行的设置工作。
 
-首先，到Google网站上下载CorePlot framework压缩包，将解压之后的文件放到~/Library/下面备用。
+首先，到Google网站上下载`CorePlot framework`压缩包，将解压之后的文件放到~/Library/下面备用。
 
 == 新建一个XCODE项目 ==
 
 为了简单起见，我们新建一个View-based Application，起名叫CorePlotTest：
 
-<img src=http://www.kerneldiy.com/images/createApp.png></img>
+[http://www.kerneldiy.com/images/createApp.png]
 
-把Source/framework目录下的CorePlot-CocoaTouch.xcodeproj拖动到CorePlotTest项目里。
+把Source/framework目录下的`CorePlot-CocoaTouch.xcodeproj`拖动到`CorePlotTest`项目里。
 
 [http://www.kerneldiy.com/images/dragCP.png]
 
