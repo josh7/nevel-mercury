@@ -3,12 +3,9 @@
 
 = Introduction =
 
-本文当描述用CorePlot开发柱状图的一些基本方法.
+本文档描述用[http://code.google.com/p/core-plot/ CorePlot]开发柱状图的一些基本方法。
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+_To be continue_
