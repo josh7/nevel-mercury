@@ -10,7 +10,7 @@
 
 == 新建一个XCODE项目 ==
 
-为了简单起见，我们新建一个View-based Application，起名叫CorePlotTest：
+为了简单起见，我们新建一个View-based Application，起名叫`CorePlotTes`：
 
 [http://www.kerneldiy.com/images/createApp.png]
 
