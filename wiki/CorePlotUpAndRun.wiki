@@ -1,0 +1,35 @@
+#本文用于描述CorePlot的开发环境设置
+
+= Introduction =
+
+CorePlot是一个在MacOSX和iOS平台上用于解决2D数据可视化问题的Framework。你可以从[这里 http://code.google.com/p/core-plot]访问CorePlot的google project。
+
+本文用于描述CorePlot在iOS平台开发需要进行的设置工作。
+
+== 新建一个XCODE项目 ==
+
+为了简单起见，我们新建一个View-based Application，起名叫CorePlotTest：
+
+[http://www.kerneldiy.com/images/createApp.png]
+
+把Source/framework目录下的CorePlot-CocoaTouch.xcodeproj拖动到CorePlotTest项目里。
+
+[http://www.kerneldiy.com/images/dragCP.png]
+
+在弹出的对话框中，不要选择Copy items into destination group's folder这个Checkbox。单击Add按钮。这时，你就可以在Groups & Files里看到CorePlot项目了。
+
+[http://www.kerneldiy.com/images/leaveCopy.png]
+
+[http://www.kerneldiy.com/images/cpAdded.png]
+
+== 把CorePlot静态库添加到项目 ==
+
+iOS平台上的CorePlot是要以静态库的形式编译到程序中的，因此，我们要把CorePlot_CocoaTouch中的静态库添加进来。打开CorePlot-CocoaTouch.xcodeproj节点，把libCorePlot_CocoaTouch.a拖动到Targets/CorePlotTest/Link Binary With Libraries节点里：
+
+[http://www.kerneldiy.com/images/addStaticLib.png]
+
+之后，把CorePlot的代码路径告诉给XCode，相对或者绝对路径都可以。
+
+[http://www.kerneldiy.com/images/includeCP.png]
+
+在XCode里添加一个Linker option：-ObjC。我们需要这个选项是因为CorePlot对现有的Cocoa Framework中的类使用了Category，不加-ObjC选项的话，当CorePlot作为静态库编译的时候，那些Categories的部分不会被链接到生成的应用程序里。
