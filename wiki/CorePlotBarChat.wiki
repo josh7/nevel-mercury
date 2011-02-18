@@ -1,0 +1,14 @@
+#summary How to draw bar chat with CorePlot.
+#labels CorePlot,iOS
+
+= Introduction =
+
+本文当描述用CorePlot开发柱状图的一些基本方法.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
