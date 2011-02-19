@@ -39,3 +39,7 @@ std::deque<int> c((std::istream_iterator<int> (std::cin)),
 || `ContType c2(c1)`|| 复制容器c1||
 || `ContType c(beg, end)` || 用迭代器指向的[beg, end)范围内的元素初始化容器 ||
 || `c.~ContType()` || 删除容器内所有对象并释放内存 ||
+
+=== Size Operations ===
+
+所有的容器都提供了三个和“尺寸”相关的方法：
