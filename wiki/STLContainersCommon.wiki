@@ -32,7 +32,7 @@ std::deque<int> c((std::istream_iterator<int> (std::cin)),
                   (std::istream_iterator<int>()));
 }}}
 
-<blockauote>
+<blockquote>
 注意`std::istream_iterator<int>()`外面的括号不能少，否则c会被认为是一个函数声明。
 </blockquote>
 
