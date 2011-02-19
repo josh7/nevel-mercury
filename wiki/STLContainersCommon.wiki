@@ -2,11 +2,11 @@
 
 == Common Capabilities ==
 
-* 容器内的元素必须要_拷贝_到容器内部，而不是提供reference。即：容器内元素必须是可以_复制_的，如果对象不能复制，那么拷贝指向对象的指针到容器里；
+ * 容器内的元素必须要_拷贝_到容器内部，而不是提供reference。即：容器内元素必须是可以_复制_的，如果对象不能复制，那么拷贝指向对象的指针到容器里；
 
-* 容器内的对象必须是有序的，迭代器按照固定的次序可以遍历到相同的对象；
+ * 容器内的对象必须是有序的，迭代器按照固定的次序可以遍历到相同的对象；
 
-* 容器的方法不检查参数的正确性，正确性由调用者保证，传递不正确的参数会导致Undefined Behavior；
+ * 容器的方法不检查参数的正确性，正确性由调用者保证，传递不正确的参数会导致Undefined Behavior；
 
 == Common Operations ==
 
@@ -33,7 +33,7 @@ std::deque<int> c((std::istream_iterator<int> (std::cin)),
 }}}
 
 <blockauote>
-注意std::istream_iterator<int>()外面的括号不能少，否则c会被认为是一个函数声明。
+注意`std::istream_iterator<int>()`外面的括号不能少，否则c会被认为是一个函数声明。
 </blockquote>
 
 || *Operation* || *Effect* ||
