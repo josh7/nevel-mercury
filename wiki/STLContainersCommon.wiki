@@ -32,14 +32,10 @@ std::deque<int> c((std::istream_iterator<int> (std::cin)),
                   (std::istream_iterator<int>()));
 }}}
 
-<blockquote>
 注意`std::istream_iterator<int>()`外面的括号不能少，否则c会被认为是一个函数声明。
-</blockquote>
 
 || *Operation* || *Effect* ||
-|| ContType c || 创建一个空容器c ||
-|| ContType c2(c1)|| 复制容器c1||
-|| ContType c(beg, end) || 用迭代器指向的[beg, end)范围内的元素初始化容器 ||
-|| c.~ContType() || 删除容器内所有对象并释放内存 ||
-|| 1930 || _N/A_ ||
-|| 1940 || -2 ||
+|| `ContType c` || 创建一个空容器c ||
+|| `ContType c2(c1)`|| 复制容器c1||
+|| `ContType c(beg, end)` || 用迭代器指向的[beg, end)范围内的元素初始化容器 ||
+|| `c.~ContType()` || 删除容器内所有对象并释放内存 ||
