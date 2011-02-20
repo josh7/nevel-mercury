@@ -1,0 +1,17 @@
+#summary A birds-eye view of the classes in _Core Plot_ and how they work together.
+
+= Core Plot设计综述 =
+
+本部分描述构成Core Plot的主要类以及它们之间的关系。
+
+== 设计考量 ==
+
+在深入了解构成Core Plot的类之前，有必要先来了解下这套框架的设计目标。由于Core Plot需要能够在MacOSX和iOS上运行，在技术的使用上就受到了一定的制约。不可以使用AppKit来画图（iOS上没有），视图类NSView和UIView只能作为view的宿主存在。实际的绘图工作是使用底层的Quartz 2D API完成的，Core Animation层用来构建图表其他的方面。
+
+当然，这并不完全是坏消息。Core Animation为我们提供了很多“养眼”的特性。图表可以支持动画、旋转和3D特效。Core Plot的目标是不仅能够提供企业级的静态图表，还能够为图表提供“非比寻常”的图像效果和互动性。
+
+Core Plot的另一个设计考量是：从程序员的角度上来看，Core Plot应该和一个Mac家族内置的框架一样。因此，你能在Core Plot上找到MVC, Data Source, Delegation和Binding等你耳熟能详的事物。
+
+== 庖丁解“表” ==
+
+下面这个图展示了一个有两组数据集的标准Bar图表。
