@@ -30,7 +30,7 @@ Core Plot的另一个设计考量是：从程序员的角度上来看，Core Plo
 
 [http://core-plot.googlecode.com/files/ObjectAndLayerDiagram.png]
 
-=== 层 ===
+=== 层（Layer） ===
 
 Core Animation的CALayer类并不适合生成矢量图，因此也并不适合企业应用的需求，并且CALayer不提供事件响应的功能。因此，Core Plot使用的层叫做CPLayer，它是CALayer的一个子类。CPLayer提供了生成高质量矢量图片和事件处理机制的支持。
 
@@ -43,3 +43,60 @@ Core Animation的CALayer类并不适合生成矢量图，因此也并不适合�
 }}}
 
 当编写CPLayer的子类的时候，不仅要重写drawInContext:方法，还应该重写renderAsVectorInContext:。这样，这个层便能够正确生成矢量图，并把它绘制到屏幕上。
+
+=== 图（Graph）===
+
+CPGraph是Core Plot的核心类。在Core Plot里，"Graph"意味着包括坐标、Label、title和一个或多个Plot(s)构成的整个报表。CPGraph是一个抽象类，所有具体的图表类都继承自CPGraph。
+
+一个Graph类可以被认为是一个graph factory。它负责创建构成图表的各种不同的对象并设置它们之间的关系。CPGraph包含指向其他高级类的引用，例如：CPAxisSet, CPPlotArea和CPPlotSpace。CPGraph还用来跟踪用于显示在Graph上的Plot(CPPlot对象)。
+
+{{{
+@interface CPGraph : CPLayer {
+@protected
+    CPAxisSet *axisSet;
+    CPPlotArea *plotArea;
+    NSMutableArray *plots;
+    NSMutableArray *plotSpaces;
+    CPFill *fill;
+}
+
+@property (nonatomic, readwrite, retain) CPAxisSet *axisSet;
+@property (nonatomic, readwrite, retain) CPPlotArea *plotArea;
+@property (nonatomic, readonly, retain) CPPlotSpace *defaultPlotSpace;
+@property (nonatomic, readwrite, retain) CPFill *fill;
+
+// Retrieving plots
+-(NSArray *)allPlots;
+-(CPPlot *)plotAtIndex:(NSUInteger)index;
+-(CPPlot *)plotWithIdentifier:(id <NSCopying>)identifier;
+
+// Organizing plots
+-(void)addPlot:(CPPlot *)plot; 
+-(void)addPlot:(CPPlot *)plot toPlotSpace:(CPPlotSpace *)space;
+-(void)removePlot:(CPPlot *)plot;
+-(void)insertPlot:(CPPlot*)plot atIndex:(NSUInteger)index;
+-(void)insertPlot:(CPPlot*)plot atIndex:(NSUInteger)index intoPlotSpace:(CPPlotSpace *)space;
+
+// Retrieving plot spaces
+-(NSArray *)allPlotSpaces;
+-(CPPlotSpace *)plotSpaceAtIndex:(NSUInteger)index;
+-(CPPlotSpace *)plotSpaceWithIdentifier:(id <NSCopying>)identifier;
+
+// Adding and removing plot spaces
+-(void)addPlotSpace:(CPPlotSpace *)space; 
+-(void)removePlotSpace:(CPPlotSpace *)plotSpace;
+
+@end
+
+@interface CPGraph (AbstractFactoryMethods)
+
+-(CPPlotSpace *)createPlotSpace;
+-(CPAxisSet *)createAxisSet;
+
+@end
+
+CPGraph是一个抽象类，它的子类例如CPXYGraph负责图表各个组件实际的创建和组织工作。CPGraph的每一个子类都关联着构成和该子类对应的图表的各个层的子类。例如，CPXYGraph创建了一个CPXYAxisSet和CPXYPlotSpace对象。这是设计模式中工厂模式的一种典型应用。
+
+=== Plot Area ===
+
+}}}
