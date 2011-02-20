@@ -6,7 +6,7 @@
 
 == 设计考量 ==
 
-在深入了解构成Core Plot的类之前，有必要先来了解下这套框架的设计目标。由于Core Plot需要能够在MacOSX和iOS上运行，在技术的使用上就受到了一定的制约。不可以使用AppKit来画图（iOS上没有），视图类NSView和UIView只能作为view的宿主存在。实际的绘图工作是使用底层的Quartz 2D API完成的，Core Animation层用来构建图表其他的方面。
+在深入了解构成Core Plot的类之前，有必要先来了解下这套框架的设计目标。由于Core Plot需要能够在MacOSX和iOS上运行，在技术的使用上就受到了一定的制约。不可以使用[http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/ObjC_classic/_index.html AppKit]来画图（iOS上没有），视图类NSView和UIView只能作为view的宿主存在。实际的绘图工作是使用底层的Quartz 2D API完成的，Core Animation层用来构建图表其他的方面。
 
 当然，这并不完全是坏消息。Core Animation为我们提供了很多“养眼”的特性。图表可以支持动画、旋转和3D特效。Core Plot的目标是不仅能够提供企业级的静态图表，还能够为图表提供“非比寻常”的图像效果和互动性。
 
@@ -94,6 +94,7 @@ CPGraph是Core Plot的核心类。在Core Plot里，"Graph"意味着包括坐标
 -(CPAxisSet *)createAxisSet;
 
 @end
+}}}
 
 CPGraph是一个抽象类，它的子类例如CPXYGraph负责图表各个组件实际的创建和组织工作。CPGraph的每一个子类都关联着构成和该子类对应的图表的各个层的子类。例如，CPXYGraph创建了一个CPXYAxisSet和CPXYPlotSpace对象。这是设计模式中工厂模式的一种典型应用。
 
