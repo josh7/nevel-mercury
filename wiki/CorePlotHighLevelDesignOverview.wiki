@@ -15,3 +15,36 @@ Core Plot的另一个设计考量是：从程序员的角度上来看，Core Plo
 == 庖丁解“表” ==
 
 下面这个图展示了一个有两组数据集的标准Bar图表。
+
+[http://core-plot.googlecode.com/files/GraphAnatomy.png]
+
+下图是构成该图表的各个组件的分解结构。在Core Plot里，用图中标示的名字表示这些组件。
+
+[http://core-plot.googlecode.com/files/GraphAnatomy.png]
+
+=== 类关系图 ===
+
+下面这个标准UML类关系图表现了Core Plot框架中主要类的关系。类的基数关系通过1和`*`表示，1表示to-one，`*`表示to-many，即 A(1) -> B`*`表示，1个A对应多个B，反之亦然。
+
+[http://core-plot.googlecode.com/files/ClassDiagram.png]
+
+=== 报表中的对象和层 ===
+
+下面这张图展示了运行时对象之间的关系和Core Animation的Layer tree。左边层的颜色和右边类的颜色是一一对应的。
+
+[http://core-plot.googlecode.com/files/ObjectAndLayerDiagram.png]
+
+=== 层 ===
+
+Core Animation的CALayer类并不适合生成矢量图，因此也并不适合企业应用的需求，并且CALayer不提供事件响应的功能。因此，Core Plot使用的层叫做CPLayer，它是CALayer的一个子类。CPLayer提供了生成高质量矢量图片和事件处理机制的支持。
+
+在CPLayer上绘图的方法包括：
+
+{{{
+- (void)renderAsVectorInContext:(CGContextRef)context;
+- (void)recursivelyRenderInContext:(CGContextRef)context;
+- (NSData *)dataForPDFRepresentationOfLayer;
+}}}
+
+当编写CPLayer的子类的时候，不仅要重写drawInContext:方法，还应该重写renderAsVectorInContext:。这样，这个层便能够正确生成矢量图，并把它绘制到屏幕上。
+
