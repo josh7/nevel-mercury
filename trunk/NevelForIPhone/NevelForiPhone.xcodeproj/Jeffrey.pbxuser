@@ -1,0 +1,1741 @@
+// !$*UTF8*$!
+{
+	001466461312689200C39249 /* objc_exception_throw */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 1;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 1;
+		ignoreCount = 0;
+		location = libobjc.A.dylib;
+		modificationTime = 319974088.930655;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+		symbolName = objc_exception_throw;
+	};
+	001466D71313575600C39249 /* AppSettingsNavViewControllerTest.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = AppSettingsNavViewControllerTest.h;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{337, 8}";
+			sepNavVisRange = "{0, 402}";
+		};
+	};
+	001466D81313575600C39249 /* AppSettingsNavViewControllerTest.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = AppSettingsNavViewControllerTest.m;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 819}}";
+			sepNavSelRange = "{297, 0}";
+			sepNavVisRange = "{0, 1457}";
+			sepNavWindowFrame = "{{13, 135}, {772, 558}}";
+		};
+	};
+	0014676E1313A4DE00C39249 /* AppSettingsItems.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{130, 110}, {772, 558}}";
+		};
+	};
+	001467931313AB5A00C39249 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 001467941313AB5A00C39249 /* Pickers-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/learn objective-c/Pickers/Pickers-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	001467941313AB5A00C39249 /* Pickers-Info.plist */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.plist.xml;
+		name = "Pickers-Info.plist";
+		path = "/Users/Jeffrey/Documents/SuPeiqi/learn objective-c/Pickers/Pickers-Info.plist";
+		sourceTree = "<absolute>";
+	};
+	001467E91313B84600C39249 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* NevelForiPhone-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	001467EA1313B84600C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F5B130E7E7F0047A07F /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 14";
+		rLen = 37;
+		rLoc = 246;
+		rType = 0;
+		vrLen = 1213;
+		vrLoc = 0;
+	};
+	001467F21313B86400C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C9517A130EF9E80047A07F /* AppSettingsNavRootViewController.m */;
+		name = "AppSettingsNavRootViewController.m: 13";
+		rLen = 0;
+		rLoc = 313;
+		rType = 0;
+		vrLen = 486;
+		vrLoc = 0;
+	};
+	001468011313BB3B00C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 001466D81313575600C39249 /* AppSettingsNavViewControllerTest.m */;
+		name = "AppSettingsNavViewControllerTest.m: 15";
+		rLen = 0;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 0;
+	};
+	0014680E1313BC5600C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F5A130E7E7F0047A07F /* AppSettingsNavViewController.h */;
+		name = "AppSettingsNavViewController.h: 15";
+		rLen = 0;
+		rLoc = 260;
+		rType = 0;
+		vrLen = 254;
+		vrLoc = 0;
+	};
+	0014680F1313BC5600C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 001466D71313575600C39249 /* AppSettingsNavViewControllerTest.h */;
+		name = "AppSettingsNavViewControllerTest.h: 16";
+		rLen = 8;
+		rLoc = 337;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	001468311313BFD900C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "AppSettingsNavItemWithIconViewController.h: 16";
+		rLen = 0;
+		rLoc = 330;
+		rType = 0;
+		vrLen = 348;
+		vrLoc = 0;
+	};
+	001468321313BFD900C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C95179130EF9E80047A07F /* AppSettingsNavRootViewController.h */;
+		name = "AppSettingsNavRootViewController.h: 17";
+		rLen = 0;
+		rLoc = 262;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	001468331313BFD900C39249 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */;
+		name = "AppSettingsNavItemWithIconViewController.m: 41";
+		rLen = 0;
+		rLoc = 1126;
+		rType = 0;
+		vrLen = 1240;
+		vrLoc = 0;
+	};
+	001468341313BFD900C39249 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 0014676E1313A4DE00C39249 /* AppSettingsItems.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD75C1314218700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 58";
+		rLen = 0;
+		rLoc = 1796;
+		rType = 0;
+		vrLen = 1414;
+		vrLoc = 0;
+	};
+	004CD75D1314218700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 17";
+		rLen = 0;
+		rLoc = 249;
+		rType = 0;
+		vrLen = 377;
+		vrLoc = 0;
+	};
+	004CD75E1314218700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 17";
+		rLen = 0;
+		rLoc = 249;
+		rType = 0;
+		vrLen = 377;
+		vrLoc = 0;
+	};
+	004CD772131423DF00996032 /* siteListNavRootViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 256}";
+		};
+	};
+	004CD773131423DF00996032 /* siteListNavRootViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 702}}";
+			sepNavSelRange = "{647, 0}";
+			sepNavVisRange = "{0, 1228}";
+		};
+	};
+	004CD777131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */;
+		name = "AppSettingsNavItemWithIconViewController.m: 41";
+		rLen = 0;
+		rLoc = 1126;
+		rType = 0;
+		vrLen = 1240;
+		vrLoc = 0;
+	};
+	004CD778131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "AppSettingsNavItemWithIconViewController.h: 16";
+		rLen = 0;
+		rLoc = 330;
+		rType = 0;
+		vrLen = 348;
+		vrLoc = 0;
+	};
+	004CD779131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C9517A130EF9E80047A07F /* AppSettingsNavRootViewController.m */;
+		name = "AppSettingsNavRootViewController.m: 13";
+		rLen = 0;
+		rLoc = 313;
+		rType = 0;
+		vrLen = 486;
+		vrLoc = 0;
+	};
+	004CD77A131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C95179130EF9E80047A07F /* AppSettingsNavRootViewController.h */;
+		name = "AppSettingsNavRootViewController.h: 17";
+		rLen = 0;
+		rLoc = 262;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	004CD77B131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 001466D81313575600C39249 /* AppSettingsNavViewControllerTest.m */;
+		name = "AppSettingsNavViewControllerTest.m: 15";
+		rLen = 0;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 1457;
+		vrLoc = 0;
+	};
+	004CD77C131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 001466D71313575600C39249 /* AppSettingsNavViewControllerTest.h */;
+		name = "AppSettingsNavViewControllerTest.h: 16";
+		rLen = 8;
+		rLoc = 337;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	004CD77D131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F5B130E7E7F0047A07F /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 14";
+		rLen = 37;
+		rLoc = 246;
+		rType = 0;
+		vrLen = 1213;
+		vrLoc = 0;
+	};
+	004CD77E131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F5A130E7E7F0047A07F /* AppSettingsNavViewController.h */;
+		name = "AppSettingsNavViewController.h: 15";
+		rLen = 0;
+		rLoc = 260;
+		rType = 0;
+		vrLen = 254;
+		vrLoc = 0;
+	};
+	004CD77F131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 10";
+		rLen = 0;
+		rLoc = 258;
+		rType = 0;
+		vrLen = 598;
+		vrLoc = 0;
+	};
+	004CD780131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* NevelForiPhoneAppDelegate.m */;
+		name = "NevelForiPhoneAppDelegate.m: 15";
+		rLen = 0;
+		rLoc = 299;
+		rType = 0;
+		vrLen = 1613;
+		vrLoc = 0;
+	};
+	004CD781131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 13";
+		rLen = 0;
+		rLoc = 243;
+		rType = 0;
+		vrLen = 387;
+		vrLoc = 0;
+	};
+	004CD782131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 37";
+		rLen = 0;
+		rLoc = 1124;
+		rType = 0;
+		vrLen = 1416;
+		vrLoc = 0;
+	};
+	004CD783131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		rLen = 0;
+		rLoc = 2147483647;
+		rType = 0;
+	};
+	004CD784131423EE00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		name = "siteListNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
+	};
+	004CD78E1314251700996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected specifier-qualifier-list before 'SiteListNavViewController'";
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 16;
+		rType = 1;
+	};
+	004CD78F1314251700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 14";
+		rLen = 0;
+		rLoc = 395;
+		rType = 0;
+		vrLen = 447;
+		vrLoc = 151;
+	};
+	004CD7921314253E00996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected specifier-qualifier-list before 'SiteListNavViewController'";
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 16;
+		rType = 1;
+	};
+	004CD7931314253E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 14";
+		rLen = 0;
+		rLoc = 395;
+		rType = 0;
+		vrLen = 447;
+		vrLoc = 151;
+	};
+	004CD7961314258700996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 0014676E1313A4DE00C39249 /* AppSettingsItems.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD7971314258700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		name = "siteListNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
+	};
+	004CD7981314258700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 13";
+		rLen = 0;
+		rLoc = 243;
+		rType = 0;
+		vrLen = 387;
+		vrLoc = 0;
+	};
+	004CD7991314258700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 62";
+		rLen = 0;
+		rLoc = 1818;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 670;
+	};
+	004CD79A1314258700996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected specifier-qualifier-list before 'SiteListNavViewController'";
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 16;
+		rType = 1;
+	};
+	004CD79B1314258700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 10";
+		rLen = 0;
+		rLoc = 189;
+		rType = 0;
+		vrLen = 636;
+		vrLoc = 0;
+	};
+	004CD7A31314260F00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 10";
+		rLen = 0;
+		rLoc = 189;
+		rType = 0;
+		vrLen = 636;
+		vrLoc = 0;
+	};
+	004CD7A41314266400996032 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+	};
+	004CD7A7131427F200996032 /* AppSettingsNavViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{248, 0}";
+			sepNavVisRange = "{0, 260}";
+		};
+	};
+	004CD7A8131427F200996032 /* AppSettingsNavViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1225}";
+		};
+	};
+	004CD7AC1314280700996032 /* AppSettingsNavRootViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 262}";
+		};
+	};
+	004CD7AD1314280700996032 /* AppSettingsNavRootViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1237}";
+		};
+	};
+	004CD7B11314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* NevelForiPhoneAppDelegate.m */;
+		name = "NevelForiPhoneAppDelegate.m: 16";
+		rLen = 0;
+		rLoc = 340;
+		rType = 0;
+		vrLen = 1653;
+		vrLoc = 0;
+	};
+	004CD7B21314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		name = "siteListNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
+	};
+	004CD7B31314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 28;
+		rLoc = 451;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7B41314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7AC1314280700996032 /* AppSettingsNavRootViewController.h */;
+		name = "AppSettingsNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	004CD7B51314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A8131427F200996032 /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1225;
+		vrLoc = 0;
+	};
+	004CD7B61314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD773131423DF00996032 /* siteListNavRootViewController.m */;
+		name = "siteListNavRootViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 0;
+	};
+	004CD7B71314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A7131427F200996032 /* AppSettingsNavViewController.h */;
+		name = "AppSettingsNavViewController.h: 12";
+		rLen = 0;
+		rLoc = 248;
+		rType = 0;
+		vrLen = 260;
+		vrLoc = 0;
+	};
+	004CD7B81314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 14";
+		rLen = 0;
+		rLoc = 244;
+		rType = 0;
+		vrLen = 249;
+		vrLoc = 0;
+	};
+	004CD7B91314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 62";
+		rLen = 0;
+		rLoc = 1818;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 670;
+	};
+	004CD7BA1314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 62";
+		rLen = 0;
+		rLoc = 1818;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 670;
+	};
+	004CD7BD1314283D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7C413142F7700996032 /* SiteListTableViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = SiteListTableViewController.h;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{334, 8}";
+			sepNavVisRange = "{0, 350}";
+		};
+	};
+	004CD7C513142F7700996032 /* SiteListTableViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = SiteListTableViewController.m;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{528, 0}";
+			sepNavVisRange = "{0, 536}";
+		};
+	};
+	004CD7CA1314314000996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 0014676E1313A4DE00C39249 /* AppSettingsItems.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD7CB1314314000996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* NevelForiPhone-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD7CC1314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "AppSettingsNavItemWithIconViewController.h: 16";
+		rLen = 0;
+		rLoc = 330;
+		rType = 0;
+		vrLen = 348;
+		vrLoc = 0;
+	};
+	004CD7CD1314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */;
+		name = "AppSettingsNavItemWithIconViewController.m: 41";
+		rLen = 0;
+		rLoc = 1126;
+		rType = 0;
+		vrLen = 1240;
+		vrLoc = 0;
+	};
+	004CD7CE1314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4E130E7E250047A07F /* SiteListNavViewController.h */;
+		name = "SiteListNavViewController.h: 14";
+		rLen = 0;
+		rLoc = 244;
+		rType = 0;
+		vrLen = 249;
+		vrLoc = 0;
+	};
+	004CD7CF1314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C94F4F130E7E250047A07F /* SiteListNavViewController.m */;
+		name = "SiteListNavViewController.m: 62";
+		rLen = 0;
+		rLoc = 1818;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 670;
+	};
+	004CD7D01314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		name = "siteListNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
+	};
+	004CD7D11314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD773131423DF00996032 /* siteListNavRootViewController.m */;
+		name = "siteListNavRootViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 0;
+	};
+	004CD7D21314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A7131427F200996032 /* AppSettingsNavViewController.h */;
+		name = "AppSettingsNavViewController.h: 12";
+		rLen = 0;
+		rLoc = 248;
+		rType = 0;
+		vrLen = 260;
+		vrLoc = 0;
+	};
+	004CD7D31314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A8131427F200996032 /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1225;
+		vrLoc = 0;
+	};
+	004CD7D41314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7AC1314280700996032 /* AppSettingsNavRootViewController.h */;
+		name = "AppSettingsNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	004CD7D51314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7AD1314280700996032 /* AppSettingsNavRootViewController.m */;
+		name = "AppSettingsNavRootViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1237;
+		vrLoc = 0;
+	};
+	004CD7D61314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7C413142F7700996032 /* SiteListTableViewController.h */;
+		name = "SiteListTableViewController.h: 16";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 251;
+		vrLoc = 0;
+	};
+	004CD7D71314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7C513142F7700996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 21";
+		rLen = 0;
+		rLoc = 732;
+		rType = 0;
+		vrLen = 536;
+		vrLoc = 0;
+	};
+	004CD7D81314314000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7DA1314324F00996032 /* SiteListTableViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = SiteListTableViewController.h;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{342, 0}";
+			sepNavVisRange = "{0, 342}";
+			sepNavWindowFrame = "{{15, 215}, {772, 558}}";
+		};
+	};
+	004CD7DB1314324F00996032 /* SiteListTableViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = SiteListTableViewController.m;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 585}}";
+			sepNavSelRange = "{612, 0}";
+			sepNavVisRange = "{393, 300}";
+			sepNavWindowFrame = "{{38, 194}, {772, 558}}";
+		};
+	};
+	004CD7DD1314326E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A8131427F200996032 /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1225;
+		vrLoc = 0;
+	};
+	004CD7DE1314326E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DA1314324F00996032 /* SiteListTableViewController.h */;
+		name = "SiteListTableViewController.h: 19";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 0;
+	};
+	004CD7DF1314326E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		rLen = 0;
+		rLoc = 2147483851;
+		rType = 0;
+	};
+	004CD7E01314326E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 715;
+		vrLoc = 0;
+	};
+	004CD7E11314326E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7E2131432D000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 13";
+		rLen = 0;
+		rLoc = 391;
+		rType = 0;
+		vrLen = 738;
+		vrLoc = 0;
+	};
+	004CD7E3131432D000996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7E4131432E400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 18";
+		rLen = 0;
+		rLoc = 391;
+		rType = 0;
+		vrLen = 864;
+		vrLoc = 0;
+	};
+	004CD7E5131432E400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7E61314330E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 25";
+		rLen = 0;
+		rLoc = 666;
+		rType = 0;
+		vrLen = 882;
+		vrLoc = 37;
+	};
+	004CD7E71314330E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7EC1314335E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 25";
+		rLen = 0;
+		rLoc = 666;
+		rType = 0;
+		vrLen = 882;
+		vrLoc = 37;
+	};
+	004CD7ED1314335E00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7F4131434B400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DA1314324F00996032 /* SiteListTableViewController.h */;
+		name = "SiteListTableViewController.h: 19";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 0;
+	};
+	004CD7F5131434B400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DA1314324F00996032 /* SiteListTableViewController.h */;
+		name = "SiteListTableViewController.h: 19";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 342;
+		vrLoc = 0;
+	};
+	004CD7F6131434B400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD7FA131434DD00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 16";
+		rLen = 0;
+		rLoc = 395;
+		rType = 0;
+		vrLen = 498;
+		vrLoc = 151;
+	};
+	004CD7FB131434DD00996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'indexPath' undeclared (first use in this function)";
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 24;
+		rType = 1;
+	};
+	004CD7FC131434DD00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7DB1314324F00996032 /* SiteListTableViewController.m */;
+		name = "SiteListTableViewController.m: 25";
+		rLen = 0;
+		rLoc = 612;
+		rType = 0;
+		vrLen = 424;
+		vrLoc = 393;
+	};
+	004CD7FE131435BC00996032 /* table.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{289, 0}";
+			sepNavVisRange = "{0, 295}";
+		};
+	};
+	004CD7FF131435BC00996032 /* table.m */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{3681, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{3732, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{3782, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 4483}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1048, 2119}}";
+			sepNavSelRange = "{2103, 0}";
+			sepNavVisRange = "{1534, 1659}";
+			sepNavWindowFrame = "{{61, 173}, {772, 558}}";
+		};
+	};
+	004CD80B131437E700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 16";
+		rLen = 0;
+		rLoc = 395;
+		rType = 0;
+		vrLen = 395;
+		vrLoc = 0;
+	};
+	004CD80C131437E700996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Property 'tableData' requires the method 'setTableData:' to be defined - use @synthesize, @dynamic or provide a method implementation";
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 162;
+		rType = 1;
+	};
+	004CD80D131437E700996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 163";
+		rLen = 0;
+		rLoc = 4477;
+		rType = 0;
+		vrLen = 210;
+		vrLoc = 4256;
+	};
+	004CD80E131437F100996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FE131435BC00996032 /* table.h */;
+		name = "table.h: 15";
+		rLen = 0;
+		rLoc = 289;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 0;
+	};
+	004CD80F131437F100996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 67";
+		rLen = 0;
+		rLoc = 1528;
+		rType = 0;
+		vrLen = 1230;
+		vrLoc = 1102;
+	};
+	004CD810131437F100996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 69";
+		rLen = 0;
+		rLoc = 1532;
+		rType = 0;
+		vrLen = 836;
+		vrLoc = 0;
+	};
+	004CD811131437F100996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD8151314381300996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Object cannot be set - either readonly property or no setter found";
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 81;
+		rType = 1;
+	};
+	004CD8161314381300996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 82";
+		rLen = 0;
+		rLoc = 2027;
+		rType = 0;
+		vrLen = 519;
+		vrLoc = 1835;
+	};
+	004CD8191314384500996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Object cannot be set - either readonly property or no setter found";
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 81;
+		rType = 1;
+	};
+	004CD81A1314384500996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 82";
+		rLen = 0;
+		rLoc = 2027;
+		rType = 0;
+		vrLen = 519;
+		vrLoc = 1835;
+	};
+	004CD81D1314384D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FE131435BC00996032 /* table.h */;
+		name = "table.h: 15";
+		rLen = 0;
+		rLoc = 289;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 0;
+	};
+	004CD81E1314384D00996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Object cannot be set - either readonly property or no setter found";
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 81;
+		rType = 1;
+	};
+	004CD81F1314384D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 82";
+		rLen = 0;
+		rLoc = 2040;
+		rType = 0;
+		vrLen = 1502;
+		vrLoc = 1693;
+	};
+	004CD8201314384D00996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD8211314387500996032 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:211)";
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 81;
+		rType = 1;
+	};
+	004CD8221314387500996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 82";
+		rLen = 0;
+		rLoc = 2027;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 1993;
+	};
+	004CD8261314392400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7FF131435BC00996032 /* table.m */;
+		name = "table.m: 85";
+		rLen = 0;
+		rLoc = 2103;
+		rType = 0;
+		vrLen = 1659;
+		vrLoc = 1534;
+	};
+	004CD8271314392400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */;
+		name = "NavItemWithIconViewController.m: 9";
+		rLen = 0;
+		rLoc = 204;
+		rType = 0;
+		vrLen = 1218;
+		vrLoc = 0;
+	};
+	004CD8281314392400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "NavItemWithIconViewController.h: 12";
+		rLen = 0;
+		rLoc = 232;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	004CD8291314392400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "NavItemWithIconViewController.h: 12";
+		rLen = 0;
+		rLoc = 232;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	004CD82A1314392400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD82B1314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "NavItemWithIconViewController.h: 19";
+		rLen = 0;
+		rLoc = 337;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	004CD82C1314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */;
+		name = "NavItemWithIconViewController.m: 9";
+		rLen = 0;
+		rLoc = 204;
+		rType = 0;
+		vrLen = 1218;
+		vrLoc = 0;
+	};
+	004CD82D1314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A7131427F200996032 /* AppSettingsNavViewController.h */;
+		name = "AppSettingsNavViewController.h: 12";
+		rLen = 0;
+		rLoc = 248;
+		rType = 0;
+		vrLen = 260;
+		vrLoc = 0;
+	};
+	004CD82E1314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD7A8131427F200996032 /* AppSettingsNavViewController.m */;
+		name = "AppSettingsNavViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1225;
+		vrLoc = 0;
+	};
+	004CD82F1314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD772131423DF00996032 /* siteListNavRootViewController.h */;
+		name = "siteListNavRootViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
+	};
+	004CD8301314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD773131423DF00996032 /* siteListNavRootViewController.m */;
+		name = "siteListNavRootViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 0;
+	};
+	004CD8311314393400996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 482;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 0;
+	};
+	004CD8341314397600996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */;
+		name = "NavItemWithIconViewController.h: 19";
+		rLen = 0;
+		rLoc = 337;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	004CD8351314397600996032 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 004CD773131423DF00996032 /* siteListNavRootViewController.m */;
+		name = "siteListNavRootViewController.m: 24";
+		rLen = 0;
+		rLoc = 647;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 0;
+	};
+	004CD8361314397600996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* NevelForiPhone-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD8371314397600996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 0014676E1313A4DE00C39249 /* AppSettingsItems.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	004CD8381314397600996032 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 0014676E1313A4DE00C39249 /* AppSettingsItems.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	006F51F21313C0AA008FBF58 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */;
+		name = "NevelForiPhoneAppDelegate.h: 19";
+		rLen = 0;
+		rLoc = 828;
+		rType = 0;
+		vrLen = 459;
+		vrLoc = 0;
+	};
+	006F51F31313C0AA008FBF58 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* NevelForiPhoneAppDelegate.m */;
+		name = "NevelForiPhoneAppDelegate.m: 27";
+		rLen = 0;
+		rLoc = 716;
+		rType = 0;
+		vrLen = 1659;
+		vrLoc = 154;
+	};
+	00C94F41130E73180047A07F /* NevelForiPhone */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = NevelForiPhone;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	00C94F4B130E73380047A07F /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	00C94F4C130E73380047A07F /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	00C94F4E130E7E250047A07F /* SiteListNavViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{244, 0}";
+			sepNavVisRange = "{0, 249}";
+			sepNavWindowFrame = "{{61, 173}, {772, 558}}";
+		};
+	};
+	00C94F4F130E7E250047A07F /* SiteListNavViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 884}}";
+			sepNavSelRange = "{1818, 0}";
+			sepNavVisRange = "{670, 1212}";
+		};
+	};
+	00C94F5A130E7E7F0047A07F /* AppSettingsNavViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = AppSettingsNavViewController.h;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{304, 0}";
+			sepNavVisRange = "{0, 389}";
+			sepNavWindowFrame = "{{-10, 152}, {772, 558}}";
+		};
+	};
+	00C94F5B130E7E7F0047A07F /* AppSettingsNavViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = AppSettingsNavViewController.m;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 845}}";
+			sepNavSelRange = "{1585, 0}";
+			sepNavVisRange = "{660, 992}";
+			sepNavWindowFrame = "{{15, 215}, {772, 558}}";
+		};
+	};
+	00C95179130EF9E80047A07F /* AppSettingsNavRootViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = AppSettingsNavRootViewController.h;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{275, 0}";
+			sepNavVisRange = "{0, 275}";
+			sepNavWindowFrame = "{{15, 215}, {772, 558}}";
+		};
+	};
+	00C9517A130EF9E80047A07F /* AppSettingsNavRootViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = AppSettingsNavRootViewController.m;
+		path = "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{313, 0}";
+			sepNavVisRange = "{0, 486}";
+		};
+	};
+	00C951A5130EFE430047A07F /* NavItemWithIconViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 547}}";
+			sepNavSelRange = "{337, 0}";
+			sepNavVisRange = "{0, 337}";
+			sepNavWindowFrame = "{{15, 215}, {772, 558}}";
+		};
+	};
+	00C951A6130EFE430047A07F /* NavItemWithIconViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 741}}";
+			sepNavSelRange = "{204, 0}";
+			sepNavVisRange = "{0, 1218}";
+			sepNavWindowFrame = "{{38, 194}, {772, 558}}";
+		};
+	};
+	1D3623240D0F684500981E51 /* NevelForiPhoneAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {713, 430}}";
+			sepNavSelRange = "{482, 0}";
+			sepNavVisRange = "{0, 828}";
+			sepNavWindowFrame = "{{468, 35}, {772, 558}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* NevelForiPhoneAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 1040}}";
+			sepNavSelRange = "{340, 0}";
+			sepNavVisRange = "{0, 1653}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* NevelForiPhone */ = {
+		activeExec = 0;
+		executables = (
+			00C94F41130E73180047A07F /* NevelForiPhone */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 00C94F41130E73180047A07F /* NevelForiPhone */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* NevelForiPhone */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* NevelForiPhone */,
+		);
+		breakpoints = (
+			001466461312689200C39249 /* objc_exception_throw */,
+		);
+		codeSenseManager = 00C94F4C130E73380047A07F /* Code sense */;
+		executables = (
+			00C94F41130E73180047A07F /* NevelForiPhone */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					460,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					574,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 320086656;
+			PBXWorkspaceStateSaveDate = 320086656;
+		};
+		perUserProjectItems = {
+			001467931313AB5A00C39249 = 001467931313AB5A00C39249 /* PlistBookmark */;
+			001467E91313B84600C39249 = 001467E91313B84600C39249 /* PlistBookmark */;
+			001467EA1313B84600C39249 = 001467EA1313B84600C39249 /* PBXTextBookmark */;
+			001467F21313B86400C39249 = 001467F21313B86400C39249 /* PBXTextBookmark */;
+			001468011313BB3B00C39249 = 001468011313BB3B00C39249 /* PBXTextBookmark */;
+			0014680E1313BC5600C39249 = 0014680E1313BC5600C39249 /* PBXTextBookmark */;
+			0014680F1313BC5600C39249 = 0014680F1313BC5600C39249 /* PBXTextBookmark */;
+			001468311313BFD900C39249 = 001468311313BFD900C39249 /* PBXTextBookmark */;
+			001468321313BFD900C39249 = 001468321313BFD900C39249 /* PBXTextBookmark */;
+			001468331313BFD900C39249 = 001468331313BFD900C39249 /* PBXTextBookmark */;
+			001468341313BFD900C39249 = 001468341313BFD900C39249 /* PlistBookmark */;
+			004CD75C1314218700996032 = 004CD75C1314218700996032 /* PBXTextBookmark */;
+			004CD75D1314218700996032 = 004CD75D1314218700996032 /* PBXTextBookmark */;
+			004CD75E1314218700996032 = 004CD75E1314218700996032 /* PBXTextBookmark */;
+			004CD777131423EE00996032 /* PBXTextBookmark */ = 004CD777131423EE00996032 /* PBXTextBookmark */;
+			004CD778131423EE00996032 /* PBXTextBookmark */ = 004CD778131423EE00996032 /* PBXTextBookmark */;
+			004CD779131423EE00996032 /* PBXTextBookmark */ = 004CD779131423EE00996032 /* PBXTextBookmark */;
+			004CD77A131423EE00996032 /* PBXTextBookmark */ = 004CD77A131423EE00996032 /* PBXTextBookmark */;
+			004CD77B131423EE00996032 /* PBXTextBookmark */ = 004CD77B131423EE00996032 /* PBXTextBookmark */;
+			004CD77C131423EE00996032 /* PBXTextBookmark */ = 004CD77C131423EE00996032 /* PBXTextBookmark */;
+			004CD77D131423EE00996032 /* PBXTextBookmark */ = 004CD77D131423EE00996032 /* PBXTextBookmark */;
+			004CD77E131423EE00996032 /* PBXTextBookmark */ = 004CD77E131423EE00996032 /* PBXTextBookmark */;
+			004CD77F131423EE00996032 /* PBXTextBookmark */ = 004CD77F131423EE00996032 /* PBXTextBookmark */;
+			004CD780131423EE00996032 /* PBXTextBookmark */ = 004CD780131423EE00996032 /* PBXTextBookmark */;
+			004CD781131423EE00996032 /* PBXTextBookmark */ = 004CD781131423EE00996032 /* PBXTextBookmark */;
+			004CD782131423EE00996032 /* PBXTextBookmark */ = 004CD782131423EE00996032 /* PBXTextBookmark */;
+			004CD783131423EE00996032 /* PBXTextBookmark */ = 004CD783131423EE00996032 /* PBXTextBookmark */;
+			004CD784131423EE00996032 /* PBXTextBookmark */ = 004CD784131423EE00996032 /* PBXTextBookmark */;
+			004CD78E1314251700996032 /* XCBuildMessageTextBookmark */ = 004CD78E1314251700996032 /* XCBuildMessageTextBookmark */;
+			004CD78F1314251700996032 /* PBXTextBookmark */ = 004CD78F1314251700996032 /* PBXTextBookmark */;
+			004CD7921314253E00996032 /* XCBuildMessageTextBookmark */ = 004CD7921314253E00996032 /* XCBuildMessageTextBookmark */;
+			004CD7931314253E00996032 /* PBXTextBookmark */ = 004CD7931314253E00996032 /* PBXTextBookmark */;
+			004CD7961314258700996032 /* PlistBookmark */ = 004CD7961314258700996032 /* PlistBookmark */;
+			004CD7971314258700996032 /* PBXTextBookmark */ = 004CD7971314258700996032 /* PBXTextBookmark */;
+			004CD7981314258700996032 /* PBXTextBookmark */ = 004CD7981314258700996032 /* PBXTextBookmark */;
+			004CD7991314258700996032 /* PBXTextBookmark */ = 004CD7991314258700996032 /* PBXTextBookmark */;
+			004CD79A1314258700996032 /* XCBuildMessageTextBookmark */ = 004CD79A1314258700996032 /* XCBuildMessageTextBookmark */;
+			004CD79B1314258700996032 /* PBXTextBookmark */ = 004CD79B1314258700996032 /* PBXTextBookmark */;
+			004CD7A31314260F00996032 /* PBXTextBookmark */ = 004CD7A31314260F00996032 /* PBXTextBookmark */;
+			004CD7A41314266400996032 /* PBXBookmark */ = 004CD7A41314266400996032 /* PBXBookmark */;
+			004CD7B11314283D00996032 /* PBXTextBookmark */ = 004CD7B11314283D00996032 /* PBXTextBookmark */;
+			004CD7B21314283D00996032 /* PBXTextBookmark */ = 004CD7B21314283D00996032 /* PBXTextBookmark */;
+			004CD7B31314283D00996032 /* PBXTextBookmark */ = 004CD7B31314283D00996032 /* PBXTextBookmark */;
+			004CD7B41314283D00996032 /* PBXTextBookmark */ = 004CD7B41314283D00996032 /* PBXTextBookmark */;
+			004CD7B51314283D00996032 /* PBXTextBookmark */ = 004CD7B51314283D00996032 /* PBXTextBookmark */;
+			004CD7B61314283D00996032 /* PBXTextBookmark */ = 004CD7B61314283D00996032 /* PBXTextBookmark */;
+			004CD7B71314283D00996032 /* PBXTextBookmark */ = 004CD7B71314283D00996032 /* PBXTextBookmark */;
+			004CD7B81314283D00996032 /* PBXTextBookmark */ = 004CD7B81314283D00996032 /* PBXTextBookmark */;
+			004CD7B91314283D00996032 /* PBXTextBookmark */ = 004CD7B91314283D00996032 /* PBXTextBookmark */;
+			004CD7BA1314283D00996032 /* PBXTextBookmark */ = 004CD7BA1314283D00996032 /* PBXTextBookmark */;
+			004CD7BD1314283D00996032 /* PBXTextBookmark */ = 004CD7BD1314283D00996032 /* PBXTextBookmark */;
+			004CD7CA1314314000996032 /* PlistBookmark */ = 004CD7CA1314314000996032 /* PlistBookmark */;
+			004CD7CB1314314000996032 /* PlistBookmark */ = 004CD7CB1314314000996032 /* PlistBookmark */;
+			004CD7CC1314314000996032 /* PBXTextBookmark */ = 004CD7CC1314314000996032 /* PBXTextBookmark */;
+			004CD7CD1314314000996032 /* PBXTextBookmark */ = 004CD7CD1314314000996032 /* PBXTextBookmark */;
+			004CD7CE1314314000996032 /* PBXTextBookmark */ = 004CD7CE1314314000996032 /* PBXTextBookmark */;
+			004CD7CF1314314000996032 /* PBXTextBookmark */ = 004CD7CF1314314000996032 /* PBXTextBookmark */;
+			004CD7D01314314000996032 /* PBXTextBookmark */ = 004CD7D01314314000996032 /* PBXTextBookmark */;
+			004CD7D11314314000996032 /* PBXTextBookmark */ = 004CD7D11314314000996032 /* PBXTextBookmark */;
+			004CD7D21314314000996032 /* PBXTextBookmark */ = 004CD7D21314314000996032 /* PBXTextBookmark */;
+			004CD7D31314314000996032 /* PBXTextBookmark */ = 004CD7D31314314000996032 /* PBXTextBookmark */;
+			004CD7D41314314000996032 /* PBXTextBookmark */ = 004CD7D41314314000996032 /* PBXTextBookmark */;
+			004CD7D51314314000996032 /* PBXTextBookmark */ = 004CD7D51314314000996032 /* PBXTextBookmark */;
+			004CD7D61314314000996032 /* PBXTextBookmark */ = 004CD7D61314314000996032 /* PBXTextBookmark */;
+			004CD7D71314314000996032 /* PBXTextBookmark */ = 004CD7D71314314000996032 /* PBXTextBookmark */;
+			004CD7D81314314000996032 /* PBXTextBookmark */ = 004CD7D81314314000996032 /* PBXTextBookmark */;
+			004CD7DD1314326E00996032 /* PBXTextBookmark */ = 004CD7DD1314326E00996032 /* PBXTextBookmark */;
+			004CD7DE1314326E00996032 /* PBXTextBookmark */ = 004CD7DE1314326E00996032 /* PBXTextBookmark */;
+			004CD7DF1314326E00996032 /* PBXTextBookmark */ = 004CD7DF1314326E00996032 /* PBXTextBookmark */;
+			004CD7E01314326E00996032 /* PBXTextBookmark */ = 004CD7E01314326E00996032 /* PBXTextBookmark */;
+			004CD7E11314326E00996032 /* PBXTextBookmark */ = 004CD7E11314326E00996032 /* PBXTextBookmark */;
+			004CD7E2131432D000996032 /* PBXTextBookmark */ = 004CD7E2131432D000996032 /* PBXTextBookmark */;
+			004CD7E3131432D000996032 /* PBXTextBookmark */ = 004CD7E3131432D000996032 /* PBXTextBookmark */;
+			004CD7E4131432E400996032 /* PBXTextBookmark */ = 004CD7E4131432E400996032 /* PBXTextBookmark */;
+			004CD7E5131432E400996032 /* PBXTextBookmark */ = 004CD7E5131432E400996032 /* PBXTextBookmark */;
+			004CD7E61314330E00996032 /* PBXTextBookmark */ = 004CD7E61314330E00996032 /* PBXTextBookmark */;
+			004CD7E71314330E00996032 /* PBXTextBookmark */ = 004CD7E71314330E00996032 /* PBXTextBookmark */;
+			004CD7EC1314335E00996032 /* PBXTextBookmark */ = 004CD7EC1314335E00996032 /* PBXTextBookmark */;
+			004CD7ED1314335E00996032 /* PBXTextBookmark */ = 004CD7ED1314335E00996032 /* PBXTextBookmark */;
+			004CD7F4131434B400996032 /* PBXTextBookmark */ = 004CD7F4131434B400996032 /* PBXTextBookmark */;
+			004CD7F5131434B400996032 /* PBXTextBookmark */ = 004CD7F5131434B400996032 /* PBXTextBookmark */;
+			004CD7F6131434B400996032 /* PBXTextBookmark */ = 004CD7F6131434B400996032 /* PBXTextBookmark */;
+			004CD7FA131434DD00996032 /* PBXTextBookmark */ = 004CD7FA131434DD00996032 /* PBXTextBookmark */;
+			004CD7FB131434DD00996032 /* XCBuildMessageTextBookmark */ = 004CD7FB131434DD00996032 /* XCBuildMessageTextBookmark */;
+			004CD7FC131434DD00996032 /* PBXTextBookmark */ = 004CD7FC131434DD00996032 /* PBXTextBookmark */;
+			004CD80B131437E700996032 /* PBXTextBookmark */ = 004CD80B131437E700996032 /* PBXTextBookmark */;
+			004CD80C131437E700996032 /* XCBuildMessageTextBookmark */ = 004CD80C131437E700996032 /* XCBuildMessageTextBookmark */;
+			004CD80D131437E700996032 /* PBXTextBookmark */ = 004CD80D131437E700996032 /* PBXTextBookmark */;
+			004CD80E131437F100996032 /* PBXTextBookmark */ = 004CD80E131437F100996032 /* PBXTextBookmark */;
+			004CD80F131437F100996032 /* PBXTextBookmark */ = 004CD80F131437F100996032 /* PBXTextBookmark */;
+			004CD810131437F100996032 /* PBXTextBookmark */ = 004CD810131437F100996032 /* PBXTextBookmark */;
+			004CD811131437F100996032 /* PBXTextBookmark */ = 004CD811131437F100996032 /* PBXTextBookmark */;
+			004CD8151314381300996032 /* XCBuildMessageTextBookmark */ = 004CD8151314381300996032 /* XCBuildMessageTextBookmark */;
+			004CD8161314381300996032 /* PBXTextBookmark */ = 004CD8161314381300996032 /* PBXTextBookmark */;
+			004CD8191314384500996032 /* XCBuildMessageTextBookmark */ = 004CD8191314384500996032 /* XCBuildMessageTextBookmark */;
+			004CD81A1314384500996032 /* PBXTextBookmark */ = 004CD81A1314384500996032 /* PBXTextBookmark */;
+			004CD81D1314384D00996032 /* PBXTextBookmark */ = 004CD81D1314384D00996032 /* PBXTextBookmark */;
+			004CD81E1314384D00996032 /* XCBuildMessageTextBookmark */ = 004CD81E1314384D00996032 /* XCBuildMessageTextBookmark */;
+			004CD81F1314384D00996032 /* PBXTextBookmark */ = 004CD81F1314384D00996032 /* PBXTextBookmark */;
+			004CD8201314384D00996032 /* PBXTextBookmark */ = 004CD8201314384D00996032 /* PBXTextBookmark */;
+			004CD8211314387500996032 /* XCBuildMessageTextBookmark */ = 004CD8211314387500996032 /* XCBuildMessageTextBookmark */;
+			004CD8221314387500996032 /* PBXTextBookmark */ = 004CD8221314387500996032 /* PBXTextBookmark */;
+			004CD8261314392400996032 /* PBXTextBookmark */ = 004CD8261314392400996032 /* PBXTextBookmark */;
+			004CD8271314392400996032 /* PBXTextBookmark */ = 004CD8271314392400996032 /* PBXTextBookmark */;
+			004CD8281314392400996032 /* PBXTextBookmark */ = 004CD8281314392400996032 /* PBXTextBookmark */;
+			004CD8291314392400996032 /* PBXTextBookmark */ = 004CD8291314392400996032 /* PBXTextBookmark */;
+			004CD82A1314392400996032 /* PBXTextBookmark */ = 004CD82A1314392400996032 /* PBXTextBookmark */;
+			004CD82B1314393400996032 /* PBXTextBookmark */ = 004CD82B1314393400996032 /* PBXTextBookmark */;
+			004CD82C1314393400996032 /* PBXTextBookmark */ = 004CD82C1314393400996032 /* PBXTextBookmark */;
+			004CD82D1314393400996032 /* PBXTextBookmark */ = 004CD82D1314393400996032 /* PBXTextBookmark */;
+			004CD82E1314393400996032 /* PBXTextBookmark */ = 004CD82E1314393400996032 /* PBXTextBookmark */;
+			004CD82F1314393400996032 /* PBXTextBookmark */ = 004CD82F1314393400996032 /* PBXTextBookmark */;
+			004CD8301314393400996032 /* PBXTextBookmark */ = 004CD8301314393400996032 /* PBXTextBookmark */;
+			004CD8311314393400996032 /* PBXTextBookmark */ = 004CD8311314393400996032 /* PBXTextBookmark */;
+			004CD8341314397600996032 /* PBXTextBookmark */ = 004CD8341314397600996032 /* PBXTextBookmark */;
+			004CD8351314397600996032 /* PBXTextBookmark */ = 004CD8351314397600996032 /* PBXTextBookmark */;
+			004CD8361314397600996032 /* PlistBookmark */ = 004CD8361314397600996032 /* PlistBookmark */;
+			004CD8371314397600996032 /* PlistBookmark */ = 004CD8371314397600996032 /* PlistBookmark */;
+			004CD8381314397600996032 /* PlistBookmark */ = 004CD8381314397600996032 /* PlistBookmark */;
+			006F51F21313C0AA008FBF58 = 006F51F21313C0AA008FBF58 /* PBXTextBookmark */;
+			006F51F31313C0AA008FBF58 = 006F51F31313C0AA008FBF58 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 00C94F4B130E73380047A07F /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {685, 237}}";
+			sepNavSelRange = "{264, 0}";
+			sepNavVisRange = "{0, 363}";
+		};
+	};
+}

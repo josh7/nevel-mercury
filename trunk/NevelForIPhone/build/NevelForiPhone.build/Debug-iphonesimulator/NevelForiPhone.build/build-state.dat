@@ -1,0 +1,755 @@
+TNevelForiPhone
+v7
+r0
+t320092451.608777
+cCheck dependencies
+cProcessInfoPlistFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/Info.plist" NevelForiPhone-Info.plist
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib"
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib"
+cCopyPlistFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsItems.plist" AppSettingsItems.plist
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib"
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib"
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib"
+cCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib"
+cProcessPCH /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch.gch NevelForiPhone_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/main.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhoneAppDelegate.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListNavViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NavItemWithIconViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/siteListNavRootViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavRootViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/table.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone" normal i386
+cGenerateDSYMFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app.dSYM" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone"
+cTouch "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app"
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk
+c000000004D3A8EAA0000000000000110
+t1295683242
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004CC12246000000000029B310
+t1287725638
+s2732816
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CC1226D000000000029D5D0
+t1287725677
+s2741712
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004CC1225F0000000000001466
+t1287725663
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004CC1281F0000000000000AA1
+t1287727135
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004CC12883000000000074D7B0
+t1287727235
+s7657392
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist
+c000000004D63ED6B000000000000025C
+t1298394475
+s604
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsNavViewController.xib
+c000000004D624074000000000000534E
+t1298284660
+s21326
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.h
+c000000004D622FEE000000000000010A
+t1298280430
+s266
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m
+c000000004D62300900000000000005DC
+t1298280457
+s1500
+i"AppSettingsNavItemViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.h
+c000000004D63749A000000000000015C
+t1298363546
+s348
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m
+c000000004D63755E0000000000000607
+t1298363742
+s1543
+i"AppSettingsNavItemWithIconViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.h
+c000000004D63F0870000000000000106
+t1298395271
+s262
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m
+c000000004D63F08700000000000005D8
+t1298395271
+s1496
+i"AppSettingsNavRootViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib
+c000000004D63F1C4000000000000432D
+t1298395588
+s17197
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.h
+c000000004D63F0A30000000000000104
+t1298395299
+s260
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m
+c000000004D63F07200000000000005CC
+t1298395250
+s1484
+i"AppSettingsNavViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib
+c000000004D63F072000000000000188F
+t1298395250
+s6287
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.h
+c000000004D632CB40000000000000192
+t1298345140
+s402
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m
+c000000004D6385DA0000000000000783
+t1298367962
+s1923
+i"AppSettingsNavViewControllerTest.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.xib
+c000000004D6367090000000000005390
+t1298360073
+s21392
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m
+c000000004D64019C00000000000005F1
+t1298399644
+s1521
+i"AppSettingsNavItemWithIconViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.h
+c000000004D63EF4B000000000000033C
+t1298394955
+s828
+i<UIKit/UIKit.h>
+i"SiteListNavViewController.h"
+i"AppSettingsNavViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m
+c000000004D63EF5A0000000000000A9E
+t1298394970
+s2718
+i"NevelForiPhoneAppDelegate.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.h
+c000000004D63F0B500000000000000F9
+t1298395317
+s249
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m
+c000000004D63EDB2000000000000075A
+t1298394546
+s1882
+i"SiteListNavViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib
+c000000004D63885500000000000051E1
+t1298368597
+s20961
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.h
+c000000004D63FD300000000000000156
+t1298398512
+s342
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m
+c000000004D63FB84000000000000039D
+t1298398084
+s925
+i"SiteListTableViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.h
+c000000004D5F349C0000000000000182
+t1298085020
+s386
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m
+c000000004D5F330400000000000005B5
+t1298084612
+s1461
+i"SiteListViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.xib
+c000000004D62151100000000000042E6
+t1298273553
+s17126
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.h
+c000000004D63EC5F0000000000000100
+t1298394207
+s256
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m
+c000000004D63EC5F00000000000005CF
+t1298394207
+s1487
+i"siteListNavRootViewController.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib
+c000000004D63ECB500000000000042FF
+t1298394293
+s17151
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.h
+c000000004D64009C0000000000000127
+t1298399388
+s295
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m
+c000000004D6400CA0000000000001189
+t1298399434
+s4489
+i"table.h"
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib
+c000000004D63FFAE0000000000004E5F
+t1298399150
+s20063
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib
+c000000004D63FFDF0000000000007CDB
+t1298399199
+s31963
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone_Prefix.pch
+c000000004D5E3B9800000000000000C5
+t1298021272
+s197
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/SiteListTableViewController.xib
+c000000004D63FBD30000000000003DBD
+t1298398163
+s15805
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/appSettingsNavRootViewController.xib
+c000000004D63811E00000000000035A5
+t1298366750
+s13733
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app
+t1298399651
+s510
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app.dSYM
+t1298399651
+s102
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsItems.plist
+t1298394478
+s215
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavRootViewController.nib
+t1298395597
+s1238
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavViewController.nib
+t1298395596
+s764
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavViewControllerTest.nib
+t1298360082
+s1377
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/Info.plist
+t1298284674
+s619
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/MainWindow.nib
+t1298399212
+s2192
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone
+t1298399651
+s29248
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/PkgInfo
+t1298284674
+s8
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListNavViewController.nib
+t1298368641
+s1275
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListTableViewController.nib
+t1298398535
+s996
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListViewController.nib
+t1298284675
+s1235
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/appSettingsNavRootViewController.nib
+t1298366753
+s1134
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/siteListNavRootViewController.nib
+t1298394482
+s1239
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/statedictionary.plist
+t2
+s0
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/table.nib
+t1298399212
+s1013
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemViewController.o
+t1298284678
+s37984
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemWithIconViewController.o
+t1298363913
+s37984
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavRootViewController.o
+t1298395598
+s37984
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewController.o
+t1298395598
+s39616
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewControllerTest.o
+t1298367962
+s43536
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NavItemWithIconViewController.o
+t1298399651
+s37752
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhone.LinkFileList
+c000000004D6401A200000000000005A1
+t1298399650
+s1441
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhoneAppDelegate.o
+t1298395598
+s57016
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListNavViewController.o
+t1298395597
+s39552
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListTableViewController.o
+t2
+s0
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListViewController.o
+t1298284677
+s38324
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/main.o
+t1298284677
+s6356
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/siteListNavRootViewController.o
+t1298394487
+s37920
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/table.o
+t1298399436
+s43292
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m
+c000000004D5E3B98000000000000016B
+t1298021272
+s363
+i<UIKit/UIKit.h>
+
+N/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/statedictionary.plist
+c000000004D636FF3000000000000025C
+t1298362355
+s604
+
+N/var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch.gch
+t1298284677
+s10360536
+
+NNevelForiPhone-Info.plist
+c000000004D5E3B98000000000000038D
+t1298021272
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies320092450#320092451#0(0"0(0#1#0"2459783824#0"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s319977477.925432
+e319977478.014072
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@115"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m319977477#319977478#0(0"0(0#0#107"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m2459783824#2426"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemWithIconViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320056713.351680
+e320056713.439860
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemWithIconViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@123"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m320056713#320056713#0(0"0(0#0#115"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m2459783824#2442"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavItemWithIconViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavItemWithIconViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavRootViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320088398.045770
+e320088398.445307
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavRootViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@115"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m320088398#320088398#0(0"0(0#0#107"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m2459783824#2426"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavRootViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320088397.914932
+e320088398.136594
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@111"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m320088397#320088398#0(0"0(0#0#103"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m2459783824#2418"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewControllerTest.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320060762.812150
+e320060762.955703
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewControllerTest.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@115"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m320060762#320060762#0(0"0(0#0#107"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m2459783824#2426"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/AppSettingsNavViewControllerTest.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NavItemWithIconViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320092451.036152
+e320092451.295978
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NavItemWithIconViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@112"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m320092451#320092451#0(0"0(0#0#104"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m2459783824#2420"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NavItemWithIconViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NavItemWithIconViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhoneAppDelegate.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320088397.703870
+e320088398.045614
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhoneAppDelegate.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@108"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m320088397#320088398#0(0"0(0#0#100"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m2459783824#2412"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/NevelForiPhoneAppDelegate.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhoneAppDelegate.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListNavViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320088397.706569
+e320088397.914234
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListNavViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@108"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m320088397#320088397#0(0"0(0#0#100"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m2459783824#2412"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListNavViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListTableViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320091335.716027
+e320091335.968623
+r0
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListTableViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m: In function '-[SiteListTableViewController initWithStyle:reuseIdentifier:]':
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: 'UITableViewController' may not respond to '-initWithStyle:reuseIdentifier:'
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: (Messages without a matching method signature
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: will be assumed to return 'id' and accept
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: '...' as arguments.)
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: 'cell' undeclared (first use in this function)
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: (Each undeclared identifier is reported only once
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: for each function it appears in.)
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: 'indexPath' undeclared (first use in this function)
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m: In function '-[SiteListTableViewController setSelected:animated:]':
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:33: warning: 'UITableViewController' may not respond to '-setSelected:animated:'
+o{standard input}:108:non-relocatable subtraction expression, "L_OBJC_SELECTOR_REFERENCES_1" minus "L00000000001$pb"
+o{standard input}:108:symbol: "L_OBJC_SELECTOR_REFERENCES_1" can't be undefined in a subtraction expression
+o{standard input}:99:non-relocatable subtraction expression, "L_OBJC_SELECTOR_REFERENCES_0" minus "L00000000001$pb"
+o{standard input}:99:symbol: "L_OBJC_SELECTOR_REFERENCES_0" can't be undefined in a subtraction expression
+o{standard input}:96:non-relocatable subtraction expression, "L_OBJC_CLASSLIST_REFERENCES_$_0" minus "L00000000001$pb"
+o{standard input}:96:symbol: "L_OBJC_CLASSLIST_REFERENCES_$_0" can't be undefined in a subtraction expression
+o{standard input}:91:non-relocatable subtraction expression, "L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr" minus "L00000000001$pb"
+o{standard input}:91:symbol: "L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr" can't be undefined in a subtraction expression
+o{standard input}:unknown:Undefined local symbol L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr
+o{standard input}:unknown:Undefined local symbol L_OBJC_CLASSLIST_REFERENCES_$_0
+o{standard input}:unknown:Undefined local symbol L_OBJC_SELECTOR_REFERENCES_0
+o{standard input}:unknown:Undefined local symbol L_OBJC_SELECTOR_REFERENCES_1
+lSLF07#2@110"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320091335#320091335#0(3137"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m: In function '-[SiteListTableViewController initWithStyle:reuseIdentifier:]':/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: 'UITableViewController' may not respond to '-initWithStyle:reuseIdentifier:'/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: (Messages without a matching method signature/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: will be assumed to return 'id' and accept/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:22: warning: '...' as arguments.)/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: 'cell' undeclared (first use in this function)/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: (Each undeclared identifier is reported only once/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: for each function it appears in.)/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:25: error: 'indexPath' undeclared (first use in this function)/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m: In function '-[SiteListTableViewController setSelected:animated:]':/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m:33: warning: 'UITableViewController' may not respond to '-setSelected:animated:'{standard input}:108:non-relocatable subtraction expression, "L_OBJC_SELECTOR_REFERENCES_1" minus "L00000000001$pb"{standard input}:108:symbol: "L_OBJC_SELECTOR_REFERENCES_1" can't be undefined in a subtraction expression{standard input}:99:non-relocatable subtraction expression, "L_OBJC_SELECTOR_REFERENCES_0" minus "L00000000001$pb"{standard input}:99:symbol: "L_OBJC_SELECTOR_REFERENCES_0" can't be undefined in a subtraction expression{standard input}:96:non-relocatable subtraction expression, "L_OBJC_CLASSLIST_REFERENCES_$_0" minus "L00000000001$pb"{standard input}:96:symbol: "L_OBJC_CLASSLIST_REFERENCES_$_0" can't be undefined in a subtraction expression{standard input}:91:non-relocatable subtraction expression, "L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr" minus "L00000000001$pb"{standard input}:91:symbol: "L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr" can't be undefined in a subtraction expression{standard input}:unknown:Undefined local symbol L_OBJC_IVAR_$_SiteListTableViewController.tableData$non_lazy_ptr{standard input}:unknown:Undefined local symbol L_OBJC_CLASSLIST_REFERENCES_$_0{standard input}:unknown:Undefined local symbol L_OBJC_SELECTOR_REFERENCES_0{standard input}:unknown:Undefined local symbol L_OBJC_SELECTOR_REFERENCES_15(22@76"'UITableViewController' may not respond to '-initWithStyle:reuseIdentifier:'320091335#181#193#0(6@102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320090884#22#0#22#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)320091335#374#162#0(6@102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320090884#22#0#22#0#0"0(4@46"'cell' undeclared (first use in this function)320091335#831#161#0(6@102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320090884#25#0#25#0#43"'*' undeclared (first use in this function)0(4@51"'indexPath' undeclared (first use in this function)320091335#1304#166#0(6@102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320090884#25#0#25#0#43"'*' undeclared (first use in this function)0(22@67"'UITableViewController' may not respond to '-setSelected:animated:'320091335#1642#184#0(6@102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m320090884#33#0#33#0#26"'*' may not respond to '*'0(0#0#102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m2459783824#2416"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListTableViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListTableViewController.o"1#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s319977477.728013
+e319977477.859990
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@105"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m319977477#319977477#0(0"0(0#0#97"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m2459783824#2406"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/SiteListViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/main.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s319977477.578472
+e319977477.727866
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/main.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m319977477#319977477#0(0"0(0#0#71"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m2459783824#2362"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/main.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/main.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/siteListNavRootViewController.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320087286.596861
+e320087287.062254
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/siteListNavRootViewController.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@112"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m320087286#320087287#0(0"0(0#0#104"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m2459783824#2420"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/siteListNavRootViewController.o"0#
+
+CCompileC build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/table.o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s320092236.261144
+e320092236.508453
+r1
+xCompileC
+xbuild/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/table.o
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m: In function '-[table tableView:cellForRowAtIndexPath:]':
+o/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m:82: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:211)
+lSLF07#2@88"Compile /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m320092236#320092236#0(428"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m: In function '-[table tableView:cellForRowAtIndexPath:]':/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m:82: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:211)1(22@194"'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:211)320092236#139#289#0(6@80"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m320092234#82#0#82#0#33"'*' is deprecated (declared at *)0(0#0#80"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m2459783824#2372"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -include /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.m" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/table.o"0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsNavViewController.xib"
+s319977475.281876
+e319977475.975542
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsNavViewController.xib
+lSLF07#2@43"CompileXIB AppSettingsNavViewController.xib319977475#319977475#0(0"0(0#0#97"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsNavViewController.xib2459783824#697"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsNavViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib"
+s320088396.811448
+e320088397.703361
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib
+lSLF07#2@55"CompileXIB Classes/AppSettingsNavRootViewController.xib320088396#320088397#0(0"0(0#0#109"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib2459783824#713"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavRootViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavRootViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib"
+s320088393.404442
+e320088396.811150
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib
+lSLF07#2@51"CompileXIB Classes/AppSettingsNavViewController.xib320088393#320088396#0(0"0(0#0#105"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib2459783824#705"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.xib"
+s320052881.369811
+e320052882.852498
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.xib
+lSLF07#2@55"CompileXIB Classes/AppSettingsNavViewControllerTest.xib320052881#320052882#0(0"0(0#0#109"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.xib2459783824#713"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsNavViewControllerTest.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/AppSettingsNavViewControllerTest.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib"
+s320061440.587524
+e320061441.248322
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib
+lSLF07#2@48"CompileXIB Classes/SiteListNavViewController.xib320061440#320061441#0(0"0(0#0#102"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib4255560#699"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListNavViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListNavViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.xib"
+s319977474.220258
+e319977475.281737
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.xib
+lSLF07#2@45"CompileXIB Classes/SiteListViewController.xib319977474#319977475#0(0"0(0#0#99"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.xib2459783824#693"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/SiteListViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib"
+s320087278.074721
+e320087283.253324
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib
+lSLF07#2@52"CompileXIB Classes/siteListNavRootViewController.xib320087278#320087283#0(0"0(0#0#106"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib4255560#707"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/siteListNavRootViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/siteListNavRootViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib"
+s320092009.663732
+e320092012.874290
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib
+lSLF07#2@28"CompileXIB Classes/table.xib320092009#320092012#0(0"0(0#0#82"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib2459783824#659"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/table.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/Classes/table.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib"
+s320092009.661794
+e320092012.913059
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib320092009#320092012#0(0"0(0#0#79"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib2459783824#661"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/MainWindow.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/SiteListTableViewController.xib"
+s320091333.273444
+e320091335.714406
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/SiteListTableViewController.xib
+lSLF07#2@42"CompileXIB SiteListTableViewController.xib320091333#320091335#0(0"0(0#0#96"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/SiteListTableViewController.xib2459783824#695"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/SiteListTableViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/SiteListTableViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCompileXIB "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/appSettingsNavRootViewController.xib"
+s320059553.183388
+e320059553.844768
+r1
+xCompileXIB
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/appSettingsNavRootViewController.xib
+lSLF07#2@47"CompileXIB appSettingsNavRootViewController.xib320059553#320059553#0(0"0(0#0#101"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/appSettingsNavRootViewController.xib2459783824#705"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/appSettingsNavRootViewController.nib" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/appSettingsNavRootViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk0#
+
+CCopyPlistFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsItems.plist" AppSettingsItems.plist
+s320087277.023084
+e320087278.074584
+r1
+xCopyPlistFile
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/AppSettingsItems.plist
+xAppSettingsItems.plist
+lSLF07#2@27"Copy AppSettingsItems.plist320087277#320087278#0(0"0(0#0#87"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/AppSettingsItems.plist2459783824#460"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 AppSettingsItems.plist --outdir "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app"0#
+
+CCopyPlistFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/statedictionary.plist" statedictionary.plist
+r0
+
+CGenerateDSYMFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app.dSYM" "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone"
+s320092451.424842
+e320092451.603304
+r1
+xGenerateDSYMFile
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app.dSYM
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone
+lSLF07#2@130"GenerateDSYMFile build/Debug-iphonesimulator/NevelForiPhone.app.dSYM build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone320092451#320092451#0(0"0(0#0#126"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone2459783824#488"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone" -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app.dSYM"0#
+
+CLd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone" normal i386
+s320092451.296117
+e320092451.424688
+r1
+xLd
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone
+xnormal
+xi386
+lSLF07#2@131"Link /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone320092451#320092451#0(0"0(0#0#0"2459783824#1075"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk "-L/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" -filelist "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/Objects-normal/i386/NevelForiPhone.LinkFileList" -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/NevelForiPhone"0#
+
+CProcessInfoPlistFile "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/Info.plist" NevelForiPhone-Info.plist
+s319977474.138107
+e319977474.218246
+r1
+xProcessInfoPlistFile
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/Info.plist
+xNevelForiPhone-Info.plist
+lSLF07#2@33"Process NevelForiPhone-Info.plist319977474#319977474#0(0"0(0#0#90"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone-Info.plist2459783824#584"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility NevelForiPhone-Info.plist -genpkginfo "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app/Info.plist"0#
+
+CProcessPCH /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch.gch NevelForiPhone_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s319977475.975724
+e319977477.578107
+r1
+xProcessPCH
+x/var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch.gch
+xNevelForiPhone_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@36"Precompile NevelForiPhone_Prefix.pch319977475#319977477#0(0"0(0#0#90"/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone_Prefix.pch2459783824#2219"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-generated-files.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-own-target-headers.hmap" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-all-target-headers.hmap" -iquote "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/NevelForiPhone-project-headers.hmap" "-F/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/include" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources/i386" "-I/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/NevelForiPhone.build/Debug-iphonesimulator/NevelForiPhone.build/DerivedSources" -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/NevelForiPhone_Prefix.pch" -o /var/folders/Be/BeHrACM1EbmeEoHJvVwpX++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/NevelForiPhone_Prefix-fgucayeeafxqcxagznaljecalnoj/NevelForiPhone_Prefix.pch.gch0#
+
+CTouch "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app"
+s320092451.603436
+e320092451.608716
+r1
+xTouch
+x/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app
+lSLF07#2@117"Touch /Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app320092451#320092451#0(0"0(0#0#0"2459783824#341"    cd "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/Jeffrey/Documents/SuPeiqi/iphone for Nevel/NevelForiPhone/build/Debug-iphonesimulator/NevelForiPhone.app"0#
+
