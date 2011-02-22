@@ -106,7 +106,7 @@ Plot Area是报表的一部分，数据被绘制在Plot Area上。通常用坐�
 
 Plot space定义了数据集的坐标空间和plot area的绘画空间之间的映射。
 
-例如：如果你需要画一个列车时间和时速的关系图，数据集的坐标空间是X轴表示时间、Y轴表示列车的速度。假设时间范围是[0, 180]min，速度范围是[0, 150]KM/h。而绘画空间，用plot area的边界表示。一个plot area对象，通常是一个CPPlotSpace子类对象，定义了数据集坐标和绘画空间之间的映射，即特定时间对应的速度和屏幕上表示该数据的位置之间的映射。
+例如：如果你需要画一个列车时间和时速的关系图，数据集的坐标空间是X轴表示时间、Y轴表示列车的速度。假设时间范围是`[0, 180]`min，速度范围是`[0, 150]`KM/h。而绘画空间，用plot area的边界表示。一个plot area对象，通常是一个CPPlotSpace子类对象，定义了数据集坐标和绘画空间之间的映射，即特定时间对应的速度和屏幕上表示该数据的位置之间的映射。
 
 使用Core plot内置的仿射变换（Affine transformation）来处理两种空间的映射是一个不错的主意，但是通常这样有一定的局限性，因为并不是所有的映射都是线性关系。例如，很多数学应用软件在数据空间都使用对数刻度（logarithmic scale）。
 
@@ -118,3 +118,7 @@ Plot space定义了数据集的坐标空间和plot area的绘画空间之间的�
 - (CGPoint)viewPointForPlotPoint:(NSArray *)decimalNumber;
 - (NSArray *)plotPointForViewPoint:(CGPoint)point;
 }}}
+
+数据空间的坐标，用plot point表示，用一个NSDecimalNumber的数组作为参数传入。绘画空间的坐标，用view point表示，用一个CGPoint对象表示。
+
+无论我们需要把数据空间转换成绘图空间，或者反过来，我们都需要先查询坐标值对应的plot space。
