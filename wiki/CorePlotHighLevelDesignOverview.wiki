@@ -121,4 +121,8 @@ Plot space定义了数据集的坐标空间和plot area的绘画空间之间的�
 
 数据空间的坐标，用plot point表示，用一个NSDecimalNumber的数组作为参数传入。绘画空间的坐标，用view point表示，用一个CGPoint对象表示。
 
-无论我们需要把数据空间转换成绘图空间，或者反过来，我们都需要先查询坐标值对应的plot space。
+无论一个对象需要把数据空间转换成绘图空间，或者反过来，都要以其对应的plot space为基础进行查询。例如，一个CPPlot的实例和一个特定的plot space是对应的，使用这个对应的plot space，core plot来决定把这个plot画在正确的位置上。
+
+一个报表可能包含多个plot，这些plot可能会依据不同的刻度来进行绘画（例如线性或者对数）。为了使Core Plot支持这个特性，一个CPGraph对象可以包含多个CPPlotSpace对象。大部分的时候，尽管我们只需要一个Plot space对象就够了，但是Core plot framework自身为一份报表包含多个plot spaces提供了支持。
+
+=== Plots ===
