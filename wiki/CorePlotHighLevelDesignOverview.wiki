@@ -100,4 +100,21 @@ CPGraph是一个抽象类，它的子类例如CPXYGraph负责图表各个组件�
 
 === Plot Area ===
 
+Plot Area是报表的一部分，数据被绘制在Plot Area上。通常用坐标轴来定义plot area的范围。Grid lines也被绘制在plot area上。对于每一个报表，只有一个Plot Area。Core plot framework用CPPlotArea对象来表示一个Plot area。
+
+=== Plot Spaces ===
+
+Plot space定义了数据集的坐标空间和plot area的绘画空间之间的映射。
+
+例如：如果你需要画一个列车时间和时速的关系图，数据集的坐标空间是X轴表示时间、Y轴表示列车的速度。假设时间范围是[0, 180]min，速度范围是[0, 150]KM/h。而绘画空间，用plot area的边界表示。一个plot area对象，通常是一个CPPlotSpace子类对象，定义了数据集坐标和绘画空间之间的映射，即特定时间对应的速度和屏幕上表示该数据的位置之间的映射。
+
+使用Core plot内置的仿射变换（Affine transformation）来处理两种空间的映射是一个不错的主意，但是通常这样有一定的局限性，因为并不是所有的映射都是线性关系。例如，很多数学应用软件在数据空间都使用对数刻度（logarithmic scale）。
+
+为了能够让数据空间支持尽可能多的数据类型，数据空间内部的数据都使用NSDecimalNumber对象保存。但是在绘画空间里，是不能使用NSDecimalNumber的，Cocoa中的绘画坐标系使用CGFloat类型，NSDecimalNumber提供的额外精度会被忽略。
+
+一个继承自CPPlotSpace的类必须要实现两个方法，一个用来把绘画空间转换到数据集坐标空间，另一个做相反的转换。
+
+{{{
+- (CGPoint)viewPointForPlotPoint:(NSArray *)decimalNumber;
+- (NSArray *)plotPointForViewPoint:(CGPoint)point;
 }}}
