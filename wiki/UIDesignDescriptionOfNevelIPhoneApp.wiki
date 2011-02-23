@@ -7,6 +7,8 @@ _Description of UI design for Nevel iPhone application._
 
 
 == 程序主菜单设计说明 =
+*类: NevelForiPhoneAppDelegate*
+* 应用程序主标签栏控制器:
 
 *类: NevelForiPhoneAppDelegate*
       *应用程序主标签栏控制器:
