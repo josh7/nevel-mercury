@@ -31,7 +31,7 @@
 
 CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱状图需要的数据，则由数组data提供。
 
-在我们进一步深入之前，我们先到CorePlotTestViewController.m里，在CorePlotTestViewController的dealloc方法里，向data发送release消息。
+在我们进一步深入之前，我们先到`CorePlotTestViewController.m`里，在CorePlotTestViewController`的dealloc方法里，向data发送release消息。
 
 {{{
 - (void)dealloc {
@@ -60,15 +60,12 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 - (NSNumber *)numberForPlot:(CPPlot *)plot 
 			 field:(NSUInteger)fieldEnum 
 			recordIndex:(NSUInteger)index {
-	//if (index >= [self.data count]) {
-	//	return nil;
-	//}
+	
 	switch (fieldEnum) {
 		case CPBarPlotFieldBarLocation:
 			return (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:index];
 			break;
 		case CPBarPlotFieldBarLength:
-			//return (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:(index+1)*(index+1)];
 			return (NSDecimalNumber *)[self.data objectAtIndex:index];
 			break;
 	}
