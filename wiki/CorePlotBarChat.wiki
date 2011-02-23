@@ -48,7 +48,6 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 #pragma mark -
 #pragma mark CorePlot Data Source Methods
 - (NSUInteger)numberOfRecordsForPlot:(CPPlot *)plot {
-	//return 10;
 	 return [self.data count];
 }
 
