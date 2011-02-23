@@ -12,7 +12,7 @@
 
 之后，按照[http://code.google.com/p/nevel-mercury/wiki/CorePlotUpAndRun CorePlotUpAndRun]中的说明，把Core plot集成到我们的项目中来。
 
-在CorePlotTestViewController.h里，添加对Core plot头文件的引用：
+在`CorePlotTestViewController.h`里，添加对Core plot头文件的引用：
 
 {{{
 #import "CorePlot-CocoaTouch.h"
@@ -53,12 +53,12 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 }
 
 - (CPFill *)barFillForBarPlot:(CPBarPlot *)barPlot 
-		          recordIndex:(NSNumber *)index {
+				  recordIndex:(NSNumber *)index {
 	return nil;
 }
 
 - (NSNumber *)numberForPlot:(CPPlot *)plot 
-					      field:(NSUInteger)fieldEnum 
+					  field:(NSUInteger)fieldEnum 
 				recordIndex:(NSUInteger)index {
 	//if (index >= [self.data count]) {
 	//	return nil;
@@ -68,6 +68,7 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 			return (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:index];
 			break;
 		case CPBarPlotFieldBarLength:
+			//return (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:(index+1)*(index+1)];
 			return (NSDecimalNumber *)[self.data objectAtIndex:index];
 			break;
 	}
