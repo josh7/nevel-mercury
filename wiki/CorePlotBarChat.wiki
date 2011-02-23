@@ -8,7 +8,7 @@
 
 === 创建项目 ===
 
-打开XCode，新建一个View-based Application，并给项目命名：CorePlotTest
+打开XCode，新建一个View-based Application，并给项目命名：`CorePlotTest`
 
 之后，按照[http://code.google.com/p/nevel-mercury/wiki/CorePlotUpAndRun CorePlotUpAndRun]中的说明，把Core plot集成到我们的项目中来。
 
@@ -53,13 +53,13 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 }
 
 - (CPFill *)barFillForBarPlot:(CPBarPlot *)barPlot 
-				  recordIndex:(NSNumber *)index {
+			recordIndex:(NSNumber *)index {
 	return nil;
 }
 
 - (NSNumber *)numberForPlot:(CPPlot *)plot 
-					  field:(NSUInteger)fieldEnum 
-				recordIndex:(NSUInteger)index {
+			 field:(NSUInteger)fieldEnum 
+			recordIndex:(NSUInteger)index {
 	//if (index >= [self.data count]) {
 	//	return nil;
 	//}
