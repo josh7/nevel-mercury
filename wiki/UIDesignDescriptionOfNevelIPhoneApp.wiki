@@ -1,5 +1,5 @@
 #labels UIDesign
-#Description of UI design for Nevel iPhone application.
+#description of UI design for Nevel iPhone application.
 
 = UI 设计说明 -- Nevel iPhone Application =
 
