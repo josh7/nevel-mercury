@@ -179,4 +179,96 @@ boundLinePlot.dataLineStyle.lineWidth = 2.f;
 
 报表上的每一个坐标轴都用一个CPAxis的派生类表示。CPAxis负责绘制坐标轴自身以及tile / leabel等附属组件。为了完成绘制工作，CPAxis需要知道数据集坐标和绘画坐标之间的对应关系，因此一个CPAxis对象都和一个CPPlotSpace对象关联。
 
-一个报表可以有多个坐标轴，但是所有的坐标轴都被组织到一个CPAxisSet对象里。CPAxisSet对象是一个容器，包含了报表上需要的所有坐标轴和一类类工厂（class factory），factory用于创建axis set。
+一个报表可以有多个坐标轴，但是所有的坐标轴都被组织到一个CPAxisSet对象里。CPAxisSet对象是一个容器，包含了报表上需要的所有坐标轴和类工厂（class factory），factory用于创建axis set。
+
+坐标轴上的label通常都是文本，但是Core plot也支持客制化的label。通过把任何Core Animation Layer包装成一个CPAxisLayer对象都可以作为axis label。
+
+=== Animations ===
+
+Core plot提供了动画功能的支持，这使得通过core plot开发的报表可以支持动态效果和用户交互。Core Animation Framework提供了在运行时移动和改变图层位置的功能，但是我们需要通过更高层的类把这些图层的位置组织起来，使得这些相关联部分的移动像是整个报表在移动，同时，这个高层的类还用来组织动画之间的过渡（这很像你通过Keynote来构建一个动画序列的过程）。
+
+Core plot主要通过CPAnimation类来支持动画。这个类从根本上说是一个状态机：它存储一个报表所有可能的状态（注意是状态，不是报表），即关键帧，并且允许报表在这些状态之间切换。
+
+[http://core-plot.googlecode.com/files/AnimationGraph.png]
+
+Core plot允许用户设定转换的起始和结束状态以及转换发生的时间。这种组合带来了很大的灵活性，使得core plot可以支持没有交互的动态报表到全交互式的动态报表设计。
+
+{{{
+@interface CPAnimation : NSObject {
+    CPGraph *graph;
+    NSMutableSet *mutableKeyFrames;
+    NSMutableSet *mutableTransitions;
+    CPAnimationKeyFrame *currentKeyFrame;
+}
+
+@property (nonatomic, readonly, retain) CPGraph *graph;
+@property (nonatomic, readonly, retain) NSSet *animationKeyFrames;
+@property (nonatomic, readonly, retain) NSSet *animationTransitions;
+@property (nonatomic, readonly, retain) CPAnimationKeyFrame *currentKeyFrame;
+
+-(id)initWithGraph:(CPGraph *)graph;
+
+// Key frames
+-(void)addAnimationKeyFrame:(CPAnimationKeyFrame *)newKeyFrame;
+-(CPAnimationKeyFrame *)animationKeyFrameWithIdentifier:(id <NSCopying>)identifier;
+
+// Transitions
+-(void)addAnimationTransition:(CPAnimationTransition *)newTransition fromKeyFrame:(CPAnimationKeyFrame *)startFrame toKeyFrame:(CPAnimationKeyFrame *)endFrame;
+-(CPAnimationTransition *)animationTransitionWithIdentifier:(id <NSCopying>)identifier;
+
+-(void)animationTransitionDidFinish:(CPAnimationTransition *)transition;
+
+// Animating
+-(void)performTransition:(CPAnimationTransition *)transition;
+-(void)performTransitionToKeyFrame:(CPAnimationKeyFrame *)keyFrame;
+
+@end
+}}}
+
+CPAnimationKeyFrame类定义了报表动画的关键帧，这个类最重要的成员，就是状态的标识：
+
+{{{
+@interface CPAnimationKeyFrame : NSObject {
+    id <NSCopying> identifier;
+    BOOL isInitialFrame;
+    NSTimeInterval duration;
+}
+
+@property (nonatomic, readwrite, copy) id <NSCopying> identifier;
+@property (nonatomic, readwrite, assign) NSTimeInterval duration;
+
+-(id)initAsInitialFrame:(BOOL)isFirst;
+
+@end
+}}}
+
+最后一个类，CPAnimationTransition表示了一个动画中的原子部件（atomic part）。例如：对于渐入渐出的动画效果，一个完整的CPAnimation对象需要包含多个渐入和渐出的效果和其他的转换效果。
+
+CPAnimationTransition是一个抽象类，派生类在performTransition方法中通过标准Core Animation技术实现CPGraph中各个组件的动画效果。一个CPAnimationTransition派生类对象包含一个转换的时间段，并且，转换是可逆的。通过设置reversible为YES，可以让报表支持动画的可逆转换。
+
+{{{
+@interface CPAnimationTransition : NSObject {
+    id <NSCopying> identifier;
+    CPAnimationKeyFrame *startKeyFrame;
+    CPAnimationKeyFrame *endKeyFrame;
+    CPAnimationTransition *continuingTransition;
+    NSTimeInterval duration;
+    CPAnimation *animation;
+}
+
+@property (nonatomic, readwrite, assign) NSTimeInterval duration;
+@property (nonatomic, readwrite, copy) id <NSCopying> identifier;
+@property (nonatomic, readwrite, assign) CPAnimation *animation;
+@property (nonatomic, readwrite, retain) CPAnimationKeyFrame *startKeyFrame;
+@property (nonatomic, readwrite, retain) CPAnimationKeyFrame *endKeyFrame;
+@property (nonatomic, readwrite, retain) CPAnimationTransition *continuingTransition;
+@property (nonatomic, readonly, assign) BOOL reversible;
+
+@end
+
+@interface CPAnimationTransition (AbstractMethods)
+
+-(void)performTransition;
+
+@end    
+}}}
