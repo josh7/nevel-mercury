@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="10"/>
 			<integer value="2"/>
+			<integer value="10"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -93,11 +93,11 @@
 							<reference key="IBUIToolbarItems" ref="0"/>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="541937364">
 								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle">Item</string>
+								<string key="IBUITitle">Site list</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<reference key="IBUIParentViewController" ref="240834408"/>
-							<string key="IBUINibName">table</string>
+							<string key="IBUINibName">SiteListNavRootViewController</string>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="interfaceOrientation">1</int>
 							</object>
@@ -136,7 +136,7 @@
 							<object class="IBUIViewController" id="243135008">
 								<reference key="IBUIToolbarItems" ref="0"/>
 								<object class="IBUINavigationItem" key="IBUINavigationItem" id="126733006">
-									<string key="IBUITitle">Item</string>
+									<string key="IBUITitle">Settings</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIParentViewController" ref="863206913"/>
@@ -279,15 +279,15 @@
 						<reference key="object" ref="863206913"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="932758430"/>
-							<reference ref="243135008"/>
 							<reference ref="464184088"/>
+							<reference ref="243135008"/>
+							<reference ref="932758430"/>
 						</object>
 						<reference key="parent" ref="227739495"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">25</int>
-						<reference key="object" ref="932758430"/>
+						<int key="objectID">28</int>
+						<reference key="object" ref="464184088"/>
 						<reference key="parent" ref="863206913"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -305,8 +305,8 @@
 						<reference key="parent" ref="243135008"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">28</int>
-						<reference key="object" ref="464184088"/>
+						<int key="objectID">25</int>
+						<reference key="object" ref="932758430"/>
 						<reference key="parent" ref="863206913"/>
 					</object>
 				</object>
@@ -320,10 +320,12 @@
 					<string>10.IBEditorWindowLastContentRect</string>
 					<string>10.IBPluginDependency</string>
 					<string>11.IBPluginDependency</string>
+					<string>19.CustomClassName</string>
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>21.CustomClassName</string>
+					<string>24.CustomClassName</string>
 					<string>26.CustomClassName</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
@@ -332,9 +334,10 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{363, 276}, {320, 480}}</string>
+					<string>{{134, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>SiteListNavViewController</string>
 					<object class="NSMutableDictionary">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<reference key="dict.sortedKeys" ref="0"/>
@@ -342,9 +345,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>
 					</object>
-					<string>{{287, 276}, {320, 480}}</string>
+					<string>{{130, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>table</string>
+					<string>SiteListNavRootViewController</string>
+					<string>AppSettingsNavViewController</string>
 					<string>AppSettingsNavRootViewController</string>
 					<string>NevelForiPhoneAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -377,6 +381,22 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/AppSettingsNavRootViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">AppSettingsNavViewController</string>
+					<string key="superclassName">UINavigationController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/AppSettingsNavViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NavItemWithIconViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/NavItemWithIconViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -428,11 +448,19 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">table</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="className">SiteListNavRootViewController</string>
+					<string key="superclassName">NavItemWithIconViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/table.h</string>
+						<string key="minorKey">Classes/SiteListNavRootViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SiteListNavViewController</string>
+					<string key="superclassName">UINavigationController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/SiteListNavViewController.h</string>
 					</object>
 				</object>
 			</object>
