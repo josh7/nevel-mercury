@@ -126,3 +126,35 @@ Plot space定义了数据集的坐标空间和plot area的绘画空间之间的�
 一个报表可能包含多个plot，这些plot可能会依据不同的刻度来进行绘画（例如线性或者对数）。为了使Core Plot支持这个特性，一个CPGraph对象可以包含多个CPPlotSpace对象。大部分的时候，尽管我们只需要一个Plot space对象就够了，但是Core plot framework自身为一份报表包含多个plot spaces提供了支持。
 
 === Plots ===
+
+在图表上，数据的一种特定的表现被称作一个“Plot”。例如：数据有可能被表现为散点图（每一个点上有相关数据的描述），也可以是一个柱状图。
+
+一个图表上，可以有多个plot。每一个plot可以来自不同的数据集，彼此互不相关，也可以共享一个数据集。
+
+从本质上来说，一个plot和一个table view是类似的，尽管从直觉上并不容易把它们关联到一起。例如：我们用一个line plot来表示前面提到过的列车的速度-时间分布图。我们需要每一个需要表现的时间对应的列车的速度。而这个数据就可以用一个两列的table view来表示，进而也可以再转换成一个散点图。所以，plot和table view是同一份数据集的两种不同表示。
+
+因此，我们用在table view上的设计模式同样可以用来生成plot，绑定或者Data source都可以。为了使用data source模式向一个plot提供数据，你需要设置CPPlot对象的dataSource成员，然后实现下面的data source方法：
+
+{{{
+@protocol CPPlotDataSource<NSObject>
+
+- (NSUInteger)numberOfRecords;
+
+@optional
+- (NSArray *)numbersForPlot:(CPPlot *)plot field:(NSUInteger)fieldEnum recordIndexRange:(NSRange)indexRange
+- (NSNumber *)numberForPlot:(CPPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;
+
+- (NSRange)recordIndexRangeForPlot:(CPPlot *)plot plotRange:(CPPlotRange *)plotRect;
+@end
+}}}
+
+你可以把fieldEnum想成是我们上面对比的table view的列，而record index是table view中的行。每一类plot都有固定数量的fields。例如：一个散点图需要两个fields，分别表示XY轴的数据。Core plot定义了一个枚举类型表示field：
+
+{{{
+@typedef enum _CPScatterPlotField {
+    CPScatterPlotFieldX,
+    CPScatterPlotFieldY
+} CPScatterPlotField;
+}}}
+
+Plot类不仅仅支持Data source设计模式，还支持通过Cocoa绑定的方式提供数据源。这也和Table view中用到的方法类似
