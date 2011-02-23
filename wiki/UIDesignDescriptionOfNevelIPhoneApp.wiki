@@ -1,4 +1,6 @@
+#summary A birds-eye view of the classes in _Core Plot_ and how they work together.
 #labels UIDesign
+
 #Description of UI design for Nevel iPhone application.
 
 = UI 设计说明 -- Nevel iPhone Application =
