@@ -1,7 +1,7 @@
 #labels UIDesign
 _Description of UI design for Nevel iPhone application._
 
-= UI 设计 -- Nevel iPhone Application =
+= UI 设计说明 -- Nevel iPhone Application =
 
 本文档用于说明 NevelForiPhone 应用程序的UI设计结构.
 
