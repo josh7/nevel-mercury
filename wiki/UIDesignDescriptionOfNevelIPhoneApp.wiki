@@ -12,7 +12,7 @@ _Description of UI design for Nevel iPhone application._
 
      * 应用程序主标签栏控制器:
 
-        UITabBarController *appRootController
+        UITabBarController: appRootController
 
         with IBOutlet --> MainWindow.xib/Tab Bar Controller
 
@@ -24,19 +24,28 @@ _Description of UI design for Nevel iPhone application._
 
 	AppSettingsNavViewController *appSettingsNavViewController
 
-*MainWindow.xib*
+*NIB: MainWindow.xib*
 
-      *加入 Tab Bar Controller
+      * 加入 Tab Bar Controller
+
 	number of tabs: 2
 
-	*Tab_1: 
-		name: Site List
-		class: UINavigationController
-		subclass: Table (for test)
-				NIB: table
+	* Tab_1: 
 
-	*Tab_1: 
-		name: Settings
+		name: Site List
+
 		class: UINavigationController
+
+		subclass: Table (for test)
+
+				  NIB: table
+
+	* Tab_1: 
+
+		name: Settings
+
+		class: UINavigationController
+
 		subclass: AppSettingsNavRootViewController
+
 				NIB: AppSettingsNavRootViewController
