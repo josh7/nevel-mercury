@@ -6,6 +6,82 @@
 本文档描述用[http://code.google.com/p/core-plot/ CorePlot]开发柱状图的一些基本方法。
 
 
-= Details =
+=== 创建项目 ===
+
+我们新建一个View-based Application，并给项目命名：CorePlotTest
+
+[http://www.kerneldiy.com/images/createProj.png]
+
+之后，按照[http://code.google.com/p/nevel-mercury/wiki/CorePlotUpAndRun CorePlotUpAndRun]中的说明，把Core plot集成到我们的项目中来。
+
+在CorePlotTestViewController.h里，添加对Core plot头文件的引用：
+
+{{{
+#import "CorePlot-CocoaTouch.h"
+}}}
+
+由于我们这个例子中，报表的数据是通过我们的view controller提供的，因此,CorePlotTestViewController要实现<CPPlotDataSource> protocol。
+
+{{{
+@interface CorePlotTestViewController : UIViewController<CPPlotDataSource> {
+	CPXYGraph *graph; // The graph with bars.
+	NSArray *data;
+}
+
+@property (nonatomic, retain) NSArray *data;
+}}}
+
+CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱状图需要的数据，则由数组data提供。
+
+在我们进一步深入之前，我们先到CorePlotTestViewController.m里，在CorePlotTestViewController的dealloc方法里，向data发送release消息。
+
+{{{
+- (void)dealloc {
+	[data release];
+	[super dealloc];
+}
+}}}
+
+=== 实现core plot的数据源方法 ===
+
+我们在[http://code.google.com/p/nevel-mercury/wiki/CorePlotHighLevelDesignOverview CorePlotHighLevelDesignOverview]中已经介绍过了，Core plot的数据源方法一共由三个：
+
+{{{
+#pragma mark -
+#pragma mark CorePlot Data Source Methods
+- (NSUInteger)numberOfRecordsForPlot:(CPPlot *)plot {
+	//return 10;
+	 return [self.data count];
+}
+
+- (CPFill *)barFillForBarPlot:(CPBarPlot *)barPlot 
+		          recordIndex:(NSNumber *)index {
+	return nil;
+}
+
+- (NSNumber *)numberForPlot:(CPPlot *)plot 
+					      field:(NSUInteger)fieldEnum 
+				recordIndex:(NSUInteger)index {
+	//if (index >= [self.data count]) {
+	//	return nil;
+	//}
+	switch (fieldEnum) {
+		case CPBarPlotFieldBarLocation:
+			return (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:index];
+			break;
+		case CPBarPlotFieldBarLength:
+			return (NSDecimalNumber *)[self.data objectAtIndex:index];
+			break;
+	}
+	return nil;
+}
+}}}
+
+`- (NSUInteger)numberOfRecordsForPlot:(CPPlot *)plot`用于返回plot代表的图上元素数量（例如柱状图的柱数，饼图的份数等），很显然，它应该返回data数组元素的个数；
+
+`- (CPFill *)barFillForBarPlot:(CPBarPlot *)barPlot recordIndex:(NSNumber *)index`我们暂时先不使用，因此让它返回nil；
+
+`- (NSNumber *)numberForPlot:(CPPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index`这是core plot进行绘图时，参考的数据方法（根据这个方法的返回值来绘制）；
+
 
 _To be continue_
