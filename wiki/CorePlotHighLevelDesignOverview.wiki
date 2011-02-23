@@ -174,3 +174,9 @@ boundLinePlot.dataLineStyle.lineWidth = 2.f;
 一个plot对象和前面我们提到的CPPlotSpace对象是紧密相关的。为了能够绘制自己，plot类需要把它自己的数据源数据转换成绘画坐标中对应的值，这是通过和plot对象对应的plot space对象完成的。
 
 === Axes ===
+
+坐标轴描述了plot space上的刻度。一个基本的报表通常只有两个坐标轴，X轴和Y轴。但是在Core plot上，并没有对坐标轴的数量进行限制，你可以添加任意多个坐标轴。坐标轴可以显示在plot area的底部和侧面，也可以显示在plot area的顶部。坐标轴可以有不同的刻度，可以区分主/从刻度，也可以有Label和Title。
+
+报表上的每一个坐标轴都用一个CPAxis的派生类表示。CPAxis负责绘制坐标轴自身以及tile / leabel等附属组件。为了完成绘制工作，CPAxis需要知道数据集坐标和绘画坐标之间的对应关系，因此一个CPAxis对象都和一个CPPlotSpace对象关联。
+
+一个报表可以有多个坐标轴，但是所有的坐标轴都被组织到一个CPAxisSet对象里。CPAxisSet对象是一个容器，包含了报表上需要的所有坐标轴和一类类工厂（class factory），factory用于创建axis set。
