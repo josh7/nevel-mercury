@@ -157,4 +157,20 @@ Plot space定义了数据集的坐标空间和plot area的绘画空间之间的�
 } CPScatterPlotField;
 }}}
 
-Plot类不仅仅支持Data source设计模式，还支持通过Cocoa绑定的方式提供数据源。这也和Table view中用到的方法类似
+Plot类不仅仅支持Data source设计模式，还支持通过Cocoa绑定的方式提供数据源。这也和Table view中用到的方法类似：
+
+{{{
+CPGraph *graph = ...;
+CPScatterPlot *boundLinePlot = [[[CPScatterPlot alloc] initWithFrame:CGRectZero] autorelease];
+boundLinePlot.identifier = @"Bindings Plot";
+boundLinePlot.dataLineStyle.lineWidth = 2.f;
+[graph addPlot:boundLinePlot];
+[boundLinePlot bind:CPScatterPlotBindingXValues toObject:self withKeyPath:@"arrangedObjects.x" options:nil];
+[boundLinePlot bind:CPScatterPlotBindingYValues toObject:self withKeyPath:@"arrangedObjects.y" options:nil];
+}}}
+
+所有类型的报表都是CPPlot的派生类，CPPlot是一个抽象基类。例如：CPScatterPlot用来绘制散点图而CPBarPlot用来绘制柱状图。
+
+一个plot对象和前面我们提到的CPPlotSpace对象是紧密相关的。为了能够绘制自己，plot类需要把它自己的数据源数据转换成绘画坐标中对应的值，这是通过和plot对象对应的plot space对象完成的。
+
+=== Axes ===
