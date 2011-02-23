@@ -11,7 +11,7 @@ _Description of UI design for Nevel iPhone application._
 *类: NevelForiPhoneAppDelegate*
       *应用程序主标签栏控制器:
 	UITabBarController *appRootController
-	with IBOutlet --> MainWindow.xib/Tab Bar Controller
+        with IBOutlet --> MainWindow.xib/Tab Bar Controller
 
 	Tab_1: 托管站点列表 -- 导航控制器
 	SiteListNavViewController *siteListNavViewController
