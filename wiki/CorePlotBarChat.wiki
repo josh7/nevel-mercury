@@ -31,7 +31,7 @@
 
 CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱状图需要的数据，则由数组data提供。
 
-在我们进一步深入之前，我们先到`CorePlotTestViewController.m`里，在CorePlotTestViewController`的dealloc方法里，向data发送release消息。
+在我们进一步深入之前，我们先到`CorePlotTestViewController`.m里，在`CorePlotTestViewController`的dealloc方法里，向data发送release消息。
 
 {{{
 - (void)dealloc {
