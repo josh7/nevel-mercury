@@ -3,7 +3,7 @@
 
 = Introduction =
 
-本文档描述用[http://code.google.com/p/core-plot/ CorePlot]开发柱状图的一些基本方法。
+本文档描述用[http://code.google.com/p/core-plot/ CorePlot]开发柱状图的基本流程和方法。
 
 
 === 创建项目 ===
@@ -78,5 +78,10 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 
 `- (NSNumber *)numberForPlot:(CPPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index`这是core plot进行绘图时，参考的数据方法（根据这个方法的返回值来绘制）；
 
+回顾下我们在[http://code.google.com/p/nevel-mercury/wiki/CorePlotHighLevelDesignOverview CorePlotHighLevelDesignOverview]里曾经提到过的和Tableview进行对比的例子，在`- (NSNumber *)numberForPlot:(CPPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index`方法里：fieldEnum就好比是Tableview的列，Tableview的两列分别用了CPBarPlotFieldBarLocation / CPBarPlotFieldBarLength来区分。CPBarPlotFieldBarLocation表示的横轴的数据，我们进行类型转换后，返回调用该方法时传递进来的index，代表的是图柱的索引；而CPBarPlotFieldBarLength则表示index位置的图柱的高度，返回data数组中和index对应的数组中的值即可。
+
+我相信，到此，柱状图的相关实现要比你曾经想象的容易的多，接下来，我们要做的事情，就是对data进行初始化，完成CPXYGraph的构建工作并把它显示在屏幕上。
+
+=== 初始化数据并绘制报表 ===
 
 _To be continue_
