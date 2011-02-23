@@ -6,7 +6,7 @@ _Description of UI design for Nevel iPhone application._
 本文档用于说明 NevelForiPhone 应用程序的UI设计结构.
 
 
-== 程序主菜单设计说明 =
+== 程序主菜单设计说明 ==
 
 *类: NevelForiPhoneAppDelegate*
 
@@ -14,15 +14,15 @@ _Description of UI design for Nevel iPhone application._
 
         UITabBarController: appRootController
 
-        with IBOutlet --> MainWindow.xib/Tab Bar Controller
+        with IBOutlet --> MainWindow.xib / Tab Bar Controller
 
 	* Tab_1: 托管站点列表 -- 导航控制器
 
-	SiteListNavViewController *siteListNavViewController
+	SiteListNavViewController类的实例: siteListNavViewController
 	
 	* Tab_2: 系统设置 -- 导航控制器
 
-	AppSettingsNavViewController *appSettingsNavViewController
+	AppSettingsNavViewController类的实例: appSettingsNavViewController
 
 *NIB: MainWindow.xib*
 
@@ -48,4 +48,4 @@ _Description of UI design for Nevel iPhone application._
 
 		subclass: AppSettingsNavRootViewController
 
-				NIB: AppSettingsNavRootViewController
+				 NIB: AppSettingsNavRootViewController
