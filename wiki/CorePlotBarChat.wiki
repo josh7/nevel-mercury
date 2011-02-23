@@ -42,7 +42,7 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 
 === 实现core plot的数据源方法 ===
 
-我们在[http://code.google.com/p/nevel-mercury/wiki/CorePlotHighLevelDesignOverview CorePlotHighLevelDesignOverview]中已经介绍过了，Core plot的数据源方法一共由三个：
+我们在[http://code.google.com/p/nevel-mercury/wiki/CorePlotHighLevelDesignOverview CorePlotHighLevelDesignOverview]中已经介绍过了，Core plot的数据源方法一共有三个：
 
 {{{
 #pragma mark -
