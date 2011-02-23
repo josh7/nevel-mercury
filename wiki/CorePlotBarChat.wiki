@@ -8,9 +8,7 @@
 
 === 创建项目 ===
 
-我们新建一个View-based Application，并给项目命名：CorePlotTest
-
-[http://www.kerneldiy.com/images/createProj.png]
+打开XCode，新建一个View-based Application，并给项目命名：CorePlotTest
 
 之后，按照[http://code.google.com/p/nevel-mercury/wiki/CorePlotUpAndRun CorePlotUpAndRun]中的说明，把Core plot集成到我们的项目中来。
 
@@ -20,7 +18,7 @@
 #import "CorePlot-CocoaTouch.h"
 }}}
 
-由于我们这个例子中，报表的数据是通过我们的view controller提供的，因此,CorePlotTestViewController要实现<CPPlotDataSource> protocol。
+由于我们这个例子中，报表的数据是通过我们的view controller提供的，因此，`CorePlotTestViewController`要实现`<CPPlotDataSource>` protocol。
 
 {{{
 @interface CorePlotTestViewController : UIViewController<CPPlotDataSource> {
