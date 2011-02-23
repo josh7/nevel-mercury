@@ -1,7 +1,7 @@
-#summary One-sentence summary of this page.
 #labels UIDesign
+#Description of UI design for Nevel iPhone application.
 
-= Description of UI design for Nevel iPhone application =
+= UI 设计 -- Nevel iPhone Application =
 
 Add your content here.
 
