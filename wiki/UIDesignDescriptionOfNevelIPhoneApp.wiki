@@ -36,9 +36,9 @@
 
 		class: UINavigationController
 
-		subclass: Table (for test)
+		subclass: SiteListNavRootViewController
 
-				  NIB: table
+				 NIB: SiteListNavRootViewController
 
 	* Tab_1: 
 
