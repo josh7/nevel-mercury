@@ -222,6 +222,6 @@ y.minorTicksPerInterval = 2;
 
 OK，到此，一个bar plot的原型就开发完了，你需要做的事情就是Build and Run。Congratulations!
 
-[http://www.kerneldiy.com/images/yellowBar.png]
+[http://www.kerneldiy.com/images/_simpleBar.png]
 
 尽管你可能觉得它并不如你想象的漂亮，但是画都画出来了，漂亮还是问题么？
