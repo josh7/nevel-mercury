@@ -134,7 +134,7 @@ core plot自己的view上，这个view就是一个CPGrahHostingView对象，这�
 
  _在interface builder里创建_
 
-除了上面演示的方法，我们也可以在View controller类里声明一个CPGraphHostingVIew *的IBOutlet，而后在Interface builder里添加一个UIView，在class identity里指定成CPGraphHostingView。
+除了上面演示的方法，我们也可以在View controller类里声明一个`CPGraphHostingVIew *`的IBOutlet，而后在Interface builder里添加一个UIView，在class identity里指定成CPGraphHostingView。
 
 或者：
 
