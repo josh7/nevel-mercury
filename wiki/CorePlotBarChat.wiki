@@ -130,14 +130,15 @@ NSString * const kCPStocksTheme = @"Stocks";                            ///< Sto
 而CPGraphHostingView则是CPGraph的“容器”，在之前我们也说过了，Core plot报表并不直接画在UIView上，而是画在
 core plot自己的view上，这个view就是一个CPGrahHostingView对象，这里，我们只是把当前view controller的view对象强制转换成了一个CPGraphHostingView对象。
 
- * 关于CPGraphHostingView对象的创建方法 *
+ *关于CPGraphHostingView对象的创建方法*
 
-_在interface builder里创建_
+ _在interface builder里创建_
+
 除了上面演示的方法，我们也可以在View controller类里声明一个CPGraphHostingVIew *的IBOutlet，而后在Interface builder里添加一个UIView，在class identity里指定成CPGraphHostingView。
 
 或者：
 
-_通过代码手工创建_
+ _通过代码手工创建_
 
 {{{
 graphHostingView = [[CPLayerHostingView alloc] initWithFrame:CGRectZero] autorelease];
