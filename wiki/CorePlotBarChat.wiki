@@ -167,7 +167,7 @@ plotSpace.xRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(0.0f)
 	   length:CPDecimalFromFloat(12.0f)];
 }}}
 
-由于我们的数据源有12个元素，最大值是130。因此我们把xRange的length设定成[0, 12]，而yRange设置成[0, 150]（留一点儿富裕嘛～）。
+由于我们的数据源有12个元素，最大值是130。因此我们把xRange的length设定成`[0, 12]`，而yRange设置成`[0, 150]`（留一点儿富裕嘛～）。
 
 对于绘图空间，我们直接使用CPXYGraph提供的默认的仿射变换就可以了，因此，我们每必要再去重写坐标的转换算法。
 
@@ -194,5 +194,33 @@ barPlot.identifier = @"BlurBarPlot";
 [graph addPlot:barPlot toPlotSpace:plotSpace];	
 }}}
 
+其实到这里，如果你build / debug就应该已经能看到一个bar plot了，但是等等，我们还有一件事情，绘制坐标轴。
 
-_To be continue_
+=== 绘制坐标轴CPAxis ===
+
+之前我们说过，core plot的坐标轴用CPAxis表示，所有的坐标轴会被集成到一个CPAxisSet对象里。对于一个二维报表来说，当然要遵循规则：
+
+一个CPXYGraph的坐标轴用一个CPXYAxis对象表示，XY轴最后被集成到一个CPXYAxisSet对象里。下面是一个非常简单的添加坐标轴的代码：
+
+{{{
+CPXYAxisSet *axisSet = (CPXYAxisSet *)graph.axisSet;
+	
+CPXYAxis *x = axisSet.xAxis;
+x.majorIntervalLength = CPDecimalFromFloat(10.0f);
+x.minorTicksPerInterval = 2;
+		
+CPXYAxis *y = axisSet.yAxis;
+y.majorIntervalLength = CPDecimalFromFloat(10.0f);
+y.minorTicksPerInterval = 2;
+
+}}}
+
+其实，我们还可以设置坐标轴的title，label和style，这些在core plot提供的实例代码里有非常详细的教程，这里就不多说了，show yourself the code。
+
+=== Build and Run ===
+
+OK，到此，一个bar plot的原型就开发完了，你需要做的事情就是Build and Run。Congratulations!
+
+[http://www.kerneldiy.com/images/simpleBar.png]
+
+尽管你可能觉得它并不如你想象的漂亮，但是画都画出来了，漂亮还是问题么？
