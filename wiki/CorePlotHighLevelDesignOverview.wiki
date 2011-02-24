@@ -120,6 +120,15 @@ Plot space定义了数据集的坐标空间和plot area的绘画空间之间的�
 - (NSArray *)plotPointForViewPoint:(CGPoint)point;
 }}}
 
+注：新版本的core plot已经更新为：
+
+{{{
+- (CGPoing)plotAreaViewPointForPlotPoint:(NSDecimal)plotPoint;
+- (CPPlotRnage *)plotRangeForCoordinate:(CPCoordinate)coordinate;
+}}}
+
+但含义是类似的。
+
 数据空间的坐标，用plot point表示，用一个NSDecimalNumber的数组作为参数传入。绘画空间的坐标，用view point表示，用一个CGPoint对象表示。
 
 无论一个对象需要把数据空间转换成绘图空间，或者反过来，都要以其对应的plot space为基础进行查询。例如，一个CPPlot的实例和一个特定的plot space是对应的，使用这个对应的plot space，core plot来决定把这个plot画在正确的位置上。
