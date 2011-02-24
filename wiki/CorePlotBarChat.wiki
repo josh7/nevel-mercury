@@ -88,19 +88,19 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 
 {{{
 NSArray *array = [[NSArray alloc] initWithObjects:
-							[NSDecimalNumber numberWithInt:100],
-							[NSDecimalNumber numberWithInt:130],
-							[NSDecimalNumber numberWithInt:30],
-							[NSDecimalNumber numberWithInt:40],
-							[NSDecimalNumber numberWithInt:60],
-							[NSDecimalNumber numberWithInt:80],
-							[NSDecimalNumber numberWithInt:100],
-							[NSDecimalNumber numberWithInt:120],
-							[NSDecimalNumber numberWithInt:10],
-							[NSDecimalNumber numberWithInt:15],
-							[NSDecimalNumber numberWithInt:20],
-							[NSDecimalNumber numberWithInt:100],
-							nil];
+				[NSDecimalNumber numberWithInt:100],
+				[NSDecimalNumber numberWithInt:130],
+				[NSDecimalNumber numberWithInt:30],
+				[NSDecimalNumber numberWithInt:40],
+				[NSDecimalNumber numberWithInt:60],
+				[NSDecimalNumber numberWithInt:80],
+				[NSDecimalNumber numberWithInt:100],
+				[NSDecimalNumber numberWithInt:120],
+				[NSDecimalNumber numberWithInt:10],
+				[NSDecimalNumber numberWithInt:15],
+				[NSDecimalNumber numberWithInt:20],
+				[NSDecimalNumber numberWithInt:100],
+				nil];
 	self.data = array;
 	[array release];
 }}}
@@ -118,10 +118,19 @@ CPGraphHostingView *hostingView = (CPGraphHostingView *)self.view;
 hostingView.hostedGraph = graph;
 }}}
 
-CPTheme是报表的样式，而CPGraphHostingView则是CPGraph的“容器”，在之前我们也说过了，Core plot报表并不直接画在UIView上，而是画在
+CPTheme是报表背景的样式，core plot默认内置了四种主题：
+
+{{{
+NSString * const kCPDarkGradientTheme = @"Dark Gradients";      ///< Dark gradient theme.
+NSString * const kCPPlainWhiteTheme = @"Plain White";           ///< Plain white theme.
+NSString * const kCPPlainBlackTheme = @"Plain Black";           ///< Plain black theme.
+NSString * const kCPStocksTheme = @"Stocks";                            ///< Stocks theme
+}}}
+
+而CPGraphHostingView则是CPGraph的“容器”，在之前我们也说过了，Core plot报表并不直接画在UIView上，而是画在
 core plot自己的view上，这个view就是一个CPGrahHostingView对象，这里，我们只是把当前view controller的view对象强制转换成了一个CPGraphHostingView对象。
 
-* 关于CPGraphHostingView对象的创建方法 *
+ * 关于CPGraphHostingView对象的创建方法 *
 
 _在interface builder里创建_
 除了上面演示的方法，我们也可以在View controller类里声明一个CPGraphHostingVIew *的IBOutlet，而后在Interface builder里添加一个UIView，在class identity里指定成CPGraphHostingView。
@@ -142,7 +151,48 @@ hostingView.hostedGraph = graph;
 }}}
 
 
+=== 创建Plot space ===
 
+在[http://code.google.com/p/nevel-mercury/wiki/CorePlotHighLevelDesignOverview CorePlotHighLevelDesignOverview]里我们提到过，我们需要一个数据空间到绘图控件的映射，这个工作，是由CPPlotSpace派生类对象完成的。
+
+我们首先指定数据源空间：
+
+{{{
+// Define the sapce for the bars. (12 bars with a maximum height of 150)
+CPXYPlotSpace *plotSpace = (CPXYPlotSpace *)graph.defaultPlotSpace;
+plotSpace.yRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(0.0f) 
+	   length:CPDecimalFromFloat(150.0f)];
+	
+plotSpace.xRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(0.0f) 
+	   length:CPDecimalFromFloat(12.0f)];
+}}}
+
+由于我们的数据源有12个元素，最大值是130。因此我们把xRange的length设定成[0, 12]，而yRange设置成[0, 150]（留一点儿富裕嘛～）。
+
+对于绘图空间，我们直接使用CPXYGraph提供的默认的仿射变换就可以了，因此，我们每必要再去重写坐标的转换算法。
+
+=== 绘制Bar plot ===
+
+确定bar plot的属性，为绘制做准备：
+
+{{{
+// Bar plot
+CPBarPlot *barPlot = [CPBarPlot tubularBarPlotWithColor:[CPColor yellowColor] 
+	 horizontalBars:NO]; 
+barPlot.dataSource = self;
+barPlot.baseValue = CPDecimalFromString(@"0");
+barPlot.barOffset = 1.0f;
+barPlot.barWidth = 20.0f;
+barPlot.identifier = @"BlurBarPlot";
+}}}
+
+要说明的是，barOffset要从1开始，否则最左侧的图柱会无法显示，barWidth用来设定每一个图柱的宽度，用像素为单位。baseValue，用于设定坐标轴最左边的起始值。
+
+最后，我们通过下面的语句把bar plot“放置”到刚才创建的plot space上。
+
+{{{
+[graph addPlot:barPlot toPlotSpace:plotSpace];	
+}}}
 
 
 _To be continue_
