@@ -82,6 +82,67 @@ CPXYGraph是一个CPGraph的派生类对象，代表我们的柱状图，而柱�
 
 我相信，到此，柱状图的相关实现要比你曾经想象的容易的多，接下来，我们要做的事情，就是对data进行初始化，完成CPXYGraph的构建工作并把它显示在屏幕上。
 
-=== 初始化数据并绘制报表 ===
+=== 初始化数据 ===
+
+为了简单起见，我们直接在`CorePlotTestViewController`的viewDidLoad方法里， 显式初始化data数组。
+
+{{{
+NSArray *array = [[NSArray alloc] initWithObjects:
+							[NSDecimalNumber numberWithInt:100],
+							[NSDecimalNumber numberWithInt:130],
+							[NSDecimalNumber numberWithInt:30],
+							[NSDecimalNumber numberWithInt:40],
+							[NSDecimalNumber numberWithInt:60],
+							[NSDecimalNumber numberWithInt:80],
+							[NSDecimalNumber numberWithInt:100],
+							[NSDecimalNumber numberWithInt:120],
+							[NSDecimalNumber numberWithInt:10],
+							[NSDecimalNumber numberWithInt:15],
+							[NSDecimalNumber numberWithInt:20],
+							[NSDecimalNumber numberWithInt:100],
+							nil];
+	self.data = array;
+	[array release];
+}}}
+
+=== 构建CPGraph对象以及相关的基础构件 ===
+
+接下来，我们第一个需要创建的，是CPXYGraph对象，你可以把这个对象看成是我们报表各个部分的容器。
+
+{{{
+// Create graph from theme
+graph = [[CPXYGraph alloc] initWithFrame:CGRectZero];
+CPTheme *theme = [CPTheme themeNamed:kCPDarkGradientTheme];
+[graph applyTheme:theme];
+CPGraphHostingView *hostingView = (CPGraphHostingView *)self.view;
+hostingView.hostedGraph = graph;
+}}}
+
+CPTheme是报表的样式，而CPGraphHostingView则是CPGraph的“容器”，在之前我们也说过了，Core plot报表并不直接画在UIView上，而是画在
+core plot自己的view上，这个view就是一个CPGrahHostingView对象，这里，我们只是把当前view controller的view对象强制转换成了一个CPGraphHostingView对象。
+
+* 关于CPGraphHostingView对象的创建方法 *
+
+_在interface builder里创建_
+除了上面演示的方法，我们也可以在View controller类里声明一个CPGraphHostingVIew *的IBOutlet，而后在Interface builder里添加一个UIView，在class identity里指定成CPGraphHostingView。
+
+或者：
+
+_通过代码手工创建_
+
+{{{
+graphHostingView = [[CPLayerHostingView alloc] initWithFrame:CGRectZero] autorelease];
+[view addSubView:graphHostingView];
+}}}
+
+在分别创建了CPGraphHostingView和CPXYGraph对象后，我们通过下面的赋值把它们关联到一起：
+
+{{{
+hostingView.hostedGraph = graph;
+}}}
+
+
+
+
 
 _To be continue_
