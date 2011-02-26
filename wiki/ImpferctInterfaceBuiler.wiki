@@ -1,0 +1,12 @@
+#summary InterfaceBuilder in Kinking...
+#labels xcode,iOS,InterfaceBuilder
+
+= 前言 =
+
+InterfaceBuilder是一个好东西，它可以让我们用所见即所得的形式来勾画我们的UI；
+
+InterfaceBuilder是一个坏东西，往往与代码的更新不同步是让我们纠结数日的罪恶根源；
+
+于是，这让我们想起了一个用在什么地方看上去都特别正确的套话：“这个世界上没有不好的工具，只有用不好的程序员”。
+
+_To be continue..._
