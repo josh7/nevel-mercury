@@ -10,11 +10,11 @@ UIView定义了屏幕上的一个方形区域，并且提供了接口，用于�
 
 == frame ==
 
-在UIView对象的父UIView坐标系里，指定子UIView坐标的位置。
+在UIView对象的父UIView坐标系里，指定子UIView对象的位置和大小。
 
 == bound ==
 
-在UIView自己的坐标系统
+在UIView自己的坐标系统里，指定UIView对象的位置和大小。
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
