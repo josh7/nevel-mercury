@@ -1,0 +1,18 @@
+#summary The most important principles at Google.
+
+= Introduction =
+
+This wiki is supposed to outline some of the most important principles at Google, and all the guidelines was summarized by Jon Wiley, User Experience Designer for Google Apps.
+
+= Details =
+
+# === *Useful*: focus on people - their lives, their work, their dreams. ===
+# Fast: every millisecond counts.
+# Simple: simplicity is powerful.
+# Engaging: engage beginners and attract experts.
+# Innovative: dare to be innovative.
+# Universal: design for the world.
+# Profitable: plan for today's and tomorrow's business.
+# Beautiful: delight the eye without distracting the mind.
+# Trustworthy: be worthy of people's trust.
+# Personable: add a human touch.
