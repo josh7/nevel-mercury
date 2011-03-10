@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
-@interface MercuryLoginViewController : 
-	UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface MercuryLoginViewController : UIViewController
+<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
 	// The UI controls.
 	UIImageView *bgImageView;
 	UIView *loginControlLayer;
@@ -26,6 +27,8 @@
 		
 	// The scroll up flag.	
 	int scrollup;
+	
+	MBProgressHUD *hud;
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
@@ -40,5 +43,7 @@
 
 
 - (void)loginPressed:(id)sender;
+- (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
+- (void)loadingTask
 @end

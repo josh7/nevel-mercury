@@ -147,6 +147,30 @@
     [super dealloc];
 }
 
+
+- (void)showUsingBlocks:(id)sender {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+		// Show the HUD in the main thread
+		dispatch_async(dispatch_get_main_queue(), ^{
+			MBProgressHUD *_hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+			_hud.labelText = @"Loading";
+		});
+		
+		// Do the background loading here
+		[self loadingTask];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[MBProgressHUD hideHUDForView:self.view animated:YES];
+		});
+	});
+}
+
+#pragma mark -
+#pragma mark Execution code
+
+-(void)loadingTask {
+
+}
 #pragma mark -
 #pragma mark Table View Data Source Methods
 
@@ -183,9 +207,7 @@
 		// Set the password textField attribute.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
-			
 		}
-		
 	}
 
 	return cell;
@@ -224,4 +246,11 @@
 	
 }
 
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hudPara {
+	[hud removeFromSuperview];
+	[hud release];
+}
 @end
