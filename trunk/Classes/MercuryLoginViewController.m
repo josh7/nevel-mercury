@@ -14,13 +14,10 @@
 
 @synthesize bgImageView;
 @synthesize loginControlLayer;
-@synthesize loginField;
-@synthesize loginLabel;
-@synthesize passwordField;
-@synthesize passwordLabel;
 @synthesize loginTableView;
 @synthesize uiDictionary;
 @synthesize uiKeys;
+@synthesize hud;
 
 
 // The designated initializer.  Override if you create the controller 
@@ -69,7 +66,7 @@
 	self.loginControlLayer.backgroundColor = [UIColor colorWithRed:0.000 
 															 green:0.000 
 															  blue:0.000 
-															 alpha:0.300];
+															 alpha:0.000];
 	
 	[loginControlLayerTemp release];
 	[self.view addSubview:self.loginControlLayer];
@@ -139,11 +136,9 @@
 - (void)dealloc {
 	[bgImageView release];
 	[loginControlLayer release];
-	[loginField	release];
-	[loginLabel release];
-	[passwordField release];
-	[passwordLabel release];
-	
+	[loginTableView release];
+	[uiDictionary release];
+	[uiKeys release];
     [super dealloc];
 }
 
@@ -151,9 +146,9 @@
 - (void)showUsingBlocks:(id)sender {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 		// Show the HUD in the main thread
-		dispatch_async(dispatch_get_main_queue(), ^{
-			MBProgressHUD *_hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-			_hud.labelText = @"Loading";
+		dispatch_async(dispatch_get_main_queue(), ^ {
+			self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+			self.hud.labelText = @"Login...";
 		});
 		
 		// Do the background loading here
@@ -169,7 +164,20 @@
 #pragma mark Execution code
 
 -(void)loadingTask {
-
+	// Do the background loading here.
+	// Just for demo now...
+	sleep(3);
+	
+	// Change the HUD mode
+	self.hud.mode = MBProgressHUDModeDeterminate;
+	self.hud.labelText = @"Updating data...";
+	float progress = 0.0f;
+	
+	while (progress < 1.0f) {
+		progress += 0.01f;
+		self.hud.progress = progress;
+		usleep(50000);
+	}
 }
 #pragma mark -
 #pragma mark Table View Data Source Methods
@@ -243,7 +251,16 @@
 #pragma mark -
 #pragma mark UIButton method
 - (void)loginPressed:(id)sender {
-	
+	CGPoint newPosition = self.loginControlLayer.center;
+	newPosition.x = -160;
+
+	[UIView animateWithDuration:0.5 
+					 animations:^ { 
+						 self.loginControlLayer.center = newPosition; }
+					 completion:^ (BOOL finished) { 
+						 [self.loginControlLayer removeFromSuperview]; 
+						 [self showUsingBlocks:sender];
+					 }];
 }
 
 #pragma mark -

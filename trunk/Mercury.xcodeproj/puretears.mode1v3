@@ -266,15 +266,17 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>68F82FAA1327B39F00E20BE7</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>682BB6EF13260C0C0054CEC9</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
 									<integer>11</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -298,7 +300,7 @@
 							<real>288</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-1 59 1440 819 0 0 1440 878 </string>
+						<string>0 59 1440 819 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -316,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Mercury_Prefix.pch</string>
+								<string>MercuryLoginViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Mercury_Prefix.pch</string>
+										<string>MercuryLoginViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>68DEBCD3132861AD00B14FC0</string>
+										<string>68DEBE581328C55C00B14FC0</string>
 										<key>history</key>
 										<array>
 											<string>68802CFB1324E4380044E48D</string>
@@ -336,15 +338,16 @@
 											<string>682BB6CD1326054C0054CEC9</string>
 											<string>682BB6CF1326054C0054CEC9</string>
 											<string>682BB74913262CFC0054CEC9</string>
-											<string>68F7068B13276DC600766B32</string>
-											<string>68F7068D13276DC600766B32</string>
-											<string>68F706A21327740B00766B32</string>
 											<string>68F706C41327757A00766B32</string>
-											<string>68F706CE13277D8100766B32</string>
-											<string>68F82FE31327C5F700E20BE7</string>
-											<string>68DEBCD0132861AD00B14FC0</string>
-											<string>68DEBCD1132861AD00B14FC0</string>
-											<string>68DEBCD2132861AD00B14FC0</string>
+											<string>68DEBCF11328649900B14FC0</string>
+											<string>68DEBD001328667700B14FC0</string>
+											<string>68DEBDAE1328A85A00B14FC0</string>
+											<string>68DEBDAF1328A85A00B14FC0</string>
+											<string>68DEBDB01328A85A00B14FC0</string>
+											<string>68DEBDB11328A85A00B14FC0</string>
+											<string>68DEBDB21328A85A00B14FC0</string>
+											<string>68DEBE3E1328C1CF00B14FC0</string>
+											<string>68DEBE3F1328C1CF00B14FC0</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -356,14 +359,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1130, 639}}</string>
+								<string>{{0, 0}, {1130, 688}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1 59 1440 819 0 0 1440 878 </string>
+								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>639pt</string>
+							<string>688pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -376,14 +379,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 644}, {1130, 134}}</string>
+								<string>{{0, 693}, {1130, 85}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-1 59 1440 819 0 0 1440 878 </string>
+								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>134pt</string>
+							<string>85pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -542,14 +545,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>68DEBE591328C55C00B14FC0</string>
 		<string>68DEBCDE132861AD00B14FC0</string>
 		<string>68DEBCDF132861AD00B14FC0</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>68AEA2201322DD49001078AD</string>
+		<string>/Users/puretears/Documents/project/nevel-mercury/Mercury.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>-1 59 1440 819 0 0 1440 878 </string>
+	<string>0 59 1440 819 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -577,9 +581,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {500, 218}}</string>
+								<string>{{0, 0}, {589, 218}}</string>
 								<key>RubberWindowFrame</key>
-								<string>769 110 500 500 0 0 1440 878 </string>
+								<string>769 110 589 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -603,9 +607,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 223}, {500, 236}}</string>
+								<string>{{0, 223}, {589, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>769 110 500 500 0 0 1440 878 </string>
+								<string>769 110 589 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -637,7 +641,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>769 110 500 500 0 0 1440 878 </string>
+			<string>769 110 589 500 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>68AEA2201322DD49001078AD</string>
 			<key>WindowToolIsVisible</key>

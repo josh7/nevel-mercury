@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <unistd.h> // For sleep function.
+#import <QuartzCore/QuartzCore.h> // For CATransition methods.
 #import "MBProgressHUD.h"
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
@@ -15,10 +17,6 @@
 	// The UI controls.
 	UIImageView *bgImageView;
 	UIView *loginControlLayer;
-	UITextField *loginField;
-	UILabel *loginLabel;
-	UITextField *passwordField;
-	UILabel *passwordLabel;
 	UITableView *loginTableView;
 	
 	// For UI Text (we use a plist here for International purpose.)
@@ -33,17 +31,14 @@
 
 @property (nonatomic, retain) UIImageView *bgImageView;
 @property (nonatomic, retain) UIView *loginControlLayer;
-@property (nonatomic, retain) UITextField *loginField;
-@property (nonatomic, retain) UILabel *loginLabel;
-@property (nonatomic, retain) UITextField *passwordField;
-@property (nonatomic, retain) UILabel *passwordLabel;
 @property (nonatomic, retain) UITableView *loginTableView;
 @property (nonatomic, retain) NSDictionary *uiDictionary;
 @property (nonatomic, retain) NSArray *uiKeys;
+@property (nonatomic, retain) MBProgressHUD *hud;
 
 
 - (void)loginPressed:(id)sender;
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
-- (void)loadingTask
+- (void)loadingTask;
 @end
