@@ -1,9 +1,11 @@
 #summary What block objects are and how to use them from your code.
 #labels iOS,Block
 
+<wiki:toc max_depth="3" />
+
 == Block是什么？ ==
 
-Block是Object C的一个运行时特性，它很像C中的函数指针，因为你可以像使用函数指针一样的去使用block对象；它也很像C++中的函数对象，因为除了要执行的代码，block还可以携带和block绑定的状态信息。
+Block是C语言的一个语法特性，同时也是C语言的运行时特性，它很像C中的函数指针，因为你可以像使用函数指针一样的去使用block对象；它也很像C++中的函数对象，因为除了要执行的代码，block还可以携带和block绑定的状态信息。
 
 因此，block是一个对象，这个对象里包含了要执行的代码片段以及一些状态信息。
 
