@@ -1,5 +1,5 @@
 #summary What block objects are and how to use them from your code.
-#labels iOS,Block
+#labels Block
 
 <wiki:toc max_depth="3" />
 
@@ -87,4 +87,42 @@ NSLog(@"finderSortArray: %@", finderSortArray);
 }}}
 == block和变量之间的关系 ==
 
+这一部分涉及内存管理相关的内容，为了正确的使用block，理解并记住它们，很重要：
+
+在一个block代码片段的内部，你可以使用三种不同类型的变量（就像你在函数里一样）：
+
+ * 全局变量（包括static locals）；
+ * 全局函数（尽管这并不是变量=。=）；
+ * 在包含block的词法范围内的局部变量；
+
+当在一个Block里使用变量时，应遵循以下规则：
+
+ * 在包含block的词法范围里的栈局部变量，在block内部是常量，只能只读访问。这些局部变量的值即block执行时，局部变量的值。在多层内嵌的block中，
+局部变量的值，取最内层词法范围里，局部变量的值；
+ * 被声明为`__block`存储类型的局部变量通过引用传递给block，因此是mutable的；在`__block`类型的局部变量的有效范围内，对该局部变量的修改，会在该有效范围内的所有block范围内生效；
+ * 定义在block内部的局部变量，和函数内部的局部变量法则相同；
+
+正确的：
+
+{{{
+int x = 123;
+void (^printXandY)(int) = ^(int y) {
+    printf("%d %d\n", x, y);
+};
+
+printXandY(456);
+}}}
+
+错误的：
+
+{{{
+int x = 123;
+
+void (^printXandY)(int) = ^(int y) {
+    x = x + y; // ERROR HERE!!! x should be __block
+    printf("%d %d\n", x, y);
+};
+
+printXandY(456);
+}}}
 _To be continue..._
