@@ -39,7 +39,7 @@ block是一片具有以下特性的内联代码片段集合:
 
 {{{
 int multiplier = 7;
-int (^myBlock)(int) = ^(int num) { return num ^ multipiler; }
+int (^myBlock)(int) = ^(int num) { return num * multipiler; }
 
 printf("%d", myBlock(3)); // prints "21"
 }}}
