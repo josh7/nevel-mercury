@@ -173,6 +173,7 @@ dispatch_async(queue, ^{
     // localVariable is used by value, localVariable is retained (not self)
     doSomethingWithObject(localVariable);
 });
+}}}
 
 === `__block`和C++对象之间的关系 ===
 
