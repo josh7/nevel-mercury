@@ -154,4 +154,30 @@ static NSInteger CounterStatic;
 }
 }}}
 
-_To be continue..._
+=== `__block`和Object C对象之间的关系 ===
+
+如果，你在一个方法的实现里，使用了`__block`，则：
+
+ * 通过引用的方式访问对象的，self被retain；
+{{{
+dispatch_async(queue, ^{
+    // instanceVariable is used by reference, self is retained
+    doSomethingWithObject(instanceVariable);
+});
+}}}
+
+ * 通过值访问对象的，被访问的对象被retain；
+{{{
+id localVariable = instanceVariable;
+dispatch_async(queue, ^{
+    // localVariable is used by value, localVariable is retained (not self)
+    doSomethingWithObject(localVariable);
+});
+
+=== `__block`和C++对象之间的关系 ===
+
+需要注意两点：
+
+ * 把一个基于栈的C++对象变成一个`__block`类型的时候，要调用类的copy constructor；
+ * 在block内部使用栈中的C++对象时，要调用栈的const copy constructor；
+}}}
