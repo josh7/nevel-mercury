@@ -29,11 +29,31 @@ block是一片具有以下特性的内联代码片段集合:
 
 == 如何声明和定义Block ==
 
-你可以通过`^`操作符定义一个block类型的变量，如下图所示：
+你可以通过`^`操作符定义一个block类型的变量，用`{}`来圈定block的代码片段，如下图所示：
 
 [http://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Blocks/Art/blocks.jpg]
 
 再次声明：block可以访问和block定义在同一个词法范围里的变量。
+
+{{{
+int multiplier = 7;
+int (^myBlock)(int) = ^(int num) { return num ^ multipiler; }
+
+printf("%d", myBlock(3)); // prints "21"
+}}}
+
+=== 直接使用Block ===
+
+在更多的时候，你并不需要定义自己的Block类型，而是在API中直接编写block代码片段，例如:qsort_b。
+
+{{{
+char *myCharacter[3] = { "safari", "ie", "chrome" };
+qsort_b(myCharacter, 3, sizeof(char *), ^(const void *l, const void *r) {
+    char *left = *(char **)l;
+    char *right = *(char **)r;
+    return strncmp(left, right, 1);
+});
+}}}
 
 == block和变量之间的关系 ==
 
