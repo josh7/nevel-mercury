@@ -39,7 +39,7 @@ block是一片具有以下特性的内联代码片段集合:
 
 {{{
 int multiplier = 7;
-int (^myBlock)(int) = ^(int num) { return num * multipiler; }
+int (^myBlock)(int) = ^(int num) { return num ^ multipiler; }
 
 printf("%d", myBlock(3)); // prints "21"
 }}}
@@ -125,4 +125,33 @@ void (^printXandY)(int) = ^(int y) {
 
 printXandY(456);
 }}}
+
+=== 关于`__block`的进一步讨论 ===
+
+ # `__block`是只针对局部变量生效的一种描述变量存储类型的关键字，因此`__block`类型的变量都是栈变量；
+ # `__block`类型的变量在其定义的语法范围里，和该范围内的所有block共享存储空间，当block在被复制到heap区域时，同区域内的`__block`变量占用的内存不会随着退栈而销毁；
+ # 出于优化的考虑，栈中的block对象最开始和一般的栈局部变量是相同的，当使用Block_copy对block进行复制时，才被拷贝到heap区域；
+ # `__block`变量不能是一个可变长数组；
+
+下面这个例子用于展示，各种类型的变量与`__block`之间的交互：
+
+{{{
+extern NSInteger CounterGlobal;
+static NSInteger CounterStatic;
+{
+    NSInteger localCounter = 42;
+    __block char localCharacter;
+    void (^aBlock)(void) = ^(void) {
+        ++CounterGlobal;
+        ++CounterStatic;
+        CounterGlobal = localCounter; // localCounter fixed at block creation
+        localCharacter = 'a'; // sets localCharacter in enclosing scope
+    };
+    ++localCounter; // unseen by the block
+    localCharacter = 'b';
+    aBlock(); // execute the block
+    // localCharacter now 'a'
+}
+}}}
+
 _To be continue..._
