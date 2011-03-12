@@ -60,12 +60,12 @@ UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.
 
 == about naming ==
 
-Temporary object naming: objectNameTemp
+  * Temporary object naming: objectNameTemp
 
-eg:
+     eg:
 
 {{{
 UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 78, 20)];
-		self.loginLabel = labelTemp;
-		[labelTemp release];
+self.loginLabel = labelTemp;
+[labelTemp release];
 }}}
