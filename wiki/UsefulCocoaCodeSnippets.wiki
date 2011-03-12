@@ -1,6 +1,8 @@
 #summary The Cococa code you may use in the daily programming.
 #labels iOS,Cocoa,iPhone,Nevel
 
+<wiki:toc max_depth="2" />
+
 == Create a UIViewController object manually ==
 
 {{{
@@ -69,3 +71,15 @@ UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 78, 20)];
 self.loginLabel = labelTemp;
 [labelTemp release];
 }}}
+
+== about UIColor ==
+
+A UIColor object represents *color* and sometimes *opacity* (alpha value).
+
+Can: store color data
+
+|| Preset Component Values || RGB value || grayscale value || alpha value ||
+|| blackColor ||  || 0.0 || 1.0 ||
+|| clearColor ||  ||  0.0 || 0.0 ||
+|| blueColor || 0.0, 0.0, 1.0 ||  || 1.0 ||
+|| brownColor || 0.6, 0.4, 0.2 ||  || 1.0 ||
