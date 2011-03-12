@@ -81,9 +81,11 @@ Can: store color data
 || Preset Component Values || RGB value || grayscale value || alpha value ||
 || blackColor ||  || 0.0 || 1.0 ||
 || clearColor ||  ||  0.0 || 0.0 ||
+|| whiteColor ||  || 1.0 || 1.0 ||
 || blueColor || 0.0, 0.0, 1.0 ||  || 1.0 ||
 || brownColor || 0.6, 0.4, 0.2 ||  || 1.0 ||
-
+|| darkTextColor || Returns the system color used for displaying text on a light background. ||
+|| groupTableViewBackgroundColor || Returns the system color used for the background of a grouped table. ||
 colorWithRed:green:blue:alpha:
 {{{
 + (UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
