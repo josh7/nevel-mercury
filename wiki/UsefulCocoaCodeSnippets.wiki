@@ -86,8 +86,23 @@ Can: store color data
 || brownColor || 0.6, 0.4, 0.2 ||  || 1.0 ||
 || darkTextColor ||  ||  ||  || Returns the system color used for displaying text on a light background. ||
 || groupTableViewBackgroundColor ||  ||  ||  || Returns the system color used for the background of a grouped table. ||
+
 colorWithRed:green:blue:alpha:
 {{{
 + (UIColor *)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
 }}}
   _red, green, blue, alpha: value from 0.0 to 1.0._
+
+== about returnKeyType ==
+
+   UIReturnKeyDefault (Default value)
+   UIReturnKeyGo,
+   UIReturnKeyGoogle,
+   UIReturnKeyJoin,
+   UIReturnKeyNext (used when there are more than one textfield need to be filled, and not the last one),
+   UIReturnKeyRoute,
+   UIReturnKeySearch,
+   UIReturnKeySend,
+   UIReturnKeyYahoo,
+   UIReturnKeyDone,
+   UIReturnKeyEmergencyCall
