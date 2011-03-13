@@ -95,14 +95,14 @@ colorWithRed:green:blue:alpha:
 
 == about returnKeyType ==
 
-   UIReturnKeyDefault (Default value)
-   UIReturnKeyGo,
-   UIReturnKeyGoogle,
-   UIReturnKeyJoin,
-   UIReturnKeyNext (used when there are more than one textfield need to be filled, and not the last one),
-   UIReturnKeyRoute,
-   UIReturnKeySearch,
-   UIReturnKeySend,
-   UIReturnKeyYahoo,
-   UIReturnKeyDone,
-   UIReturnKeyEmergencyCall
+   *UIReturnKeyDefault (Default value)
+   *UIReturnKeyGo,
+   *UIReturnKeyGoogle,
+   *UIReturnKeyJoin,
+   *UIReturnKeyNext (used when there are more than one textfield need to be filled, and not the last one),
+   *UIReturnKeyRoute,
+   *UIReturnKeySearch,
+   *UIReturnKeySend,
+   *UIReturnKeyYahoo,
+   *UIReturnKeyDone,
+   *UIReturnKeyEmergencyCall
