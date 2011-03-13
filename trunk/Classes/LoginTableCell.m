@@ -9,22 +9,24 @@
 #import "LoginTableCell.h"
 
 
-@implementation LoginTableCell
+@implementation LoginTableCell  // bySu: @interface
 @synthesize loginLabel;
 @synthesize loginTextField;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-	
-    if (self) {
+	self.selectionStyle = UITableViewCellSelectionStyleNone;    // bySu: the selected cell do not turn blue
+    
+    // bySu: Why use if here?
+    if (self) { 
         // Initialization code.
 		// Create & add the left text in the cell.
-		UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 78, 20)];
+		UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 78, 20)];    // bySu: only can be numbers
 		self.loginLabel = labelTemp;
 		[labelTemp release];
 		self.loginLabel.textAlignment = UITextAlignmentLeft;
-		self.loginLabel.tag = kLabelTag;
+		self.loginLabel.tag = kLabelTag;    // bySu: 0 why use a tag?
 		self.loginLabel.font = [UIFont boldSystemFontOfSize:14];
 		self.loginLabel.backgroundColor = [UIColor clearColor];
 		[self.contentView addSubview:self.loginLabel];
@@ -35,8 +37,8 @@
 			[[UITextField alloc] initWithFrame:CGRectMake(97, 7, 217, 31)];
 		self.loginTextField = textFieldTemp;
 		[textFieldTemp release];
-		self.loginTextField.clearsOnBeginEditing = NO;
-		self.loginTextField.returnKeyType = UIReturnKeyDone;
+		self.loginTextField.clearsOnBeginEditing = NO;  // bySy: default is NO
+		self.loginTextField.returnKeyType = UIReturnKeyDone;    // bySu: default is UIReturnKeyDefault
 		[self.contentView addSubview:self.loginTextField];
     }
     return self;
@@ -52,6 +54,7 @@
 
 
 - (void)dealloc {
+    [loginLabel release];   // bySu: I think the label should be released.
 	[loginTextField release];
     [super dealloc];
 }

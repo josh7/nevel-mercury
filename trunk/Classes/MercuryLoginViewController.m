@@ -188,7 +188,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section {
-	return 2;
+	return 2;   // bySu: number should be counted.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
