@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <unistd.h> // For sleep function.
-#import <QuartzCore/QuartzCore.h> // For CATransition methods.
+#import <unistd.h>  // For sleep function.
+#import <QuartzCore/QuartzCore.h>   // For CATransition methods.
 #import "MBProgressHUD.h"
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
@@ -23,7 +23,7 @@
 	NSDictionary *uiDictionary;
 	NSArray *uiKeys;
 		
-	// The scroll up flag.	
+	// The scroll up flag.  // bySu: what is it for?
 	int scrollup;
 	
 	MBProgressHUD *hud;
@@ -41,4 +41,5 @@
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
+
 @end
