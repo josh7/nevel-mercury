@@ -113,3 +113,7 @@ colorWithRed:green:blue:alpha:
   * UITableViewCellSelectionStyleNone (used when the cell can be edit, such as login text field)
   * UITableViewCellSelectionStyleBlue
   * UITableViewCellSelectionStyleGray
+
+== UIButton ==
+
+===
