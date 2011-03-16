@@ -8,6 +8,7 @@
 
 #import "MercuryLoginViewController.h"
 #import "LoginTableCell.h"
+#import "MercuryAppDelegate.h"
 
 
 @implementation MercuryLoginViewController
@@ -15,6 +16,7 @@
 @synthesize bgImageView;
 @synthesize loginControlLayer;
 @synthesize loginTableView;
+@synthesize mainboardViewController;
 @synthesize uiDictionary;
 @synthesize uiKeys;
 @synthesize hud;
@@ -58,8 +60,8 @@
 	[ivTemp release];
 	
 	// "Paste the background onto the view"
-	[self.view addSubview:self.bgImageView];
-	
+	[self.view insertSubview:self.bgImageView atIndex:0];
+    
 	// Create an additional layer to hold login controls.
 	UIView *loginControlLayerTemp = [[UIView alloc] initWithFrame:viewRect];
 	self.loginControlLayer = loginControlLayerTemp;
@@ -69,7 +71,8 @@
 															 alpha:0.000];
 	
 	[loginControlLayerTemp release];
-	[self.view addSubview:self.loginControlLayer];
+    [self.view insertSubview:self.loginControlLayer atIndex:1];
+ 
 	
 	// Create the login table control.
 	UITableView *tableViewTemp = [[UITableView alloc] initWithFrame:CGRectMake(0, 266, 320, 153) 
@@ -156,7 +159,29 @@
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[MBProgressHUD hideHUDForView:self.view animated:YES];
-		});
+            
+            // Here we have synced all data. Swith to the new view.
+            MercuryMainboardViewController *boardTemp = [[MercuryMainboardViewController alloc] init];
+            self.mainboardViewController = boardTemp;
+            [boardTemp release];
+            
+            MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+           
+            // Get rid of the login view controller and add the main one.
+            [appDelegate.mercuryLoginViewController.view removeFromSuperview];
+            [appDelegate.baseView addSubview:mainboardViewController.view];
+
+            CATransition *animation = [CATransition animation];
+            //animation.delegate = self;
+            animation.duration = 0.3f;
+            animation.timingFunction = UIViewAnimationCurveEaseInOut;
+            animation.fillMode = kCAFillModeForwards;
+            animation.removedOnCompletion = NO;
+                                 
+            animation.type = kCATransitionPush;
+            animation.subtype = kCATransitionFromRight;
+            [appDelegate.baseView.layer addAnimation:animation forKey:@"animation"];
+        });
 	});
 }
 
@@ -258,9 +283,12 @@
 					 animations:^ { 
 						 self.loginControlLayer.center = newPosition; }
 					 completion:^ (BOOL finished) { 
+                         // Get rid of all login controls and show the sync hud.
 						 [self.loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
+    
+        
 }
 
 #pragma mark -

@@ -11,11 +11,14 @@
 
 @interface MercuryAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	MercuryLoginViewController *mercuryLoginViewController;
+    //UIViewController *baseView;
+	UIView *baseView;
+    MercuryLoginViewController *mercuryLoginViewController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
-
+//@property (nonatomic, retain) UIViewController *baseView;
+@property (nonatomic, retain) UIView *baseView;
 @end
 
