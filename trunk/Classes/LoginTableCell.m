@@ -16,9 +16,9 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-	self.selectionStyle = UITableViewCellSelectionStyleNone;    // bySu: the selected cell do not turn blue
+	self.selectionStyle = UITableViewCellSelectionStyleNone;    // bySu: the selected cell will not turn blue
     
-    // bySu: Why use if here?
+    // bySu: Why use if here? the answer is: 括号里的self是 super initWithStyle 的返回结果，这个方法是一个delegate，在需要绘制表格的时候，由iOS调用。那么，当需要重新显示一个已经绘制过的cell的时候，super initWithStyle，就会返回那个曾经已经绘制出来的cell，因此，此时的self就不等于nil了
     if (self) { 
         // Initialization code.
 		// Create & add the left text in the cell.
@@ -37,7 +37,7 @@
 			[[UITextField alloc] initWithFrame:CGRectMake(97, 7, 217, 31)];
 		self.loginTextField = textFieldTemp;
 		[textFieldTemp release];
-		self.loginTextField.clearsOnBeginEditing = NO;  // bySy: default is NO
+		self.loginTextField.clearsOnBeginEditing = YES;  // bySu: default is NO; we can display some tips before tapping
 		self.loginTextField.returnKeyType = UIReturnKeyDone;    // bySu: default is UIReturnKeyDefault
 		[self.contentView addSubview:self.loginTextField];
     }

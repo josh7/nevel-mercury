@@ -6,6 +6,8 @@
 	<array>
 		<string>Nevel ID:</string>
 		<string>Password:</string>
+		<string>Register</string>
+		<string>Login</string>
 	</array>
 </dict>
 </plist>

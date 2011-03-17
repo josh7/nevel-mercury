@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F04FB41330958700762374 /* MercuryMainboardViewController.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F04FB31330958700762374 /* MercuryMainboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryMainboardViewController.h; sourceTree = "<group>"; };
+		00F04FB41330958700762374 /* MercuryMainboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryMainboardViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				1D3623250D0F684500981E51 /* MercuryAppDelegate.m */,
 				68C5B0541323C27A005843C8 /* MercuryLoginViewController.h */,
 				68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */,
+				00F04FB31330958700762374 /* MercuryMainboardViewController.h */,
+				00F04FB41330958700762374 /* MercuryMainboardViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				68C5B0561323C27A005843C8 /* MercuryLoginViewController.m in Sources */,
 				682BB6F213260C380054CEC9 /* LoginTableCell.m in Sources */,
 				68F82FAD1327B3BD00E20BE7 /* MBProgressHUD.m in Sources */,
+				00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
