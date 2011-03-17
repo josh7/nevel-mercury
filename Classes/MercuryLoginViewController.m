@@ -69,7 +69,6 @@
 															 green:0.000 
 															  blue:0.000 
 															 alpha:0.000];
-	
 	[loginControlLayerTemp release];
     [self.view insertSubview:self.loginControlLayer atIndex:1];
  
@@ -79,30 +78,54 @@
 															  style:UITableViewStyleGrouped];
 	self.loginTableView = tableViewTemp;
 	[tableViewTemp release];
+    
 	self.loginTableView.backgroundColor = [UIColor clearColor];
 	self.loginTableView.delegate = self;
 	self.loginTableView.dataSource = self;
 	self.loginTableView.alpha = 0;
 	[self.loginControlLayer addSubview:self.loginTableView];
 	
+    // bySu: use plist to display "Register"
+    NSString *key = @"Login";
+    NSArray *loginSection = [uiDictionary objectForKey:key];
+    
 	// The login button.
 	UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	loginButton.frame = CGRectMake(205, 380, 105, 37);
 	loginButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	loginButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-	[loginButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-	[loginButton setTitle:@"Login" forState:UIControlStateNormal];
+	[loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];    // bySu: change lightGrayColor to whiteColor
+	[loginButton setTitle:[loginSection objectAtIndex:3] forState:UIControlStateNormal];    // bySu: use plist to display "Login"
 	loginButton.titleLabel.font	= [UIFont boldSystemFontOfSize:16.0f];
 	loginButton.alpha = 0;
 	[loginButton addTarget:self 
 					action:@selector(loginPressed:) 
 		  forControlEvents:UIControlEventTouchUpInside];
 	[self.loginControlLayer addSubview:loginButton];
+    
+    // bySu: The register button.
+        
+	UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	registerButton.frame = CGRectMake(10, 380, 105, 37);
+	registerButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+	registerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+	[registerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];    
+	[registerButton setTitle:[loginSection objectAtIndex:2] forState:UIControlStateNormal];     // bySu: use plist to display "Register"
+	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+	registerButton.alpha = 0;
+    
+    // add 
+/*	[registerButton addTarget:self 
+					   action:@selector(registerPressed:) 
+		     forControlEvents:UIControlEventTouchUpInside];
+*/	[self.loginControlLayer addSubview:registerButton];
 	
 	[UIView animateWithDuration:1.0 animations:^{
 		self.loginTableView.alpha = 1.0;
 		loginButton.alpha = 1.0;
+        registerButton.alpha = 1.0;
 	}];
 	
 }
@@ -141,7 +164,7 @@
 	[loginControlLayer release];
 	[loginTableView release];
 	[uiDictionary release];
-	[uiKeys release];
+	[uiKeys release];   // bySu: why hud does not need to be released? Answer is at the bottom.
     [super dealloc];
 }
 
@@ -276,26 +299,98 @@
 #pragma mark -
 #pragma mark UIButton method
 - (void)loginPressed:(id)sender {
+        
+    UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
+                                       initWithTitle:nil
+                                            delegate:self
+                                   cancelButtonTitle:@"Just login this time"    // bySu: should load from plist
+                              destructiveButtonTitle:@"Auto login next time"
+                                   otherButtonTitles:@"Save password", nil];
+    [loginActionSheet showInView:self.view];
+    [loginActionSheet release];
+/*
 	CGPoint newPosition = self.loginControlLayer.center;
 	newPosition.x = -160;
 
 	[UIView animateWithDuration:0.5 
 					 animations:^ { 
 						 self.loginControlLayer.center = newPosition; }
-					 completion:^ (BOOL finished) { 
+					 completion:^ (BOOL finished)        { 
                          // Get rid of all login controls and show the sync hud.
 						 [self.loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
     
-        
+*/       
 }
+
+- (void)actionSheet:(UIActionSheet *)loginActionSheet
+didDismissWithButtonIndex:(NSInteger)buttonIndex:(id)sender
+{
+    // bySu: choose "just login" button
+    if (buttonIndex == [loginActionSheet cancelButtonIndex])
+    {
+        CGPoint newPosition = self.loginControlLayer.center;
+        newPosition.x = -160;
+        
+        [UIView animateWithDuration:0.5 
+                         animations:^ { 
+                             self.loginControlLayer.center = newPosition; }
+                         completion:^ (BOOL finished) { 
+                             // Get rid of all login controls and show the sync hud.
+                             [self.loginControlLayer removeFromSuperview]; 
+                             [self showUsingBlocks:sender];
+                         }];
+
+    }
+    
+    // bySu: choose "aoto login" button
+    else if(buttonIndex == [loginActionSheet destructiveButtonIndex])
+    {
+        UIAlertView *alertForTest = [[UIAlertView alloc]
+                                     initWithTitle:@"just login"
+                                     message:@"test success"
+                                     delegate:self
+                                     cancelButtonTitle:@"yes"
+                                     otherButtonTitles:nil];
+        [alertForTest show];
+        [alertForTest release];
+
+        CGPoint newPosition = self.loginControlLayer.center;
+        newPosition.x = -160;
+        
+        [UIView animateWithDuration:0.5 
+                         animations:^ { 
+                             self.loginControlLayer.center = newPosition; }
+                         completion:^ (BOOL finished) { 
+                             // Get rid of all login controls and show the sync hud.
+                             [self.loginControlLayer removeFromSuperview]; 
+                             [self showUsingBlocks:sender];
+                         }];
+    }
+    
+    // bySu: choose "remember password" button
+    else{
+        CGPoint newPosition = self.loginControlLayer.center;
+        newPosition.x = -160;
+        
+        [UIView animateWithDuration:0.5 
+                         animations:^ { 
+                             self.loginControlLayer.center = newPosition; }
+                         completion:^ (BOOL finished) { 
+                             // Get rid of all login controls and show the sync hud.
+                             [self.loginControlLayer removeFromSuperview]; 
+                             [self showUsingBlocks:sender];
+                         }];
+    }
+}
+
 
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
 
 - (void)hudWasHidden:(MBProgressHUD *)hudPara {
-	[hud removeFromSuperview];
+	[hud removeFromSuperview];  //是HUD在自己的绘制工作结束的时候，会去调用一个Delegate，在那个时候，清除hud对象就已经是安全的了，反正也显示完了，没必要等程序结束的时候再释放
 	[hud release];
 }
 @end

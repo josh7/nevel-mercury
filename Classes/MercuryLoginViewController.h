@@ -14,7 +14,7 @@
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
 @interface MercuryLoginViewController : UIViewController
-<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIActionSheetDelegate> {
 	// The UI controls.
 	UIImageView *bgImageView;
 	UIView *loginControlLayer;
@@ -26,8 +26,8 @@
 	NSDictionary *uiDictionary;
 	NSArray *uiKeys;
 		
-	// The scroll up flag.  // bySu: what is it for?
-	int scrollup;
+	// The scroll up flag. 
+	int scrollup;    // bySu: what is it for?
 	
 	MBProgressHUD *hud;
 }
