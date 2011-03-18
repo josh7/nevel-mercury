@@ -120,8 +120,8 @@ colorWithRed:green:blue:alpha:
 
 ===  read a plist ===
 
-[[[
+{{{
 NSString *key = @"plistKeyName";
 NSArray *plistArray = [uiDictionary objectForKey:key];
 [plistArray objectAtIndex:4]
-]]]
+}}}
