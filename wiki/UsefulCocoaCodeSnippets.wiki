@@ -116,6 +116,14 @@ colorWithRed:green:blue:alpha:
 
 == UIButton ==
 
+== UIActionSheet ==
+
+purpose
+  * to present the user with a set of alternatives for how to proceed with a given task
+  * to prompt the user to confirm a potentially dangerous action
+
+
+
 == plist ==
 
 ===  read a plist ===
