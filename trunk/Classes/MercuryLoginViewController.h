@@ -17,7 +17,8 @@
 <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIActionSheetDelegate> {
 	// The UI controls.
 	UIImageView *bgImageView;
-	UIView *loginControlLayer;
+//	UIView *loginControlLayer;
+   	UIControl *loginControlLayer;
 	UITableView *loginTableView;
     
     MercuryMainboardViewController *mainboardViewController;
@@ -27,13 +28,18 @@
 	NSArray *uiKeys;
 		
 	// The scroll up flag. 
-	int scrollup;    // bySu: what is it for?
+	int scrollup;
+    
+    // bySu: the symbol to distinguish two textfield
+//    int testfieldSymbol;
 	
 	MBProgressHUD *hud;
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
-@property (nonatomic, retain) UIView *loginControlLayer;
+//@property (nonatomic, retain) UIView *loginControlLayer;
+@property (nonatomic, retain) UIControl *loginControlLayer;
+
 @property (nonatomic, retain) UITableView *loginTableView;
 @property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
 @property (nonatomic, retain) NSDictionary *uiDictionary;
@@ -45,5 +51,7 @@
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
+- (void)backgroundPressed:(UITextField *)textField;
+- (void)startLogin:(id)sender;
 
 @end

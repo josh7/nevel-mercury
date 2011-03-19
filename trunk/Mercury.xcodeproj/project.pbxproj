@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002C7C4B1334D77E004F8879 /* UserConfig.plist */; };
 		00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F04FB41330958700762374 /* MercuryMainboardViewController.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002C7C4B1334D77E004F8879 /* UserConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserConfig.plist; sourceTree = "<group>"; };
 		00F04FB31330958700762374 /* MercuryMainboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryMainboardViewController.h; sourceTree = "<group>"; };
 		00F04FB41330958700762374 /* MercuryMainboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryMainboardViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -160,6 +162,7 @@
 				68AEA26F1322E063001078AD /* Default.png */,
 				8D1107310486CEB800E47090 /* Mercury-Info.plist */,
 				68F7069513276E5800766B32 /* UI.plist */,
+				002C7C4B1334D77E004F8879 /* UserConfig.plist */,
 				68DEBD4C13286DA100B14FC0 /* QuartzCore.framework */,
 			);
 			name = Resources;
@@ -283,6 +286,7 @@
 				68AEA2701322E063001078AD /* Default@2x.png in Resources */,
 				68AEA2711322E063001078AD /* Default.png in Resources */,
 				68F7069613276E5800766B32 /* UI.plist in Resources */,
+				002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

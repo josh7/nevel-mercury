@@ -38,7 +38,7 @@
 		self.loginTextField = textFieldTemp;
 		[textFieldTemp release];
 		self.loginTextField.clearsOnBeginEditing = YES;  // bySu: default is NO; we can display some tips before tapping
-		self.loginTextField.returnKeyType = UIReturnKeyDone;    // bySu: default is UIReturnKeyDefault
+		self.loginTextField.returnKeyType = UIReturnKeyDone;    // bySu: default is UIReturnKeyDefault; we can make it different
 		[self.contentView addSubview:self.loginTextField];
     }
     return self;

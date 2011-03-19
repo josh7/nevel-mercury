@@ -8,6 +8,11 @@
 		<string>Password:</string>
 		<string>Register</string>
 		<string>Login</string>
+		<string>Just login this time</string>
+		<string>Auto login next time</string>
+		<string>Save password</string>
+		<string>Tab here to edit.</string>
+		<string>Tab here to edit.</string>
 	</array>
 </dict>
 </plist>
