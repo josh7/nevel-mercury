@@ -64,8 +64,8 @@ UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.
 
 {{{
 [the controller addTarget:self 
-                                  action:@selector(actionMethod:) 
-                     forControlEvents:UIControlEventTouchDown];
+                   action:@selector(actionMethod:) 
+         forControlEvents:UIControlEventTouchDown];
 }}}
 
 == about naming ==
