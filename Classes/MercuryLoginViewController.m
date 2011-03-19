@@ -63,12 +63,17 @@
 	[self.view insertSubview:self.bgImageView atIndex:0];
     
 	// Create an additional layer to hold login controls.
-	UIView *loginControlLayerTemp = [[UIView alloc] initWithFrame:viewRect];
+//	UIView *loginControlLayerTemp = [[UIView alloc] initWithFrame:viewRect];
+    UIControl *loginControlLayerTemp = [[UIControl alloc] initWithFrame:viewRect];
 	self.loginControlLayer = loginControlLayerTemp;
 	self.loginControlLayer.backgroundColor = [UIColor colorWithRed:0.000 
 															 green:0.000 
 															  blue:0.000 
 															 alpha:0.000];
+    [self.loginControlLayer addTarget:self 
+                               action:@selector(backgroundPressed:) 
+                     forControlEvents:UIControlEventTouchDown];
+    
 	[loginControlLayerTemp release];
     [self.view insertSubview:self.loginControlLayer atIndex:1];
  
@@ -116,11 +121,11 @@
 	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
 	registerButton.alpha = 0;
     
-    // add 
-/*	[registerButton addTarget:self 
-					   action:@selector(registerPressed:) 
-		     forControlEvents:UIControlEventTouchUpInside];
-*/	[self.loginControlLayer addSubview:registerButton];
+    // bySu: Add action to register button here
+//	[registerButton addTarget:self 
+//					   action:@selector(registerPressed:) 
+//		     forControlEvents:UIControlEventTouchUpInside];
+	[self.loginControlLayer addSubview:registerButton];
 	
 	[UIView animateWithDuration:1.0 animations:^{
 		self.loginTableView.alpha = 1.0;
@@ -227,6 +232,7 @@
 		usleep(50000);
 	}
 }
+
 #pragma mark -
 #pragma mark Table View Data Source Methods
 
@@ -253,16 +259,23 @@
 		// Set the delegate to make the tableview scroll up & down when the textfields are tapped.
 		[cell.loginTextField setDelegate:self];
 		[cell.loginTextField addTarget:self
-								action:@selector(textFieldDone:) 
+								action:@selector(textFieldDone:)    // bySu: find this method!
 					  forControlEvents:UIControlEventEditingDidEndOnExit];
 		
 		NSString *key = @"Login";
 		NSArray *loginSection = [uiDictionary objectForKey:key];
 		cell.loginLabel.text = [loginSection objectAtIndex:row];
 		
+        // bySu: set the account textfield attribute
+        if (row == 0) {
+            cell.loginTextField.placeholder = [loginSection objectAtIndex:7];
+            cell.loginTextField.returnKeyType = UIReturnKeyNext;
+        }
+        
 		// Set the password textField attribute.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
+            cell.loginTextField.placeholder = [loginSection objectAtIndex:8];
 		}
 	}
 
@@ -271,43 +284,89 @@
 
 #pragma mark -
 #pragma mark UITextField Delegate
+// buSu: modify the animation
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
 	if (scrollup == 0) {
 		CGPoint newPosition = self.loginControlLayer.center;
-		newPosition.y -= 180;
+		newPosition.y -= 215;
 	
-		[UIView animateWithDuration:0.25 animations:^ {
+		[UIView animateWithDuration:0.3 animations:^ {
 			self.loginControlLayer.center = newPosition;
 		}];
 		scrollup = 1;
 	}
 }
 
+- (void)backgroundPressed:(UITextField *)textField{
+    NSLog(@"backgroundPressed");
+    if (scrollup == 1) {
+        NSLog(@"backgroundPressed & scrollup == 1");
+        CGPoint newPosition = self.loginControlLayer.center;
+        newPosition.y += 215;
+        
+        NSLog(@"newPositionY:%f",newPosition.y);
+        
+        [UIView animateWithDuration:0.3 animations:^ {
+            self.loginControlLayer.center = newPosition;
+        }];
+        scrollup = 0;
+        [textField resignFirstResponder];   // bySu: why it wouldn't resign first respongder?
+    }
+}
+
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+//    NSLog(@"textfieldShouldEndEditing");
+//    if (scrollup == 1) {
+//        CGPoint newPosition = self.loginControlLayer.center;
+//        newPosition.y += 215;
+//        
+//        NSLog(@"newPositionY:%f",newPosition.y);
+//        
+//        [UIView animateWithDuration:0.3 animations:^ {
+//            self.loginControlLayer.center = newPosition;
+//        }];
+//        scrollup = 0;
+//        [textField resignFirstResponder];
+//    }
+//    return YES;
+//}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	CGPoint newPosition = self.loginControlLayer.center;
-	newPosition.y += 180;
-	
-	[UIView animateWithDuration:0.25 animations:^ {
-		self.loginControlLayer.center = newPosition;
-	}];
-	scrollup = 0;
-	[textField resignFirstResponder];
-	return YES;
+    NSLog(@"textFieldShouldReturn");
+    NSLog(@"%d",testfieldSymbol);
+    if (scrollup == 1) {
+        CGPoint newPosition = self.loginControlLayer.center;
+        newPosition.y += 215;
+        
+        NSLog(@"newPositionY:%f",newPosition.y);
+        
+        [UIView animateWithDuration:0.3 animations:^ {
+            self.loginControlLayer.center = newPosition;
+        }];
+        scrollup = 0;
+    }
+    
+    [textField resignFirstResponder];
+    return YES;	
 }
 
 #pragma mark -
 #pragma mark UIButton method
 - (void)loginPressed:(id)sender {
-        
+    
+    NSString *key = @"Login";
+    NSArray *loginOptions = [uiDictionary objectForKey:key];
+    
     UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
                                        initWithTitle:nil
                                             delegate:self
-                                   cancelButtonTitle:@"Just login this time"    // bySu: should load from plist
-                              destructiveButtonTitle:@"Auto login next time"
-                                   otherButtonTitles:@"Save password", nil];
+                                   cancelButtonTitle:[loginOptions objectAtIndex:4]
+                              destructiveButtonTitle:[loginOptions objectAtIndex:5]
+                                   otherButtonTitles:[loginOptions objectAtIndex:6], nil];    // bySu: buttons here cannot be customized.
     [loginActionSheet showInView:self.view];
     [loginActionSheet release];
+    
+    NSLog(@"login pressed");    // bySu: for test
 /*
 	CGPoint newPosition = self.loginControlLayer.center;
 	newPosition.x = -160;
@@ -324,67 +383,51 @@
 */       
 }
 
-- (void)actionSheet:(UIActionSheet *)loginActionSheet
-didDismissWithButtonIndex:(NSInteger)buttonIndex:(id)sender
-{
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     // bySu: choose "just login" button
-    if (buttonIndex == [loginActionSheet cancelButtonIndex])
+    if (buttonIndex == [actionSheet cancelButtonIndex])
     {
-        CGPoint newPosition = self.loginControlLayer.center;
-        newPosition.x = -160;
-        
-        [UIView animateWithDuration:0.5 
-                         animations:^ { 
-                             self.loginControlLayer.center = newPosition; }
-                         completion:^ (BOOL finished) { 
-                             // Get rid of all login controls and show the sync hud.
-                             [self.loginControlLayer removeFromSuperview]; 
-                             [self showUsingBlocks:sender];
-                         }];
-
+        NSLog(@"just login");
+        [self startLogin:self];
     }
-    
     // bySu: choose "aoto login" button
-    else if(buttonIndex == [loginActionSheet destructiveButtonIndex])
+    else if(buttonIndex == [actionSheet destructiveButtonIndex])
     {
+        NSLog(@"auto login");
         UIAlertView *alertForTest = [[UIAlertView alloc]
                                      initWithTitle:@"just login"
                                      message:@"test success"
                                      delegate:self
-                                     cancelButtonTitle:@"yes"
+                                     cancelButtonTitle:@"fine"
                                      otherButtonTitles:nil];
         [alertForTest show];
         [alertForTest release];
-
-        CGPoint newPosition = self.loginControlLayer.center;
-        newPosition.x = -160;
         
-        [UIView animateWithDuration:0.5 
-                         animations:^ { 
-                             self.loginControlLayer.center = newPosition; }
-                         completion:^ (BOOL finished) { 
-                             // Get rid of all login controls and show the sync hud.
-                             [self.loginControlLayer removeFromSuperview]; 
-                             [self showUsingBlocks:sender];
-                         }];
+        [self startLogin:self];
     }
     
     // bySu: choose "remember password" button
     else{
-        CGPoint newPosition = self.loginControlLayer.center;
-        newPosition.x = -160;
-        
-        [UIView animateWithDuration:0.5 
-                         animations:^ { 
-                             self.loginControlLayer.center = newPosition; }
-                         completion:^ (BOOL finished) { 
-                             // Get rid of all login controls and show the sync hud.
-                             [self.loginControlLayer removeFromSuperview]; 
-                             [self showUsingBlocks:sender];
-                         }];
+        NSLog(@"remember password");
+        [self startLogin:self];
     }
 }
 
+// bySu: start to login when press related button
+- (void)startLogin:(id)sender{
+    NSLog(@"startLogin");
+    CGPoint newPosition = self.loginControlLayer.center;
+	newPosition.x = -160;
+    
+	[UIView animateWithDuration:0.5 
+					 animations:^ { 
+						 self.loginControlLayer.center = newPosition; }
+					 completion:^ (BOOL finished)        { 
+                         // Get rid of all login controls and show the sync hud.
+						 [self.loginControlLayer removeFromSuperview]; 
+						 [self showUsingBlocks:sender];
+					 }];
+}
 
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
