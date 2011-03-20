@@ -12,14 +12,15 @@
 
 
 @implementation MercuryLoginViewController
-
 @synthesize bgImageView;
+@synthesize logoImageView;
 @synthesize loginControlLayer;
 @synthesize loginTableView;
 @synthesize mainboardViewController;
 @synthesize uiDictionary;
 @synthesize uiKeys;
 @synthesize hud;
+@synthesize userConfigKeys;
 
 
 // The designated initializer.  Override if you create the controller 
@@ -39,6 +40,9 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 	scrollup = 0;
+    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
+    self.userConfigKeys = arrayTmpt;
+    [arrayTmpt release];
 	
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"UI" ofType:@"plist"];
 	NSDictionary *uiDictionaryTemp = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -62,6 +66,14 @@
 	// "Paste the background onto the view"
 	[self.view insertSubview:self.bgImageView atIndex:0];
     
+    // bySu: paste the logo onto the view
+    UIImage *logoImageTemp = [UIImage imageNamed:@"nevelLogoWhite.png"];
+    UIImageView *logoViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(85, 150, 150, 59)];
+    self.logoImageView = logoViewTemp;
+    [logoViewTemp release];
+    self.logoImageView.image = logoImageTemp;
+    [self.view insertSubview:self.logoImageView atIndex:1];
+    
 	// Create an additional layer to hold login controls.
 //	UIView *loginControlLayerTemp = [[UIView alloc] initWithFrame:viewRect];
     UIControl *loginControlLayerTemp = [[UIControl alloc] initWithFrame:viewRect];
@@ -73,11 +85,9 @@
     [self.loginControlLayer addTarget:self 
                                action:@selector(backgroundPressed:) 
                      forControlEvents:UIControlEventTouchDown];
-    
 	[loginControlLayerTemp release];
     [self.view insertSubview:self.loginControlLayer atIndex:1];
  
-	
 	// Create the login table control.
 	UITableView *tableViewTemp = [[UITableView alloc] initWithFrame:CGRectMake(0, 266, 320, 153) 
 															  style:UITableViewStyleGrouped];
@@ -110,7 +120,6 @@
 	[self.loginControlLayer addSubview:loginButton];
     
     // bySu: The register button.
-        
 	UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	registerButton.frame = CGRectMake(10, 380, 105, 37);
 	registerButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -120,11 +129,9 @@
 	[registerButton setTitle:[loginSection objectAtIndex:2] forState:UIControlStateNormal];     // bySu: use plist to display "Register"
 	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
 	registerButton.alpha = 0;
-    
-    // bySu: Add action to register button here
-//	[registerButton addTarget:self 
-//					   action:@selector(registerPressed:) 
-//		     forControlEvents:UIControlEventTouchUpInside];
+	[registerButton addTarget:self 
+					   action:@selector(registerPressed:) 
+		     forControlEvents:UIControlEventTouchUpInside];
 	[self.loginControlLayer addSubview:registerButton];
 	
 	[UIView animateWithDuration:1.0 animations:^{
@@ -132,7 +139,6 @@
 		loginButton.alpha = 1.0;
         registerButton.alpha = 1.0;
 	}];
-	
 }
 
 /*
@@ -163,16 +169,15 @@
     // e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc {
 	[bgImageView release];
 	[loginControlLayer release];
 	[loginTableView release];
 	[uiDictionary release];
 	[uiKeys release];   // bySu: why hud does not need to be released? Answer is at the bottom.
+    [userConfigKeys release];
     [super dealloc];
 }
-
 
 - (void)showUsingBlocks:(id)sender {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -256,11 +261,11 @@
 	if (cell == nil) {
 		cell = [[[LoginTableCell alloc] initWithStyle:style 
 									  reuseIdentifier:CustomerLoginCellIdentifier] autorelease];
-		// Set the delegate to make the tableview scroll up & down when the textfields are tapped.
-		[cell.loginTextField setDelegate:self];
-		[cell.loginTextField addTarget:self
-								action:@selector(textFieldDone:)    // bySu: find this method!
-					  forControlEvents:UIControlEventEditingDidEndOnExit];
+//		// Set the delegate to make the tableview scroll up & down when the textfields are tapped.
+//		[cell.loginTextField setDelegate:self];
+//		[cell.loginTextField addTarget:self
+//								action:@selector(textFieldDone:)    // bySu: find this method!
+//					  forControlEvents:UIControlEventEditingDidEndOnExit];
 		
 		NSString *key = @"Login";
 		NSArray *loginSection = [uiDictionary objectForKey:key];
@@ -268,16 +273,30 @@
 		
         // bySu: set the account textfield attribute
         if (row == 0) {
+            cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
             cell.loginTextField.placeholder = [loginSection objectAtIndex:7];
             cell.loginTextField.returnKeyType = UIReturnKeyNext;
+            
+            [cell.loginTextField setDelegate:self];
+            [cell.loginTextField addTarget:self
+                                    action:@selector(idTextFieldPressed:) 
+                          forControlEvents:UIControlEventEditingChanged];
         }
         
 		// Set the password textField attribute.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
             cell.loginTextField.placeholder = [loginSection objectAtIndex:8];
+            
+            [cell.loginTextField setDelegate:self];
+            [cell.loginTextField addTarget:self
+                                    action:@selector(passwordTextFieldPressed:) 
+                          forControlEvents:UIControlEventEditingChanged];
 		}
 	}
+//    if (test == 10) {
+//        [cell.loginTextField resignFirstResponder];
+//    }
 
 	return cell;
 }
@@ -289,9 +308,12 @@
 	if (scrollup == 0) {
 		CGPoint newPosition = self.loginControlLayer.center;
 		newPosition.y -= 215;
+        CGPoint newLogoPosition = self.logoImageView.center;
+        newLogoPosition.y -= 215;
 	
 		[UIView animateWithDuration:0.3 animations:^ {
 			self.loginControlLayer.center = newPosition;
+            self.logoImageView.center = newLogoPosition;
 		}];
 		scrollup = 1;
 	}
@@ -303,14 +325,21 @@
         NSLog(@"backgroundPressed & scrollup == 1");
         CGPoint newPosition = self.loginControlLayer.center;
         newPosition.y += 215;
-        
-        NSLog(@"newPositionY:%f",newPosition.y);
+        CGPoint newLogoPosition = self.logoImageView.center;
+        newLogoPosition.y += 215;
+
+        NSLog(@"newPositionY:%f; newLogoPositionY: %f",newPosition.y, newLogoPosition.y);
         
         [UIView animateWithDuration:0.3 animations:^ {
             self.loginControlLayer.center = newPosition;
+            self.logoImageView.center = newLogoPosition;
         }];
+//        [self idTextFieldPressed];
         scrollup = 0;
-        [textField resignFirstResponder];   // bySu: why it wouldn't resign first respongder?
+//        test = 10;
+//        [textField resignFirstResponder];   // bySu: why it wouldn't resign first respongder?
+        
+//        [self resignPressed];
     }
 }
 
@@ -333,54 +362,97 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"textFieldShouldReturn");
-    NSLog(@"%d",testfieldSymbol);
     if (scrollup == 1) {
         CGPoint newPosition = self.loginControlLayer.center;
         newPosition.y += 215;
-        
+        CGPoint newLogoPosition = self.logoImageView.center;
+        newLogoPosition.y += 215;
         NSLog(@"newPositionY:%f",newPosition.y);
         
         [UIView animateWithDuration:0.3 animations:^ {
             self.loginControlLayer.center = newPosition;
+            self.logoImageView.center = newLogoPosition;
         }];
         scrollup = 0;
     }
-    
     [textField resignFirstResponder];
     return YES;	
+}
+
+- (void)idTextFieldPressed:(id)sender{
+    textFieldArray[0] = nevelIdTextField;
+    NSLog(@"id, %@, %d", sender, textFieldArray[0]);
+    NSLog(@"sender text:%@", [sender text]);    // bySu: output:"sender text:", so [sender text] is nil?
+    
+    if ([sender text] != Nil) {
+        NSString *idTemp = [[NSString alloc] initWithString:[sender text]];
+        [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
+        NSLog(@"%@, %@", self.userConfigKeys,idTemp);
+        [idTemp release];
+    }
+    
+//    if (scrollup == 1) {
+//        [sender resignFirstResponder];
+//    }
+    }
+
+- (void)passwordTextFieldPressed:(id)sender{
+    textFieldArray[1] = passwordTextField;
+    NSLog(@"pw, %@, %d", sender, textFieldArray[1]);
+    NSLog(@"sender text:%@", [sender text]);
+    
+    if ([sender text] != Nil) {
+    NSString *passwordTemp = [[NSString alloc] initWithString:[sender text]];
+    [userConfigKeys replaceObjectAtIndex:1 withObject:passwordTemp];
+    NSLog(@"%@, %@",userConfigKeys, passwordTemp);
+    [passwordTemp release];
+    }
 }
 
 #pragma mark -
 #pragma mark UIButton method
 - (void)loginPressed:(id)sender {
-    
     NSString *key = @"Login";
     NSArray *loginOptions = [uiDictionary objectForKey:key];
-    
-    UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
-                                       initWithTitle:nil
-                                            delegate:self
-                                   cancelButtonTitle:[loginOptions objectAtIndex:4]
-                              destructiveButtonTitle:[loginOptions objectAtIndex:5]
-                                   otherButtonTitles:[loginOptions objectAtIndex:6], nil];    // bySu: buttons here cannot be customized.
-    [loginActionSheet showInView:self.view];
-    [loginActionSheet release];
-    
+//    NSString *idtextFieldTemp = [[NSString alloc] initWithFormat:[self.userConfigKeys objectAtIndex:0]];
+//    NSString *passwordFieldTemp = [[NSString alloc] initWithFormat:[self.userConfigKeys objectAtIndex:1]];
+    if ([self.userConfigKeys objectAtIndex:0] != @"0" && [self.userConfigKeys objectAtIndex:1] != @"0") {
+        UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
+                                           initWithTitle:nil
+                                           delegate:self
+                                           cancelButtonTitle:[loginOptions objectAtIndex:4]
+                                           destructiveButtonTitle:[loginOptions objectAtIndex:5]
+                                           otherButtonTitles:[loginOptions objectAtIndex:6], nil];    // bySu: buttons here cannot be customized.
+        [loginActionSheet showInView:self.view];
+        [loginActionSheet release];
+    }
+    else {
+        
+        UIAlertView *alertForTest = [[UIAlertView alloc]
+                                     initWithTitle:[loginOptions objectAtIndex:9]
+                                     message:[loginOptions objectAtIndex:10]
+                                     delegate:self
+                                     cancelButtonTitle:[loginOptions objectAtIndex:11]
+                                     otherButtonTitles:nil];
+        [alertForTest show];
+        [alertForTest release];
+    }
+//    [idtextFieldTemp release];
+//    [passwordFieldTemp release];
     NSLog(@"login pressed");    // bySu: for test
-/*
-	CGPoint newPosition = self.loginControlLayer.center;
-	newPosition.x = -160;
+}
 
-	[UIView animateWithDuration:0.5 
-					 animations:^ { 
-						 self.loginControlLayer.center = newPosition; }
-					 completion:^ (BOOL finished)        { 
-                         // Get rid of all login controls and show the sync hud.
-						 [self.loginControlLayer removeFromSuperview]; 
-						 [self showUsingBlocks:sender];
-					 }];
-    
-*/       
+// bySu: when press "register" button.
+- (void)registerPressed:(id)sender{
+    // replace the method here
+    UIAlertView *alertForTest = [[UIAlertView alloc]
+                                 initWithTitle:@"want to register?"
+                                 message:@"Comming soooooon!"
+                                 delegate:self
+                                 cancelButtonTitle:@"Fine"
+                                 otherButtonTitles:nil];
+    [alertForTest show];
+    [alertForTest release];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -388,27 +460,26 @@
     if (buttonIndex == [actionSheet cancelButtonIndex])
     {
         NSLog(@"just login");
+        NSString *loginType = [[NSString alloc] initWithFormat:@"justLogin"];
+        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        [loginType release];
         [self startLogin:self];
     }
     // bySu: choose "aoto login" button
     else if(buttonIndex == [actionSheet destructiveButtonIndex])
     {
         NSLog(@"auto login");
-        UIAlertView *alertForTest = [[UIAlertView alloc]
-                                     initWithTitle:@"just login"
-                                     message:@"test success"
-                                     delegate:self
-                                     cancelButtonTitle:@"fine"
-                                     otherButtonTitles:nil];
-        [alertForTest show];
-        [alertForTest release];
-        
+        NSString *loginType = [[NSString alloc] initWithFormat:@"autoLogin"];
+        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        [loginType release];
         [self startLogin:self];
     }
-    
     // bySu: choose "remember password" button
     else{
         NSLog(@"remember password");
+        NSString *loginType = [[NSString alloc] initWithFormat:@"savePassword"];
+        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        [loginType release];
         [self startLogin:self];
     }
 }
@@ -427,6 +498,17 @@
 						 [self.loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
+    // bySu: write user's info & config to UserConfig.plist
+//    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *path=[paths objectAtIndex:0];
+//    NSString *filename=[path stringByAppendingPathComponent:@"../UserConfig.plist"];    
+//    [self.userConfigKeys writeToFile:@"/UserConfig.txt" atomically:YES]; // bySu: location: system/
+//    [self.userConfigKeys writeToFile:filename atomically:YES];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"UserConfig" ofType:@"plist"];
+    NSString *path = @"/UserConfig.plist";  // bySu: location: system/
+    NSLog(@"path: %@", path);
+    [self.userConfigKeys writeToFile:path atomically:YES];
+    NSLog(@"the config is:%@", userConfigKeys);
 }
 
 #pragma mark -

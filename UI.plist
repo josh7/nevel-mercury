@@ -8,11 +8,14 @@
 		<string>Password:</string>
 		<string>Register</string>
 		<string>Login</string>
-		<string>Just login this time</string>
-		<string>Auto login next time</string>
-		<string>Save password</string>
+		<string>烧还没退...Just login this time</string>
+		<string>病好啦!Auto login next time</string>
+		<string>退烧啦!Save password</string>
 		<string>Tab here to edit.</string>
 		<string>Tab here to edit.</string>
+		<string>Whoops!</string>
+		<string>病没好还不赶快休息?!Fill it out okay ~~</string>
+		<string>Fine</string>
 	</array>
 </dict>
 </plist>
