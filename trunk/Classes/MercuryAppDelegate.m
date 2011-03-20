@@ -9,7 +9,6 @@
 #import "MercuryAppDelegate.h"
 
 @implementation MercuryAppDelegate
-
 @synthesize window;
 @synthesize baseView;
 @synthesize mercuryLoginViewController;
