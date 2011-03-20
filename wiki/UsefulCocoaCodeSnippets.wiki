@@ -169,3 +169,11 @@ NSString *key = @"plistKeyName";
 NSArray *plistArray = [uiDictionary objectForKey:key];
 [plistArray objectAtIndex:4]
 }}}
+
+== about  NSArray ==
+
+=== NSMutableArray ===
+
+  * inherited from NSArray
+  * manage a modifiable array of objects: maintain a mutable, ordered collection of objects
+http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSMutableArray_Class/Reference/Reference.html
