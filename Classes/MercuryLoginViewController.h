@@ -32,15 +32,11 @@
 	NSDictionary *uiDictionary;
 	NSArray *uiKeys;
     
-    // bySu: for UserConfig.plist
+    // for UserConfig.plist
     NSMutableArray *userConfigKeys;
 	
 	// The scroll up flag. 
 	int scrollup;
-    
-    // bySu: the identifier to tell two textfields
-    int textFieldArray[2];
-    int test;
 	
 	MBProgressHUD *hud;
 }
@@ -60,7 +56,11 @@
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
-- (void)backgroundPressed:(UITextField *)textField;
+- (void)backgroundPressed:(id)sender;
 - (void)startLogin:(id)sender;
+- (void)idTextFieldPressed:(UITextField *)sender;
+- (void)passwordTextFieldPressed:(UITextField *)sender;
+- (void)idTextFieldPressedBeforeEditing:(UITextField *)sender;
+- (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender;
 
 @end
