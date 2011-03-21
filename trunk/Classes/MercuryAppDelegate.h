@@ -12,7 +12,7 @@
 
 @interface MercuryAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    //UIViewController *baseView;
+//    UIViewController *baseView;
 	UIView *baseView;
     MercuryLoginViewController *mercuryLoginViewController;
 }
