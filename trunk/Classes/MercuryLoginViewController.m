@@ -10,7 +10,6 @@
 #import "LoginTableCell.h"
 #import "MercuryAppDelegate.h"
 
-
 @implementation MercuryLoginViewController
 @synthesize bgImageView;
 @synthesize logoImageView;
@@ -36,11 +35,11 @@
 }
 */
 
-
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+    // init some class property 
 	scrollup = 0;
-    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", 0, nil];
+    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
 	
@@ -74,8 +73,7 @@
     self.logoImageView.image = logoImageTemp;
     [self.view insertSubview:self.logoImageView atIndex:1];
     
-	// Create an additional layer to hold login controls.
-//	UIView *loginControlLayerTemp = [[UIView alloc] initWithFrame:viewRect];
+	// Create an additional layer to hold login controls
     UIControl *loginControlLayerTemp = [[UIControl alloc] initWithFrame:viewRect];
 	self.loginControlLayer = loginControlLayerTemp;
 	self.loginControlLayer.backgroundColor = [UIColor colorWithRed:0.000 
@@ -100,7 +98,6 @@
 	self.loginTableView.alpha = 0;
 	[self.loginControlLayer addSubview:self.loginTableView];
 	
-    // use plist to display "Register"
     NSString *key = @"Login";
     NSArray *loginSection = [uiDictionary objectForKey:key];
     
@@ -176,7 +173,7 @@
 	[loginControlLayer release];
 	[loginTableView release];
 	[uiDictionary release];
-	[uiKeys release];   // why hud does not need to be released? Answer is at the bottom.
+	[uiKeys release];   // why hud does not need to be released here? Answer is at the bottom.
     [userConfigKeys release];
     [super dealloc];
 }
@@ -334,9 +331,7 @@
         newPosition.y += 215;
         CGPoint newLogoPosition = self.logoImageView.center;
         newLogoPosition.y += 215;
-        #ifdef DEBUG
-        NSLog(@"newPositionY:%f; newLogoPositionY: %f",newPosition.y, newLogoPosition.y);
-        #endif        
+             
         [UIView animateWithDuration:0.3 animations:^ {
             self.loginControlLayer.center = newPosition;
             self.logoImageView.center = newLogoPosition;
@@ -345,24 +340,13 @@
         scrollup = 0;
         
         // make the editing textField resignFirstResponder
-////        NSIndexPath * cellIndexTemp = (NSIndexPath *)[NSIndexPath indexPathWithIndex:0];
-//        NSIndexPath * cellIndexTemp0 = (NSIndexPath *)[NSIndexPath indexPathWithIndex:0];
-//        NSIndexPath * cellIndexTemp1 = (NSIndexPath *)[[NSIndexPath alloc] initWithIndex:1 ];
-//        NSLog(@"cellIndexTemp is: %@, %@", cellIndexTemp0, cellIndexTemp1);
-//        UITableViewCell *cellTemp = [[UITableViewCell alloc] init];
-//        NSLog(@"cell-0 is: %@", [self.loginTableView cellForRowAtIndexPath:cellIndexTemp0]);
-//        NSLog(@"cell-1 is: %@", [self.loginTableView cellForRowAtIndexPath:cellIndexTemp1]);
-//
-////        cellTemp = [self.loginTableView cellForRowAtIndexPath:cellIndexTemp0];
-//        
-//        NSLog(@"cellTemp is: %@", cellTemp);
-//        
-//        [cellTemp release];
-//        [cellIndexTemp1 release];
-//        UITableViewCell *tableViewCellTemp = [UITableViewCell alloc];
-//        tableViewCellTemp = [self.loginTableView cellForRowAtIndexPath:
-    }
+        LoginTableCell *cellTemp_1 = (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
+        [cellTemp_1.loginTextField resignFirstResponder];
+        LoginTableCell *cellTemp_2 = (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
+        [cellTemp_2.loginTextField resignFirstResponder];
+        }
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     #ifdef DEBUG
@@ -373,9 +357,7 @@
         newPosition.y += 215;
         CGPoint newLogoPosition = self.logoImageView.center;
         newLogoPosition.y += 215;
-        #ifdef DEBUG
-        NSLog(@"newPositionY:%f",newPosition.y);
-        #endif
+        
         [UIView animateWithDuration:0.3 animations:^ {
             self.loginControlLayer.center = newPosition;
             self.logoImageView.center = newLogoPosition;
@@ -388,46 +370,27 @@
 
 
 - (void)idTextFieldPressed:(UITextField *)sender{    
-    #ifdef DEBUG
-    NSLog(@"sender.text:%@", sender.text);
-    #endif
         NSString *idTemp = [[NSString alloc] initWithString:sender.text];
         [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
-        #ifdef DEBUG
-        NSLog(@"userID is: %@", self.userConfigKeys);
-        #endif
         [idTemp release];
 }
 
 
 - (void)passwordTextFieldPressed:(UITextField *)sender{
-    #ifdef DEBUG
-    NSLog(@"sender.text:%@", sender.text);
-    #endif
         NSString *passwordTemp = [[NSString alloc] initWithString:sender.text];
         [self.userConfigKeys replaceObjectAtIndex:1 withObject:passwordTemp];
-        #ifdef DEBUG
-        NSLog(@"password is: %@",userConfigKeys);
-        #endif
         [passwordTemp release];
 }
 
 
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender{
     [self.userConfigKeys replaceObjectAtIndex:0 withObject:@"0"];
-    #ifdef DEBUG
-    NSLog(@"userID is: %@", self.userConfigKeys);
-    #endif
 }
 
 
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender{
     [self.userConfigKeys replaceObjectAtIndex:1 withObject:@"0"];
-    #ifdef DEBUG
-    NSLog(@"userID is: %@", self.userConfigKeys);
-    #endif
 }
-
 
 #pragma mark -
 #pragma mark UIButton method
@@ -438,10 +401,6 @@
     #endif
     NSString *key = @"Login";
     NSArray *loginOptions = [uiDictionary objectForKey:key];
-//    NSString *idtextFieldTemp = 
-//    [[NSString alloc] initWithFormat:[self.userConfigKeys objectAtIndex:0]];
-//    NSString *passwordFieldTemp = 
-//    [[NSString alloc] initWithFormat:[self.userConfigKeys objectAtIndex:1]];
     if ([self.userConfigKeys objectAtIndex:0] != @"0" && 
         [self.userConfigKeys objectAtIndex:1] != @"0") {
         UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
@@ -463,13 +422,14 @@
         [alertForTest show];
         [alertForTest release];
     }
-//    [idtextFieldTemp release];
-//    [passwordFieldTemp release];
 }
 
 // when press "register" button
 - (void)registerPressed:(id)sender{
-    // only fot test. Please replace the method here
+    #ifdef DEBUG
+    NSLog(@"register pressed");
+    #endif
+    // only for test. Please replace the content here
     UIAlertView *alertForTest = [[UIAlertView alloc]
                                  initWithTitle:@"want to register?"
                                  message:@"Comming soooooon!"
@@ -486,57 +446,47 @@
     if (buttonIndex == [actionSheet cancelButtonIndex])
     {
         NSString *loginType = [[NSString alloc] initWithFormat:@"justLogin"];
-        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        [self startLogin:self loginType:loginType];
         [loginType release];
-        [self startLogin:self];
     }
     // choose "aoto login" button
     else if(buttonIndex == [actionSheet destructiveButtonIndex])
     {
         NSString *loginType = [[NSString alloc] initWithFormat:@"autoLogin"];
-        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        [self startLogin:self loginType:loginType];
         [loginType release];
-        [self startLogin:self];
     }
     // choose "remember password" button
     else{
-        NSString *loginType = [[NSString alloc] initWithFormat:@"savePassword"];
-        [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
+        NSString *loginType = [[NSString alloc] initWithFormat:@"justLogin"];
+        [self startLogin:self loginType:loginType];
         [loginType release];
-        [self startLogin:self];
     }
 }
 
 // start to login when press related button
-- (void)startLogin:(id)sender{
+- (void)startLogin:(id)sender loginType:(NSString *)loginType{
     #ifdef DEBUG
     NSLog(@"startLogin");
     #endif
+    
+    [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
     
     CGPoint newPosition = self.loginControlLayer.center;
 	newPosition.x = -160;
     
 	[UIView animateWithDuration:0.5 
 					 animations:^ { 
-						 self.loginControlLayer.center = newPosition; }
-					 completion:^ (BOOL finished)        { 
+                         self.loginControlLayer.center = newPosition; 
+                     }
+					 completion:^ (BOOL finished) { 
                          // Get rid of all login controls and show the sync hud.
 						 [self.loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
     // write user's info & config to UserConfig.plist
-//    NSArray *paths=
-//    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *path=[paths objectAtIndex:0];
-//    NSString *filename=[path stringByAppendingPathComponent:@"../UserConfig.plist"];    
-//    [self.userConfigKeys writeToFile:@"/UserConfig.txt" atomically:YES]; // location: system/
-//    [self.userConfigKeys writeToFile:filename atomically:YES];
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"UserConfig" ofType:@"plist"];
-    NSString *path = @"/UserConfig.plist";  // bySu: location: system/
+    NSString *path = @"/UserConfig.plist";  // location: system/
     [self.userConfigKeys writeToFile:path atomically:YES];
-    #ifdef DEBUG
-    NSLog(@"the config is:%@", userConfigKeys);
-    #endif
 }
 
 #pragma mark -
