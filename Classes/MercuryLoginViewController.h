@@ -12,9 +12,6 @@
 #import "MBProgressHUD.h"
 #import "MercuryMainboardViewController.h"
 
-#define nevelIdTextField 0
-#define passwordTextField 1
-
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
 @interface MercuryLoginViewController : UIViewController
@@ -22,8 +19,7 @@
 	// The UI controls.
 	UIImageView *bgImageView;
     UIImageView *logoImageView;
-//	UIView *loginControlLayer;
-   	UIControl *loginControlLayer;
+   	UIControl *loginControlLayer;   // to make the background can be touched
 	UITableView *loginTableView;
     
     MercuryMainboardViewController *mainboardViewController;
@@ -43,7 +39,6 @@
 
 @property (nonatomic, retain) UIImageView *bgImageView;
 @property (nonatomic, retain) UIImageView *logoImageView;
-//@property (nonatomic, retain) UIView *loginControlLayer;
 @property (nonatomic, retain) UIControl *loginControlLayer;
 @property (nonatomic, retain) UITableView *loginTableView;
 @property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
@@ -57,7 +52,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
 - (void)backgroundPressed:(id)sender;
-- (void)startLogin:(id)sender;
+- (void)startLogin:(id)sender loginType:(NSString *)loginType;
 - (void)idTextFieldPressed:(UITextField *)sender;
 - (void)passwordTextFieldPressed:(UITextField *)sender;
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender;
