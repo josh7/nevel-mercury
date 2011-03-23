@@ -177,3 +177,13 @@ NSArray *plistArray = [uiDictionary objectForKey:key];
   * inherited from NSArray
   * manage a modifiable array of objects: maintain a mutable, ordered collection of objects
 http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSMutableArray_Class/Reference/Reference.html
+
+== UIPageControl ==
+
+=== summary ===
+
+  * page control is a succession of dots centered in the control
+  * each dot corresponds to a page in the application’s document (or other data-model entity)
+  * advances only one page in either direction
+  * When tapped, the control sends the _*UIControlEventValueChanged*_ event for handling by the delegate
+  * The delegate can evaluate the currentPage property to determine the page to display
