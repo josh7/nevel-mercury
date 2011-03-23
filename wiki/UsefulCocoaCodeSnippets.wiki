@@ -193,19 +193,19 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
 
   * currentPage
     * @property(nonatomic) NSInteger currentPage
-    # begin: 0 (default show)
+    * begin: 0 (default show)
 
   * numberOfPages
-    # @property(nonatomic) NSInteger numberOfPages
-    # default value: 0
+    * @property(nonatomic) NSInteger numberOfPages
+    * default value: 0
 
   * hidesForSinglePage
-    # @property(nonatomic) BOOL hidesForSinglePage
-    # controls whether the page indicator is hidden when there is only one page
+    * @property(nonatomic) BOOL hidesForSinglePage
+    * controls whether the page indicator is hidden when there is only one page
 
   * defersCurrentPageDisplay
 
  === methods ===
  
   * - (CGSize)sizeForNumberOfPages:(NSInteger)pageCount
-    # for customize: resize the page control when the page count changes
+    * for customize: resize the page control when the page count changes
