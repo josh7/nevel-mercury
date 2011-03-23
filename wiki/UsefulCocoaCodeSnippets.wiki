@@ -192,7 +192,7 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
 === properties ===
 
   * currentPage
-    # @property(nonatomic) NSInteger currentPage
+    * @property(nonatomic) NSInteger currentPage
     # begin: 0 (default show)
 
   * numberOfPages
