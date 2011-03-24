@@ -48,6 +48,7 @@ UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.
 
 == Create a UITabBarController programmatically ==
 
+=== Create a Tab Bar Interface ===
 {{{
 tabBarController = [[UITabBarController alloc] init];
 }}}
@@ -56,6 +57,35 @@ tabBarController = [[UITabBarController alloc] init];
 {{{
 NSArray* controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
 tabBarController.viewControllers = controllers;
+}}}
+
+=== Create a Tab Bar Item ===
+
+  * use system item
+{{{
+- (id)initWithTabBarSystemItem:(UITabBarSystemItem)systemItem tag:(NSInteger)tag
+}}}
+
+{{{
+typedef enum {
+   UITabBarSystemItemMore,
+   UITabBarSystemItemFavorites,
+   UITabBarSystemItemFeatured,
+   UITabBarSystemItemTopRated,
+   UITabBarSystemItemRecents,
+   UITabBarSystemItemContacts,
+   UITabBarSystemItemHistory,
+   UITabBarSystemItemBookmarks,
+   UITabBarSystemItemSearch,
+   UITabBarSystemItemDownloads,
+   UITabBarSystemItemMostRecent,
+   UITabBarSystemItemMostViewed,
+} UITabBarSystemItem;
+}}}
+
+ * use your own image
+{{{
+- (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 }}}
 
 == Make your textField to be a pasword field ==
