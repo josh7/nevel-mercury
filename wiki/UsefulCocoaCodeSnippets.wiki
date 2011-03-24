@@ -65,7 +65,7 @@ tabBarController.viewControllers = controllers;
 {{{
 - (id)initWithTabBarSystemItem:(UITabBarSystemItem)systemItem tag:(NSInteger)tag
 }}}
-    * _ITabBarSystemItem_
+    * _UITabBarSystemItem_
 {{{
    UITabBarSystemItemMore,
    UITabBarSystemItemFavorites,
