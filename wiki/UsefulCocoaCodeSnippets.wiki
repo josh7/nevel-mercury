@@ -65,9 +65,8 @@ tabBarController.viewControllers = controllers;
 {{{
 - (id)initWithTabBarSystemItem:(UITabBarSystemItem)systemItem tag:(NSInteger)tag
 }}}
-
+    * _ITabBarSystemItem_
 {{{
-typedef enum {
    UITabBarSystemItemMore,
    UITabBarSystemItemFavorites,
    UITabBarSystemItemFeatured,
@@ -79,8 +78,7 @@ typedef enum {
    UITabBarSystemItemSearch,
    UITabBarSystemItemDownloads,
    UITabBarSystemItemMostRecent,
-   UITabBarSystemItemMostViewed,
-} UITabBarSystemItem;
+   UITabBarSystemItemMostViewed.
 }}}
 
  * use your own image
