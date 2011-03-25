@@ -101,7 +101,6 @@ _tips from Apple: you would not use your tab bar controller delegate to change t
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 }}}
     _tips:_
-
     * In iOS v3.0 and later:  
        * the tab bar controller calls this method regardless of whether the selected view controller changed
        * it is called only in response to user taps in the tab bar
