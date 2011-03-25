@@ -86,6 +86,31 @@ tabBarController.viewControllers = controllers;
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 }}}
     _tips: the image in  setItems:animated: method is used as a mask_
+
+=== about UITabBarControllerDelegate ===
+
+_tips from Apple: you would not use your tab bar controller delegate to change the appearance of the status bar to match the style of the currently selected view. Visual changes of that nature are best handled by your custom view controllers._
+
+  * when a tab bar item is been tapped, whether the specified view controller should be made active
+{{{
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+}}}
+
+  * Tells the delegate that the user selected an item in the tab bar
+{{{
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+}}}
+    _tips:_
+
+    * In iOS v3.0 and later:  
+       * the tab bar controller calls this method regardless of whether the selected view controller changed
+       * it is called only in response to user taps in the tab bar
+       * it is not called when your code changes the tab bar contents programmatically
+    * In versions of iOS prior to version 3.0:
+       * this method is called only when the selected view controller actually changes
+       * it is not called when the same view controller is selected
+       * the method was called for both programmatic and user-initiated changes to the selected view controller
+
 == Make your textField to be a pasword field ==
 
 {{{
