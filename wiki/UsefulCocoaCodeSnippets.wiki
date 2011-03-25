@@ -110,6 +110,10 @@ _tips from Apple: you would not use your tab bar controller delegate to change t
        * it is not called when the same view controller is selected
        * the method was called for both programmatic and user-initiated changes to the selected view controller
 
+=== change a Tab’s Badge ===
+
+property: badgeValue
+
 == Make your textField to be a pasword field ==
 
 {{{
