@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>   // For CATransition methods.
 #import "MBProgressHUD.h"
 #import "MercuryMainboardViewController.h"
+#import "UIContent.h"
 
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
@@ -24,10 +25,6 @@
     
     MercuryMainboardViewController *mainboardViewController;
 	
-	// For UI Text (we use a plist here for International purpose.)
-	NSDictionary *uiDictionary;
-	NSArray *uiKeys;
-    
     // for UserConfig.plist
     NSMutableArray *userConfigKeys;
 	
@@ -35,6 +32,8 @@
 	int scrollup;
 	
 	MBProgressHUD *hud;
+    
+    UIContent *loginUIContent;
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
@@ -42,8 +41,6 @@
 @property (nonatomic, retain) UIControl *loginControlLayer;
 @property (nonatomic, retain) UITableView *loginTableView;
 @property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
-@property (nonatomic, retain) NSDictionary *uiDictionary;
-@property (nonatomic, retain) NSArray *uiKeys;
 @property (nonatomic, retain) NSMutableArray *userConfigKeys;
 @property (nonatomic, retain) MBProgressHUD *hud;
 

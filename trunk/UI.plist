@@ -16,6 +16,13 @@
 		<string>Whoops!</string>
 		<string>Fill it out okay ~~</string>
 		<string>Fine</string>
+		<string>Login...</string>
+		<string>Updating data...</string>
+	</array>
+	<key>Mainboard</key>
+	<array>
+		<string>Site List</string>
+		<string>Nevel Settings</string>
 	</array>
 </dict>
 </plist>

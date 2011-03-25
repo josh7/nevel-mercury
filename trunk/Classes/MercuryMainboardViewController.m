@@ -9,18 +9,23 @@
 #import "MercuryMainboardViewController.h"
 
 @implementation MercuryMainboardViewController
+@synthesize mainboardTabBarController;
+@synthesize stieListNavigationController;
+@synthesize nevelSettingsNavigationController;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+//
 
 - (void)dealloc {
+    [mainboardTabBarController release];
+    [stieListNavigationController release];
+    [nevelSettingsNavigationController release];
     [super dealloc];
 }
 
@@ -36,21 +41,62 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-    // Create the root UIView object
-	CGRect viewRect = [[UIScreen mainScreen] bounds];
+//    mainboardUIContent = [[UIContent alloc] init];
+//    [mainboardUIContent initWithUiContent];
     
-    //viewRect.origin.y += viewRect.size.height;
-    //viewRect.size.height += (viewRect.size.height);
+    // create Site List Navigation Controller
+    MercurySiteListNavigationController *siteListNavTemp = [[MercurySiteListNavigationController alloc] init];
+    self.stieListNavigationController = siteListNavTemp;
+    [siteListNavTemp release];
+//        // a nav root view for testing
+//    UIViewController *vcTemp1 = [[[UIViewController alloc] init] autorelease];
+//    vcTemp1.title = @"vctemp1";
+//    vcTemp1.view.backgroundColor = [UIColor redColor];
+//    [self.stieListNavigationController pushViewController:vcTemp1 animated:YES];
+//        // create the Tab Bar Item
+//    UIImage *siteListItemImage = [UIImage imageNamed:@"nevel_icon.png"];
+//    UITabBarItem *tbTemp1 = [[UITabBarItem alloc] 
+//                             initWithTitle:[mainboardUIContent.uiMainboardKeys objectAtIndex:0] 
+//                                     image:siteListItemImage 
+//                                       tag:0];
+//    self.stieListNavigationController.tabBarItem = tbTemp1;
+//    [tbTemp1 release];
     
-	UIView *viewTemp = [[UIView alloc] initWithFrame:viewRect];
-	self.view = viewTemp;
-    [viewTemp release];
-    self.view.backgroundColor = [UIColor whiteColor];
+    // create Nevel Settings Navigation Controller
+    UINavigationController *nevelSteeingsTemp = [[UINavigationController alloc] init];
+    self.nevelSettingsNavigationController = nevelSteeingsTemp;
+    [nevelSteeingsTemp release];
+        // a nav root view for testing
+    UIViewController *vcTemp2 = [[[UIViewController alloc] init] autorelease];
+    vcTemp2.title = @"vctemp2";
+    vcTemp2.view.backgroundColor = [UIColor blueColor];
+    [self.nevelSettingsNavigationController pushViewController:vcTemp2 animated:YES];
+        // create the Tab Bar Item
+    UIImage *nevelSettingsItemImage = [UIImage imageNamed:@"nevel_icon.png"];
+    UITabBarItem *tbTemp2 = [[UITabBarItem alloc] 
+                             initWithTitle:[mainboardUIContent.uiMainboardKeys objectAtIndex:1] 
+                             image:nevelSettingsItemImage 
+                             tag:1];
+    self.nevelSettingsNavigationController.tabBarItem = tbTemp2;
+    [tbTemp2 release];
     
-    UIView *viewTemp1 = [[[UIView alloc] initWithFrame:viewRect] autorelease];
-    viewTemp1.backgroundColor = [UIColor redColor];
-    viewTemp1.alpha = 0.3;
-    [self.view addSubview:viewTemp1];
+    // creat Nevel Mainboard Tab Bar Controller
+    UITabBarController *tabBarTemp = [[UITabBarController alloc] init];
+    self.mainboardTabBarController = tabBarTemp;
+    [tabBarTemp release];
+    
+    // add the Navigation Controllers to Tab Bar Controller
+    NSArray *controllersArray = [[NSArray alloc] initWithObjects:
+                                 self.stieListNavigationController, 
+                                 self.nevelSettingsNavigationController, nil];
+    self.mainboardTabBarController.viewControllers = controllersArray;
+    [controllersArray release];
+    self.view = self.mainboardTabBarController.view;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController 
+shouldSelectViewController:(UIViewController *)viewController{
+    return YES;
 }
 
 /*

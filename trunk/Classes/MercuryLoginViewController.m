@@ -10,14 +10,13 @@
 #import "LoginTableCell.h"
 #import "MercuryAppDelegate.h"
 
+
 @implementation MercuryLoginViewController
 @synthesize bgImageView;
 @synthesize logoImageView;
 @synthesize loginControlLayer;
 @synthesize loginTableView;
 @synthesize mainboardViewController;
-@synthesize uiDictionary;
-@synthesize uiKeys;
 @synthesize hud;
 @synthesize userConfigKeys;
 
@@ -42,14 +41,9 @@
     NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
-	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"UI" ofType:@"plist"];
-	NSDictionary *uiDictionaryTemp = [[NSDictionary alloc] initWithContentsOfFile:path];
-	self.uiDictionary = uiDictionaryTemp;
-	[uiDictionaryTemp release];
-	
-	NSArray *array = [uiDictionary allKeys];
-	self.uiKeys = array;
+    
+	loginUIContent = [[UIContent alloc] init];
+    [loginUIContent initWithUiContent];
 	
 	// Create the root UIView object
 	CGRect viewRect = [[UIScreen mainScreen] bounds];
@@ -97,9 +91,6 @@
 	self.loginTableView.dataSource = self;
 	self.loginTableView.alpha = 0;
 	[self.loginControlLayer addSubview:self.loginTableView];
-	
-    NSString *key = @"Login";
-    NSArray *loginSection = [uiDictionary objectForKey:key];
     
 	// The login button.
 	UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -108,7 +99,7 @@
 	loginButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 	[loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-	[loginButton setTitle:[loginSection objectAtIndex:3] forState:UIControlStateNormal];
+    [loginButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:3] forState:UIControlStateNormal];
 	loginButton.titleLabel.font	= [UIFont boldSystemFontOfSize:16.0f];
 	loginButton.alpha = 0;
 	[loginButton addTarget:self 
@@ -123,7 +114,7 @@
 	registerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[registerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 	[registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];    
-	[registerButton setTitle:[loginSection objectAtIndex:2] forState:UIControlStateNormal];
+	[registerButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:2] forState:UIControlStateNormal];
 	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
 	registerButton.alpha = 0;
 	[registerButton addTarget:self 
@@ -170,11 +161,11 @@
 
 - (void)dealloc {
 	[bgImageView release];
+    [logoImageView release];
 	[loginControlLayer release];
-	[loginTableView release];
-	[uiDictionary release];
-	[uiKeys release];   // why hud does not need to be released here? Answer is at the bottom.
+	[loginTableView release]; 
     [userConfigKeys release];
+    [loginUIContent release];
     [super dealloc];
 }
 
@@ -184,7 +175,7 @@
 		// Show the HUD in the main thread
 		dispatch_async(dispatch_get_main_queue(), ^ {
 			self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-			self.hud.labelText = @"Login...";
+			self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:12];
 		});
 		
 		// Do the background loading here
@@ -225,17 +216,17 @@
 -(void)loadingTask {
 	// Do the background loading here.
 	// Just for demo now...
-	sleep(3);
+	sleep(1);
 	
 	// Change the HUD mode
 	self.hud.mode = MBProgressHUDModeDeterminate;
-	self.hud.labelText = @"Updating data...";
+	self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:13];
 	float progress = 0.0f;
 	
 	while (progress < 1.0f) {
 		progress += 0.01f;
 		self.hud.progress = progress;
-		usleep(50000);
+		usleep(10000);
 	}
 }
 
@@ -265,14 +256,12 @@
 		cell = [[[LoginTableCell alloc] initWithStyle:style 
 									  reuseIdentifier:CustomerLoginCellIdentifier] autorelease];
 
-		NSString *key = @"Login";
-		NSArray *loginSection = [uiDictionary objectForKey:key];
-		cell.loginLabel.text = [loginSection objectAtIndex:row];
+		cell.loginLabel.text = [loginUIContent.uiLoginKeys objectAtIndex:row];
 		
         // Set the account textfield attribute
         if (row == 0) {
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
-            cell.loginTextField.placeholder = [loginSection objectAtIndex:7];
+            cell.loginTextField.placeholder = [loginUIContent.uiLoginKeys objectAtIndex:7];
             cell.loginTextField.returnKeyType = UIReturnKeyNext;
             
             [cell.loginTextField setDelegate:self];
@@ -288,7 +277,7 @@
 		// Set the password textField attribute.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
-            cell.loginTextField.placeholder = [loginSection objectAtIndex:8];
+            cell.loginTextField.placeholder = [loginUIContent.uiLoginKeys objectAtIndex:8];
             
             [cell.loginTextField setDelegate:self];
             [cell.loginTextField addTarget:self
@@ -399,25 +388,24 @@
     #ifdef DEBUG
     NSLog(@"login pressed");
     #endif
-    NSString *key = @"Login";
-    NSArray *loginOptions = [uiDictionary objectForKey:key];
+
     if ([self.userConfigKeys objectAtIndex:0] != @"0" && 
         [self.userConfigKeys objectAtIndex:1] != @"0") {
         UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
                                            initWithTitle:nil
                                            delegate:self
-                                           cancelButtonTitle:[loginOptions objectAtIndex:4]
-                                           destructiveButtonTitle:[loginOptions objectAtIndex:5]
-                                           otherButtonTitles:[loginOptions objectAtIndex:6], nil];
+                                           cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:4]
+                                           destructiveButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:5]
+                                           otherButtonTitles:[loginUIContent.uiLoginKeys objectAtIndex:6], nil];
         [loginActionSheet showInView:self.view];
         [loginActionSheet release];
     }
     else {
         UIAlertView *alertForTest = [[UIAlertView alloc]
-                                     initWithTitle:[loginOptions objectAtIndex:9]
-                                     message:[loginOptions objectAtIndex:10]
+                                     initWithTitle:[loginUIContent.uiLoginKeys objectAtIndex:9]
+                                     message:[loginUIContent.uiLoginKeys objectAtIndex:10]
                                      delegate:self
-                                     cancelButtonTitle:[loginOptions objectAtIndex:11]
+                                     cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:11]
                                      otherButtonTitles:nil];
         [alertForTest show];
         [alertForTest release];

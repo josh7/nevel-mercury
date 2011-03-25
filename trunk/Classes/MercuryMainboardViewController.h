@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIContent.h"
+#import "MercurySiteListNavigationController.h"
 
-@interface MercuryMainboardViewController : UIViewController {
-    
+@interface MercuryMainboardViewController : UIViewController 
+<UITabBarControllerDelegate>{
+    UITabBarController *mainboardTabBarController;
+    MercurySiteListNavigationController *stieListNavigationController;
+    UINavigationController *nevelSettingsNavigationController;
+    UIContent *mainboardUIContent;
 }
+@property (nonatomic, retain) UITabBarController *mainboardTabBarController;
+@property (nonatomic, retain) MercurySiteListNavigationController *stieListNavigationController;
+@property (nonatomic, retain) UINavigationController *nevelSettingsNavigationController;
 
 @end
