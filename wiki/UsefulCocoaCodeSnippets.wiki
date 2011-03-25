@@ -277,3 +277,11 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
  
   * - (CGSize)sizeForNumberOfPages:(NSInteger)pageCount
     * for customize: resize the page control when the page count changes
+
+== about UIImage ==
+
+  * Image objects are immutable, so their properties can not be changed after creation
+  * about Memory Management
+    * In low-memory situations, image data may be purged from a UIImage object ( affects only the image data stored internally by the UIImage object and not the object itself )
+    * avoid creating UIImage objects that are greater than 1024 x 1024 in size (This size restriction does not apply if you are performing code-based manipulations )
+    
