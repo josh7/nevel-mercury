@@ -8,15 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "MercuryLoginViewController.h"
+#import "MercuryMainboardViewController.h"
+#import "UIContent.h"
 
 @interface MercuryAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	UIView *baseView;
+    UIContent *uiContent;
     MercuryLoginViewController *mercuryLoginViewController;
+    MercuryMainboardViewController *mercuryMainboardViewController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UIContent *uiContent;
 @property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
-@property (nonatomic, retain) UIView *baseView;
+@property (nonatomic, retain) MercuryMainboardViewController *mercuryMainboardViewController;
+
+
 @end
 

@@ -23,8 +23,8 @@
    	UIControl *loginControlLayer;   // to make the background can be touched
 	UITableView *loginTableView;
     
-    MercuryMainboardViewController *mainboardViewController;
-	
+    //MercuryMainboardViewController *mainboardViewController;
+
     // for UserConfig.plist
     NSMutableArray *userConfigKeys;
 	
@@ -40,9 +40,10 @@
 @property (nonatomic, retain) UIImageView *logoImageView;
 @property (nonatomic, retain) UIControl *loginControlLayer;
 @property (nonatomic, retain) UITableView *loginTableView;
-@property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
+//@property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
 @property (nonatomic, retain) NSMutableArray *userConfigKeys;
 @property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, retain) UIContent *loginUIContent;
 
 - (void)loginPressed:(id)sender;
 - (void)showUsingBlocks:(id)sender;

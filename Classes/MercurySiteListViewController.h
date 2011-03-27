@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
+/* 
+ * Customize site list root view controller here.
+ * Push new view by appDelegate.mercuryMainboardViewcontroller.sitesListNavigationController.view.
+ */
 @interface MercurySiteListViewController : UIViewController {
     
 }
