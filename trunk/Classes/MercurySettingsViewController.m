@@ -1,24 +1,24 @@
 //
-//  MercurySiteListViewController.m
+//  MercurySettingsViewController.m
 //  Mercury
 //
-//  Created by Jeffrey on 11-3-25.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
+//  Created by puretears on 3/27/11.
+//  Copyright 2011 Rising. All rights reserved.
 //
 
-#import "MercurySiteListViewController.h"
+#import "MercurySettingsViewController.h"
 
 
-@implementation MercurySiteListViewController
+@implementation MercurySettingsViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
+/*- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}*/
 
 - (void)dealloc
 {
@@ -40,11 +40,7 @@
 - (void)loadView
 {
     [super loadView];
-    
-    self.view.backgroundColor = [UIColor brownColor];
-    self.title = @"Site List";
-
-    
+    self.title = @"Setting";
 }
 
 

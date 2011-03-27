@@ -10,8 +10,9 @@
 
 @implementation MercuryAppDelegate
 @synthesize window;
-@synthesize baseView;
+@synthesize uiContent;
 @synthesize mercuryLoginViewController;
+@synthesize mercuryMainboardViewController;
 
 
 #pragma mark -
@@ -19,31 +20,27 @@
 
 - (BOOL)application:(UIApplication *)application 
 	didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    uiContent = [[UIContent alloc] init];
+    [uiContent initWithUIContent];
+    
     // Override point for customization after application launch.
-    /* The view stack:
-     * [Top]LoginViewController.view
-     * [Bottom]UIWindow.baseView
-     */
+    
 	// Create the window object
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // Create the base view controller.
-    UIView *baseViewTemp = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    self.baseView = baseViewTemp;
-    /*self.baseView = 
-        [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];*/
-    [baseViewTemp release];
     
     // Create the login view controller.
 	MercuryLoginViewController *vcTemp = [[MercuryLoginViewController alloc] init];
 	self.mercuryLoginViewController = vcTemp;
 	[vcTemp release];
+ 
+    // Preload the mainboard.
+    MercuryMainboardViewController *boardTemp = 
+    [[MercuryMainboardViewController alloc] init];
+    self.mercuryMainboardViewController = boardTemp;
+    [boardTemp release];
     
-    // Add base to window.
-    [self.window addSubview:self.baseView];
-	
-    // Add login to base
-    [self.baseView addSubview:self.mercuryLoginViewController.view];
+    // Add login view.
+    [self.window addSubview:self.mercuryLoginViewController.view];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -111,7 +108,7 @@
 
 - (void)dealloc {
 	[mercuryLoginViewController release];
-    [baseView release];
+    [mercuryMainboardViewController release];
     [window release];
     [super dealloc];
 }

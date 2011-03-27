@@ -9,18 +9,15 @@
 #import "MercurySiteListNavigationController.h"
 
 
-@implementation MercurySiteListNavigationController
-@synthesize siteListViewController;
+@implementation MercurySitesListNavigationController
+//@synthesize siteListNavRootViewController;
 @synthesize siteListBgImageView;
-@synthesize siteListTabBarItem;
-@synthesize siteListNavRootViewController;
+
 
 - (void)dealloc
 {
-    [siteListTabBarItem release];
-    [siteListViewController release];
     [siteListBgImageView release];
-    [siteListNavRootViewController release];
+    //[siteListNavRootViewController release];
     [super dealloc];
 }
 
@@ -37,31 +34,21 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView{
-    // create the background view to display a image before data loading completely
-    UIImage *imageTemp = [UIImage imageNamed:@"Default.png"];
-	UIImageView *ivTemp = [[UIImageView alloc] initWithImage:imageTemp];
-	self.siteListBgImageView = ivTemp;  // self.siteListBgImageView is null. Why?
-    self.siteListNavRootViewController.view = ivTemp; // also, this is null. Why?
-	[ivTemp release];
-	[self initWithRootViewController:siteListNavRootViewController];
-    
-    // init the tab bar item
-    UIImage *itemImageTemp = [UIImage imageNamed:@"nevel_icon.png"];
-    UITabBarItem *tabBarItemTemp = [[UITabBarItem alloc]
-                                    initWithTitle:@"Site List" 
-                                    image:itemImageTemp
-                                    tag:0];
-    self.siteListTabBarItem = tabBarItemTemp;
-    [tabBarItemTemp release];
-    
-    // create navigation's first view controller
-    UIViewController *testVC = [[[UIViewController alloc] init]  autorelease];
-    testVC.view.backgroundColor = [UIColor redColor];
-    [self pushViewController:testVC animated:YES];
-//    MercurySiteListViewController *siteListVCTemp = [[MercurySiteListViewController alloc] init];
-//    self.siteListViewController = siteListVCTemp;
-//    [siteListVCTemp release];
-//    [self pushViewController:self.siteListViewController animated:YES];
+    // The register button.
+	UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	registerButton.frame = CGRectMake(10, 380, 105, 37);
+	registerButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+	registerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+	[registerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];    
+	[registerButton setTitle:@"Test" forState:UIControlStateNormal];
+	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+	registerButton.alpha = 0;
+	[registerButton addTarget:self 
+					   action:@selector(registerPressed:) 
+		     forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:registerButton];
+
 }
 
 

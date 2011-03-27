@@ -10,15 +10,12 @@
 #import "MercurySiteListViewController.h"
 
 
-@interface MercurySiteListNavigationController : UINavigationController {
-    MercurySiteListViewController *siteListViewController;
+@interface MercurySitesListNavigationController : UINavigationController {
+    // Root view of navigation controller.
+    //MercurySiteListViewController *siteListNavRootViewController;
     UIImageView *siteListBgImageView;
-    UITabBarItem *siteListTabBarItem;
-    UIViewController *siteListNavRootViewController;
 }
-@property (nonatomic, retain)MercurySiteListViewController *siteListViewController;
+//@property (nonatomic, retain)MercurySiteListViewController *siteListNavRootViewController;
 @property (nonatomic, retain)UIImageView *siteListBgImageView;
-@property (nonatomic, retain)UITabBarItem *siteListTabBarItem;
-@property (nonatomic, retain)UIViewController *siteListNavRootViewController;
 
 @end

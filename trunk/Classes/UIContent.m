@@ -13,7 +13,7 @@
 @synthesize uiLoginKeys;
 @synthesize uiMainboardKeys;
 
-- (void)initWithUiContent{
+- (void)initWithUIContent{
     // read the UI.plist
 	NSDictionary *uiDictionaryTemp = [[NSDictionary alloc] initWithContentsOfFile:
                                       [[NSBundle mainBundle] pathForResource:@"UI" 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define MB_EN_SITESLIST 0
+#define MB_EN_SETTING   1
 
 @interface UIContent : NSObject {
     // For UI Text (we use a plist here for International purpose.)
@@ -19,6 +21,6 @@
 @property (nonatomic, retain) NSArray *uiLoginKeys;
 @property (nonatomic, retain) NSArray *uiMainboardKeys;
 
-- (void)initWithUiContent;
+- (void)initWithUIContent;
 
 @end

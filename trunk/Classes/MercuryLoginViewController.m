@@ -16,8 +16,9 @@
 @synthesize logoImageView;
 @synthesize loginControlLayer;
 @synthesize loginTableView;
-@synthesize mainboardViewController;
+//@synthesize mainboardViewController;
 @synthesize hud;
+@synthesize loginUIContent;
 @synthesize userConfigKeys;
 
 
@@ -36,14 +37,16 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+    [super loadView];
+    
+    MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.loginUIContent = appDelegate.uiContent;
+    
     // init some class property 
 	scrollup = 0;
     NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
-    
-	loginUIContent = [[UIContent alloc] init];
-    [loginUIContent initWithUiContent];
 	
 	// Create the root UIView object
 	CGRect viewRect = [[UIScreen mainScreen] bounds];
@@ -99,7 +102,8 @@
 	loginButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 	[loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [loginButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:3] forState:UIControlStateNormal];
+    [loginButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:3] 
+                 forState:UIControlStateNormal];
 	loginButton.titleLabel.font	= [UIFont boldSystemFontOfSize:16.0f];
 	loginButton.alpha = 0;
 	[loginButton addTarget:self 
@@ -114,7 +118,8 @@
 	registerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[registerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 	[registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];    
-	[registerButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:2] forState:UIControlStateNormal];
+	[registerButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:2] 
+                    forState:UIControlStateNormal];
 	registerButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
 	registerButton.alpha = 0;
 	[registerButton addTarget:self 
@@ -182,20 +187,17 @@
 		[self loadingTask];
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
-			[MBProgressHUD hideHUDForView:self.view animated:YES];
+			//[MBProgressHUD hideHUDForView:self.view animated:YES];
             
             // Here we have synced all data. Swith to the new view.
-            MercuryMainboardViewController *boardTemp = 
-            [[MercuryMainboardViewController alloc] init];
-            self.mainboardViewController = boardTemp;
-            [boardTemp release];
+
             
             MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-           
+            
             // Get rid of the login view controller and add the main one.
             [appDelegate.mercuryLoginViewController.view removeFromSuperview];
-            [appDelegate.baseView addSubview:mainboardViewController.view];
-
+            [appDelegate.window addSubview:appDelegate.mercuryMainboardViewController.view];
+            
             CATransition *animation = [CATransition animation];
             //animation.delegate = self;
             animation.duration = 0.3f;
@@ -205,7 +207,8 @@
                                  
             animation.type = kCATransitionPush;
             animation.subtype = kCATransitionFromRight;
-            [appDelegate.baseView.layer addAnimation:animation forKey:@"animation"];
+            [appDelegate.mercuryMainboardViewController.view.layer 
+                addAnimation:animation forKey:@"animation"];
         });
 	});
 }
@@ -246,10 +249,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CustomerLoginCellIdentifier = @"CustomerLoginCellIdentifier";
 	NSUInteger row = [indexPath row];
 	UITableViewCellStyle style = UITableViewCellStyleDefault;
-	static NSString *CustomerLoginCellIdentifier = @"CustomerLoginCellIdentifier";
-	LoginTableCell *cell = 
+	
+    LoginTableCell *cell = 
 		(LoginTableCell *)[tableView dequeueReusableCellWithIdentifier:CustomerLoginCellIdentifier];
 	
 	if (cell == nil) {
@@ -261,7 +265,7 @@
         // Set the account textfield attribute
         if (row == 0) {
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
-            cell.loginTextField.placeholder = [loginUIContent.uiLoginKeys objectAtIndex:7];
+            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys objectAtIndex:7];
             cell.loginTextField.returnKeyType = UIReturnKeyNext;
             
             [cell.loginTextField setDelegate:self];
@@ -277,7 +281,7 @@
 		// Set the password textField attribute.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
-            cell.loginTextField.placeholder = [loginUIContent.uiLoginKeys objectAtIndex:8];
+            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys objectAtIndex:8];
             
             [cell.loginTextField setDelegate:self];
             [cell.loginTextField addTarget:self
@@ -312,9 +316,10 @@
 
 
 - (void)backgroundPressed:(id)sender{
-    #ifdef DEBUG
+#ifdef DEBUG
     NSLog(@"backgroundPressed");
-    #endif
+#endif
+    
     if (scrollup == 1) {
         CGPoint newPosition = self.loginControlLayer.center;
         newPosition.y += 215;
@@ -329,18 +334,23 @@
         scrollup = 0;
         
         // make the editing textField resignFirstResponder
-        LoginTableCell *cellTemp_1 = (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
+        LoginTableCell *cellTemp_1 = 
+            (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
         [cellTemp_1.loginTextField resignFirstResponder];
-        LoginTableCell *cellTemp_2 = (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
+        
+        LoginTableCell *cellTemp_2 = 
+            (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
         [cellTemp_2.loginTextField resignFirstResponder];
-        }
+    }
 }
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    #ifdef DEBUG
+#ifdef DEBUG
     NSLog(@"textFieldShouldReturn");
-    #endif
+    //NSLog(@"%d",testfieldSymbol);
+#endif
+    
     if (scrollup == 1) {
         CGPoint newPosition = self.loginControlLayer.center;
         newPosition.y += 215;
