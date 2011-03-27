@@ -85,7 +85,7 @@ tabBarController.viewControllers = controllers;
 {{{
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image tag:(NSInteger)tag
 }}}
-    _tips: the image in  setItems:animated: method is used as a mask_
+    _*tips: the image in  setItems:animated: method is used as a mask*_
 
 === about UITabBarControllerDelegate ===
 
