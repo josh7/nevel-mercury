@@ -292,4 +292,4 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
 
 == about UIScrollView ==
 
-_*In Apple's reference, there is NSScrollView Class Reference instead of UIScrollView Class Reference.*_
+*_In Apple's reference, there is also NSScrollView Class Reference with UIScrollView Class Reference._*
