@@ -8,24 +8,25 @@
 
 #import "MercuryAppDelegate.h"
 
+
 @implementation MercuryAppDelegate
 @synthesize window;
 @synthesize uiContent;
 @synthesize mercuryLoginViewController;
 @synthesize mercuryMainboardViewController;
 
-
-#pragma mark -
-#pragma mark Application lifecycle
+#pragma mark - Application lifecycle
 
 - (BOOL)application:(UIApplication *)application 
 	didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    uiContent = [[UIContent alloc] init];
+    UIContent *contentTemp = [[UIContent alloc] init];
+    self.uiContent = contentTemp;
+    [contentTemp release];
     [uiContent initWithUIContent];
     
     // Override point for customization after application launch.
     
-	// Create the window object
+	// Create the window object.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Create the login view controller.
@@ -95,8 +96,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Memory management
+#pragma mark - Memory management
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     /*
@@ -107,6 +107,7 @@
 
 
 - (void)dealloc {
+    [uiContent release];
 	[mercuryLoginViewController release];
     [mercuryMainboardViewController release];
     [window release];

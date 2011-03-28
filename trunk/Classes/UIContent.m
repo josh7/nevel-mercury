@@ -8,13 +8,14 @@
 
 #import "UIContent.h"
 
+
 @implementation UIContent
 @synthesize uiDictionary;
 @synthesize uiLoginKeys;
 @synthesize uiMainboardKeys;
 
 - (void)initWithUIContent{
-    // read the UI.plist
+    // Read the UI.plist
 	NSDictionary *uiDictionaryTemp = [[NSDictionary alloc] initWithContentsOfFile:
                                       [[NSBundle mainBundle] pathForResource:@"UI" 
                                                                       ofType:@"plist"]];
@@ -25,10 +26,13 @@
 	self.uiMainboardKeys = [uiDictionary objectForKey:@"Mainboard"];
 }
 
+
 - (void)dealloc {
     [uiDictionary release];
 	[uiLoginKeys release];
     [uiMainboardKeys release];
     [super dealloc];
 }
+
+
 @end

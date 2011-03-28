@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kLabelTag 0     // Question: why tag it?
+#define kLabelTag 0
 #define kTextFieldTag 1
 
 @interface LoginTableCell : UITableViewCell {
+    // The UI Controls.
 	UILabel *loginLabel;
 	UITextField *loginTextField;
 }
