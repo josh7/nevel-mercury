@@ -289,3 +289,7 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
 
   * The NSNull class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).
   * class method: + (NSNull *)null
+
+== about UIScrollView ==
+
+_*In Apple's reference, there is NSScrollView Class Reference instead of UIScrollView Class Reference.*_
