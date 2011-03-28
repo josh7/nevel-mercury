@@ -285,3 +285,7 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
     * In low-memory situations, image data may be purged from a UIImage object ( affects only the image data stored internally by the UIImage object and not the object itself )
     * avoid creating UIImage objects that are greater than 1024 x 1024 in size (This size restriction does not apply if you are performing code-based manipulations )
     
+== about NSNull ==
+
+  * The NSNull class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).
+  * class method: + (NSNull *)null
