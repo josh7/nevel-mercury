@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "UIContent.h"
-#import "MercurySiteListNavigationController.h"
 
 @interface MercuryMainboardViewController : UIViewController <UITabBarControllerDelegate>{
-    // The root view controller of the mainboard (two tabs: site list & setting).
+    // The root view controller of the mainboard (two tabs: site list & settings).
     UITabBarController *mainboardTabBarController;
+    
     // The sites list tab view controller of the mainboard.
     UINavigationController *sitesListNavigationController;
-    // The setting tab view controller of the mainboard.
+    
+    // The settings tab view controller of the mainboard.
     UINavigationController *settingsNavigationController;
+    
     // Object for UI text.
     UIContent *mainboardUIContent;
 }

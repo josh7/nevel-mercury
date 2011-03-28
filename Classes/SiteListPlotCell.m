@@ -11,9 +11,10 @@
 
 @implementation SiteListPlotCell
 
-
 - (void)dealloc
 {
     [super dealloc];
 }
+
+
 @end

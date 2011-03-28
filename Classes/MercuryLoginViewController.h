@@ -13,19 +13,16 @@
 #import "MercuryMainboardViewController.h"
 #import "UIContent.h"
 
-
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
 @interface MercuryLoginViewController : UIViewController
 <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIActionSheetDelegate> {
 	// The UI controls.
 	UIImageView *bgImageView;
     UIImageView *logoImageView;
-   	UIControl *loginControlLayer;   // to make the background can be touched
+   	UIControl *loginControlLayer;   // In order to make the background touchable.
 	UITableView *loginTableView;
     
-    //MercuryMainboardViewController *mainboardViewController;
-
-    // for UserConfig.plist
+    // For storing user's configuration and writting into UserConfig.plist.
     NSMutableArray *userConfigKeys;
 	
 	// The scroll up flag. 
@@ -33,6 +30,7 @@
 	
 	MBProgressHUD *hud;
     
+    // Object for UI text.
     UIContent *loginUIContent;
 }
 
@@ -40,7 +38,6 @@
 @property (nonatomic, retain) UIImageView *logoImageView;
 @property (nonatomic, retain) UIControl *loginControlLayer;
 @property (nonatomic, retain) UITableView *loginTableView;
-//@property (nonatomic, retain) MercuryMainboardViewController *mainboardViewController;
 @property (nonatomic, retain) NSMutableArray *userConfigKeys;
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) UIContent *loginUIContent;

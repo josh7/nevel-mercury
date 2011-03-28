@@ -11,20 +11,12 @@
 #import "MercurySiteListViewController.h"
 #import "MercurySettingsViewController.h"
 
+
 @implementation MercuryMainboardViewController
 @synthesize mainboardTabBarController;
 @synthesize sitesListNavigationController;
 @synthesize settingsNavigationController;
 @synthesize mainboardUIContent;
-
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-//
 
 - (void)dealloc {
     [mainboardTabBarController release];
@@ -40,6 +32,7 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
+
 
 #pragma mark - View lifecycle
 
@@ -108,18 +101,12 @@
     /* +------------------------ End of root tab bar view ---------------------------+ */
 }
 
+
 - (BOOL)tabBarController:(UITabBarController *)tabBarController 
 shouldSelectViewController:(UIViewController *)viewController{
     return YES;
 }
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
 
 - (void)viewDidUnload
 {
@@ -134,5 +121,6 @@ shouldSelectViewController:(UIViewController *)viewController{
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

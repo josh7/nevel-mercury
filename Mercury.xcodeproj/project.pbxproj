@@ -8,16 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002C7C4B1334D77E004F8879 /* UserConfig.plist */; };
+		00676818133F931E00B6B40C /* MercurySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00676817133F931E00B6B40C /* MercurySettingsViewController.m */; };
 		006CB454133CF219003AA54C /* MercurySiteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006CB453133CF219003AA54C /* MercurySiteListViewController.m */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		0093BD5313366B2A00443D76 /* nevelLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD5113366B2900443D76 /* nevelLogoWhite.png */; };
 		0093BD5413366B2A00443D76 /* nevelLogoWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */; };
-		0093BD57133677ED00443D76 /* nevelLogoBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD55133677ED00443D76 /* nevelLogoBlack.png */; };
-		0093BD58133677ED00443D76 /* nevelLogoBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD56133677ED00443D76 /* nevelLogoBlack@2x.png */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
 		00A00CDF133CEC2700504CCD /* SiteListDomainNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDE133CEC2700504CCD /* SiteListDomainNameCell.m */; };
-		00A00CE2133CECC100504CCD /* MercurySiteListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CE1133CECC100504CCD /* MercurySiteListNavigationController.m */; };
 		00C71EF9133B17CF00A70875 /* nevel_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C71EF8133B17CF00A70875 /* nevel_icon.png */; };
 		00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F04FB41330958700762374 /* MercuryMainboardViewController.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
@@ -49,21 +47,19 @@
 
 /* Begin PBXFileReference section */
 		002C7C4B1334D77E004F8879 /* UserConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserConfig.plist; sourceTree = "<group>"; };
+		00676816133F931E00B6B40C /* MercurySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySettingsViewController.h; sourceTree = "<group>"; };
+		00676817133F931E00B6B40C /* MercurySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySettingsViewController.m; sourceTree = "<group>"; };
 		006CB452133CF219003AA54C /* MercurySiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListViewController.h; sourceTree = "<group>"; };
 		006CB453133CF219003AA54C /* MercurySiteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySiteListViewController.m; sourceTree = "<group>"; };
 		0080F864133C1CFF00A7325B /* UIContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContent.h; sourceTree = "<group>"; };
 		0080F865133C1CFF00A7325B /* UIContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIContent.m; sourceTree = "<group>"; };
 		0093BD5113366B2900443D76 /* nevelLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nevelLogoWhite.png; path = Resources/nevelLogoWhite.png; sourceTree = "<group>"; };
 		0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nevelLogoWhite@2x.png"; path = "Resources/nevelLogoWhite@2x.png"; sourceTree = "<group>"; };
-		0093BD55133677ED00443D76 /* nevelLogoBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nevelLogoBlack.png; path = Resources/nevelLogoBlack.png; sourceTree = "<group>"; };
-		0093BD56133677ED00443D76 /* nevelLogoBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nevelLogoBlack@2x.png"; path = "Resources/nevelLogoBlack@2x.png"; sourceTree = "<group>"; };
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
 		00A00CDD133CEC2700504CCD /* SiteListDomainNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListDomainNameCell.h; sourceTree = "<group>"; };
 		00A00CDE133CEC2700504CCD /* SiteListDomainNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListDomainNameCell.m; sourceTree = "<group>"; };
-		00A00CE0133CECC000504CCD /* MercurySiteListNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListNavigationController.h; sourceTree = "<group>"; };
-		00A00CE1133CECC100504CCD /* MercurySiteListNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySiteListNavigationController.m; sourceTree = "<group>"; };
 		00C71EF8133B17CF00A70875 /* nevel_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nevel_icon.png; sourceTree = "<group>"; };
 		00F04FB31330958700762374 /* MercuryMainboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryMainboardViewController.h; sourceTree = "<group>"; };
 		00F04FB41330958700762374 /* MercuryMainboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryMainboardViewController.m; sourceTree = "<group>"; };
@@ -143,10 +139,10 @@
 				68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */,
 				00F04FB31330958700762374 /* MercuryMainboardViewController.h */,
 				00F04FB41330958700762374 /* MercuryMainboardViewController.m */,
-				00A00CE0133CECC000504CCD /* MercurySiteListNavigationController.h */,
-				00A00CE1133CECC100504CCD /* MercurySiteListNavigationController.m */,
 				006CB452133CF219003AA54C /* MercurySiteListViewController.h */,
 				006CB453133CF219003AA54C /* MercurySiteListViewController.m */,
+				00676816133F931E00B6B40C /* MercurySettingsViewController.h */,
+				00676817133F931E00B6B40C /* MercurySettingsViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -190,8 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				00C71EF8133B17CF00A70875 /* nevel_icon.png */,
-				0093BD55133677ED00443D76 /* nevelLogoBlack.png */,
-				0093BD56133677ED00443D76 /* nevelLogoBlack@2x.png */,
 				0093BD5113366B2900443D76 /* nevelLogoWhite.png */,
 				0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */,
 				68AEA26E1322E063001078AD /* Default@2x.png */,
@@ -332,8 +326,6 @@
 				002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */,
 				0093BD5313366B2A00443D76 /* nevelLogoWhite.png in Resources */,
 				0093BD5413366B2A00443D76 /* nevelLogoWhite@2x.png in Resources */,
-				0093BD57133677ED00443D76 /* nevelLogoBlack.png in Resources */,
-				0093BD58133677ED00443D76 /* nevelLogoBlack@2x.png in Resources */,
 				00C71EF9133B17CF00A70875 /* nevel_icon.png in Resources */,
 				00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */,
 			);
@@ -364,8 +356,8 @@
 				0080F866133C1CFF00A7325B /* UIContent.m in Sources */,
 				00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */,
 				00A00CDF133CEC2700504CCD /* SiteListDomainNameCell.m in Sources */,
-				00A00CE2133CECC100504CCD /* MercurySiteListNavigationController.m in Sources */,
 				006CB454133CF219003AA54C /* MercurySiteListViewController.m in Sources */,
+				00676818133F931E00B6B40C /* MercurySettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

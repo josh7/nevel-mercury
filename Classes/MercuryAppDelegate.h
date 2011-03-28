@@ -12,17 +12,19 @@
 #import "UIContent.h"
 
 @interface MercuryAppDelegate : NSObject <UIApplicationDelegate> {
+    // The UI Controls.
     UIWindow *window;
-    UIContent *uiContent;
     MercuryLoginViewController *mercuryLoginViewController;
     MercuryMainboardViewController *mercuryMainboardViewController;
+    
+    // Object for UI text.
+    UIContent *uiContent;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UIContent *uiContent;
 @property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
 @property (nonatomic, retain) MercuryMainboardViewController *mercuryMainboardViewController;
-
 
 @end
 
