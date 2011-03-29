@@ -66,9 +66,12 @@ enum {
 	CFRelease(mainSwitchSettings);
 
 	// The main picker settings collection.
-	unsigned int mainPickerSettingsDefault[kNumberPickers];
-	mainPickerSettingsDefault[kSendCrashReport] = 0;
-	mainPickerSettingsDefault[kTheme] = 0; 
+    int defaultPickerVal = 0;
+	CFNumberRef mainPickerSettingsDefault[kNumberPickers];
+	mainPickerSettingsDefault[kSendCrashReport] = 
+        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultPickerVal);
+	mainPickerSettingsDefault[kTheme] = 
+        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultPickerVal); 
 	CFArrayRef mainPickerSettings = CFArrayCreate(kCFAllocatorDefault,
 									(const void **)mainPickerSettingsDefault,
 									kNumberPickers,
@@ -78,10 +81,14 @@ enum {
 }
 
 - (void)writeConfigToFile {
-    configFileURL = CFURLCreateWithFileSystemPath(nil, fullFilePath_CF,  kCFURLPOSIXPathStyle, false);
+    configFileURL = 
+        CFURLCreateWithFileSystemPath(nil, fullFilePath_CF,  kCFURLPOSIXPathStyle, false);
 	// Convert the property list to xml data.
     CFPropertyListRef propertyList = configDic;
-	CFDataRef xmlData = CFPropertyListCreateData(kCFAllocatorDefault, propertyList, kCFPropertyListXMLFormat_v1_0, 0, NULL);
+	CFDataRef xmlData = 
+        CFPropertyListCreateData(kCFAllocatorDefault, 
+                                 propertyList, 
+                                 kCFPropertyListXMLFormat_v1_0, 0, NULL);
 	// Write the XML data to the file.
 	SInt32 errorCode;
 	Boolean status = 
