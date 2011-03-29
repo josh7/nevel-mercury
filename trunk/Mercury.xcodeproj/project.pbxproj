@@ -7,23 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002C7C4B1334D77E004F8879 /* UserConfig.plist */; };
-		00676818133F931E00B6B40C /* MercurySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00676817133F931E00B6B40C /* MercurySettingsViewController.m */; };
 		006CB454133CF219003AA54C /* MercurySiteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006CB453133CF219003AA54C /* MercurySiteListViewController.m */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
-		0093BD5313366B2A00443D76 /* nevelLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD5113366B2900443D76 /* nevelLogoWhite.png */; };
-		0093BD5413366B2A00443D76 /* nevelLogoWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
 		00A00CDF133CEC2700504CCD /* SiteListDomainNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDE133CEC2700504CCD /* SiteListDomainNameCell.m */; };
-		00C71EF9133B17CF00A70875 /* nevel_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C71EF8133B17CF00A70875 /* nevel_icon.png */; };
-		00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F04FB41330958700762374 /* MercuryMainboardViewController.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		682BB6F213260C380054CEC9 /* LoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682BB6F113260C380054CEC9 /* LoginTableCell.m */; };
+		684D19671329F9590063A53E /* temp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684D19661329F9590063A53E /* temp.xib */; };
 		68AEA24E1322DD9F001078AD /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AEA23B1322DD9F001078AD /* ASINetworkQueue.m */; };
 		68AEA24F1322DD9F001078AD /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AEA23D1322DD9F001078AD /* ASIInputStream.m */; };
 		68AEA2501322DD9F001078AD /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AEA2411322DD9F001078AD /* ASIHTTPRequest.m */; };
@@ -40,29 +35,26 @@
 		68AEA2701322E063001078AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68AEA26E1322E063001078AD /* Default@2x.png */; };
 		68AEA2711322E063001078AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 68AEA26F1322E063001078AD /* Default.png */; };
 		68C5B0561323C27A005843C8 /* MercuryLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */; };
+		68CA2FF0133D8E9E00BA3475 /* nevel_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */; };
+		68D0389E132CE650008B4BEE /* MercuryMainboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D0389D132CE650008B4BEE /* MercuryMainboardViewController.m */; };
+		68DBFAF8133F6E3F00C8356A /* MercurySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */; };
 		68DEBD4D13286DA100B14FC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68DEBD4C13286DA100B14FC0 /* QuartzCore.framework */; };
+		68E4EED61342094F00C87757 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E4EED41342094F00C87757 /* AppConfig.m */; };
 		68F7069613276E5800766B32 /* UI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68F7069513276E5800766B32 /* UI.plist */; };
 		68F82FAD1327B3BD00E20BE7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F82FAB1327B3BD00E20BE7 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		002C7C4B1334D77E004F8879 /* UserConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserConfig.plist; sourceTree = "<group>"; };
-		00676816133F931E00B6B40C /* MercurySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySettingsViewController.h; sourceTree = "<group>"; };
-		00676817133F931E00B6B40C /* MercurySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySettingsViewController.m; sourceTree = "<group>"; };
 		006CB452133CF219003AA54C /* MercurySiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListViewController.h; sourceTree = "<group>"; };
 		006CB453133CF219003AA54C /* MercurySiteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySiteListViewController.m; sourceTree = "<group>"; };
 		0080F864133C1CFF00A7325B /* UIContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContent.h; sourceTree = "<group>"; };
 		0080F865133C1CFF00A7325B /* UIContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIContent.m; sourceTree = "<group>"; };
-		0093BD5113366B2900443D76 /* nevelLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nevelLogoWhite.png; path = Resources/nevelLogoWhite.png; sourceTree = "<group>"; };
-		0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nevelLogoWhite@2x.png"; path = "Resources/nevelLogoWhite@2x.png"; sourceTree = "<group>"; };
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
 		00A00CDD133CEC2700504CCD /* SiteListDomainNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListDomainNameCell.h; sourceTree = "<group>"; };
 		00A00CDE133CEC2700504CCD /* SiteListDomainNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListDomainNameCell.m; sourceTree = "<group>"; };
-		00C71EF8133B17CF00A70875 /* nevel_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nevel_icon.png; sourceTree = "<group>"; };
-		00F04FB31330958700762374 /* MercuryMainboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryMainboardViewController.h; sourceTree = "<group>"; };
-		00F04FB41330958700762374 /* MercuryMainboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryMainboardViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +65,7 @@
 		32CA4F630368D1EE00C91783 /* Mercury_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mercury_Prefix.pch; sourceTree = "<group>"; };
 		682BB6F013260C380054CEC9 /* LoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableCell.h; sourceTree = "<group>"; };
 		682BB6F113260C380054CEC9 /* LoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableCell.m; sourceTree = "<group>"; };
+		684D19661329F9590063A53E /* temp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = temp.xib; sourceTree = "<group>"; };
 		68AEA23A1322DD9F001078AD /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = Classes/ASIHttpHeader/ASIProgressDelegate.h; sourceTree = "<group>"; };
 		68AEA23B1322DD9F001078AD /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = Classes/ASIHttpHeader/ASINetworkQueue.m; sourceTree = "<group>"; };
 		68AEA23C1322DD9F001078AD /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASINetworkQueue.h; path = Classes/ASIHttpHeader/ASINetworkQueue.h; sourceTree = "<group>"; };
@@ -103,7 +96,14 @@
 		68AEA26F1322E063001078AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		68C5B0541323C27A005843C8 /* MercuryLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryLoginViewController.h; sourceTree = "<group>"; };
 		68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryLoginViewController.m; sourceTree = "<group>"; };
+		68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nevel_icon.png; sourceTree = "<group>"; };
+		68D0389C132CE650008B4BEE /* MercuryMainboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryMainboardViewController.h; sourceTree = "<group>"; };
+		68D0389D132CE650008B4BEE /* MercuryMainboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryMainboardViewController.m; sourceTree = "<group>"; };
+		68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySettingsViewController.h; sourceTree = "<group>"; };
+		68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySettingsViewController.m; sourceTree = "<group>"; };
 		68DEBD4C13286DA100B14FC0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		68E4EED41342094F00C87757 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
+		68E4EED51342094F00C87757 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		68F7069513276E5800766B32 /* UI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI.plist; sourceTree = "<group>"; };
 		68F82FAB1327B3BD00E20BE7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Classes/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		68F82FAC1327B3BD00E20BE7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Classes/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -137,12 +137,12 @@
 				1D3623250D0F684500981E51 /* MercuryAppDelegate.m */,
 				68C5B0541323C27A005843C8 /* MercuryLoginViewController.h */,
 				68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */,
-				00F04FB31330958700762374 /* MercuryMainboardViewController.h */,
-				00F04FB41330958700762374 /* MercuryMainboardViewController.m */,
+				68D0389C132CE650008B4BEE /* MercuryMainboardViewController.h */,
+				68D0389D132CE650008B4BEE /* MercuryMainboardViewController.m */,
 				006CB452133CF219003AA54C /* MercurySiteListViewController.h */,
 				006CB453133CF219003AA54C /* MercurySiteListViewController.m */,
-				00676816133F931E00B6B40C /* MercurySettingsViewController.h */,
-				00676817133F931E00B6B40C /* MercurySettingsViewController.m */,
+				68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */,
+				68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -185,9 +185,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				00C71EF8133B17CF00A70875 /* nevel_icon.png */,
-				0093BD5113366B2900443D76 /* nevelLogoWhite.png */,
-				0093BD5213366B2900443D76 /* nevelLogoWhite@2x.png */,
+				68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */,
+				684D19661329F9590063A53E /* temp.xib */,
 				68AEA26E1322E063001078AD /* Default@2x.png */,
 				68AEA26F1322E063001078AD /* Default.png */,
 				8D1107310486CEB800E47090 /* Mercury-Info.plist */,
@@ -212,6 +211,8 @@
 		682BB6EF13260C0C0054CEC9 /* UIHelper */ = {
 			isa = PBXGroup;
 			children = (
+				68E4EED51342094F00C87757 /* AppConfig.h */,
+				68E4EED41342094F00C87757 /* AppConfig.m */,
 				0080F864133C1CFF00A7325B /* UIContent.h */,
 				0080F865133C1CFF00A7325B /* UIContent.m */,
 				682BB6F013260C380054CEC9 /* LoginTableCell.h */,
@@ -323,11 +324,9 @@
 				68AEA2701322E063001078AD /* Default@2x.png in Resources */,
 				68AEA2711322E063001078AD /* Default.png in Resources */,
 				68F7069613276E5800766B32 /* UI.plist in Resources */,
-				002C7C4C1334D77F004F8879 /* UserConfig.plist in Resources */,
-				0093BD5313366B2A00443D76 /* nevelLogoWhite.png in Resources */,
-				0093BD5413366B2A00443D76 /* nevelLogoWhite@2x.png in Resources */,
-				00C71EF9133B17CF00A70875 /* nevel_icon.png in Resources */,
+				684D19671329F9590063A53E /* temp.xib in Resources */,
 				00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */,
+				68CA2FF0133D8E9E00BA3475 /* nevel_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,12 +351,13 @@
 				68C5B0561323C27A005843C8 /* MercuryLoginViewController.m in Sources */,
 				682BB6F213260C380054CEC9 /* LoginTableCell.m in Sources */,
 				68F82FAD1327B3BD00E20BE7 /* MBProgressHUD.m in Sources */,
-				00F04FB51330958700762374 /* MercuryMainboardViewController.m in Sources */,
+				68D0389E132CE650008B4BEE /* MercuryMainboardViewController.m in Sources */,
 				0080F866133C1CFF00A7325B /* UIContent.m in Sources */,
 				00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */,
 				00A00CDF133CEC2700504CCD /* SiteListDomainNameCell.m in Sources */,
 				006CB454133CF219003AA54C /* MercurySiteListViewController.m in Sources */,
-				00676818133F931E00B6B40C /* MercurySettingsViewController.m in Sources */,
+				68DBFAF8133F6E3F00C8356A /* MercurySettingsViewController.m in Sources */,
+				68E4EED61342094F00C87757 /* AppConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +402,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DDEBUG";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};

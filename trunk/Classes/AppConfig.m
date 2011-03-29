@@ -2,17 +2,17 @@
 //  AppConfig.m
 //  Mercury
 //
-//  Created by Jeffrey on 11-3-25.
+//  Created by puretears on 11-3-25.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "UIContent.h"
+#import "AppConfig.h"
 
 #define kNotification	0
 #define kWifiOnly		1
 #define kSoundAlert		2
 #define kVibratorAlert	3
-#define kNumberSwithes	4
+#define kNumberSwitches	4
 
 #define kSendCrashReport	0
 #define kTheme				1
@@ -33,8 +33,8 @@ enum {
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *fullFilePath = 
 		[documentsDirectory stringByAppendingPathComponent:kConfigFileName];
-	configFileURL = CFURLCreateWithString(kCFAllocatorDefault, 
-										 (CFStringRef)fullFilePath, NULL);
+    const char *test = [fullFilePath cStringUsingEncoding:NSASCIIStringEncoding];
+    fullFilePath_CF = CFStringCreateWithCString(kCFAllocatorDefault, test, NSASCIIStringEncoding);
 }
 
 - (void) createConfigDictionary {
@@ -44,7 +44,7 @@ enum {
 										  &kCFTypeDictionaryValueCallBacks);
 	// Put various items into the dictionary.
 	// The login method.
-	int loginSelectionDefault = 0
+	int loginSelectionDefault = 0;
 	CFNumberRef loginSelection = CFNumberCreate(kCFAllocatorDefault, 
 												kCFNumberIntType, 
 												&loginSelectionDefault);
@@ -67,33 +67,43 @@ enum {
 
 	// The main picker settings collection.
 	unsigned int mainPickerSettingsDefault[kNumberPickers];
-	mainPickerSettingsDefault[kSendCrashReport] = ASK_TO_SEND;
+	mainPickerSettingsDefault[kSendCrashReport] = 0;
 	mainPickerSettingsDefault[kTheme] = 0; 
 	CFArrayRef mainPickerSettings = CFArrayCreate(kCFAllocatorDefault,
 									(const void **)mainPickerSettingsDefault,
 									kNumberPickers,
 									&kCFTypeArrayCallBacks);
-	CFDictionarySetValue(confiDic, CFSTR("mainPickerSettings"), mainPickerSettings);
+	CFDictionarySetValue(configDic, CFSTR("mainPickerSettings"), mainPickerSettings);
 	CFRelease(mainPickerSettings);
 }
 
-- (void)writeConfigToFile(CFPropertyListRef propertyList, CFURLRef fileURL) {
+- (void)writeConfigToFile {
+    configFileURL = CFURLCreateWithFileSystemPath(nil, fullFilePath_CF,  kCFURLPOSIXPathStyle, false);
 	// Convert the property list to xml data.
-	CFDataRef xmlData = CFPropertyListCreateXMLData(kCFAllocatorDefault, propertyList);
+    CFPropertyListRef propertyList = configDic;
+	CFDataRef xmlData = CFPropertyListCreateData(kCFAllocatorDefault, propertyList, kCFPropertyListXMLFormat_v1_0, 0, NULL);
 	// Write the XML data to the file.
 	SInt32 errorCode;
 	Boolean status = 
 		CFURLWriteDataAndPropertiesToResource(configFileURL, xmlData, NULL, &errorCode);
+    
+    if (status == false) {
+#ifdef DEBUG
+        NSLog(@"Save configuration failed.");
+#endif
+        return;
+    }
 	CFRelease(xmlData);
 }
 
 
-- (void)initWithAppConfig{
-	if (![[NSFileManager defaultManager] fileExistsAtPath:(NSString *)configFileURL]) {
+- (void)initWithAppConfig {
+    [self configFilePath];
+    
+	if (![[NSFileManager defaultManager] fileExistsAtPath:(NSString *)fullFilePath_CF]) {
 		// Create and initialize the config file.
-		createConfigDictionary();	
-		configFilePath();
-		writeConfigToFile(configDic, configFileURL);
+		[self createConfigDictionary];	
+		[self writeConfigToFile];
 	}
 }
 

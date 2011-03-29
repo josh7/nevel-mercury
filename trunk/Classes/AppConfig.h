@@ -2,11 +2,12 @@
 //  AppConfig.h
 //  Mercury
 //
-//  Created by Jeffrey on 11-3-25.
+//  Created by puretears on 11-3-25.
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreFoundation/CoreFoundation.h>
 
 #define kConfigFileName @"UserConfig.plist"
 
@@ -43,6 +44,7 @@
 
 @interface AppConfig : NSObject {
 	CFMutableDictionaryRef configDic;
+    CFStringRef fullFilePath_CF;
 	CFURLRef configFileURL;
 }
 
@@ -50,16 +52,16 @@
 - (void)initWithAppConfig;
 
 // Methods getting app configurations.
-- (NSInteger) iLoginType;
+/*- (NSInteger) iLoginType;
 - (BOOL) bNotification;
 - (BOOL) bWifiOnly;
 - (BOOL) bSoundAlert;
 - (BOOL) bVibratorAlert;
 - (NSInteger) iSendCrashReport;
-- (NSInteger) iTheme;
+- (NSInteger) iTheme;*/
 
 // Private accessory method, used by AppConfig class only.
-- (void) configFilePath();
-- (void) createConfigDictionary();
-- (void) writeConfigToFile(CFPropertyListRef propertyList, CFURLRef fileURL);
+- (void) configFilePath;
+- (void) createConfigDictionary;
+- (void) writeConfigToFile;
 @end

@@ -10,6 +10,7 @@
 #import "MercuryLoginViewController.h"
 #import "MercuryMainboardViewController.h"
 #import "UIContent.h"
+#import "AppConfig.h"
 
 @interface MercuryAppDelegate : NSObject <UIApplicationDelegate> {
     // The UI Controls.
@@ -19,10 +20,14 @@
     
     // Object for UI text.
     UIContent *uiContent;
+    
+    // Configuration File
+    AppConfig *appConfig;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UIContent *uiContent;
+@property (nonatomic, retain) AppConfig *appConfig;
 @property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
 @property (nonatomic, retain) MercuryMainboardViewController *mercuryMainboardViewController;
 
