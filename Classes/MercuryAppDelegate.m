@@ -12,6 +12,7 @@
 @implementation MercuryAppDelegate
 @synthesize window;
 @synthesize uiContent;
+@synthesize appConfig;
 @synthesize mercuryLoginViewController;
 @synthesize mercuryMainboardViewController;
 
@@ -20,9 +21,16 @@
 - (BOOL)application:(UIApplication *)application 
 	didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     UIContent *contentTemp = [[UIContent alloc] init];
+    // Create the UI text object.
     self.uiContent = contentTemp;
     [contentTemp release];
-    [uiContent initWithUIContent];
+    [self.uiContent initWithUIContent];
+    
+    // Create the configuration object.
+    AppConfig *appConfigTemp = [AppConfig alloc];
+    self.appConfig = appConfigTemp;
+    [appConfigTemp release];
+    [self.appConfig initWithAppConfig];
     
     // Override point for customization after application launch.
     
