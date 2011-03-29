@@ -9,4 +9,4 @@
 || Status Bar || 20 ||
 || Navigation Bar || 44 ||
 || Tab Bar || 49 ||
-|| KeyBoard || 216 ||
+|| Keyboard || 216 ||
