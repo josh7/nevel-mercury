@@ -77,3 +77,7 @@ NSString *str = (NSString *)CFStringCreateWithCharacters(...);
  ...
 [str autorelease];
 }}}
+
+= Note =
+
+  * about CFNumber: In order to improve performance, some commonly-used numbers (such as 0 and 1) are uniqued. You should not expect that allocating multiple CFNumber instances will necessarily result in distinct objects.
