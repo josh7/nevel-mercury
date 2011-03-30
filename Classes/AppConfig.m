@@ -66,18 +66,25 @@ enum {
 	CFRelease(mainSwitchSettings);
 
 	// The main picker settings collection.
-    int defaultPickerVal = 0;
+    int defaultSel = 0;
+    
 	CFNumberRef mainPickerSettingsDefault[kNumberPickers];
-	mainPickerSettingsDefault[kSendCrashReport] = 
-        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultPickerVal);
-	mainPickerSettingsDefault[kTheme] = 
-        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultPickerVal); 
+    mainPickerSettingsDefault[kSendCrashReport] = 
+        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultSel);
+    mainPickerSettingsDefault[kTheme] = 
+        CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &defaultSel);
+    
 	CFArrayRef mainPickerSettings = CFArrayCreate(kCFAllocatorDefault,
 									(const void **)mainPickerSettingsDefault,
 									kNumberPickers,
 									&kCFTypeArrayCallBacks);
+    
+    // The CFNumberRefs are already copyed into CFArrays, release them.
+    CFRelease(mainPickerSettingsDefault[kSendCrashReport]);
+    CFRelease(mainPickerSettingsDefault[kTheme]);
+    
 	CFDictionarySetValue(configDic, CFSTR("mainPickerSettings"), mainPickerSettings);
-	CFRelease(mainPickerSettings);
+    CFRelease(mainPickerSettings);
 }
 
 - (void)writeConfigToFile {
