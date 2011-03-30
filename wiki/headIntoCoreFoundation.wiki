@@ -1,5 +1,12 @@
 #summary The basic knowledge of our Cute Friend - Core Foundation.
 
+*Super summary by nacci520:*
+{{{
+1. 集合（类型1，类型2，类型3），对应的是dictionary, array都是property list的子类
+2. 类型 （整数、浮点数、字符串），对应的就是他们都是CFType的子类
+3. 用对象拥有权的方式管理内存，谁创建、拷贝，谁负责清理
+}}}
+
 = Introduction =
 
 Core Foundation:
