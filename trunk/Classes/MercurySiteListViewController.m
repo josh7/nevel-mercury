@@ -10,6 +10,7 @@
 #import "SiteListInfoCell.h"
 #import "SiteListPlotCell.h"
 #define NSITES 6
+#define DEFAULT_BAR_HEIGHT 22
 
 @implementation MercurySiteListViewController
 
@@ -38,20 +39,27 @@
     self.view.backgroundColor = [UIColor brownColor];
     self.title = @"Site List";
     
-    siteScroll = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGRect viewRect;
+    viewRect.origin.x = 0.0f;
+    viewRect.origin.y = 0.0f;
+    viewRect.size.width = screenRect.size.width;
+    viewRect.size.height = screenRect.size.height - DEFAULT_BAR_HEIGHT - DEFAULT_BAR_HEIGHT;
+    
+    siteScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
     siteScroll.contentSize = CGSizeMake(0, 1040.0f);
     siteScroll.pagingEnabled = YES;
     siteScroll.delegate = self;
     //siteScroll.alpha = 0;
     
-    generalInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 1040)];
+    generalInfoTable = [[UITableView alloc] initWithFrame:viewRect];
     generalInfoTable.delegate = self;
     generalInfoTable.dataSource = self;
-    generalInfoTable.rowHeight = 85;
+    generalInfoTable.rowHeight = 85; // Calculated from SiteListInfoCell
     generalInfoTable.scrollEnabled = NO;
     generalInfoTable.backgroundColor = [UIColor clearColor];
     
-    corePlotInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 1040)];
+    corePlotInfoTable = [[UITableView alloc] initWithFrame:viewRect];
     corePlotInfoTable.delegate = self;
     corePlotInfoTable.dataSource = self;
     corePlotInfoTable.rowHeight = 85;
@@ -79,7 +87,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma - UITableView Data Source Methods
+#pragma mark - UITableView Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }
