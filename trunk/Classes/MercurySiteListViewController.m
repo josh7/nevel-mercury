@@ -10,7 +10,7 @@
 #import "SiteListInfoCell.h"
 #import "SiteListPlotCell.h"
 #define NSITES 6
-#define DEFAULT_BAR_HEIGHT 22
+#define DEFAULT_BAR_HEIGHT 49
 
 @implementation MercurySiteListViewController
 
@@ -44,7 +44,7 @@
     viewRect.origin.x = 0.0f;
     viewRect.origin.y = 0.0f;
     viewRect.size.width = screenRect.size.width;
-    viewRect.size.height = screenRect.size.height - DEFAULT_BAR_HEIGHT - DEFAULT_BAR_HEIGHT;
+    viewRect.size.height = screenRect.size.height - DEFAULT_BAR_HEIGHT;
     
     siteScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
     siteScroll.contentSize = CGSizeMake(0, 1040.0f);
