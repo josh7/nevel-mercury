@@ -7,7 +7,9 @@
 //
 
 #import "MercurySiteListViewController.h"
-
+#import "SiteListInfoCell.h"
+#import "SiteListPlotCell.h"
+#define NSITES 6
 
 @implementation MercurySiteListViewController
 
@@ -35,6 +37,31 @@
     
     self.view.backgroundColor = [UIColor brownColor];
     self.title = @"Site List";
+    
+    siteScroll = [[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
+    siteScroll.contentSize = CGSizeMake(0, 1040.0f);
+    siteScroll.pagingEnabled = YES;
+    siteScroll.delegate = self;
+    //siteScroll.alpha = 0;
+    
+    generalInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 1040)];
+    generalInfoTable.delegate = self;
+    generalInfoTable.dataSource = self;
+    generalInfoTable.rowHeight = 85;
+    generalInfoTable.scrollEnabled = NO;
+    generalInfoTable.backgroundColor = [UIColor clearColor];
+    
+    corePlotInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 1040)];
+    corePlotInfoTable.delegate = self;
+    corePlotInfoTable.dataSource = self;
+    corePlotInfoTable.rowHeight = 85;
+    corePlotInfoTable.backgroundColor = [UIColor clearColor];
+    corePlotInfoTable.scrollEnabled = NO;
+    
+    [siteScroll addSubview:generalInfoTable];
+    [siteScroll addSubview:corePlotInfoTable];
+    
+    [self.view addSubview:siteScroll];
 }
 
 
@@ -52,5 +79,36 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma - UITableView Data Source Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentify = @"bigCell";
+    UITableViewCellStyle style = UITableViewCellStyleDefault;
+    
+    if (tableView == generalInfoTable) {
+        SiteListInfoCell *cell = 
+            (SiteListInfoCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentify];
+        
+        if (cell == nil) {
+            cell = [[[SiteListInfoCell alloc] initWithStyle:style 
+                                          reuseIdentifier:cellIdentify] autorelease];   
+        }
+        return cell;
+    }
+    else {
+        SiteListPlotCell *cell = 
+        (SiteListPlotCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentify];
+        
+        if (cell == nil) {
+            cell = [[[SiteListPlotCell alloc] initWithStyle:style 
+                                            reuseIdentifier:cellIdentify] autorelease];   
+        }
+        return cell;
+    }
+}
 
 @end
