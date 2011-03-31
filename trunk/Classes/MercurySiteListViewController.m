@@ -24,7 +24,6 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -50,7 +49,6 @@
     siteScroll.contentSize = CGSizeMake(0, 1040.0f);
     siteScroll.pagingEnabled = YES;
     siteScroll.delegate = self;
-    //siteScroll.alpha = 0;
     
     generalInfoTable = [[UITableView alloc] initWithFrame:viewRect];
     generalInfoTable.delegate = self;
