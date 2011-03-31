@@ -16,6 +16,7 @@
 UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
     UIPageControl *siteIndicator;
     UIScrollView *siteScroll;
+    UIScrollView *paramaterScroll;
     UITableView *generalInfoTable;
     UITableView *corePlotInfoTable;
 }

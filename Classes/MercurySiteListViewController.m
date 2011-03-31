@@ -12,7 +12,10 @@
 #define NSITES 6
 #define DEFAULT_BAR_HEIGHT 49
 
-@implementation MercurySiteListViewController
+#define SCREEN_WIDTH viewRect.size.width
+#define SCREEN_HEIGHT viewRect.size.height
+
+@implementation MercurySiteListViewController 
 
 - (void)dealloc
 {
@@ -42,13 +45,20 @@
     CGRect viewRect;
     viewRect.origin.x = 0.0f;
     viewRect.origin.y = 0.0f;
-    viewRect.size.width = screenRect.size.width;
-    viewRect.size.height = screenRect.size.height - DEFAULT_BAR_HEIGHT;
+    viewRect.size.width = SCREEN_WIDTH;
+    viewRect.size.height = SCREEN_HEIGHT - DEFAULT_BAR_HEIGHT;
     
     siteScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
-    siteScroll.contentSize = CGSizeMake(0, 1040.0f);
+    siteScroll.contentSize = CGSizeMake(SCREEN_WIDTH, 1040.0f);
     siteScroll.pagingEnabled = YES;
     siteScroll.delegate = self;
+    
+    CGRect paraViewRect = viewRect;
+    paraViewRect.size.width = NSITES * screenRect.size.width;
+    
+    paramaterScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
+    paramaterScroll.contentSize = 
+        CGSizeMake(NSITES * SCREEN_WIDTH, viewRect.size.height - DEFAULT_BAR_HEIGHT);
     
     generalInfoTable = [[UITableView alloc] initWithFrame:viewRect];
     generalInfoTable.delegate = self;
