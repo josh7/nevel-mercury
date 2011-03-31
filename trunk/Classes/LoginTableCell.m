@@ -42,7 +42,7 @@
 		self.loginTextField.returnKeyType = UIReturnKeyDone;
         self.loginTextField.autocapitalizationType = NO;
 		[self.contentView addSubview:self.loginTextField];
-        }
+    }
     return self;
 }
 
