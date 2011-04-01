@@ -10,3 +10,4 @@
 || Navigation Bar || 44 ||
 || Tab Bar || 49 ||
 || Keyboard || 216 ||
+|| UISwitch || 94 * 27 ||
