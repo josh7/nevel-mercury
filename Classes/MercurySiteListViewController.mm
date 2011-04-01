@@ -9,11 +9,8 @@
 #import "MercurySiteListViewController.h"
 #import "SiteListInfoCell.h"
 #import "SiteListPlotCell.h"
-#define NSITES 6
-#define DEFAULT_BAR_HEIGHT 49
 
-#define SCREEN_WIDTH viewRect.size.width
-#define SCREEN_HEIGHT viewRect.size.height
+
 
 @implementation MercurySiteListViewController 
 
@@ -37,45 +34,66 @@
 - (void)loadView
 {
     [super loadView];
-    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.view.backgroundColor = [UIColor brownColor];
     self.title = @"Site List";
+
+    CGRect displayRect;
+    displayRect.origin.x = 0.0f;
+    displayRect.origin.y = 0.0f;
+    displayRect.size.width = SCREEN_WIDTH;
+    displayRect.size.height = SCREEN_HEIGHT - DEFAULT_TABBAR_HEIGHT - DEFAULT_NAVBAR_HEIGHT;
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGRect viewRect;
-    viewRect.origin.x = 0.0f;
-    viewRect.origin.y = 0.0f;
-    viewRect.size.width = SCREEN_WIDTH;
-    viewRect.size.height = SCREEN_HEIGHT - DEFAULT_BAR_HEIGHT;
-    
-    siteScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
-    siteScroll.contentSize = CGSizeMake(SCREEN_WIDTH, 1040.0f);
+    siteScroll = [[[UIScrollView alloc] initWithFrame:displayRect] autorelease];
+    siteScroll.contentSize = CGSizeMake(SCREEN_WIDTH, NSITES * 85);
     siteScroll.pagingEnabled = YES;
     siteScroll.delegate = self;
     
-    CGRect paraViewRect = viewRect;
-    paraViewRect.size.width = NSITES * screenRect.size.width;
+    paramaterScroll = [[[UIScrollView alloc] initWithFrame:displayRect] autorelease];
+    paramaterScroll.contentSize = CGSizeMake(NSITES * SCREEN_WIDTH, displayRect.size.height);
+//    paramaterScroll.contentSize = 
+//        CGSizeMake(NSITES * SCREEN_WIDTH, 1700.0f);
+    //paramaterScroll.bounces = NO;
+    paramaterScroll.alwaysBounceVertical = NO;
+    paramaterScroll.directionalLockEnabled = YES;
     
-    paramaterScroll = [[[UIScrollView alloc] initWithFrame:viewRect] autorelease];
-    paramaterScroll.contentSize = 
-        CGSizeMake(NSITES * SCREEN_WIDTH, viewRect.size.height - DEFAULT_BAR_HEIGHT);
+    // Create the BIG PLOT VIEW.
+    CGRect plotRect = CGRectMake(0, 0, PARANUM * 320, NSITES * 85);
+    UIView *plotHoldersTemp = [[UIView alloc] initWithFrame:plotRect];
+    plotHolders = plotHoldersTemp;
+    [plotHoldersTemp release];
     
-    generalInfoTable = [[UITableView alloc] initWithFrame:viewRect];
+    // Generate all plot tables and add them into the BIG VIEW.
+    for (int i = 0; i < PARANUM; i++) {
+        corePlotInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, 
+                                                                          SCREEN_WIDTH * (i + 1), 
+                                                                          NSITES * 85)];
+    }
+    
+    
+//    
+//    CGRect tableViewRect = viewRect;
+//    tableViewRect.size.height = 1700;
+    generalInfoTable = [[UITableView alloc] initWithFrame:displayRect];
     generalInfoTable.delegate = self;
     generalInfoTable.dataSource = self;
     generalInfoTable.rowHeight = 85; // Calculated from SiteListInfoCell
     generalInfoTable.scrollEnabled = NO;
     generalInfoTable.backgroundColor = [UIColor clearColor];
     
-    corePlotInfoTable = [[UITableView alloc] initWithFrame:viewRect];
+    corePlotInfoTable = [[UITableView alloc] initWithFrame:displayRect];
     corePlotInfoTable.delegate = self;
     corePlotInfoTable.dataSource = self;
     corePlotInfoTable.rowHeight = 85;
     corePlotInfoTable.backgroundColor = [UIColor clearColor];
     corePlotInfoTable.scrollEnabled = NO;
     
+    [paramaterScroll addSubview:corePlotInfoTable];
     [siteScroll addSubview:generalInfoTable];
-    [siteScroll addSubview:corePlotInfoTable];
+    [siteScroll addSubview:paramaterScroll];
+    
+    //[siteScroll addSubview:generalInfoTable];
+    //[siteScroll addSubview:corePlotInfoTable];
     
     [self.view addSubview:siteScroll];
 }
