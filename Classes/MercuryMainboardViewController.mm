@@ -22,6 +22,7 @@
     [mainboardTabBarController release];
     [sitesListNavigationController release];
     [settingsNavigationController release];
+    [mainboardUIContent release];
     [super dealloc];
 }
 
