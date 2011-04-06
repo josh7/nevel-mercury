@@ -306,3 +306,8 @@ insertSections:withRowAnimation:
 deleteSections:withRowAnimation:
 }}}
   * STEP_3: Conclude the animation block by calling endUpdates.
+
+== Create NSIndexPath for table view ==
+{{{
+NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:myRow inSection:mySection];
+}}}
