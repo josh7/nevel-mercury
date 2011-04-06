@@ -52,6 +52,7 @@
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
+		00AEDD5C134C470D009CB936 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 		682BB6EF13260C0C0054CEC9 /* UIHelper */ = {
 			isa = PBXGroup;
 			children = (
+				00AEDD5C134C470D009CB936 /* Common.h */,
 				68E4EED51342094F00C87757 /* AppConfig.h */,
 				68E4EED41342094F00C87757 /* AppConfig.m */,
 				0080F864133C1CFF00A7325B /* UIContent.h */,

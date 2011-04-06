@@ -8,3 +8,6 @@
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+#define DEFAULT_TABBAR_HEIGHT 49
+#define DEFAULT_NAVBAR_HEIGHT 44

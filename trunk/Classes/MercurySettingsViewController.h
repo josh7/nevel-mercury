@@ -11,8 +11,6 @@
 #import "AppConfig.h"
 #import "Common.h"
 
-#define DEFAULT_TABBAR_HEIGHT 49
-#define DEFAULT_NAVBAR_HEIGHT 44
 
 /* 
  * Customize settings root view controller here.
@@ -29,23 +27,24 @@ UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
     UISwitch *soundAlertSwitch;
     UISwitch *vibtatorAlertSwitch;
     UILabel *copyright;
-    UIPickerView *crashReportPicker;
-    UIActionSheet *crashReportActionSheet;
-    UIPickerView *themePicker;
+    UISegmentedControl *sendCrashReportSegmentedControl;
     
     // Object for UI text.
     UIContent *settingsUIContent;
     NSString *textOfCrashReportDetailTextLabel;
-    NSString *textOfThemeDetailTextLabel;
-    NSIndexPath *crashReportIndexPath;
     
     // Objuct for user cnfigurations.
     AppConfig *settingsConfig;
     
     // For fun ~
     UILabel *nevel;
+    
+    // Flag to mark whether the theme cell should be selectable.
+    BOOL themeCellCanBeSelected;
+    BOOL sendCrashReportCellCanBeSelected;
 }
 
+// TODO: Clean thses propertise.
 @property (nonatomic, retain) UIImageView *bgImageView;
 @property (nonatomic, retain) UITableView *settingsTable;
 @property (nonatomic, retain) UIView *footerView;
@@ -55,24 +54,23 @@ UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
 @property (nonatomic, retain) UISwitch *vibtatorAlertSwitch;
 @property (nonatomic, retain) UILabel *copyright;
 @property (nonatomic, retain) UILabel *nevel;
-@property (nonatomic, retain) UIPickerView *crashReportPicker;
-@property (nonatomic, retain) UIActionSheet *crashReportActionSheet;
-@property (nonatomic, retain) UIPickerView *themePicker;
+@property (nonatomic, retain) UISegmentedControl *sendCrashReportSegmentedControl;
 @property (nonatomic, retain) UIContent *settingsUIContent;
 @property (nonatomic, retain) AppConfig *settingsConfig;
 
+// Set two kinds cell uniformly.
 - (id)setSwitchStyleForCell:(UITableViewCell *)switchCell;
 - (id)setAccessoryStyleForCell:(UITableViewCell *)accessoryCell 
            withDetailLableText:(NSString *)detailText;
 
-// App configuration methods.
+// App configuration action.
 - (void)notificationDidSwitch:(id)sender;
 - (void)wifiDidSwitch:(id)sender;
 - (void)sountAlertDidSwitch:(id)sender;
 - (void)vibtatorAlertDidSwitch:(id)sender;
 
-// Display detail text lable in real time methods.
-//- (void)setCrashReportDetailTextLabel:(NSIndexPath *)indexPath inSection:(NSArray *)section;
+// Segmented control action.
+- (void)segmentedControlPressed:(id)sender;
 
 
 @end
