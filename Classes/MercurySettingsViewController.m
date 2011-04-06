@@ -22,9 +22,7 @@
 @synthesize vibtatorAlertSwitch;
 @synthesize copyright;
 @synthesize nevel;
-@synthesize crashReportPicker;
-@synthesize crashReportActionSheet;
-@synthesize themePicker;
+@synthesize sendCrashReportSegmentedControl;
 @synthesize settingsConfig;
 
 
@@ -39,9 +37,7 @@
     [vibtatorAlertSwitch release];
     [copyright release];
     [nevel release];
-    [crashReportPicker release];
-    [crashReportActionSheet release];
-    [themePicker release];
+    [sendCrashReportSegmentedControl release];
     [settingsConfig release];
     [super dealloc];
 }
@@ -62,12 +58,15 @@
 - (void)loadView
 {
     [super loadView];
-    // PURETEARS: we used the MACRO in Common.h so screenRect can retire.
-    //CGRect screenRect = [[UIScreen mainScreen] bounds];
+    sendCrashReportCellCanBeSelected = YES;
+    themeCellCanBeSelected = YES;
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.settingsUIContent = appDelegate.uiContent;
+    textOfCrashReportDetailTextLabel = [[self.settingsUIContent.uiSettingsKeys 
+                                         objectAtIndex:SECTION_REPORT] 
+                                        objectAtIndex:ST_EN_ALWAYS];
     
     // Set the app configuration object.
     AppConfig *appConfigTemp = [[AppConfig alloc] init];
@@ -80,6 +79,7 @@
     
     // Add background image.
     
+    /* +--------------------------- Initialize table view ----------------------------+ */
     // Create settings table view.
     CGRect displayRect;
     displayRect.origin.x = 0.0f;
@@ -130,6 +130,7 @@
 
     self.settingsTable.tableFooterView = self.footerView;
     [self.view addSubview:self.settingsTable];
+    /* +------------------------ End of nitialize each cell --------------------------+ */
 }
 
 
@@ -197,11 +198,29 @@
                     break;
                     
                 case ST_EN_SEND_REPORT: {
-                    NSArray *crashReport = [self.settingsUIContent.uiSettingsKeys 
-                                            objectAtIndex:SECTION_REPORT];
                     cell = [self setAccessoryStyleForCell:cell 
-                                      withDetailLableText:[crashReport 
-                                                           objectAtIndex:ST_EN_ALWAYS]];
+                                      withDetailLableText:textOfCrashReportDetailTextLabel];
+                }
+                    break;
+                
+                case (ST_EN_SEND_REPORT+1): {
+                    cell.backgroundColor = [UIColor lightGrayColor];
+                    
+                    // We add the segmented control to the new cell here.
+                    // Initialize segmented control.
+                    NSArray *segmentedControlArray =
+                    [self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_REPORT];
+                    UISegmentedControl *scTemp = [[UISegmentedControl alloc] 
+                                                  initWithItems:segmentedControlArray];
+                    self.sendCrashReportSegmentedControl = scTemp;
+                    [scTemp release];
+                    self.sendCrashReportSegmentedControl.selectedSegmentIndex = ST_EN_ALWAYS;
+                    self.sendCrashReportSegmentedControl.frame = CGRectMake(0, -10, 300, 54);
+                    [self.sendCrashReportSegmentedControl 
+                                                addTarget:self 
+                                                   action:@selector(segmentedControlPressed:) 
+                                         forControlEvents:UIControlEventValueChanged];
+                    [cell.contentView addSubview:self.sendCrashReportSegmentedControl];
                 }
                     break;
                     
@@ -236,10 +255,6 @@
                 }
                     break;
                     
-                case 4:
-                    NSLog(@"hshs");
-                    break;
-                        
                 default:
                     break;
             }
@@ -261,17 +276,22 @@
             cell.selectionStyle = UITableViewCellEditingStyleNone;
         }
         /* +------------------------- End of initialize each cell ------------------------+ */
+        
+        // Display text and set colors in each cell.
+        NSArray *section = [self.settingsUIContent.uiSettingsKeys objectAtIndex:sectionIndex];
+        NSString *row = [section objectAtIndex:rowIndex];
+        cell.textLabel.text = row;
+        cell.textLabel.backgroundColor = [UIColor clearColor];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        cell.textLabel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
+        cell.backgroundColor = 
+        [UIColor colorWithRed:0 green:0.05 blue:0.15 alpha:1]; // The cell backgrond color.
+        
+        // Set a special background color to segmented control cell.
+        if (sectionIndex == SECTION_NETWORKS && rowIndex == (ST_EN_SEND_REPORT+1)) {
+            cell.backgroundColor = [UIColor whiteColor];
+        }
     }
 
-    
-    // Display the text in each cell.
-    NSArray *section = [self.settingsUIContent.uiSettingsKeys objectAtIndex:sectionIndex];
-    NSString *row = [section objectAtIndex:rowIndex];
-    cell.textLabel.text = row;
-    cell.textLabel.backgroundColor = [UIColor clearColor];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-    cell.textLabel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
-    cell.backgroundColor = 
-        [UIColor colorWithRed:0 green:0.05 blue:0.15 alpha:1]; // The cell backgrond color.
     return cell;
 }
 
@@ -282,6 +302,7 @@
                             initWithFrame:CGRectMake(196, 8, 94, 27)] autorelease];
     return switchTemp;
 }
+
 
 // Set the style of accessory cell uniformly.
 - (id)setAccessoryStyleForCell:(UITableViewCell *)accessoryCell 
@@ -303,114 +324,132 @@
     NSUInteger sectionIndex = indexPath.section;
     NSUInteger rowIndex = indexPath.row;
     
-    // Manage the configuration of sending crash report.
-    if (sectionIndex == SECTION_NETWORKS && rowIndex == ST_EN_SEND_REPORT) {
-        // TODO: Use inserting cell instead of action sheet here.
-        // Add an action sheet to display crash report options.
-        NSArray *crashReport = [self.settingsUIContent.uiSettingsKeys 
-                                objectAtIndex:SECTION_REPORT];
-
-        UIActionSheet *asTemp = [[UIActionSheet alloc] 
-                                 initWithTitle:nil 
-                                      delegate:self
-                             cancelButtonTitle:@"Cancel" 
-                        destructiveButtonTitle:nil 
-                             otherButtonTitles:[crashReport objectAtIndex:ST_EN_ALWAYS], 
-                                               [crashReport objectAtIndex:ST_EN_ASK],
-                                               [crashReport objectAtIndex:ST_EN_NEVER], nil];
-        self.crashReportActionSheet = asTemp;
-        [asTemp release];
-        self.crashReportActionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    NSArray *themeUIArray = [self.settingsUIContent.uiSettingsKeys 
+                      objectAtIndex:SECTION_THEME];
+    
+    /* +-------------------- Configure crash report sending type ---------------------+ */
+    // We insert a cell to hold our crash report sending type when press the cell.
+    if (sectionIndex == SECTION_NETWORKS && 
+        rowIndex == ST_EN_SEND_REPORT) {
+        NSIndexPath *ipSendCrashReport = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
+                                                            inSection:SECTION_NETWORKS];
+        if (sendCrashReportCellCanBeSelected ==YES) {
+            // Prepare the a new array that are the data source of insert row.
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS] 
+             insertObject:@"" 
+             atIndex:(ST_EN_SEND_REPORT+1)];
+            NSArray *insertSendReportArray = [NSArray arrayWithObject:ipSendCrashReport];
+            
+            // Insert the theme row.
+            [self.settingsTable beginUpdates];
+            [self.settingsTable insertRowsAtIndexPaths:insertSendReportArray 
+                                      withRowAnimation:UITableViewRowAnimationTop];
+            sendCrashReportCellCanBeSelected = NO;
+            [self.settingsTable endUpdates];
+        }
         
-        // Update the text of detail text lable in real time.
-        crashReportIndexPath = indexPath;
-        textOfCrashReportDetailTextLabel = [crashReport objectAtIndex:ST_EN_ALWAYS];
-        
-        // Display action sheet.
-        [self.crashReportActionSheet showFromTabBar:[self tabBarController].tabBar];
-        
-        
-        // useless
-//        // Add picker to action sheet.
-//        UIPickerView *pvTemp = [[UIPickerView alloc] init];
-//        self.crashReportPicker = pvTemp;
-//        [pvTemp release];
-//        self.crashReportPicker.backgroundColor = [UIColor blueColor];
-//        self.crashReportPicker.delegate = self;
-//        self.crashReportPicker.dataSource = self;
-//        self.crashReportPicker.frame = CGRectMake(0, 0, 160, 110);
-//        [self.crashReportActionSheet addSubview:self.crashReportPicker];
-//        
-//        // Add the buttons on action sheet.
-//        UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        doneButton.frame = CGRectMake(170, 10, 140, 40);
-//        doneButton.showsTouchWhenHighlighted = YES;
-//        doneButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//        doneButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//        [doneButton setTitleColor:[UIColor colorWithRed:0 green:0.5 blue:1 alpha:1] 
-//                           forState:UIControlStateSelected];
-//        [doneButton addTarget:self 
-//                    action:@selector(sendCrashReportDonePressed:) 
-//          forControlEvents:UIControlEventTouchUpInside];
-//        [self.crashReportActionSheet addSubview:doneButton];
-//        
-//        UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        cancelButton.frame = CGRectMake(170, 60, 140, 40);
-//        cancelButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//        cancelButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-//        [cancelButton setTitleColor:[UIColor colorWithRed:0 green:0.5 blue:1 alpha:1] 
-//                           forState:UIControlStateSelected];
-//        [cancelButton addTarget:self 
-//                         action:@selector(cancelPressed:) 
-//               forControlEvents:UIControlEventTouchUpInside];
-//        [self.crashReportActionSheet addSubview:cancelButton];
+        // We delete the cell holding segmented control when press the cell.
+        else {
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
+             removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
+            NSArray *deleteReportArray = [NSArray arrayWithObject:ipSendCrashReport];
+            
+            // Delete the theme rows.
+            [self.settingsTable beginUpdates];
+            [self.settingsTable deleteRowsAtIndexPaths:deleteReportArray 
+                                      withRowAnimation:UITableViewRowAnimationTop];
+            sendCrashReportCellCanBeSelected = YES;
+            [self.settingsTable endUpdates];
+        }        
     }
     
-    // We insert a cell hold our themes when press the themecell.
-    if (sectionIndex == SECTION_EXTERNAL && rowIndex == ST_EN_THEME) {
+    /* +----------------- End of configure crash report sending type -----------------+ */
+
+    /* +---------------------------- Configure theme type ----------------------------+ */
+    // We insert a cell to hold our themes when press the themecell.
+    if (sectionIndex == SECTION_EXTERNAL && 
+        rowIndex == ST_EN_THEME && 
+        themeCellCanBeSelected ==YES) {
         // Prepare the a new array that are the data source of insert row.
         [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
-                                                 insertObject:@"Nevel classic" 
-                                                      atIndex:(ST_EN_THEME+1)];
-        NSArray *insertThemeArray = [NSArray arrayWithObject:
-                              [NSIndexPath indexPathForRow:(ST_EN_THEME+1) 
-                                                 inSection:SECTION_EXTERNAL]];
+            insertObject:[themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC] 
+                 atIndex:(ST_EN_THEME+1)];
+        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+            insertObject:[themeUIArray objectAtIndex:ST_EN_BLACKHOLE]
+                 atIndex:(ST_EN_THEME+2)];
+        NSArray *insertThemeArray = [NSArray arrayWithObjects:
+            [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
+            [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
         // Insert the theme row.
         [self.settingsTable beginUpdates];
         [self.settingsTable insertRowsAtIndexPaths:insertThemeArray 
-                         withRowAnimation:UITableViewRowAnimationTop];
+                                  withRowAnimation:UITableViewRowAnimationTop];
+        themeCellCanBeSelected = NO;
         [self.settingsTable endUpdates];
     }
     
-    // We delete a cell hold our themes when press the themecell.
-    if (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+1)) {
+    // We delete the cells holding our themes after chooseing a theme.
+    if ((sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+1)) ||
+        (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+2))) {
         [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL]
-                                          removeObjectAtIndex:(ST_EN_THEME+1)];
-        NSArray *deleteThemeArray = [NSArray arrayWithObject:
-                                     [NSIndexPath indexPathForRow:(ST_EN_THEME+1) 
-                                                        inSection:SECTION_EXTERNAL]];
-        // Delete the theme row.
+            removeObjectAtIndex:(ST_EN_THEME+1)];
+        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+            removeObjectAtIndex:(ST_EN_THEME+1)];
+        NSArray *deleteThemeArray = [NSArray arrayWithObjects:
+            [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
+            [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
+        
+        // Delete the theme rows.
         [self.settingsTable beginUpdates];
         [self.settingsTable deleteRowsAtIndexPaths:deleteThemeArray 
                                   withRowAnimation:UITableViewRowAnimationTop];
+        themeCellCanBeSelected = YES;
         [self.settingsTable endUpdates];
-
+        
+        // Update the text of detail text lable in real time.
+        NSIndexPath *ipTheme = [NSIndexPath indexPathForRow:ST_EN_THEME 
+                                                  inSection:SECTION_EXTERNAL];
+        if (rowIndex == (ST_EN_THEME+1)) {
+            [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                [themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC];
+            [self.settingsConfig setTheme:NEVEL_CLASSIC];
+        }
+        
+        else {
+            [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                [themeUIArray objectAtIndex:ST_EN_BLACKHOLE];
+            [self.settingsConfig setTheme:BLACKHOLE];
+        }
     }
+    /* +------------------------- End of onfigure theme type -------------------------+ */
 }
 
 
-#pragma mark - UIActionSheet delegate and methods.
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != actionSheet.cancelButtonIndex) {
-        [self.settingsConfig setCrashReportSendingType:buttonIndex];
-        textOfCrashReportDetailTextLabel = [self.crashReportActionSheet 
-                                            buttonTitleAtIndex:buttonIndex];
-        UITableViewCell *selectCell = [self.settingsTable 
-                                       cellForRowAtIndexPath:crashReportIndexPath];
-        selectCell.detailTextLabel.text = textOfCrashReportDetailTextLabel;
-    }
+#pragma mark - Segmented control action
+- (void)segmentedControlPressed:(id)sender {
+    NSIndexPath *ipSendCrashReportSegment = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
+                                                        inSection:SECTION_NETWORKS];
+    [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
+     removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
+    NSArray *deleteReportArray = [NSArray arrayWithObject:ipSendCrashReportSegment];
+    
+    // Delete the theme rows.
+    [self.settingsTable beginUpdates];
+    [self.settingsTable deleteRowsAtIndexPaths:deleteReportArray 
+                              withRowAnimation:UITableViewRowAnimationTop];
+    sendCrashReportCellCanBeSelected = YES;
+    [self.settingsTable endUpdates];
+    
+    // Pass the crash report sending type to app configuration detailed label of cell.
+    NSUInteger selectSegmentIndex = self.sendCrashReportSegmentedControl.selectedSegmentIndex;
+    [self.settingsConfig setCrashReportSendingType:selectSegmentIndex];
+    textOfCrashReportDetailTextLabel = [self.sendCrashReportSegmentedControl 
+                                        titleForSegmentAtIndex:selectSegmentIndex];
+    NSIndexPath *ipSendCrashReport = [NSIndexPath indexPathForRow:ST_EN_SEND_REPORT 
+                                                        inSection:SECTION_NETWORKS];
+    UITableViewCell *selectCell = [self.settingsTable 
+                               cellForRowAtIndexPath:ipSendCrashReport];
+    selectCell.detailTextLabel.text = textOfCrashReportDetailTextLabel;
 }
 
 
@@ -437,26 +476,6 @@
     self.vibtatorAlertSwitch.on == YES ? [self.settingsConfig setVibratorAlertType:YES]:
                                          [self.settingsConfig setNotificationType:NO];
 }
-
-
-//#pragma mark -UIPickerView datasource
-//- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-//    return 1;
-//}
-//
-//
-//- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-//    return [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_REPORT] count];
-//    NSLog(@"%@", [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_REPORT] count]);
-//}
-//
-//
-//#pragma mark - UIPickerView delegate
-//- (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row 
-//             forComponent:(NSInteger)component {
-//    NSArray *crashReport = [self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_REPORT];
-//    return [crashReport objectAtIndex:row];
-//}
 
 
 @end

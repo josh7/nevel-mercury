@@ -20,6 +20,7 @@
 #define NEVER               2
 // Theme type values.
 #define NEVEL_CLASSIC       0
+#define BLACKHOLE           1
 
 /* XML sample of mercury configuration file.
  *	<plist version="1.0">
