@@ -27,7 +27,7 @@
         UILabel *downTemp = [[UILabel alloc] initWithFrame:rect];
         self.down = downTemp;
         [downTemp release];
-        down.backgroundColor = [UIColor blueColor];
+        //down.backgroundColor = [UIColor blueColor];
         
         [self.contentView addSubview:up];
         [self.contentView addSubview:down];
