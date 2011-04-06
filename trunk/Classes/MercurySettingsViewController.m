@@ -62,7 +62,8 @@
 - (void)loadView
 {
     [super loadView];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    // PURETEARS: we used the MACRO in Common.h so screenRect can retire.
+    //CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
