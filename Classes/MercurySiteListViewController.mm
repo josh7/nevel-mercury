@@ -222,13 +222,14 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView 
+                  willDecelerate:(BOOL)decelerate {
     if (scrollView == paramaterScroll) {
         int offset1 = scrollView.contentOffset.x;
         int offset2 = originScrollOffset.x;
         int offset = offset1 - offset2;
         
-//        if (offset > SCREEN_WIDTH / 2) {
+        //        if (offset > SCREEN_WIDTH / 2) {
         if (offset > 0) {
             // Scroll left
             paraIndicator.currentPage++;
@@ -245,10 +246,10 @@
             NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
             NSLog(@"[offset1: ]%d", offset1);
 #endif
-          
+            
         }
         else if (offset < 0) {
-//        else if (offset < (-SCREEN_WIDTH / 2)) {
+            //        else if (offset < (-SCREEN_WIDTH / 2)) {
             paraIndicator.currentPage--;
             currentTableIndex--;
             
@@ -269,8 +270,8 @@
         }
         originScrollOffset = scrollView.contentOffset;
     }
-    
 }
+
 
 #pragma mark - UITableView Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
