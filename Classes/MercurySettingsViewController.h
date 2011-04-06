@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UIContent.h"
 #import "AppConfig.h"
+#import "Common.h"
 
 #define DEFAULT_TABBAR_HEIGHT 49
 #define DEFAULT_NAVBAR_HEIGHT 44
-
-#define SCREEN_WIDTH screenRect.size.width
-#define SCREEN_HEIGHT screenRect.size.height
 
 /* 
  * Customize settings root view controller here.

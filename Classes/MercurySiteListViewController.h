@@ -8,6 +8,7 @@
 #include <iostream>
 #include <list>
 #import <UIKit/UIKit.h>
+#import "Common.h"
 
 /* 
  * Customize site list root view controller here.
@@ -31,8 +32,7 @@
 #define DEFAULT_TABBAR_HEIGHT 49
 #define DEFAULT_NAVBAR_HEIGHT 44
 
-#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
-#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
 #define TABLEVIEW_CONTENT_HEIGHT NSITES * 85
 
 
