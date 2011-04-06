@@ -293,3 +293,16 @@ http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation
 == about UIScrollView ==
 
 *_In Apple's reference, there is also NSScrollView Class Reference with UIScrollView Class Reference._*
+
+== Tips on Insertion, Deletion, and Reloading of rows and sections ==
+
+  * STEP_1: prepare the array (or arrays) that are the source of data for the sections and rows.
+    * After rows and sections are deleted and inserted, the resulting rows and sections are populated from this data store.
+  * STEP_2: call the beginUpdates method, followed by invocations of:
+{{{
+insertRowsAtIndexPaths:withRowAnimation:
+deleteRowsAtIndexPaths:withRowAnimation:
+insertSections:withRowAnimation:
+deleteSections:withRowAnimation:
+}}}
+  * STEP_3: Conclude the animation block by calling endUpdates.
