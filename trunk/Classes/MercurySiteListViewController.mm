@@ -63,7 +63,7 @@
  * |   |                |  |                                                   |
  * |   |                |  |  Scroll from right                                |
  * |   |                |  |                   <=== OR ===>                    |
- * |   |                |  |                               Scroll from right   |
+ * |   |                |  |                               Scroll from Left    |
  * |   |                |  |                                                   |
  * |   |                |  |                                                   |
  * |   |                |  |                                                   |
