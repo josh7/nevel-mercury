@@ -228,7 +228,8 @@
         int offset2 = originScrollOffset.x;
         int offset = offset1 - offset2;
         
-        if (offset > SCREEN_WIDTH / 2) {
+//        if (offset > SCREEN_WIDTH / 2) {
+        if (offset > 0) {
             // Scroll left
             paraIndicator.currentPage++;
             currentTableIndex++;
@@ -246,7 +247,8 @@
 #endif
           
         }
-        else if (offset < (-SCREEN_WIDTH / 2)) {
+        else if (offset < 0) {
+//        else if (offset < (-SCREEN_WIDTH / 2)) {
             paraIndicator.currentPage--;
             currentTableIndex--;
             
