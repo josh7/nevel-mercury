@@ -10,6 +10,7 @@
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
+		00B00BF31346B9C700F4DBCF /* MercurySiteListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00B00BF21346B9C700F4DBCF /* MercurySiteListViewController.mm */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -31,7 +32,6 @@
 		68AEA2691322DEA9001078AD /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AEA2681322DEA9001078AD /* libz.1.2.3.dylib */; };
 		68AEA2701322E063001078AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68AEA26E1322E063001078AD /* Default@2x.png */; };
 		68AEA2711322E063001078AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 68AEA26F1322E063001078AD /* Default.png */; };
-		68B7238713447D2700C49590 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B7238613447D2700C49590 /* View.xib */; };
 		68C5B0561323C27A005843C8 /* MercuryLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */; };
 		68C98A4213461E0000165DF6 /* MercurySiteListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */; };
 		68C98A471346283800165DF6 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68C98A451346283800165DF6 /* test.cpp */; };
@@ -53,6 +53,7 @@
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
+		00B00BF21346B9C700F4DBCF /* MercurySiteListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MercurySiteListViewController.mm; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		68AEA2681322DEA9001078AD /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		68AEA26E1322E063001078AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		68AEA26F1322E063001078AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		68B7238613447D2700C49590 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		68C5B0541323C27A005843C8 /* MercuryLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryLoginViewController.h; sourceTree = "<group>"; };
 		68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryLoginViewController.m; sourceTree = "<group>"; };
 		68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MercurySiteListViewController.mm; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				68B7238613447D2700C49590 /* View.xib */,
 				68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */,
 				68AEA26E1322E063001078AD /* Default@2x.png */,
 				68AEA26F1322E063001078AD /* Default.png */,
@@ -331,7 +330,6 @@
 				68F7069613276E5800766B32 /* UI.plist in Resources */,
 				00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */,
 				68CA2FF0133D8E9E00BA3475 /* nevel_icon.png in Resources */,
-				68B7238713447D2700C49590 /* View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -383,6 +382,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Mercury-Info.plist";
 				OTHER_CFLAGS = "-DDEBUG";
+				"OTHER_CFLAGS[arch=*]" = "-DDEBUG_CONFIGFILE";
 				PRODUCT_NAME = Mercury;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
@@ -392,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Mercury_Prefix.pch;

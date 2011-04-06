@@ -10,6 +10,16 @@
 #import <CoreFoundation/CoreFoundation.h>
 
 #define kConfigFileName @"UserConfig.plist"
+// Login type values.
+#define AUTO                0
+#define REMEMBER_ACCOUNT    1
+#define JUST_LOGIN          2
+// Crash report sending type values.
+#define ASK                 0
+#define ALWAYS              1
+#define NEVER               2
+// Theme type values.
+#define NEVEL_CLASSIC       0
 
 /* XML sample of mercury configuration file.
  *	<plist version="1.0">
@@ -51,17 +61,18 @@
 // Initialization method.
 - (void)initWithAppConfig;
 
-// Methods getting app configurations.
-/*- (NSInteger) iLoginType;
-- (BOOL) bNotification;
-- (BOOL) bWifiOnly;
-- (BOOL) bSoundAlert;
-- (BOOL) bVibratorAlert;
-- (NSInteger) iSendCrashReport;
-- (NSInteger) iTheme;*/
+// Getting app configurations ethods.
+- (void) setLoginType:(int)iloginType;
+- (void) setNotificationType:(BOOL)bNotification;
+- (void) setWifiOnlyType:(BOOL)bWifiOnly;
+- (void) setSoundAlertType:(BOOL)bSoundAlert;
+- (void) setVibratorAlertType:(BOOL)bVibratorAlert;
+- (void) setCrashReportSendingType:(int)iCrashReportSengdingType;
+- (void) setTheme:(int)iThemeType;
 
 // Private accessory method, used by AppConfig class only.
 - (void) configFilePath;
 - (void) createConfigDictionary;
 - (void) writeConfigToFile;
+
 @end

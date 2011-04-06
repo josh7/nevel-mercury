@@ -13,25 +13,28 @@
 @synthesize uiDictionary;
 @synthesize uiLoginKeys;
 @synthesize uiMainboardKeys;
-
-- (void)initWithUIContent{
-    // Read the UI.plist
-	NSDictionary *uiDictionaryTemp = [[NSDictionary alloc] initWithContentsOfFile:
-                                      [[NSBundle mainBundle] pathForResource:@"UI" 
-                                                                      ofType:@"plist"]];
-	self.uiDictionary = uiDictionaryTemp;
-	[uiDictionaryTemp release];
-	
-    self.uiLoginKeys = [uiDictionary objectForKey:@"Login"];
-	self.uiMainboardKeys = [uiDictionary objectForKey:@"Mainboard"];
-}
-
+@synthesize uiSettingsKeys;
 
 - (void)dealloc {
     [uiDictionary release];
 	[uiLoginKeys release];
     [uiMainboardKeys release];
+    [uiSettingsKeys release];
     [super dealloc];
+}
+
+
+- (void)initWithUIContent{
+    // Read the UI.plist
+	NSMutableDictionary *uiDictionaryTemp = [[NSMutableDictionary alloc] initWithContentsOfFile:
+                                             [[NSBundle mainBundle] pathForResource:@"UI" 
+                                                                             ofType:@"plist"]];
+	self.uiDictionary = uiDictionaryTemp;
+	[uiDictionaryTemp release];
+	
+    self.uiLoginKeys = [uiDictionary objectForKey:@"Login"];
+	self.uiMainboardKeys = [uiDictionary objectForKey:@"Mainboard"];
+    self.uiSettingsKeys = [uiDictionary objectForKey:@"Settings"];
 }
 
 

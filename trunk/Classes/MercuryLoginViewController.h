@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 #import "MercuryMainboardViewController.h"
 #import "UIContent.h"
+#import "AppConfig.h"
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
 @interface MercuryLoginViewController : UIViewController
@@ -32,6 +33,10 @@
     
     // Object for UI text.
     UIContent *loginUIContent;
+    
+    // Objuct for user cnfigurations.
+    AppConfig *loginConfig;
+    int loginType;
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
@@ -41,13 +46,14 @@
 @property (nonatomic, retain) NSMutableArray *userConfigKeys;
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) UIContent *loginUIContent;
+@property (nonatomic, retain) AppConfig *loginConfig;
 
 - (void)loginPressed:(id)sender;
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
 - (void)backgroundPressed:(id)sender;
-- (void)startLogin:(id)sender loginType:(NSString *)loginType;
+- (void)startLogin:(id)sender withType:(int)loginType;
 - (void)idTextFieldPressed:(UITextField *)sender;
 - (void)passwordTextFieldPressed:(UITextField *)sender;
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender;

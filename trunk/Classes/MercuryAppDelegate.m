@@ -16,6 +16,16 @@
 @synthesize mercuryLoginViewController;
 @synthesize mercuryMainboardViewController;
 
+- (void)dealloc {
+    [appConfig release];
+    [uiContent release];
+	[mercuryLoginViewController release];
+    [mercuryMainboardViewController release];
+    [window release];
+    [super dealloc];
+}
+
+
 #pragma mark - Application lifecycle
 
 - (BOOL)application:(UIApplication *)application 
@@ -111,15 +121,6 @@
      * Free up as much memory as possible by purging cached data objects that c
 	 * an be recreated (or reloaded from disk) later.
      */
-}
-
-
-- (void)dealloc {
-    [uiContent release];
-	[mercuryLoginViewController release];
-    [mercuryMainboardViewController release];
-    [window release];
-    [super dealloc];
 }
 
 

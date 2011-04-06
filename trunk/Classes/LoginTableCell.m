@@ -13,6 +13,13 @@
 @synthesize loginLabel;
 @synthesize loginTextField;
 
+- (void)dealloc {
+    [loginLabel release];
+	[loginTextField release];
+    [super dealloc];
+}
+
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -53,11 +60,5 @@
     // Configure the view for the selected state.
 }
 
-
-- (void)dealloc {
-    [loginLabel release];
-	[loginTextField release];
-    [super dealloc];
-}
 
 @end
