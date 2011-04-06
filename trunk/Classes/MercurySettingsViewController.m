@@ -328,6 +328,8 @@
         // Display action sheet.
         [self.crashReportActionSheet showFromTabBar:[self tabBarController].tabBar];
         
+        
+        // useless
 //        // Add picker to action sheet.
 //        UIPickerView *pvTemp = [[UIPickerView alloc] init];
 //        self.crashReportPicker = pvTemp;
