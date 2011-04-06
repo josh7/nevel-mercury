@@ -28,16 +28,50 @@
 #define MB_EN_SITESLIST         0
 #define MB_EN_SETTING           1
 
+// The Settings section English version text.
+#define SECTION_NETWORKS      0
+#define ST_EN_NOTIFICATIONS     0
+#define ST_EN_WIFI_ONLY         1
+#define ST_EN_SEND_REPORT       2
+
+#define SECTION_EXTERNAL      1
+#define ST_EN_SOUND_ALERT       0
+#define ST_EN_VIBRATOR_ALERT    1
+#define ST_EN_THEME             2
+
+#define SECTION_ACCOUNT       2
+#define ST_EN_CURRENT_ACCOUNT   0
+
+#define SECTION_ABOUT           3
+#define ST_EN_VERSION           0
+
+#define SECTION_REPORT        4
+#define ST_EN_ALWAYS            0
+#define ST_EN_ASK               1
+#define ST_EN_NEVER             2
+
+#define SECTION_THEME         5
+#define ST_EN_NEVEL_CLASSIC     0
+#define ST_EN_BLACKHOLE         1
+
+#define SECTION_COPYRIGHT     6
+#define ST_EN_VERSION_NO        0
+#define ST_EN_COPYRIGHT         1
+#define ST_EN_FOR_FUN           2
+
+
 @interface UIContent : NSObject {
     // For UI Text (we use a plist here for International purpose).
-    NSDictionary *uiDictionary;
+    NSMutableDictionary *uiDictionary;
 	NSArray *uiLoginKeys;
     NSArray *uiMainboardKeys;
+    NSMutableArray *uiSettingsKeys;
 }
 
-@property (nonatomic, retain) NSDictionary *uiDictionary;
+@property (nonatomic, retain) NSMutableDictionary *uiDictionary;
 @property (nonatomic, retain) NSArray *uiLoginKeys;
 @property (nonatomic, retain) NSArray *uiMainboardKeys;
+@property (nonatomic, retain) NSMutableArray *uiSettingsKeys;
 
 - (void)initWithUIContent;
 

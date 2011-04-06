@@ -19,6 +19,19 @@
 @synthesize hud;
 @synthesize loginUIContent;
 @synthesize userConfigKeys;
+@synthesize loginConfig;
+
+- (void)dealloc {
+	[bgImageView release];
+    [logoImageView release];
+	[loginControlLayer release];
+	[loginTableView release]; 
+    [loginUIContent release];
+    [userConfigKeys release];
+    [loginConfig release];
+    [super dealloc];
+}
+
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
@@ -145,17 +158,6 @@
 }
 
 
-- (void)dealloc {
-	[bgImageView release];
-    [logoImageView release];
-	[loginControlLayer release];
-	[loginTableView release]; 
-    [userConfigKeys release];
-    [loginUIContent release];
-    [super dealloc];
-}
-
-
 #pragma mark - Table view data source methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -176,7 +178,7 @@
 	NSUInteger row = [indexPath row];
 	UITableViewCellStyle style = UITableViewCellStyleDefault;
     LoginTableCell *cell = 
-		(LoginTableCell *)[tableView dequeueReusableCellWithIdentifier:CustomerLoginCellIdentifier];
+    (LoginTableCell *)[tableView dequeueReusableCellWithIdentifier:CustomerLoginCellIdentifier];
 	
 	if (cell == nil) {
 		cell = [[[LoginTableCell alloc] initWithStyle:style 
@@ -186,7 +188,8 @@
         // Specify the ID textfield.
         if (row == 0) {
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
-            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys objectAtIndex:7];
+            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
+                                               objectAtIndex:LI_EN_ID_HODER];
             cell.loginTextField.returnKeyType = UIReturnKeyNext;
             
             // Add actions to textfield.
@@ -203,7 +206,8 @@
 		// Specify the password textfield.
 		if (row == 1) {
 			[cell.loginTextField setSecureTextEntry:YES];
-            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys objectAtIndex:8];
+            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
+                                               objectAtIndex:LI_EN_PASSWORD_HODER];
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -367,32 +371,28 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     // Choose "Just login" button.
     if (buttonIndex == [actionSheet cancelButtonIndex]) {
-        NSString *loginType = [[NSString alloc] initWithFormat:@"justLogin"];
-        [self startLogin:self loginType:loginType];
-        [loginType release];
+        loginType = JUST_LOGIN;
+        [self startLogin:self withType:loginType];
     }
     // Choose "Aoto login" button.
     else if(buttonIndex == [actionSheet destructiveButtonIndex]) {
-        NSString *loginType = [[NSString alloc] initWithFormat:@"autoLogin"];
-        [self startLogin:self loginType:loginType];
-        [loginType release];
+        loginType = AUTO;
+        [self startLogin:self withType:loginType];
     }
     // Choose "Remember password" button.
     else {
-        NSString *loginType = [[NSString alloc] initWithFormat:@"justLogin"];
-        [self startLogin:self loginType:loginType];
-        [loginType release];
+        loginType = REMEMBER_ACCOUNT;
+        [self startLogin:self withType:loginType];
     }
 }
 
 
 // Start to login when press related button.
-- (void)startLogin:(id)sender loginType:(NSString *)loginType{
-    #ifdef DEBUG
+- (void)startLogin:(id)sender withType:(int)loginTypeInt{
+#ifdef DEBUG
     NSLog(@"startLogin");
-    #endif
+#endif
     
-    [self.userConfigKeys replaceObjectAtIndex:2 withObject: loginType];
     CGPoint newPosition = self.loginControlLayer.center;
 	newPosition.x = -160;
     
@@ -406,9 +406,12 @@
 						 [self showUsingBlocks:sender];
 					 }];
     
-    // Write user's infomation and login configuration into UserConfig.plist
-    NSString *path = @"/UserConfig.plist";  // location: system/
-    [self.userConfigKeys writeToFile:path atomically:YES];
+    // Write user's login configuration into app configuration dictionary.
+    AppConfig *appConfigTemp = [[AppConfig alloc] init];
+    self.loginConfig = appConfigTemp;
+    [appConfigTemp release];
+    [self.loginConfig initWithAppConfig];
+    [self.loginConfig setLoginType:loginTypeInt];
 }
 
 

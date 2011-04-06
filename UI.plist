@@ -22,7 +22,40 @@
 	<key>Mainboard</key>
 	<array>
 		<string>Sites List</string>
-		<string>Nevel Settings</string>
+		<string>Settings</string>
+	</array>
+	<key>Settings</key>
+	<array>
+		<array>
+			<string>Notifications</string>
+			<string>Wi-Fi Only</string>
+			<string>Send Crash Reports</string>
+		</array>
+		<array>
+			<string>Sound Alert</string>
+			<string>Vibrator Alert</string>
+			<string>Theme</string>
+		</array>
+		<array>
+			<string>Current Account</string>
+		</array>
+		<array>
+			<string>Version</string>
+		</array>
+		<array>
+			<string>Always</string>
+			<string>Ask</string>
+			<string>Never</string>
+		</array>
+		<array>
+			<string>Nevel Classic</string>
+			<string>Blackhole</string>
+		</array>
+		<array>
+			<string>3.1415</string>
+			<string>Nevel All Rights Reserved.</string>
+			<string>Nevel, Never leave you. (For fun~)</string>
+		</array>
 	</array>
 </dict>
 </plist>
