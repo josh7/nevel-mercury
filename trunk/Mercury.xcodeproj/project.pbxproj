@@ -91,6 +91,7 @@
 		68AEA2681322DEA9001078AD /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		68AEA26E1322E063001078AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		68AEA26F1322E063001078AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		68B82B45134C2195008F61E0 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		68C5B0541323C27A005843C8 /* MercuryLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryLoginViewController.h; sourceTree = "<group>"; };
 		68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryLoginViewController.m; sourceTree = "<group>"; };
 		68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MercurySiteListViewController.mm; sourceTree = "<group>"; };
@@ -225,6 +226,7 @@
 				00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */,
 				68E556B2134478E600E2B6CA /* SiteListInfoCell.h */,
 				68E556B3134478E600E2B6CA /* SiteListInfoCell.m */,
+				68B82B45134C2195008F61E0 /* Common.h */,
 			);
 			name = UIHelper;
 			sourceTree = "<group>";
@@ -382,8 +384,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Mercury-Info.plist";
-				OTHER_CFLAGS = "-DDEBUG";
-				"OTHER_CFLAGS[arch=*]" = "-DDEBUG_CONFIGFILE";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DDEBUG_CONFIGFILE",
+				);
 				PRODUCT_NAME = Mercury;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;

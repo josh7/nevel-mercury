@@ -18,17 +18,20 @@
         // Initialization code
         // Initialization code
         CGRect rect = CGRectMake(0, 0, 320, 25);
-        UILabel *upTemp = [[UILabel alloc] initWithFrame:rect];
+        UIView *upTemp = [[UIView alloc] initWithFrame:rect];
         self.up = upTemp;
         [upTemp release];
         up.alpha = 0;
         
         rect = CGRectMake(0, 25, 320, 60);
-        UILabel *downTemp = [[UILabel alloc] initWithFrame:rect];
+        UIView *downTemp = [[UIView alloc] initWithFrame:rect];
         self.down = downTemp;
         [downTemp release];
-        //down.backgroundColor = [UIColor blueColor];
         
+        UISegmentedControl *seg = [[[UISegmentedControl alloc] initWithItems:[@"One Two Three" componentsSeparatedByString:@" "]] autorelease];
+        seg.center = CGPointMake(160.0f, 30.0f);
+
+        [self.down addSubview:seg];
         [self.contentView addSubview:up];
         [self.contentView addSubview:down];
     }
