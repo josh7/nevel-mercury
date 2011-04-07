@@ -105,6 +105,7 @@
     paraIndicator = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 320, 15)];
     paraIndicator.numberOfPages = PARANUM;
     paraIndicator.currentPage = 0;
+    currentPage = paraIndicator.currentPage;
     [paraIndicator  addTarget:self 
                        action:@selector(tableTurn:) 
              forControlEvents:UIControlEventValueChanged];
@@ -145,7 +146,7 @@
     paramaterScroll.backgroundColor = [UIColor clearColor];
     paramaterScroll.pagingEnabled = YES;
     paramaterScroll.directionalLockEnabled = YES;
-    
+        
     // The site list bar table view.
     generalInfoTable = [[UITableView alloc] 
                         initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABLEVIEW_CONTENT_HEIGHT)];
@@ -203,6 +204,7 @@
 #ifdef DEBUG
     NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
     NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
+    NSLog(@"[paramaterScroll.content.x: ]%d", (int)paramaterScroll.contentOffset.x);
 #endif
 }
 
@@ -224,54 +226,59 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView 
                   willDecelerate:(BOOL)decelerate {
-    if (scrollView == paramaterScroll) {
-        int offset1 = scrollView.contentOffset.x;
-        int offset2 = originScrollOffset.x;
-        int offset = offset1 - offset2;
-        
-        //        if (offset > SCREEN_WIDTH / 2) {
-        if (offset > 0) {
-            // Scroll left
-            paraIndicator.currentPage++;
-            currentTableIndex++;
-            
-            // TODO: we should catch the out of bound exception.
-            if (currentTableIndex >= PARANUM) {
-                currentTableIndex = PARANUM - 1;
-            }
-            self.title = [paraTitle objectAtIndex:currentTableIndex]; 
-            
-#ifdef DEBUG
-            NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
-            NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
-            NSLog(@"[offset1: ]%d", offset1);
-#endif
-            
-        }
-        else if (offset < 0) {
-            //        else if (offset < (-SCREEN_WIDTH / 2)) {
-            paraIndicator.currentPage--;
-            currentTableIndex--;
-            
-            // TODO: we also need to catch the minus index exception.
-            if (currentTableIndex < 0) {
-                currentTableIndex = 0;
-            }
-            self.title = [paraTitle objectAtIndex:currentTableIndex];
-            
-#ifdef DEBUG
-            NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
-            NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
-#endif
-        }
-        else { 
-            // May be never reach here.
-            return;
-        }
-        originScrollOffset = scrollView.contentOffset;
-    }
+    // Hey, calm down ^^
+    scrollView.scrollEnabled = NO;
 }
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+//    scrollView.scrollEnabled = NO;
+//}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //scrollView.scrollEnabled = NO;
 
+    int currentOffset = scrollView.contentOffset.x;
+    int originOffset = originScrollOffset.x;
+    int movement = currentOffset - originOffset;
+
+    if (movement > (SCREEN_WIDTH) / 2) {
+        // Scroll left
+        pageBeforeTabbing = paraIndicator.currentPage++;
+        currentTableIndex++;
+#ifdef DEBUG
+        NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
+        NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
+        NSLog(@"[currentOffset: ]%d", currentOffset);
+        NSLog(@"[originOffset: ]%d", originOffset);
+        NSLog(@"+-------------------------------+");
+#endif             
+        // TODO: we should catch the out of bound exception.
+        if (currentTableIndex >= PARANUM) {
+            currentTableIndex = PARANUM - 1;
+        }
+        self.title = [paraTitle objectAtIndex:currentTableIndex]; 
+        originScrollOffset.x = scrollView.contentOffset.x;
+    }
+    else if (movement < -(SCREEN_WIDTH) / 2) {
+        pageBeforeTabbing = paraIndicator.currentPage--;
+        currentTableIndex--;
+#ifdef DEBUG
+        NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
+        NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
+        NSLog(@"[currentOffset: ]%d", currentOffset);
+        NSLog(@"[originOffset: ]%d", originOffset);
+        NSLog(@"+-------------------------------+");
+#endif
+        
+        self.title = [paraTitle objectAtIndex:currentTableIndex];
+                
+        originScrollOffset.x = scrollView.contentOffset.x;
+    }
+    else { 
+        // May be never reach here.
+        scrollView.scrollEnabled = YES;
+        return;
+    }
+    scrollView.scrollEnabled = YES;
+}
 
 #pragma mark - UITableView Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -323,18 +330,27 @@
 
 #pragma mark - private members
 - (void)tableTurn:(UIPageControl *)pageControl {
-    int currentPage = pageControl.currentPage;
+//    int currentPage = pageControl.currentPage;
     
     [UIView animateWithDuration:0.3f 
                           delay:0.0f 
                         options:UIViewAnimationOptionCurveEaseInOut 
                      animations:^{
                          self.paramaterScroll.contentOffset = 
-                            CGPointMake(SCREEN_WIDTH * currentPage, 0.0f); } 
+                            CGPointMake(SCREEN_WIDTH * pageControl.currentPage, 0.0f); } 
                      completion:nil];
     
     originScrollOffset = self.paramaterScroll.contentOffset;
-    currentTableIndex++;
+    if (pageControl.currentPage > pageBeforeTabbing) {
+        currentTableIndex++;
+    }
+    else if (pageControl.currentPage < pageBeforeTabbing) {
+        currentTableIndex--;
+    }
+    else {
+        
+    }
+    pageBeforeTabbing = pageControl.currentPage;
 }
 
 @end

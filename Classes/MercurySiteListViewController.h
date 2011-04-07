@@ -61,6 +61,9 @@ UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegat
     CGPoint originScrollOffset;
     // Save this index to update the title on the navigation bar.
     int currentTableIndex;
+    // When the user tab the paraIndicator, save the index
+    // before tabbing.
+    int pageBeforeTabbing;
     /* 
      * NOTE: we should load the UI from UI.plist.
      * DEMO only!

@@ -10,10 +10,10 @@
 
 
 @interface SiteListPlotCell : UITableViewCell {
-    UILabel *up;
-    UILabel *down;
+    UIView *up;
+    UIView *down;
 }
 
-@property (nonatomic, retain) UILabel *up;
-@property (nonatomic, retain) UILabel *down;
+@property (nonatomic, retain) UIView *up;
+@property (nonatomic, retain) UIView *down;
 @end
