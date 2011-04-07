@@ -229,11 +229,8 @@
     // Hey, calm down ^^
     scrollView.scrollEnabled = NO;
 }
-//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    scrollView.scrollEnabled = NO;
-//}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //scrollView.scrollEnabled = NO;
 
     int currentOffset = scrollView.contentOffset.x;
     int originOffset = originScrollOffset.x;
@@ -241,7 +238,7 @@
 
     if (movement > (SCREEN_WIDTH) / 2) {
         // Scroll left
-        pageBeforeTabbing = paraIndicator.currentPage++;
+        pageBeforeTabbing = ++paraIndicator.currentPage;
         currentTableIndex++;
 #ifdef DEBUG
         NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
@@ -258,7 +255,7 @@
         originScrollOffset.x = scrollView.contentOffset.x;
     }
     else if (movement < -(SCREEN_WIDTH) / 2) {
-        pageBeforeTabbing = paraIndicator.currentPage--;
+        pageBeforeTabbing = --paraIndicator.currentPage;
         currentTableIndex--;
 #ifdef DEBUG
         NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
@@ -330,7 +327,6 @@
 
 #pragma mark - private members
 - (void)tableTurn:(UIPageControl *)pageControl {
-//    int currentPage = pageControl.currentPage;
     
     [UIView animateWithDuration:0.3f 
                           delay:0.0f 
@@ -350,7 +346,12 @@
     else {
         
     }
+#ifdef DEBUG
+    NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
+    NSLog(@"[pageBeforeTabbing: ]%d", pageBeforeTabbing);
+#endif
     pageBeforeTabbing = pageControl.currentPage;
+
 }
 
 @end
