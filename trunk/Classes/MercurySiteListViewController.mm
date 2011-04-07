@@ -105,7 +105,7 @@
     paraIndicator = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 320, 15)];
     paraIndicator.numberOfPages = PARANUM;
     paraIndicator.currentPage = 0;
-    currentPage = paraIndicator.currentPage;
+    pageBeforeTabbing = paraIndicator.currentPage;
     [paraIndicator  addTarget:self 
                        action:@selector(tableTurn:) 
              forControlEvents:UIControlEventValueChanged];
