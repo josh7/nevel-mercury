@@ -227,7 +227,9 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView 
                   willDecelerate:(BOOL)decelerate {
     // Hey, calm down ^^
-    scrollView.scrollEnabled = NO;
+    if (scrollView == paramaterScroll) {
+        scrollView.scrollEnabled = NO;
+    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
