@@ -10,6 +10,12 @@
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
+		00CBC4FE134ED54000A82178 /* theme_NevelClassic.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */; };
+		00CBC501134EDA2500A82178 /* theme_Blackhole.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC500134EDA2500A82178 /* theme_Blackhole.png */; };
+		00CBC52C134F045F00A82178 /* MercuryAccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */; };
+		00CBC52F134F282300A82178 /* selected.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC52D134F282300A82178 /* selected.PNG */; };
+		00CBC530134F282300A82178 /* unselected.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC52E134F282300A82178 /* unselected.PNG */; };
+		00CBC539134F42BB00A82178 /* MercuryAccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -53,6 +59,14 @@
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
 		00AEDD5C134C470D009CB936 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = theme_NevelClassic.png; path = Resources/theme_NevelClassic.png; sourceTree = "<group>"; };
+		00CBC500134EDA2500A82178 /* theme_Blackhole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = theme_Blackhole.png; path = Resources/theme_Blackhole.png; sourceTree = "<group>"; };
+		00CBC52A134F045F00A82178 /* MercuryAccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAccountTableViewController.h; sourceTree = "<group>"; };
+		00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAccountTableViewController.m; sourceTree = "<group>"; };
+		00CBC52D134F282300A82178 /* selected.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.PNG; path = Resources/selected.PNG; sourceTree = "<group>"; };
+		00CBC52E134F282300A82178 /* unselected.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.PNG; path = Resources/unselected.PNG; sourceTree = "<group>"; };
+		00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MercuryAccountSettingsViewController.h; sourceTree = "<group>"; };
+		00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAccountSettingsViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -148,6 +162,10 @@
 				68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */,
 				68C98A451346283800165DF6 /* test.cpp */,
 				68C98A461346283800165DF6 /* test.h */,
+				00CBC52A134F045F00A82178 /* MercuryAccountTableViewController.h */,
+				00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */,
+				00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */,
+				00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -190,6 +208,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00CBC500134EDA2500A82178 /* theme_Blackhole.png */,
+				00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */,
+				00CBC52D134F282300A82178 /* selected.PNG */,
+				00CBC52E134F282300A82178 /* unselected.PNG */,
 				68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */,
 				68AEA26E1322E063001078AD /* Default@2x.png */,
 				68AEA26F1322E063001078AD /* Default.png */,
@@ -332,6 +354,10 @@
 				68F7069613276E5800766B32 /* UI.plist in Resources */,
 				00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */,
 				68CA2FF0133D8E9E00BA3475 /* nevel_icon.png in Resources */,
+				00CBC4FE134ED54000A82178 /* theme_NevelClassic.png in Resources */,
+				00CBC501134EDA2500A82178 /* theme_Blackhole.png in Resources */,
+				00CBC52F134F282300A82178 /* selected.PNG in Resources */,
+				00CBC530134F282300A82178 /* unselected.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +390,8 @@
 				68C98A4213461E0000165DF6 /* MercurySiteListViewController.mm in Sources */,
 				68C98A471346283800165DF6 /* test.cpp in Sources */,
 				68E99D1D1346AE13009EDAF6 /* MercuryMainboardViewController.mm in Sources */,
+				00CBC52C134F045F00A82178 /* MercuryAccountTableViewController.m in Sources */,
+				00CBC539134F42BB00A82178 /* MercuryAccountSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

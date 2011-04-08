@@ -39,7 +39,7 @@ UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
     // For fun ~
     UILabel *nevel;
     
-    // Flag to mark whether the theme cell should be selectable.
+    // Flag to mark whether the cell should be selectable.
     BOOL themeCellCanBeSelected;
     BOOL sendCrashReportCellCanBeSelected;
 }
