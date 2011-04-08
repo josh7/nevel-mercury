@@ -9,7 +9,7 @@
 #import "MercurySettingsViewController.h"
 #import "MercuryAppDelegate.h"
 #import "UIContent.h"
-#define numberOfUnsectionItem 3
+#import "MercuryAccountTableViewController.h"
 
 @implementation MercurySettingsViewController
 @synthesize settingsTable;
@@ -26,8 +26,7 @@
 @synthesize settingsConfig;
 
 
-- (void)dealloc
-{
+- (void)dealloc {
     [settingsTable release];
     [settingsUIContent release];
     [footerView release];
@@ -43,8 +42,7 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
@@ -55,8 +53,7 @@
 #pragma mark - View lifecycle
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
+- (void)loadView {
     [super loadView];
     sendCrashReportCellCanBeSelected = YES;
     themeCellCanBeSelected = YES;
@@ -90,7 +87,7 @@
                                                        style:UITableViewStyleGrouped];
     self.settingsTable = tvTemp;
     [tvTemp release];
-    self.settingsTable.backgroundColor = [UIColor blackColor];
+    self.settingsTable.backgroundColor = [UIColor clearColor];
     self.settingsTable.delegate = self;
     self.settingsTable.dataSource = self;
     
@@ -152,7 +149,7 @@
 #pragma mark - Table view datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return ([self.settingsUIContent.uiSettingsKeys count]-numberOfUnsectionItem);
+    return 4;
 }
 
 
@@ -165,16 +162,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-							 SectionsTableIdentifier];
+    // We do NOT use reuseIdentifier here in order to avoid disordering table.
+    // May be we can find a way to use reuseIdentifier.
+//    static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+//							 SectionsTableIdentifier];
+    UITableViewCell *cell = nil;
     
     NSUInteger sectionIndex = indexPath.section;
     NSUInteger rowIndex = indexPath.row;
     
+    // TODO: if we do not find a way to use reuseIdentifier, we should delete this "if".
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:SectionsTableIdentifier] autorelease];
+                                       reuseIdentifier:nil] autorelease];
         cell.selectionStyle = UITableViewCellEditingStyleNone;
         /* +---------------------------- Initialize each cell ----------------------------+ */
         // The networks section.
@@ -214,7 +215,8 @@
                                                   initWithItems:segmentedControlArray];
                     self.sendCrashReportSegmentedControl = scTemp;
                     [scTemp release];
-                    self.sendCrashReportSegmentedControl.selectedSegmentIndex = ST_EN_ALWAYS;
+                    self.sendCrashReportSegmentedControl.selectedSegmentIndex = 
+                        [segmentedControlArray indexOfObject:textOfCrashReportDetailTextLabel];
                     self.sendCrashReportSegmentedControl.frame = CGRectMake(0, -10, 300, 54);
                     [self.sendCrashReportSegmentedControl 
                                                 addTarget:self 
@@ -230,7 +232,7 @@
         }
         
         // The external section.
-        if (sectionIndex == SECTION_EXTERNAL) {
+        else if (sectionIndex == SECTION_EXTERNAL) {
             switch (rowIndex) {
                 case ST_EN_SOUND_ALERT: {
                     self.soundAlertSwitch = [self setSwitchStyleForCell:cell];
@@ -261,13 +263,13 @@
         }
         
         // The account section.
-        if (sectionIndex == SECTION_ACCOUNT) {
+        else if (sectionIndex == SECTION_ACCOUNT) {
             cell = [self setAccessoryStyleForCell:cell 
                               withDetailLableText:@"admin"];
         }
         
         // The about section.
-        if (sectionIndex == SECTION_ABOUT) {
+        else if (sectionIndex == SECTION_ABOUT) {
             NSArray *about = [self.settingsUIContent.uiSettingsKeys 
                               objectAtIndex:SECTION_COPYRIGHT];
             cell = [self setAccessoryStyleForCell:cell 
@@ -283,15 +285,25 @@
         cell.textLabel.text = row;
         cell.textLabel.backgroundColor = [UIColor clearColor];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         cell.textLabel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
+        if (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+1)) {
+            UIImage *imageTemp = [UIImage imageNamed:@"theme_NevelClassic.png"];
+            UIImageView *ivTemp = [[UIImageView alloc] initWithImage:imageTemp];
+            cell.backgroundView = ivTemp;
+            [ivTemp release];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.textAlignment = UITextAlignmentRight;
+        }
+        else if (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+2)) {
+            cell.backgroundColor = [UIColor blackColor];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.textAlignment = UITextAlignmentRight;
+        }
+        else {
         cell.backgroundColor = 
         [UIColor colorWithRed:0 green:0.05 blue:0.15 alpha:1]; // The cell backgrond color.
-        
-        // Set a special background color to segmented control cell.
-        if (sectionIndex == SECTION_NETWORKS && rowIndex == (ST_EN_SEND_REPORT+1)) {
-            cell.backgroundColor = [UIColor whiteColor];
         }
     }
-
+    
     return cell;
 }
 
@@ -323,9 +335,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger sectionIndex = indexPath.section;
     NSUInteger rowIndex = indexPath.row;
-    
-    NSArray *themeUIArray = [self.settingsUIContent.uiSettingsKeys 
-                      objectAtIndex:SECTION_THEME];
     
     /* +-------------------- Configure crash report sending type ---------------------+ */
     // We insert a cell to hold our crash report sending type when press the cell.
@@ -366,80 +375,81 @@
     /* +----------------- End of configure crash report sending type -----------------+ */
 
     /* +---------------------------- Configure theme type ----------------------------+ */
-    // We insert a cell to hold our themes when press the themecell.
-    if (sectionIndex == SECTION_EXTERNAL && 
-        rowIndex == ST_EN_THEME && 
-        themeCellCanBeSelected ==YES) {
-        // Prepare the a new array that are the data source of insert row.
-        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
-            insertObject:[themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC] 
-                 atIndex:(ST_EN_THEME+1)];
-        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
-            insertObject:[themeUIArray objectAtIndex:ST_EN_BLACKHOLE]
-                 atIndex:(ST_EN_THEME+2)];
-        NSArray *insertThemeArray = [NSArray arrayWithObjects:
-            [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
-            [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
-        // Insert the theme row.
-        [self.settingsTable beginUpdates];
-        [self.settingsTable insertRowsAtIndexPaths:insertThemeArray 
-                                  withRowAnimation:UITableViewRowAnimationTop];
-        themeCellCanBeSelected = NO;
-        [self.settingsTable endUpdates];
-    }
-    
-    // We delete the cells holding our themes after chooseing a theme.
-    if ((sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+1)) ||
-        (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+2))) {
-        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL]
-            removeObjectAtIndex:(ST_EN_THEME+1)];
-        [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
-            removeObjectAtIndex:(ST_EN_THEME+1)];
-        NSArray *deleteThemeArray = [NSArray arrayWithObjects:
-            [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
-            [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
+    else if (sectionIndex == SECTION_EXTERNAL) {
+        NSArray *themeUIArray = [self.settingsUIContent.uiSettingsKeys 
+                                 objectAtIndex:SECTION_THEME];
         
-        // Delete the theme rows.
-        [self.settingsTable beginUpdates];
-        [self.settingsTable deleteRowsAtIndexPaths:deleteThemeArray 
-                                  withRowAnimation:UITableViewRowAnimationTop];
-        themeCellCanBeSelected = YES;
-        [self.settingsTable endUpdates];
-        
-        // Update the text of detail text lable in real time.
-        NSIndexPath *ipTheme = [NSIndexPath indexPathForRow:ST_EN_THEME 
-                                                  inSection:SECTION_EXTERNAL];
-        if (rowIndex == (ST_EN_THEME+1)) {
-            [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
-                [themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC];
-            [self.settingsConfig setTheme:NEVEL_CLASSIC];
+        // We insert a cell to hold our themes when press the themecell.
+        if (rowIndex == ST_EN_THEME && themeCellCanBeSelected ==YES) {
+            // Prepare the a new array that are the data source of insert row.
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+                insertObject:[themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC] 
+                     atIndex:(ST_EN_THEME+1)];
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+                insertObject:[themeUIArray objectAtIndex:ST_EN_BLACKHOLE]
+                     atIndex:(ST_EN_THEME+2)];
+            NSArray *insertThemeArray = [NSArray arrayWithObjects:
+                [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
+                [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
+            
+            // Insert the theme row.
+            [self.settingsTable beginUpdates];
+            [self.settingsTable insertRowsAtIndexPaths:insertThemeArray 
+                                      withRowAnimation:UITableViewRowAnimationTop];
+            themeCellCanBeSelected = NO;
+            [self.settingsTable endUpdates];
         }
         
-        else {
-            [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
-                [themeUIArray objectAtIndex:ST_EN_BLACKHOLE];
-            [self.settingsConfig setTheme:BLACKHOLE];
+        // We delete the cells holding our themes after chooseing a theme.
+        // There are 3 situations: 1)press"Theme"; 2)press"Nevel classic"; 3)press"Blackhole".
+        else if ((rowIndex == ST_EN_THEME && themeCellCanBeSelected == NO) ||
+                  rowIndex == (ST_EN_THEME+1) ||
+                  rowIndex == (ST_EN_THEME+2)) {
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL]
+                removeObjectAtIndex:(ST_EN_THEME+1)];
+            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+                removeObjectAtIndex:(ST_EN_THEME+1)];
+            NSArray *deleteThemeArray = [NSArray arrayWithObjects:
+                [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
+                [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
+            
+            // Delete the theme rows.
+            [self.settingsTable beginUpdates];
+            [self.settingsTable deleteRowsAtIndexPaths:deleteThemeArray 
+                                      withRowAnimation:UITableViewRowAnimationTop];
+            themeCellCanBeSelected = YES;
+            [self.settingsTable endUpdates];
+            
+            // Update the text of detail text lable in real time.
+            NSIndexPath *ipTheme = [NSIndexPath indexPathForRow:ST_EN_THEME 
+                                                      inSection:SECTION_EXTERNAL];
+            if (rowIndex == (ST_EN_THEME+1)) {
+                [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                    [themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC];
+                [self.settingsConfig setTheme:NEVEL_CLASSIC];
+            }
+            
+            else if (rowIndex == (ST_EN_THEME+2)) {
+                [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                    [themeUIArray objectAtIndex:ST_EN_BLACKHOLE];
+                [self.settingsConfig setTheme:BLACKHOLE];
+            }
         }
     }
     /* +------------------------- End of onfigure theme type -------------------------+ */
+    
+    /* +-------------------------------- The account ---------------------------------+ */
+    else if (sectionIndex == SECTION_ACCOUNT && rowIndex == ST_EN_CURRENT_ACCOUNT) {
+        MercuryAccountTableViewController *accountTableVC = 
+            [[[MercuryAccountTableViewController alloc] init] autorelease];
+        [[self navigationController] pushViewController:accountTableVC animated:YES];
+    }
+    /* +---------------------------- End of the account ------------------------------+ */
 }
 
 
 #pragma mark - Segmented control action
 - (void)segmentedControlPressed:(id)sender {
-    NSIndexPath *ipSendCrashReportSegment = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
-                                                        inSection:SECTION_NETWORKS];
-    [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
-     removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
-    NSArray *deleteReportArray = [NSArray arrayWithObject:ipSendCrashReportSegment];
-    
-    // Delete the theme rows.
-    [self.settingsTable beginUpdates];
-    [self.settingsTable deleteRowsAtIndexPaths:deleteReportArray 
-                              withRowAnimation:UITableViewRowAnimationTop];
-    sendCrashReportCellCanBeSelected = YES;
-    [self.settingsTable endUpdates];
-    
     // Pass the crash report sending type to app configuration detailed label of cell.
     NSUInteger selectSegmentIndex = self.sendCrashReportSegmentedControl.selectedSegmentIndex;
     [self.settingsConfig setCrashReportSendingType:selectSegmentIndex];
@@ -448,8 +458,21 @@
     NSIndexPath *ipSendCrashReport = [NSIndexPath indexPathForRow:ST_EN_SEND_REPORT 
                                                         inSection:SECTION_NETWORKS];
     UITableViewCell *selectCell = [self.settingsTable 
-                               cellForRowAtIndexPath:ipSendCrashReport];
+                                   cellForRowAtIndexPath:ipSendCrashReport];
     selectCell.detailTextLabel.text = textOfCrashReportDetailTextLabel;
+    
+    // Delete the theme rows.
+    NSIndexPath *ipSendCrashReportSegment = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
+                                                        inSection:SECTION_NETWORKS];
+    [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
+     removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
+    NSArray *deleteReportArrayByPressing = [NSArray arrayWithObject:ipSendCrashReportSegment];
+    
+    [self.settingsTable beginUpdates];
+    [self.settingsTable deleteRowsAtIndexPaths:deleteReportArrayByPressing 
+                              withRowAnimation:UITableViewRowAnimationTop];
+    sendCrashReportCellCanBeSelected = YES;
+    [self.settingsTable endUpdates];
 }
 
 

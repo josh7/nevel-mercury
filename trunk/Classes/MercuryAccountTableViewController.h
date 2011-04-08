@@ -1,0 +1,28 @@
+//
+//  MercuryAccountTableViewController.h
+//  Mercury
+//
+//  Created by Jeffrey on 11-4-8.
+//  Copyright 2011年 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+
+@interface MercuryAccountTableViewController : UITableViewController<UIAlertViewDelegate> {
+    // The array here is only for testing.
+    NSMutableArray *accountList;
+    
+    // The image in the left of a cell.
+//    UIImageView *selectImage;
+    
+    // The selected account index.
+    int selectedAccountIndex;
+    int deselectedAccountIndex;
+    int willSelectedAccountIndex;
+}
+
+@property (nonatomic, retain)NSMutableArray *accountList;
+//@property (nonatomic, retain)UIImageView *selectImage;
+
+@end
