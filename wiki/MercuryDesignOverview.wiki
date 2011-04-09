@@ -13,8 +13,14 @@ When we are confused, inner conflicted, exhausted, or swamped by too much detail
 
 = Principles =
 
-== *Humanistic*: we make it for you ==
+  * == Humanistic== 
+   ====  We make it for you. ====
+    * delight your eyes and fit for your fingers
 
-== *Useful*: focus on what you need ==
+  * == Useful ==
+   ==== Focus on what you need. ====
+    * maximize the view
+      * translucent bar
 
-== *Simple* as simple as possible* ==
+  * == Simple ==
+   ==== As simple as possible. ====
