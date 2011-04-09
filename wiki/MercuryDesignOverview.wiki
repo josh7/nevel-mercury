@@ -1,0 +1,20 @@
+#summary The core principles of charming Mercury design.
+#labels Design,Principles
+
+= Introduction =
+
+This wiki is supposed to clear and strengthen our design principles of Mercury. 
+When we are confused, inner conflicted, exhausted, or swamped by too much details, we may need to come here to take a breath.
+
+*We always believe design should be:*
+  * *humanistic design*
+  * *master of making*
+  * *strategic thinking*
+
+= Principles =
+
+== *Humanistic*: we make it for you ==
+
+== *Useful*: focus on what you need ==
+
+== *Simple* as simple as possible* ==
