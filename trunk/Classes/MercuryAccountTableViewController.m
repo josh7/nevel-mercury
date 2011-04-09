@@ -15,12 +15,12 @@
 
 
 @implementation MercuryAccountTableViewController
+@synthesize accountListUIContent;
 @synthesize accountList;
-//@synthesize selectImage;
 
 - (void)dealloc {
+    [accountListUIContent release];
     [accountList release];
-//    [selectImage release];
     [super dealloc];
 }
 
@@ -40,10 +40,10 @@
     [super loadView];
     
     // Load the global UI helper object.
-//    MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    self.accountListUIContent = appDelegate.uiContent;
+    MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.accountListUIContent = appDelegate.uiContent.uiAccountKeys;
     
-    self.title = @"Account List";
+    self.title = [self.accountList objectAtIndex:AC_EN_ACCOUNT_LIST];
     self.view.backgroundColor = [UIColor blackColor];
     
     // TODO: read the accounts from UserConfig.plist.
@@ -98,14 +98,16 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     willSelectedAccountIndex = indexPath.row;
-    UIAlertView *changeAccountAlert  = [[UIAlertView alloc] 
-                                        initWithTitle:@"Are you sure to change account?" 
-                                              message:nil 
-                                             delegate:self 
-                                    cancelButtonTitle:@"Cancle" 
-                                    otherButtonTitles:@"Sure", nil];
-    [changeAccountAlert show];
-    [changeAccountAlert release];
+    if (willSelectedAccountIndex != selectedAccountIndex) {
+        UIAlertView *changeAccountAlert  = [[UIAlertView alloc] 
+                        initWithTitle:[self.accountListUIContent objectAtIndex:AC_EN_MESSAGE] 
+                              message:nil 
+                             delegate:self 
+                    cancelButtonTitle:[self.accountListUIContent objectAtIndex:AC_EN_CANCEL] 
+                    otherButtonTitles:[self.accountListUIContent objectAtIndex:AC_EN_SURE], nil];
+        [changeAccountAlert show];
+        [changeAccountAlert release];
+    }
 }
 
 
@@ -113,7 +115,7 @@
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     MercuryAccountSettingsViewController *accountSettingsVC = 
         [[[MercuryAccountSettingsViewController alloc] init] autorelease];
-    accountSettingsVC.title = @"Account Settings";
+    accountSettingsVC.title = [self.accountListUIContent objectAtIndex:AC_EN_ACCOUNT_SETTINGS];
     accountSettingsVC.currentAccountNameString = [self.accountList objectAtIndex:indexPath.row];
     [[self navigationController] pushViewController:accountSettingsVC animated:YES];
 }

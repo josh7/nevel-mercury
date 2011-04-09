@@ -10,6 +10,7 @@
 #import "MercuryAppDelegate.h"
 #import "UIContent.h"
 #import "MercuryAccountTableViewController.h"
+#define themeNevelClassic @"theme_NevelClassic.png"
 
 @implementation MercurySettingsViewController
 @synthesize settingsTable;
@@ -286,7 +287,7 @@
         cell.textLabel.backgroundColor = [UIColor clearColor];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         cell.textLabel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
         if (sectionIndex == SECTION_EXTERNAL && rowIndex == (ST_EN_THEME+1)) {
-            UIImage *imageTemp = [UIImage imageNamed:@"theme_NevelClassic.png"];
+            UIImage *imageTemp = [UIImage imageNamed:themeNevelClassic];
             UIImageView *ivTemp = [[UIImageView alloc] initWithImage:imageTemp];
             cell.backgroundView = ivTemp;
             [ivTemp release];

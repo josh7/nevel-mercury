@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIContent.h"
 
 
 @interface MercuryAccountTableViewController : UITableViewController<UIAlertViewDelegate> {
+    // Object for UI text.
+    NSArray *accountListUIContent;
+    
     // The array here is only for testing.
     NSMutableArray *accountList;
-    
-    // The image in the left of a cell.
-//    UIImageView *selectImage;
     
     // The selected account index.
     int selectedAccountIndex;
@@ -22,7 +23,7 @@
     int willSelectedAccountIndex;
 }
 
-@property (nonatomic, retain)NSMutableArray *accountList;
-//@property (nonatomic, retain)UIImageView *selectImage;
+@property (nonatomic, retain) NSMutableArray *accountList;
+@property (nonatomic, retain) NSArray *accountListUIContent;
 
 @end

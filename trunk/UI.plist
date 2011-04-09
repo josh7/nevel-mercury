@@ -57,5 +57,17 @@
 			<string>Nevel, Never leave you. (For fun~)</string>
 		</array>
 	</array>
+	<key>Account</key>
+	<array>
+		<string>Account List</string>
+		<string>Are you sure to change account?</string>
+		<string>Cancel</string>
+		<string>Sure</string>
+		<string>Account Settings</string>
+		<string>Account Name:</string>
+		<string>Save Password</string>
+		<string>Auto Login</string>
+		<string>Log Out</string>
+	</array>
 </dict>
 </plist>

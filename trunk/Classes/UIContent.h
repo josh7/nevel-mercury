@@ -59,6 +59,17 @@
 #define ST_EN_COPYRIGHT         1
 #define ST_EN_FOR_FUN           2
 
+// The Account section English version text.
+#define AC_EN_ACCOUNT_LIST      0
+#define AC_EN_MESSAGE           1
+#define AC_EN_CANCEL            2
+#define AC_EN_SURE              3
+#define AC_EN_ACCOUNT_SETTINGS  4
+#define AC_EN_ACCOUNT_NAME      5
+#define AC_EN_SAVE_PASSWORD     6
+#define AC_EN_AUTO_LOGIN        7
+#define AC_EN_LOG_OUT           8
+
 
 @interface UIContent : NSObject {
     // For UI Text (we use a plist here for International purpose).
@@ -66,12 +77,14 @@
 	NSArray *uiLoginKeys;
     NSArray *uiMainboardKeys;
     NSMutableArray *uiSettingsKeys;
+    NSArray *uiAccountKeys;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *uiDictionary;
 @property (nonatomic, retain) NSArray *uiLoginKeys;
 @property (nonatomic, retain) NSArray *uiMainboardKeys;
 @property (nonatomic, retain) NSMutableArray *uiSettingsKeys;
+@property (nonatomic, retain) NSArray *uiAccountKeys;
 
 - (void)initWithUIContent;
 

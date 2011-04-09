@@ -65,7 +65,7 @@
 		00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAccountTableViewController.m; sourceTree = "<group>"; };
 		00CBC52D134F282300A82178 /* selected.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.PNG; path = Resources/selected.PNG; sourceTree = "<group>"; };
 		00CBC52E134F282300A82178 /* unselected.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.PNG; path = Resources/unselected.PNG; sourceTree = "<group>"; };
-		00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MercuryAccountSettingsViewController.h; sourceTree = "<group>"; };
+		00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAccountSettingsViewController.h; sourceTree = "<group>"; };
 		00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAccountSettingsViewController.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
@@ -160,12 +160,12 @@
 				68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */,
 				68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */,
 				68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */,
-				68C98A451346283800165DF6 /* test.cpp */,
-				68C98A461346283800165DF6 /* test.h */,
 				00CBC52A134F045F00A82178 /* MercuryAccountTableViewController.h */,
 				00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */,
 				00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */,
 				00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */,
+				68C98A451346283800165DF6 /* test.cpp */,
+				68C98A461346283800165DF6 /* test.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
