@@ -196,6 +196,9 @@
                     self.wifiOnlySwitch = [self setSwitchStyleForCell:cell];
                     self.wifiOnlySwitch.on = NO;
                     [cell.contentView addSubview:self.wifiOnlySwitch];
+                    [self.wifiOnlySwitch addTarget:self
+                                            action:@selector(wifiDidSwitch:) 
+                                  forControlEvents:UIControlEventValueChanged];
                 }
                     break;
                     

@@ -12,7 +12,8 @@
 #import "MercuryAccountSettingsViewController.h"
 #define unselectImage @"unselected.PNG"
 #define selectImage @"selected.PNG"
-
+#define displayCharactersNumBefordAt 10
+#define charactersMaxNum 22
 
 @implementation MercuryAccountTableViewController
 @synthesize accountListUIContent;
@@ -41,17 +42,17 @@
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.accountListUIContent = appDelegate.uiContent.uiAccountKeys;
+    self.accountListUIContent = appDelegate.uiContent.uiAccountListKeys;
     
-    self.title = [self.accountList objectAtIndex:AC_EN_ACCOUNT_LIST];
+    self.title = [self.accountListUIContent objectAtIndex:AC_EN_ACCOUNT_LIST];
     self.view.backgroundColor = [UIColor blackColor];
     
     // TODO: read the accounts from UserConfig.plist.
     // The array here is only for testing.
     self.accountList = [NSMutableArray arrayWithObjects:
-                        @"loveMercury",
-                        @"helloWorld",
-                        @"superLongSiteNameWhateverItIsJustSoLong", nil];
+                        @"loveMercury@gmail.com",
+                        @"helloWorld@longlongmail.com",
+                        @"superLongSiteNameWhateverItIsJustSoLong@gmail.com", nil];
 }
 
 
@@ -76,12 +77,30 @@
                                        reuseIdentifier:cellIdentifier] autorelease];
         
         // Configure the cell.
-        cell.textLabel.text = [self.accountList objectAtIndex:rowIndex];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         
-        // Judeg the current account here.
-        // This is only a test.
+        /* +------------------ Shorten the acccount name if necessary --------------------+ */
+        // Reform the account name if it is too long before the character of "@".
+        NSString *origenalString = [[NSString alloc] 
+                                    initWithString:[self.accountList objectAtIndex:rowIndex]];
+        
+        // Find the "@" and judge if the following characters are too many.
+        NSCharacterSet *atSign = [NSCharacterSet characterSetWithCharactersInString:@"@"];
+        NSRange atRange = [origenalString rangeOfCharacterFromSet:atSign];
+        if ([origenalString length] > charactersMaxNum && 
+            atRange.location > displayCharactersNumBefordAt) {
+            // Invoke the shorten string method.
+            cell.textLabel.text = [self shortenAccountName:origenalString withSeparator:atSign];
+            [origenalString release];
+        }
+        else {
+            cell.textLabel.text = origenalString;
+            [origenalString release];
+        }        
+        /* +-------------- End of shorten the acccount name if necessary -----------------+ */
+
+        // Judge the current account here.
         selectedAccountIndex = 0;
         if (rowIndex == selectedAccountIndex) {
             cell.imageView.image = [UIImage imageNamed:selectImage];
@@ -96,6 +115,7 @@
 
 
 #pragma mark - Table view delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     willSelectedAccountIndex = indexPath.row;
     if (willSelectedAccountIndex != selectedAccountIndex) {
@@ -114,14 +134,17 @@
 - (void)tableView:(UITableView *)tableView 
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     MercuryAccountSettingsViewController *accountSettingsVC = 
-        [[[MercuryAccountSettingsViewController alloc] init] autorelease];
+        [[[MercuryAccountSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped] 
+         autorelease];
+    
     accountSettingsVC.title = [self.accountListUIContent objectAtIndex:AC_EN_ACCOUNT_SETTINGS];
     accountSettingsVC.currentAccountNameString = [self.accountList objectAtIndex:indexPath.row];
     [[self navigationController] pushViewController:accountSettingsVC animated:YES];
 }
 
 
-#pragma mark - Table view delegate
+#pragma mark - Alert view delegate
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == alertView.firstOtherButtonIndex) {
         deselectedAccountIndex = selectedAccountIndex;
@@ -140,5 +163,22 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
         // We load the new account info here.
     }
 }
+
+
+#pragma mark - Shorten string method
+
+- (NSString *)shortenAccountName:(NSString *)accountName 
+                   withSeparator:(NSCharacterSet *)separator {
+    // Divide account into two parts: the first 20 characters brfore "@", and the string after "@".
+    NSArray *separatedeStrings = [accountName componentsSeparatedByCharactersInSet:separator];
+    NSString *shortName = [[separatedeStrings objectAtIndex:0] 
+                                  substringToIndex:displayCharactersNumBefordAt];
+    NSString *atString = [separatedeStrings objectAtIndex:1];
+    
+    // Combine three parts of account together.
+    NSString *shortAccountName = [shortName stringByAppendingFormat:@"...@%@", atString];
+    return shortAccountName;
+}
+
 
 @end

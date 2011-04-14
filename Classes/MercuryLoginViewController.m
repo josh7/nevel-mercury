@@ -9,6 +9,7 @@
 #import "MercuryLoginViewController.h"
 #import "LoginTableCell.h"
 #import "MercuryAppDelegate.h"
+#import "MercuryMainboardViewController.h"
 
 #define SITELIST @"SiteList"
 
@@ -22,6 +23,7 @@
 @synthesize loginUIContent;
 @synthesize userConfigKeys;
 @synthesize loginConfig;
+@synthesize didRelogIn;
 
 - (void)dealloc {
 	[bgImageView release];
@@ -45,6 +47,7 @@
     self.loginUIContent = appDelegate.uiContent;
     
 	scrollup = 0;
+//    self.didRelogIn = NO;
     NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
@@ -434,14 +437,13 @@
 		[self loadingTask];
         
 		dispatch_async(dispatch_get_main_queue(), ^{
-            
             // Here we have synced all data. Swith to the new view.
             MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
             
-            // Get rid of the login view controller and add the main one.
-            [appDelegate.mercuryLoginViewController.view removeFromSuperview];
-            [appDelegate.window addSubview:appDelegate.mercuryMainboardViewController.view];
+//            // Get rid of the login view controller and add the main one.
+//            [appDelegate.mercuryLoginViewController.view removeFromSuperview];
             
+            // Set the transfer animation.
             CATransition *animation = [CATransition animation];
             animation.duration = 0.3f;
             animation.timingFunction = UIViewAnimationCurveEaseInOut;
@@ -449,8 +451,32 @@
             animation.removedOnCompletion = NO;
             animation.type = kCATransitionPush;
             animation.subtype = kCATransitionFromRight;
-            [appDelegate.mercuryMainboardViewController.view.layer addAnimation:animation 
-                                                                         forKey:@"animation"];
+            
+            // If this is our user frist login.
+            if (self.didRelogIn == NO) {
+                // Get rid of the login view controller and add the main one.
+                [appDelegate.mercuryLoginViewController.view removeFromSuperview];
+                
+                [appDelegate.window addSubview:appDelegate.mercuryMainboardViewController.view];
+                
+                [appDelegate.mercuryMainboardViewController.view.layer addAnimation:animation 
+                                                                             forKey:@"animation"];
+            }
+            // If this is our user relogin.
+            else if (self.didRelogIn == YES) {
+                // Get rid of the login view controller and add the main one.
+                [self.view removeFromSuperview];
+                
+                // Here we make a new main board for reloginer.
+                MercuryMainboardViewController *reloginMercuryMainboardViewController = 
+                    [[MercuryMainboardViewController alloc] init];
+                [appDelegate.window addSubview:reloginMercuryMainboardViewController.view];
+                
+                [reloginMercuryMainboardViewController.view.layer addAnimation:animation 
+                                                                        forKey:@"animation"];
+                
+            }
+            
         });
 	});
 }

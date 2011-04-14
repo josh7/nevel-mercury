@@ -8,13 +8,14 @@
 
 #import "UIContent.h"
 // The UI file information.
-#define UI_FILE_NAME    @"UI"
-#define UI_FILE_TYPE    @"plist"
+#define UI_FILE_NAME        @"UI"
+#define UI_FILE_TYPE        @"plist"
 // The first level titles of UI.plist.
-#define LOGIN           @"Login"
-#define MAINBOARD       @"Mainboard"
-#define SETTINGS        @"Settings"
-#define ACCOUNT         @"Account"
+#define LOGIN               @"Login"
+#define MAINBOARD           @"Mainboard"
+#define SETTINGS            @"Settings"
+#define ACCOUNT_LIST        @"Account List"
+#define ACCOUNT_SETTINGS    @"Account Settings"
 
 
 @implementation UIContent
@@ -22,14 +23,16 @@
 @synthesize uiLoginKeys;
 @synthesize uiMainboardKeys;
 @synthesize uiSettingsKeys;
-@synthesize uiAccountKeys;
+@synthesize uiAccountListKeys;
+@synthesize uiAccountSettingsKeys;
 
 - (void)dealloc {
     [uiDictionary release];
 	[uiLoginKeys release];
     [uiMainboardKeys release];
     [uiSettingsKeys release];
-    [uiAccountKeys release];
+    [uiAccountListKeys release];
+    [uiAccountSettingsKeys release];
     [super dealloc];
 }
 
@@ -45,7 +48,8 @@
     self.uiLoginKeys = [uiDictionary objectForKey:LOGIN];
 	self.uiMainboardKeys = [uiDictionary objectForKey:MAINBOARD];
     self.uiSettingsKeys = [uiDictionary objectForKey:SETTINGS];
-    self.uiAccountKeys = [uiDictionary objectForKey:ACCOUNT];
+    self.uiAccountListKeys = [uiDictionary objectForKey:ACCOUNT_LIST];
+    self.uiAccountSettingsKeys = [uiDictionary objectForKey:ACCOUNT_SETTINGS];
 }
 
 

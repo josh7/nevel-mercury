@@ -10,7 +10,6 @@
 #import <unistd.h>  // For sleep function.
 #import <QuartzCore/QuartzCore.h>   // For CATransition methods.
 #import "MBProgressHUD.h"
-#import "MercuryMainboardViewController.h"
 #import "UIContent.h"
 #import "AppConfig.h"
 #import "XMLParser.h"
@@ -25,6 +24,9 @@
     UIImageView *logoImageView;
    	UIControl *loginControlLayer;   // In order to make the background touchable.
 	UITableView *loginTableView;
+    
+    // Flag for judging whether the user log out to this login view.
+    BOOL didRelogIn;
     
     // For storing user's configuration and writting into UserConfig.plist.
     NSMutableArray *userConfigKeys;
@@ -53,6 +55,8 @@
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) UIContent *loginUIContent;
 @property (nonatomic, retain) AppConfig *loginConfig;
+@property BOOL didRelogIn;
+
 
 - (void)loginPressed:(id)sender;
 - (void)showUsingBlocks:(id)sender;
