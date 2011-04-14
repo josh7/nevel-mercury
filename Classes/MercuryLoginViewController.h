@@ -13,6 +13,9 @@
 #import "MercuryMainboardViewController.h"
 #import "UIContent.h"
 #import "AppConfig.h"
+#import "XMLParser.h"
+#import "MercuryNetIO.h"
+
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
 @interface MercuryLoginViewController : UIViewController
@@ -37,6 +40,9 @@
     // Objuct for user cnfigurations.
     AppConfig *loginConfig;
     int loginType;
+    
+    //
+    MercuryNetIO *mIO; // "miao~~~" :-)
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
@@ -58,5 +64,8 @@
 - (void)passwordTextFieldPressed:(UITextField *)sender;
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender;
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender;
+
+- (void)metaDataFetchComplete:(ASIHTTPRequest *)request;
+- (void)metaDataFetchFailed:(ASIHTTPRequest *)request;
 
 @end

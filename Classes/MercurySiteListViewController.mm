@@ -11,6 +11,7 @@
 #import "MercurySiteListViewController.h"
 #import "SiteListInfoCell.h"
 #import "SiteListPlotCell.h"
+#import "CorePlot-CocoaTouch.h"
 
 
 
