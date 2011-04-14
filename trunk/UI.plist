@@ -2,6 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Account List</key>
+	<array>
+		<string>Account List</string>
+		<string>Are you sure to change account?</string>
+		<string>Cancel</string>
+		<string>Sure</string>
+		<string>Account Settings</string>
+	</array>
+	<key>Account Settings</key>
+	<array>
+		<array>
+			<string></string>
+		</array>
+		<array>
+			<string>Free</string>
+		</array>
+		<array>
+			<string>Remember Account</string>
+			<string>Auto Login</string>
+		</array>
+		<array>
+			<string>Account Name</string>
+			<string>Account Type</string>
+			<string>Login Type</string>
+		</array>
+		<string>Log Out</string>
+		<string>Advanced</string>
+		<string>Want an advanced account? All you want are in Nevel website.</string>
+	</array>
 	<key>Login</key>
 	<array>
 		<string>Nevel ID:</string>
@@ -56,18 +85,6 @@
 			<string>Nevel All Rights Reserved.</string>
 			<string>Nevel, Never leave you. (For fun~)</string>
 		</array>
-	</array>
-	<key>Account</key>
-	<array>
-		<string>Account List</string>
-		<string>Are you sure to change account?</string>
-		<string>Cancel</string>
-		<string>Sure</string>
-		<string>Account Settings</string>
-		<string>Account Name:</string>
-		<string>Save Password</string>
-		<string>Auto Login</string>
-		<string>Log Out</string>
 	</array>
 </dict>
 </plist>

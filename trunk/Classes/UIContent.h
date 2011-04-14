@@ -59,16 +59,28 @@
 #define ST_EN_COPYRIGHT         1
 #define ST_EN_FOR_FUN           2
 
-// The Account section English version text.
+// The Account List section English version text.
 #define AC_EN_ACCOUNT_LIST      0
 #define AC_EN_MESSAGE           1
 #define AC_EN_CANCEL            2
 #define AC_EN_SURE              3
 #define AC_EN_ACCOUNT_SETTINGS  4
-#define AC_EN_ACCOUNT_NAME      5
-#define AC_EN_SAVE_PASSWORD     6
-#define AC_EN_AUTO_LOGIN        7
-#define AC_EN_LOG_OUT           8
+
+// The Account Settings section English version text.
+#define SECTION_ACCOUNT_NAME  0
+#define AS_EN_ACCOUNT_NAME      0
+#define SECTION_ACCOUNT_TYPE  1
+#define AS_EN_ACCOUNT_TYPE      0
+#define SECTION_LOGIN_TYPE    2
+#define AS_EN_REMEMBER_NAME     0
+#define AS_EN_AUTO_LOGIN        1
+#define SECTION_HEADE         3
+#define AS_EN_HEADER_NAME       0
+#define AS_EN_HEADER_FREE_TYPE  1
+#define AS_EN_HEADER_LOGIN_TYPE 2
+#define AS_EN_LOG_OUT         4
+#define AS_EN_ADVANCED        5
+#define AS_EN_FOOTER_ADVANCED 6
 
 
 @interface UIContent : NSObject {
@@ -77,14 +89,16 @@
 	NSArray *uiLoginKeys;
     NSArray *uiMainboardKeys;
     NSMutableArray *uiSettingsKeys;
-    NSArray *uiAccountKeys;
+    NSArray *uiAccountListKeys;
+    NSArray *uiAccountSettingsKeys;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *uiDictionary;
 @property (nonatomic, retain) NSArray *uiLoginKeys;
 @property (nonatomic, retain) NSArray *uiMainboardKeys;
 @property (nonatomic, retain) NSMutableArray *uiSettingsKeys;
-@property (nonatomic, retain) NSArray *uiAccountKeys;
+@property (nonatomic, retain) NSArray *uiAccountListKeys;
+@property (nonatomic, retain) NSArray *uiAccountSettingsKeys;
 
 - (void)initWithUIContent;
 

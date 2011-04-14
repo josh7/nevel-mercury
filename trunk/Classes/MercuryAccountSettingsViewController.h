@@ -7,30 +7,51 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>   // For CATransition methods.
 #import "UIContent.h"
 #import "AppConfig.h"
+#import "MercuryLoginViewController.h"
+#import "MercuryMainboardViewController.h"
 
 
-@interface MercuryAccountSettingsViewController : UIViewController {
+@interface MercuryAccountSettingsViewController : UITableViewController {
     // The UI contorllers.
-    UISegmentedControl *loginTypeSegmentedControl;
-    NSString *currentAccountNameString;
-    UIButton *logOutButton;
+    UIView *footerView;
+    UIView *sectionHeaderView;
+    UILabel *sectionHeader;
+    
+    // The UI controllers for log out.
+    MercuryLoginViewController *MercuryLoginViewController;
+    MercuryMainboardViewController *MercuryMainboardViewController;
+    
+    UISwitch *rememberAccountSwitch;
+    UISwitch *autoLoginSwitch;
     
     // Object for UI text.
-    UIContent *accountSettingsUIContent;
+    NSString *currentAccountNameString;
+    NSArray *accountSettingsUIContent;
     
     // Objuct for user cnfigurations.
     AppConfig *accountSettingsConfig;
-
 }
 
-@property (nonatomic, retain) UISegmentedControl *loginTypeSegmentedControl;
+@property (nonatomic, retain) UISwitch *rememberAccountSwitch;
+@property (nonatomic, retain) UISwitch *autoLoginSwitch;
+@property (nonatomic, retain) UIView *footerView;
+@property (nonatomic, retain) UIView *sectionHeaderView;
+@property (nonatomic, retain) UILabel *sectionHeader;
 @property (nonatomic, retain) NSString *currentAccountNameString;
-@property (nonatomic, retain) UIContent *accountSettingsUIContent;
+@property (nonatomic, retain) NSArray *accountSettingsUIContent;
 @property (nonatomic, retain) AppConfig *accountSettingsConfig;
+@property (nonatomic, retain) MercuryLoginViewController *MercuryLoginViewController;
+@property (nonatomic, retain) MercuryMainboardViewController *MercuryMainboardViewController;
 
-// Segmented control action.
-- (void)segmentedControlPressed:(id)sender;
-- (void)buttonPressed:(id)sender;
+// Log out button action.
+- (void)logOutButtonPressed:(id)sender;
+
+// App configuration action.
+- (void)rememberAccountDidSwitch:(id)sender;
+- (void)autoLoginDidSwitch:(id)sender;
+
 @end

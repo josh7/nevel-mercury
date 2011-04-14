@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0008474A1356C7B8004D077F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D24129134F040600E8CF9B /* libCorePlot-CocoaTouch.a */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
@@ -42,7 +43,6 @@
 		68C98A4213461E0000165DF6 /* MercurySiteListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */; };
 		68C98A471346283800165DF6 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68C98A451346283800165DF6 /* test.cpp */; };
 		68CA2FF0133D8E9E00BA3475 /* nevel_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68CA2FEF133D8E9E00BA3475 /* nevel_icon.png */; };
-		68D2412A134F040600E8CF9B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D24129134F040600E8CF9B /* libCorePlot-CocoaTouch.a */; };
 		68DBFAF8133F6E3F00C8356A /* MercurySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */; };
 		68DEBD4D13286DA100B14FC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68DEBD4C13286DA100B14FC0 /* QuartzCore.framework */; };
 		68DEE8F813527AE000A06BC3 /* MercuryNetIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DEE8F713527AE000A06BC3 /* MercuryNetIO.m */; };
@@ -60,18 +60,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		00815A9313574A450021F387 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68D2411C134F03CE00E8CF9B /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
 		68D24125134F03CE00E8CF9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 68D2411C134F03CE00E8CF9B /* CorePlot-CocoaTouch.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
-		68D24127134F03F100E8CF9B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 68D2411C134F03CE00E8CF9B /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68D2412A134F040600E8CF9B /* libCorePlot-CocoaTouch.a in Frameworks */,
+				0008474A1356C7B8004D077F /* libCorePlot-CocoaTouch.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -394,7 +394,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				68D24128134F03F100E8CF9B /* PBXTargetDependency */,
+				00815A9413574A450021F387 /* PBXTargetDependency */,
 			);
 			name = Mercury;
 			productName = Mercury;
@@ -503,10 +503,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		68D24128134F03F100E8CF9B /* PBXTargetDependency */ = {
+		00815A9413574A450021F387 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CorePlot-CocoaTouch";
-			targetProxy = 68D24127134F03F100E8CF9B /* PBXContainerItemProxy */;
+			targetProxy = 00815A9313574A450021F387 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -542,7 +542,7 @@
 				PRODUCT_NAME = Mercury;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				USER_HEADER_SEARCH_PATHS = "\"~/Documents/project/nevel-mercury/Classes/CorePlot 0.2.2/Source/framework\"/** /usr/include/libxml2";
+				USER_HEADER_SEARCH_PATHS = "\"~/Documents/supeiqi/nevel-mercury/Classes/CorePlot 0.2.2/Source/framework\"/** /usr/include/libxml2";
 			};
 			name = Debug;
 		};
@@ -565,7 +565,7 @@
 				PRODUCT_NAME = Mercury;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				USER_HEADER_SEARCH_PATHS = "\"~/Documents/project/nevel-mercury/Classes/CorePlot 0.2.2/Source/framework\"/** /usr/include/libxml2";
+				USER_HEADER_SEARCH_PATHS = "\"~/Documents/supeiqi/nevel-mercury/Classes/CorePlot 0.2.2/Source/framework\"/** /usr/include/libxml2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
