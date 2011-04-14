@@ -10,6 +10,8 @@
 #import "LoginTableCell.h"
 #import "MercuryAppDelegate.h"
 
+#define SITELIST @"SiteList"
+
 
 @implementation MercuryLoginViewController
 @synthesize bgImageView;
@@ -29,6 +31,7 @@
     [loginUIContent release];
     [userConfigKeys release];
     [loginConfig release];
+    [mIO release];
     [super dealloc];
 }
 
@@ -36,7 +39,7 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
     [super loadView];
-    
+
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.loginUIContent = appDelegate.uiContent;
@@ -429,6 +432,7 @@
 		
 		// Do the background loading here.
 		[self loadingTask];
+        
 		dispatch_async(dispatch_get_main_queue(), ^{
             
             // Here we have synced all data. Swith to the new view.
@@ -453,11 +457,18 @@
 
 
 -(void)loadingTask {
-    
 	// Do the background loading here.
 	// Just for demo now...
 	sleep(1);
-	
+
+//    mIO = [[MercuryNetIO alloc] init];
+//    [mIO setURLFromPlist:@"SiteList" URLKey:@"SiteListURL"];
+//    [mIO syncFetch:@"SiteList.xml"];
+    
+    XMLParser *xmlSiteListParser = [XMLParser alloc];
+    [xmlSiteListParser initWithFile:@"SiteList.xml"];
+    [xmlSiteListParser parseXML];
+    
 	// Change the HUD mode.
 	self.hud.mode = MBProgressHUDModeDeterminate;
 	self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:13];
@@ -468,7 +479,14 @@
 		usleep(10000);
 	}
 }
+#pragma mark - ASIHTTPRequest delegate
+- (void)metaDataFetchComplete:(ASIHTTPRequest *)request {
+    NSLog(@"Download successful.");
+}
 
+- (void)metaDataFetchFailed:(ASIHTTPRequest *)request {
+     NSLog(@"Download failed.");
+}
 
 #pragma mark - MBProgressHUD delegate
 
