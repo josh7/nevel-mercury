@@ -13,9 +13,13 @@
 @interface XMLParser : NSObject {
     NSString *xmlFilePath;
     DDXMLDocument *xmlDocument;
+    NSArray *siteNames;
 }
 
+@property (nonatomic, retain) NSArray *siteNames;
+
 - (void)initWithFile:(NSString *)fileName;
-- (void)parseXML;
+- (void)parseSiteName;
+- (void)parseMonitoring:(NSString *)siteName;
 
 @end

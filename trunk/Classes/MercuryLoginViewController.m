@@ -24,6 +24,7 @@
 @synthesize userConfigKeys;
 @synthesize loginConfig;
 @synthesize didRelogIn;
+@synthesize xmlParser;
 
 - (void)dealloc {
 	[bgImageView release];
@@ -33,6 +34,7 @@
     [loginUIContent release];
     [userConfigKeys release];
     [loginConfig release];
+    [xmlParser release];
     [mIO release];
     [super dealloc];
 }
@@ -333,10 +335,10 @@
         [self.userConfigKeys objectAtIndex:1] != @"0") {
         UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
                                            initWithTitle:nil
-                                           delegate:self
-                                           cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_JUST_LOGIN]
-                                           destructiveButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_AUTO_LOGIN]
-                                           otherButtonTitles:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_SAVE_PASSWORD], nil];
+                                                delegate:self
+                                       cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_JUST_LOGIN]
+                                  destructiveButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_AUTO_LOGIN]
+                                       otherButtonTitles:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_SAVE_PASSWORD], nil];
         [loginActionSheet showInView:self.view];
         [loginActionSheet release];
     }
@@ -456,9 +458,7 @@
             if (self.didRelogIn == NO) {
                 // Get rid of the login view controller and add the main one.
                 [appDelegate.mercuryLoginViewController.view removeFromSuperview];
-                
                 [appDelegate.window addSubview:appDelegate.mercuryMainboardViewController.view];
-                
                 [appDelegate.mercuryMainboardViewController.view.layer addAnimation:animation 
                                                                              forKey:@"animation"];
             }
@@ -466,12 +466,10 @@
             else if (self.didRelogIn == YES) {
                 // Get rid of the login view controller and add the main one.
                 [self.view removeFromSuperview];
-                
                 // Here we make a new main board for reloginer.
                 MercuryMainboardViewController *reloginMercuryMainboardViewController = 
                     [[MercuryMainboardViewController alloc] init];
                 [appDelegate.window addSubview:reloginMercuryMainboardViewController.view];
-                
                 [reloginMercuryMainboardViewController.view.layer addAnimation:animation 
                                                                         forKey:@"animation"];
                 
@@ -487,23 +485,28 @@
 	// Just for demo now...
 	sleep(1);
 
-//    mIO = [[MercuryNetIO alloc] init];
-//    [mIO setURLFromPlist:@"SiteList" URLKey:@"SiteListURL"];
-//    [mIO syncFetch:@"SiteList.xml"];
+    mIO = [[MercuryNetIO alloc] init];
+    [mIO setURLFromPlist:@"SiteList" URLKey:@"SiteListURL"];
+    [mIO syncFetch:@"SiteList.xml"];
+    
+    [mIO setURLFromPlist:@"SiteList" URLKey:@"SitePlotURL"];
+    [mIO syncFetch:@"SitePlot.xml"];
     
     XMLParser *xmlSiteListParser = [XMLParser alloc];
-    [xmlSiteListParser initWithFile:@"SiteList.xml"];
-    [xmlSiteListParser parseXML];
+    self.xmlParser = xmlSiteListParser;
+    [xmlSiteListParser release];
+    [self.xmlParser initWithFile:@"SiteList.xml"];
+    [self.xmlParser parseSiteName];
     
 	// Change the HUD mode.
-	self.hud.mode = MBProgressHUDModeDeterminate;
-	self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:13];
-	float progress = 0.0f;
-	while (progress < 1.0f) {
-		progress += 0.01f;
-		self.hud.progress = progress;
-		usleep(10000);
-	}
+//	self.hud.mode = MBProgressHUDModeDeterminate;
+//	self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:13];
+//	float progress = 0.0f;
+//	while (progress < 1.0f) {
+//		progress += 0.01f;
+//		self.hud.progress = progress;
+//		usleep(10000);
+//	}
 }
 #pragma mark - ASIHTTPRequest delegate
 - (void)metaDataFetchComplete:(ASIHTTPRequest *)request {

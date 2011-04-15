@@ -18,7 +18,7 @@
 @implementation SiteListInfoCell
 @synthesize info;
 @synthesize plot;
-
+@synthesize siteName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,19 +27,24 @@
     
     if (self) {
         // Initialization code
-        CGRect rect = CGRectMake(0, 0, 320, 25);
-        //CELL_INIT(up, UIView, rect);
-        UILabel *upTemp = [[UILabel alloc] initWithFrame:rect];
+        CGRect rectView = CGRectMake(0, 0, 320, 25);
+        UIView *upTemp = [[UIView alloc] initWithFrame:rectView];
         self.info = upTemp;
         [upTemp release];
         self.info.backgroundColor = [UIColor yellowColor];
                 
-        rect = CGRectMake(0, 38, 320, 60);
-        CELL_INIT(plot, UILabel, rect);
-        plot.alpha = 0;
+        rectView = CGRectMake(0, 38, 320, 60);
+        CELL_INIT(plot, UIView, rectView);
+        self.plot.alpha = 0;
         
+        rectView = CGRectMake(10, 3, 200, 20);
+        CELL_INIT(siteName, UILabel, rectView);
+        self.siteName.backgroundColor = [UIColor clearColor];
+        
+        [self.info addSubview:siteName];
         [self.contentView addSubview:info];
         [self.contentView addSubview:plot];
+        
     }
     return self;
 }

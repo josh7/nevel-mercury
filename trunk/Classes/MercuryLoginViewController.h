@@ -43,6 +43,7 @@
     AppConfig *loginConfig;
     int loginType;
     
+    XMLParser *xmlParser;
     //
     MercuryNetIO *mIO; // "miao~~~" :-)
 }
@@ -55,6 +56,7 @@
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) UIContent *loginUIContent;
 @property (nonatomic, retain) AppConfig *loginConfig;
+@property (nonatomic, retain) XMLParser *xmlParser;
 @property BOOL didRelogIn;
 
 
