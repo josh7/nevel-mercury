@@ -208,17 +208,21 @@
 #pragma mark - Log Out button action
              
 - (void)logOutButtonPressed:(id)sender {
-    // Create a new Mercury login view and tell login view that user will relogin.
+    // Get rid of mainboard view controller and add the login view.
     MercuryLoginViewController *liTemp = [[MercuryLoginViewController alloc] init];
 	self.MercuryLoginViewController = liTemp;
-    self.MercuryLoginViewController.didRelogIn = YES;
 	[liTemp release];
     
-    // Get rid of mainboard view controller and add the login view.
+    // Remove current main board and add new login view.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.mercuryMainboardViewController.view removeFromSuperview];
+    // We remove all the subview of window.
+    for (UIView *view in [appDelegate.window subviews]) {
+        [view removeFromSuperview];
+    }
     [appDelegate.window addSubview:self.MercuryLoginViewController.view];
-    
+    // Tell the MercuryLoginViewController that this is not first login but relogin.
+    self.MercuryLoginViewController.didRelogIn = YES;
+    // Our new login view will show up from buttom.
     CATransition *animation = [CATransition animation];
     animation.duration = 0.3f;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;

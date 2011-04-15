@@ -442,9 +442,6 @@
             // Here we have synced all data. Swith to the new view.
             MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
             
-//            // Get rid of the login view controller and add the main one.
-//            [appDelegate.mercuryLoginViewController.view removeFromSuperview];
-            
             // Set the transfer animation.
             CATransition *animation = [CATransition animation];
             animation.duration = 0.3f;
@@ -471,8 +468,7 @@
                     [[MercuryMainboardViewController alloc] init];
                 [appDelegate.window addSubview:reloginMercuryMainboardViewController.view];
                 [reloginMercuryMainboardViewController.view.layer addAnimation:animation 
-                                                                        forKey:@"animation"];
-                
+                                                                        forKey:@"animation"];                
             }
             
         });
