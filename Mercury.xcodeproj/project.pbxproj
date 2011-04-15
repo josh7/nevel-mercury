@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0008474A1356C7B8004D077F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D24129134F040600E8CF9B /* libCorePlot-CocoaTouch.a */; };
-		005899BE1358AE20004C817D /* MercuryPlotDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 005899BD1358AE20004C817D /* MercuryPlotDraw.m */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
@@ -81,8 +80,6 @@
 
 /* Begin PBXFileReference section */
 		002C7C4B1334D77E004F8879 /* UserConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserConfig.plist; sourceTree = "<group>"; };
-		005899BC1358AE20004C817D /* MercuryPlotDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryPlotDraw.h; sourceTree = "<group>"; };
-		005899BD1358AE20004C817D /* MercuryPlotDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryPlotDraw.m; sourceTree = "<group>"; };
 		006CB452133CF219003AA54C /* MercurySiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListViewController.h; sourceTree = "<group>"; };
 		0080F864133C1CFF00A7325B /* UIContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContent.h; sourceTree = "<group>"; };
 		0080F865133C1CFF00A7325B /* UIContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIContent.m; sourceTree = "<group>"; };
