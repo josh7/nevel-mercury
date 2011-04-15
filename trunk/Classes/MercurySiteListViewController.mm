@@ -22,6 +22,7 @@
 - (void)dealloc
 {
     delete corePlotList;
+    delete barVector;
     
     [paraIndicator release];
     [siteScroll release];
@@ -102,6 +103,16 @@
     
     // A NULL table list.
     corePlotList = new std::list<UITableView *>();
+    barVector = new std::vector<CPColor *>();
+    barVector->reserve(10);
+    barVector->push_back([CPColor darkGrayColor]);
+    barVector->push_back([CPColor orangeColor]);
+    barVector->push_back([CPColor purpleColor]);
+    barVector->push_back([CPColor magentaColor]);
+    barVector->push_back([CPColor blueColor]);
+    barVector->push_back([CPColor brownColor]);
+    barVector->push_back([CPColor greenColor]);
+
     self.view.backgroundColor = [UIColor brownColor];
     self.title = [paraTitle objectAtIndex:NEVEL_ENABLE_TABLE];
     
@@ -201,7 +212,7 @@
     [paramaterScroll addSubview:plotHolders];
     [siteScroll addSubview:generalInfoTable];
     [siteScroll addSubview:paramaterScroll];
-    
+   
     [self.view addSubview:siteScroll];
     [self.view addSubview:paraIndicator];
     
@@ -296,6 +307,11 @@
     return NSITES;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView 
+  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentify = @"bigCell";
@@ -306,7 +322,7 @@
     if (tableView == generalInfoTable) {
         SiteListInfoCell *cell = 
             (SiteListInfoCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentify];
-        
+       
         if (cell == nil) {
             cell = [[[SiteListInfoCell alloc] initWithStyle:style 
                                             reuseIdentifier:cellIdentify] autorelease];   
@@ -331,10 +347,11 @@
             }
             cell.down.backgroundColor = [plotColor objectAtIndex:i];
             
+            std::vector<CPColor *>::iterator barColorIterator = barVector->begin();
             MercuryPlotDraw *mPD = [MercuryPlotDraw alloc];
-            CGRect plotRect = CGRectMake(0, 0, 300, 50);
+            CGRect plotRect = CGRectMake(0, 0, 320, 60);
             [mPD initWithRect:plotRect];
-            [mPD drawBarPlot];
+            [mPD drawBarPlot:barColorIterator[i]];
             [cell.down addSubview:mPD.plotHostingView];
             
             // TODO: we should catch it as an exception.

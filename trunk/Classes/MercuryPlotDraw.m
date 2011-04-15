@@ -15,18 +15,18 @@
 
 - (void) initWithRect:(CGRect)rect {
     NSArray *array = [[NSArray alloc] initWithObjects:
-                      [NSDecimalNumber numberWithInt:100],
-                      [NSDecimalNumber numberWithInt:130],
                       [NSDecimalNumber numberWithInt:30],
-                      [NSDecimalNumber numberWithInt:40],
-                      [NSDecimalNumber numberWithInt:60],
-                      [NSDecimalNumber numberWithInt:80],
-                      [NSDecimalNumber numberWithInt:100],
-                      [NSDecimalNumber numberWithInt:120],
-                      [NSDecimalNumber numberWithInt:10],
-                      [NSDecimalNumber numberWithInt:15],
+                      [NSDecimalNumber numberWithInt:28],
+                      [NSDecimalNumber numberWithInt:30],
+                      [NSDecimalNumber numberWithInt:140],
+                      [NSDecimalNumber numberWithInt:44],
+                      [NSDecimalNumber numberWithInt:46],
+                      [NSDecimalNumber numberWithInt:16],
+                      [NSDecimalNumber numberWithInt:18],
+                      [NSDecimalNumber numberWithInt:25],
+                      [NSDecimalNumber numberWithInt:38],
+                      [NSDecimalNumber numberWithInt:49],
                       [NSDecimalNumber numberWithInt:20],
-                      [NSDecimalNumber numberWithInt:100],
                       nil];
     self.monitorData = array;
     [array release];
@@ -37,10 +37,20 @@
     [plotHostingView release];
 }
 
-- (void)drawBarPlot {
+- (void)drawBarPlot:(CPColor *)barColor {
     CPXYGraph *graphTemp = [[CPXYGraph alloc] initWithFrame:CGRectZero];
     graph = graphTemp;
     [graphTemp release];
+    
+    // Border
+    graph.plotAreaFrame.borderLineStyle = nil;
+    graph.plotAreaFrame.cornerRadius = 0.0f;
+	
+    // Paddings
+    graph.paddingLeft = 0.0f;
+    graph.paddingRight = 0.0f;
+    graph.paddingTop = 0.0f;
+    graph.paddingBottom = 0.0f;
     
     CPTheme *theme = [CPTheme themeNamed:kCPDarkGradientTheme];
     [graph applyTheme:theme];
@@ -50,13 +60,13 @@
     // Define the sapce for the bars. (12 bars with a maximum height of 150)
     CPXYPlotSpace *plotSpace = (CPXYPlotSpace *)graph.defaultPlotSpace;
     plotSpace.yRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(0.0f) 
-                                                   length:CPDecimalFromFloat(30.0f)];
+                                                   length:CPDecimalFromFloat(150.0f)];
     
     plotSpace.xRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(0.0f) 
                                                    length:CPDecimalFromFloat(12.0f)];
     
     // Bar plot
-    CPBarPlot *barPlot = [CPBarPlot tubularBarPlotWithColor:[CPColor yellowColor] 
+    CPBarPlot *barPlot = [CPBarPlot tubularBarPlotWithColor:barColor 
                                              horizontalBars:NO]; 
     barPlot.dataSource = self;
     barPlot.baseValue = CPDecimalFromString(@"0");

@@ -4,5 +4,7 @@
 <dict>
 	<key>SiteListURL</key>
 	<string>http://www.kerneldiy.com/files/SiteList.xml</string>
+	<key>SitePlotURL</key>
+	<string>http://www.kerneldiy.com/files/SitePlot.xml</string>
 </dict>
 </plist>
