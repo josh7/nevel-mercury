@@ -12,6 +12,7 @@
 @synthesize up;
 @synthesize down;
 
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -28,10 +29,11 @@
         self.down = downTemp;
         [downTemp release];
         
-        UISegmentedControl *seg = [[[UISegmentedControl alloc] initWithItems:[@"One Two Three" componentsSeparatedByString:@" "]] autorelease];
-        seg.center = CGPointMake(160.0f, 30.0f);
-
-        [self.down addSubview:seg];
+//        rect = CGRectMake(10, 5, 300, 50);
+//        CPGraphHostingView *plotHostingViewTemp = [[CPGraphHostingView alloc] initWithFrame:rect];
+//        self.plotHostingView = plotHostingViewTemp;
+//        
+//        [self.down addSubview:self.plotHostingView];
         [self.contentView addSubview:up];
         [self.contentView addSubview:down];
     }

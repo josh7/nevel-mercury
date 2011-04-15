@@ -11,13 +11,13 @@
 #import "MercurySiteListViewController.h"
 #import "SiteListInfoCell.h"
 #import "SiteListPlotCell.h"
-#import "CorePlot-CocoaTouch.h"
 
 
 
 @implementation MercurySiteListViewController 
 @synthesize plotHolders;
 @synthesize paramaterScroll;
+@synthesize mercuryLoginViewController;
 
 - (void)dealloc
 {
@@ -85,6 +85,9 @@
 - (void)loadView
 {
     [super loadView];
+    MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.mercuryLoginViewController = appDelegate.mercuryLoginViewController;
+    
     // TODO: Just for demo here, load the UI text from UI.plist.
     paraTitle = [[NSArray alloc] initWithObjects:@"Monitoring", @"Availability", @"Page View", 
                  @"Threat", @"Latency", @"Security", @"Alert", nil];
@@ -202,6 +205,8 @@
     [self.view addSubview:siteScroll];
     [self.view addSubview:paraIndicator];
     
+    
+    
 #ifdef DEBUG
     NSLog(@"[paraIndicator: ]%d", paraIndicator.currentPage);
     NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
@@ -284,6 +289,10 @@
 }
 #pragma mark - UITableView Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#ifdef DEBUG
+    NSInteger sites = NSITES;
+#endif
+    
     return NSITES;
 }
 
@@ -291,6 +300,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentify = @"bigCell";
     UITableViewCellStyle style = UITableViewCellStyleDefault;
+    NSInteger row = indexPath.row;
     
     // Draw the label part of the compound table.
     if (tableView == generalInfoTable) {
@@ -301,6 +311,8 @@
             cell = [[[SiteListInfoCell alloc] initWithStyle:style 
                                             reuseIdentifier:cellIdentify] autorelease];   
         }
+        cell.siteName.text = 
+            [[self.mercuryLoginViewController.xmlParser.siteNames objectAtIndex:row] stringValue];
         return cell;
     }
     else { // corePlotInfoTable here.
@@ -318,7 +330,13 @@
                 tableIterator++;
             }
             cell.down.backgroundColor = [plotColor objectAtIndex:i];
-
+            
+            MercuryPlotDraw *mPD = [MercuryPlotDraw alloc];
+            CGRect plotRect = CGRectMake(0, 0, 300, 50);
+            [mPD initWithRect:plotRect];
+            [mPD drawBarPlot];
+            [cell.down addSubview:mPD.plotHostingView];
+            
             // TODO: we should catch it as an exception.
             if (i >= PARANUM) {
                 // ???! There must be something wrong. :(
@@ -358,5 +376,8 @@
     pageBeforeTabbing = pageControl.currentPage;
 
 }
+
+#pragma mark - Coreplot Data Source Methods
+
 
 @end

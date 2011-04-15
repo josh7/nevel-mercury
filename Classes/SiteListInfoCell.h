@@ -10,10 +10,13 @@
 
 
 @interface SiteListInfoCell : UITableViewCell {
-    UILabel *info;
-    UILabel *plot;
+    UIView *info;
+    UIView *plot;
+    UILabel *siteName;
 }
 
-@property (nonatomic, retain) UILabel *info;
-@property (nonatomic, retain) UILabel *plot;
+@property (nonatomic, retain) UIView *info;
+@property (nonatomic, retain) UIView *plot;
+@property (nonatomic, retain) UILabel *siteName;
+
 @end

@@ -9,12 +9,15 @@
 #include <list>
 #import <UIKit/UIKit.h>
 #import "Common.h"
+#import "MercuryLoginViewController.h"
+#import "MercuryAppDelegate.h"
+#import "MercuryPlotDraw.h"
 
 /* 
  * Customize site list root view controller here.
  * Push new view by appDelegate.mercuryMainboardViewcontroller.sitesListNavigationController.view.
  */
-#define NSITES 20
+#define NSITES [self.mercuryLoginViewController.xmlParser.siteNames count]
 
 #define COREPLOT_TAG_BASE   0
 #define NEVEL_ENABLE_TABLE  0
@@ -38,7 +41,10 @@
 
 
 @interface MercurySiteListViewController : 
-UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate> {
+UIViewController<UITableViewDelegate, 
+                 UITableViewDataSource, 
+                 UIScrollViewDelegate> {
+                     
     // Parameter indicator
     UIPageControl *paraIndicator;
     // ParamaterScroll is a subview of siteScroll.
@@ -52,6 +58,9 @@ UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegat
     UIView *plotHolders;
     // The plot table list.
     std::list<UITableView *> *corePlotList;
+    
+    // Just for data comminication
+    MercuryLoginViewController *mercuryLoginViewController;
     
 @private
     /* 
@@ -74,6 +83,7 @@ UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegat
 
 @property (nonatomic, retain) UIView *plotHolders;
 @property (nonatomic, retain) UIScrollView *paramaterScroll;
+@property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
 
 - (void)tableTurn:(UIPageControl *)pageControl;
 @end

@@ -6,14 +6,17 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import "CorePlot-CocoaTouch.h"
 #import <UIKit/UIKit.h>
 
 
 @interface SiteListPlotCell : UITableViewCell {
     UIView *up;
     UIView *down;
+    
 }
 
 @property (nonatomic, retain) UIView *up;
 @property (nonatomic, retain) UIView *down;
+//@property (nonatomic, retain) CPGraphHostingView *plotHostingView;
 @end
