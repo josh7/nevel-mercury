@@ -20,5 +20,5 @@
 @property (nonatomic, retain) NSArray *monitorData;
 
 - (void) initWithRect:(CGRect)rect;
-- (void) drawBarPlot;
+- (void) drawBarPlot:(CPColor *)barColor;
 @end

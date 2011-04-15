@@ -29,11 +29,6 @@
         self.down = downTemp;
         [downTemp release];
         
-//        rect = CGRectMake(10, 5, 300, 50);
-//        CPGraphHostingView *plotHostingViewTemp = [[CPGraphHostingView alloc] initWithFrame:rect];
-//        self.plotHostingView = plotHostingViewTemp;
-//        
-//        [self.down addSubview:self.plotHostingView];
         [self.contentView addSubview:up];
         [self.contentView addSubview:down];
     }

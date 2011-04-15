@@ -7,6 +7,7 @@
 //
 #include <iostream>
 #include <list>
+#include <vector>
 #import <UIKit/UIKit.h>
 #import "Common.h"
 #import "MercuryLoginViewController.h"
@@ -58,6 +59,7 @@ UIViewController<UITableViewDelegate,
     UIView *plotHolders;
     // The plot table list.
     std::list<UITableView *> *corePlotList;
+    std::vector<CPColor *> *barVector; // Just for demo.
     
     // Just for data comminication
     MercuryLoginViewController *mercuryLoginViewController;
