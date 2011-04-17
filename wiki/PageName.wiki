@@ -48,4 +48,10 @@ Element是一对标记，用来表示这对标记中包含的内容的属性，e
 
 == Namespace==
 
-一个用于定位Element或Attribute名称的URI。
+一个用于定位Element或Attribute名称的URI，用于解决当一个文档中包含不同来源的XML时造成的命名冲突问题。你需要在一个标记的开始声明一个namespace，在xmlns属性上关联上namespace的前缀，之后用一个URI关联到这个namespace上。
+
+{{{
+<h:table xmlns:h="http://www.nevel.co">
+}}}
+
+之后，你只需要使用前缀h和element（两者通过冒号分隔）来唯一定位资源。属于该名字空间的child element，都通过前缀关联到同一个namespace。
