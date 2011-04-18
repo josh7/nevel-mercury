@@ -179,6 +179,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		009E82731359300000354D63 /* doxygen-cocoa-touch-tags.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "doxygen-cocoa-touch-tags.xml"; path = "../../Documentation/doxygen-cocoa-touch-tags.xml"; sourceTree = "<group>"; };
+		009E82751359301100354D63 /* doxygen touch.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "doxygen touch.config"; path = "../../Documentation/doxygen touch.config"; sourceTree = "<group>"; };
 		070CB8300FC9DEA800F3152B /* CPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPColor.h; path = Source/CPColor.h; sourceTree = "<group>"; };
 		070CB8310FC9DEA800F3152B /* CPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPColor.m; path = Source/CPColor.m; sourceTree = "<group>"; };
 		070CB8320FC9DEA800F3152B /* CPColorSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPColorSpace.h; path = Source/CPColorSpace.h; sourceTree = "<group>"; };
@@ -685,8 +687,10 @@
 			isa = PBXGroup;
 			children = (
 				C3566B8C10EED17400FB3866 /* doxygen touch.config */,
+				009E82751359301100354D63 /* doxygen touch.config */,
 				C3566B8E10EED1B000FB3866 /* mainpage.h */,
 				C3566B8D10EED17400FB3866 /* doxygen-cocoa-touch-tags.xml */,
+				009E82731359300000354D63 /* doxygen-cocoa-touch-tags.xml */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";

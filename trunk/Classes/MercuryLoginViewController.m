@@ -25,6 +25,7 @@
 @synthesize loginConfig;
 @synthesize didRelogIn;
 @synthesize xmlParser;
+@synthesize keyChainWrapper;
 
 - (void)dealloc {
 	[bgImageView release];
@@ -36,6 +37,7 @@
     [loginConfig release];
     [xmlParser release];
     [mIO release];
+    [keyChainWrapper release];
     [super dealloc];
 }
 
@@ -49,7 +51,7 @@
     self.loginUIContent = appDelegate.uiContent;
     
 	scrollup = 0;
-//    self.didRelogIn = NO;
+    self.didRelogIn = NO;
     NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
@@ -104,7 +106,7 @@
     
 	// The login button.
 	UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	loginButton.frame = CGRectMake(205, 380, 105, 37);
+	loginButton.frame = CGRectMake(10, 380, 300, 37);
 	loginButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	loginButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 	[loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -118,6 +120,8 @@
 		  forControlEvents:UIControlEventTouchUpInside];
 	[self.loginControlLayer addSubview:loginButton];
     
+    // Now we do not need a register button.
+#ifdef VERSION_2
     // The register button.
 	UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	registerButton.frame = CGRectMake(10, 380, 105, 37);
@@ -133,12 +137,16 @@
 					   action:@selector(registerPressed:) 
 		     forControlEvents:UIControlEventTouchUpInside];
 	[self.loginControlLayer addSubview:registerButton];
-	
+#endif
+    
     // The emergence animation.
 	[UIView animateWithDuration:1.0 animations:^{
 		self.loginTableView.alpha = 1.0;
 		loginButton.alpha = 1.0;
+#ifdef VERSION_2
         registerButton.alpha = 1.0;
+#endif
+        
 	}];
     /* +---------------------------- End of he input board ----------------------------+ */
 }
@@ -299,7 +307,7 @@
 }
 
 
-- (void)idTextFieldPressed:(UITextField *)sender{    
+- (void)idTextFieldPressed:(UITextField *)sender{
     NSString *idTemp = [[NSString alloc] initWithString:sender.text];
     [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
     [idTemp release];
@@ -329,30 +337,49 @@
     #ifdef DEBUG
     NSLog(@"login pressed");
     #endif
-    
-    // Check the information inputed by user.
-    if ([self.userConfigKeys objectAtIndex:0] != @"0" && 
-        [self.userConfigKeys objectAtIndex:1] != @"0") {
-        UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
-                                           initWithTitle:nil
-                                                delegate:self
-                                       cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_JUST_LOGIN]
-                                  destructiveButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_AUTO_LOGIN]
-                                       otherButtonTitles:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_SAVE_PASSWORD], nil];
-        [loginActionSheet showInView:self.view];
-        [loginActionSheet release];
-    }
-    
-    // Show the login options.
-    else {
+
+    // First, we check the information inputed by user.
+    // If the infromation were not complete, an alert will show.
+    if ([self.userConfigKeys objectAtIndex:0] == @"0" || 
+        [self.userConfigKeys objectAtIndex:1] == @"0") {
         UIAlertView *alertForTest = [[UIAlertView alloc]
-                                     initWithTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_ALERT_TITLE]
-                                     message:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_ALERT_CONTENT]
+                                     initWithTitle:[loginUIContent.uiLoginKeys 
+                                                    objectAtIndex:LI_EN_ALERT_TITLE]
+                                     message:[loginUIContent.uiLoginKeys 
+                                              objectAtIndex:LI_EN_ALERT_CONTENT]
                                      delegate:self
-                                     cancelButtonTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_ALERT_BUTTON]
+                                     cancelButtonTitle:[loginUIContent.uiLoginKeys 
+                                                        objectAtIndex:LI_EN_ALERT_BUTTON]
                                      otherButtonTitles:nil];
         [alertForTest show];
         [alertForTest release];
+//        UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
+//                                           initWithTitle:nil
+//                                                delegate:self
+//                                       cancelButtonTitle:[loginUIContent.uiLoginKeys 
+//                                                          objectAtIndex:LI_EN_JUST_LOGIN]
+//                                  destructiveButtonTitle:[loginUIContent.uiLoginKeys 
+//                                                          objectAtIndex:LI_EN_AUTO_LOGIN]
+//                                       otherButtonTitles:[loginUIContent.uiLoginKeys 
+//                                                          objectAtIndex:LI_EN_SAVE_PASSWORD], nil];
+////        [loginActionSheet showInView:self.view];
+//        [loginActionSheet release];
+    }
+    
+    else {
+        // I am so sorry that the headache and nausea almost killing me...
+        // I will finish the following tomorrow morning.
+        // Here just put some a temporary code the make Mercury work.
+        [self startLogin:self withType:nil];
+        
+        // Second, we wrap the account name and password with keychain.
+//        NSString *accountName = [self.userConfigKeys objectAtIndex:0];
+//        NSString *password = [self.userConfigKeys objectAtIndex:1];
+//        
+//        SFHFKeychainUtils *kcTemp = [SFHFKeychainUtils alloc];
+//        self.keyChainWrapper = kcTemp;
+//        [kcTemp release];
+        
     }
 }
 
@@ -362,15 +389,7 @@
     NSLog(@"register pressed");
     #endif
     
-    // Only for test here.
-    UIAlertView *alertForTest = [[UIAlertView alloc]
-                                 initWithTitle:@"want to register?"
-                                 message:@"Comming soooooon!"
-                                 delegate:self
-                                 cancelButtonTitle:@"Fine"
-                                 otherButtonTitles:nil];
-    [alertForTest show];
-    [alertForTest release];
+    // In the future, add the registration here.
 }
 
 
@@ -424,7 +443,6 @@
 
 
 #pragma mark - Execution code
-
 
 - (void)showUsingBlocks:(id)sender {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -504,6 +522,8 @@
 //		usleep(10000);
 //	}
 }
+
+
 #pragma mark - ASIHTTPRequest delegate
 - (void)metaDataFetchComplete:(ASIHTTPRequest *)request {
     NSLog(@"Download successful.");
@@ -512,6 +532,7 @@
 - (void)metaDataFetchFailed:(ASIHTTPRequest *)request {
      NSLog(@"Download failed.");
 }
+
 
 #pragma mark - MBProgressHUD delegate
 
