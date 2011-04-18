@@ -14,6 +14,7 @@
 #import "AppConfig.h"
 #import "XMLParser.h"
 #import "MercuryNetIO.h"
+#import "SFHFKeychainUtils.h"
 
 
 // We subclass from the UITableViewController so we can use the embeded UITableView object.
@@ -46,6 +47,9 @@
     XMLParser *xmlParser;
     //
     MercuryNetIO *mIO; // "miao~~~" :-)
+    
+    // Our dearest SFHFKeychainUtils object dealing with account name and password.
+    SFHFKeychainUtils *keyChainWrapper;
 }
 
 @property (nonatomic, retain) UIImageView *bgImageView;
@@ -57,6 +61,7 @@
 @property (nonatomic, retain) UIContent *loginUIContent;
 @property (nonatomic, retain) AppConfig *loginConfig;
 @property (nonatomic, retain) XMLParser *xmlParser;
+@property (nonatomic, retain) SFHFKeychainUtils *keyChainWrapper;
 @property BOOL didRelogIn;
 
 
