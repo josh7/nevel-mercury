@@ -150,3 +150,11 @@ That means:
 
  # The key will be managed by the dictionary itself. Just balance the retain/release pair outside the dictionary.
  # The value will be retained by the dictionary, so release the outside pointer after adding to a dictionary.
+
+{{{
+NSMutableDictionary *mutableDic = [[NSMutableDictionary alloc] init];
+ClassObj *pObj = [[ClassObj alloc] init];
+ClassKey *pKey = [[ClassKey alloc] init];
+[mutableDic setObject:pObj forKey:pKey];
+[pObj release];
+}}}
