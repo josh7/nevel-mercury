@@ -1,0 +1,8 @@
+#summary How does the smart pointer library improve mercury development.
+
+== What problem does it solve? ==
+
+Smart pointers solve the problem of managing the lifetime of resource (typically dynamically allocated).
+
+
+_To be continue..._
