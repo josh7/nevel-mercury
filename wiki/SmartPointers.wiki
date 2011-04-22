@@ -2,7 +2,23 @@
 
 == What problem does it solve? ==
 
-Smart pointers solve the problem of managing the lifetime of resource (typically dynamically allocated).
+Smart pointers solve the problem of managing the lifetime of resource (typically dynamically allocated) or problem of acquisition and release of resources (files or network connections). Here we cover the first case of storing pointers to dynamically allocated objects and delete those objects at the right time.
+
+== When do v need smart pointer? ==
+
+Some typical scenarios when smart pointers are appropriate:
+
+ * Shared ownership of resource;
+
+This is the case when two or more objects must use a third object. How should that third object be deallocated? Delegate the monitoring work to a smart pointer. When no more shared owners exist, the smart pointer can safely free the resource.
+
+ * Exception-safe code;
+
+Exception-safe means not leaking resource and preserving invariants of program when an exception is thrown. When an object is dynamically allocated, it won't be deleted automatically when an exception is thrown. As the stack unwinds and the pointer goes out of scope, the resource is possibly lost until the program exits. Smart pointers comes to the rescue.
+
+ * Avoid common errors, such as memory leaks;
+
+Forgetting to call delete is one of the oldest mistake of the programming activity. A smart pointer doesn't care about the control path of a program. It only cares about deleting a pointed-to object at the end of its life time.
 
 
 _To be continue..._
