@@ -20,5 +20,79 @@ Exception-safe means not leaking resource and preserving invariants of program w
 
 Forgetting to call delete is one of the oldest mistake of the programming activity. A smart pointer doesn't care about the control path of a program. It only cares about deleting a pointed-to object at the end of its life time.
 
+== scoped_ptr==
+
+_`boost::scoped_ptr`_ has similar characteristics to `std::auto_ptr`, with the important difference that it doesn't transfer ownership the way `auto_ptr` does. A `scoped_ptr` cannot be copied or assigned at all. This property improves expressiveness in our code, as we can select the smart pointer that best fit for our code.
+
+Using `scope_ptr` doesn't make ur program larger or run slower. It only makes your code safer and more maintainable.
+
+=== Synopsis ===
+
+Simplify for simplicity.
+
+{{{
+namespace boost {
+
+template<typename T> class scoped_ptr : noncopyable {
+public:
+      explicit scoped_ptr(T* p = 0); 
+      ~scoped_ptr(); 
+
+      void reset(T* p = 0); 
+
+      T& operator*() const; 
+      T* operator->() const; 
+      T* get() const; 
+   
+      void swap(scoped_ptr& b); 
+  };
+
+template<typename T> 
+    void swap(scoped_ptr<T> & a, scoped_ptr<T> & b); 
+}
+}}}
+
+=== Members description ===
+
+====`explicit scoped_ptr(T* p = 0);`====
+
+Store a copy of p. p must be allocated using operator new or be null. There's no requirement on T to be a complete type at the time of construction. This is useful when p is the result of some allocation functions. A forward declaration of T is enough.
+
+====`~scoped_ptr();`====
+
+Delete the pointer. The type T must be a complete type when it is destroyed. If the `scoped_ptr` holds no resource at the time of its destruction, nothing will happen.
+
+==== `void reset(T* p = 0);`====
+
+Deletes the stored pointer it already owns, if any, and saves p. Use it sparingly (Is there a design problem?)
+
+====`T& operator*() const;`====
+
+Returns a reference to the object pointed to by the stored pointer. Dereference a null `scoped_ptr` will result in undefined behavior (There are no null reference).
+
+====`T* operator->() const;`====
+
+Returns a stored pointer. It's undefined behavior to invoke this operator if the stored pointer is null.
+
+====`T* get() const;` ====
+
+Returns the stored pointer. Use get() with caution, because of the issues of dealing with raw pointers.
+
+====operator unspecified_bool_type() const;====
+
+Returns whether the `scoped_ptr` is non-null. Rather than using get() to test the validity of the `scope_ptr`, prefer using this conversion function.
+
+====`void swap(scoped_ptr& b); `====
+
+Exchange the contents of two `scoped_ptr`S.
+
+=== Free Function ===
+
+====`template<typename T> void swap(scoped_ptr<T> & a, scoped_ptr<T> & b);`====
+
+Exchange the contents of two scoped pointers. It's preferable because it can be applied generically to many pointer types. but `scoped_pointer.swap` only works on smart pointers.
+
+
+
 
 _To be continue..._
