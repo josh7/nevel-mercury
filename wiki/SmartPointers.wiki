@@ -35,17 +35,17 @@ namespace boost {
 
 template<typename T> class scoped_ptr : noncopyable {
 public:
-      explicit scoped_ptr(T* p = 0); 
-      ~scoped_ptr(); 
+    explicit scoped_ptr(T* p = 0); 
+    ~scoped_ptr(); 
 
-      void reset(T* p = 0); 
+    void reset(T* p = 0); 
 
-      T& operator*() const; 
-      T* operator->() const; 
-      T* get() const; 
+    T& operator*() const; 
+    T* operator->() const; 
+    T* get() const; 
    
-      void swap(scoped_ptr& b); 
-  };
+    void swap(scoped_ptr& b); 
+};
 
 template<typename T> 
     void swap(scoped_ptr<T> & a, scoped_ptr<T> & b); 
