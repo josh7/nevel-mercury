@@ -1,5 +1,7 @@
 #summary The memory management mechanism on iOS.
 
+<wiki:toc max_depth="2" />
+
 == Introduction ==
 
 Allocate and release memory correctly and effectively.
