@@ -1,4 +1,5 @@
 #summary How does the smart pointer library improve mercury development.
+#labels Smartpointers,boost
 <wiki:toc max_depth="4" />
 == What problem does it solve? ==
 
@@ -130,7 +131,7 @@ int main() {
         // Assign a new value to the string
         *p = "Acts just like a pointer";
   
-	} // p is destroyed here, and deletes the std::string 
+    } // p is destroyed here, and deletes the std::string 
 }
 }}}
 
@@ -182,7 +183,7 @@ Things to remember:
 
 The idea behind the Pimpl Idiom is to insulate class clients from all knowledge about the private parts of a class. Because clients depend on the header file of a class, any changes to the header will affetc clients. So 
 
-==== key approach ====
+====key approach ====
 
  * Put private data and functions in a seperate type defined in the implementation file;
  * Forward declaring the type in the header file;
