@@ -93,6 +93,172 @@ Exchange the contents of two `scoped_ptr`S.
 Exchange the contents of two scoped pointers. It's preferable because it can be applied generically to many pointer types. but `scoped_pointer.swap` only works on smart pointers.
 
 
+===Usage===
+
+Using `scoped_ptr` is just as fast as using raw pointers. There's no size overhead.
+
+To use `boost::scoped_ptr`:
+
+ # Include `boost::scoped_ptr`;
+ # The type of pointer is the parameter to the class template;
+
+Example:
+
+{{{
+boost::scoped_ptr<std::string> pString(new std::string("Welcome"));
+}}}
+
+===A simple demo===
+
+{{{
+#include "boost/scoped_ptr.hpp"
+#include <string>
+#include <iostream>
+
+int main() {
+    {
+        boost::scoped_ptr<std::string> 
+        p(new std::string("Use scoped_ptr often."));
+
+        // Print the value of the string
+        if (p)
+            std::cout << *p << '\n';
+    
+        // Get the size of the string
+        size_t i=p->size();
+
+        // Assign a new value to the string
+        *p = "Acts just like a pointer";
+  
+	} // p is destroyed here, and deletes the std::string 
+}
+}}}
+
+Things are worth noting:
+
+ * `scoped_ptr` can be tested for validity;
+ * Call member functions on the pointer works like raw pointers;
+ * Deference `scoped_ptr` works exactly like raw pointers;
+ * No need to manually delete;
+
+ ===`boost::scoped_ptr` vs "std::auto_ptr"===
+
+ The major difference between them is the treatment of ownership. `auto_ptr` willingly transfer ownership away frm the source `auto_ptr` when be copied, whereas a scoped_ptr cannot be copied. Take look at the example:
+
+{{{
+void scoped_vs_auto() {
+
+    using boost::scoped_ptr;
+    using std::auto_ptr;
+
+    scoped_ptr<std::string> p_scoped(new std::string("Hello"));
+    auto_ptr<std::string> p_auto(new std::string("Hello"));
+
+    p_scoped->size();
+    p_auto->size();
+
+    scoped_ptr<std::string> p_another_scoped = p_scoped;  //!! Wrong, cannot be copied.
+    // This assignment will leave p_auto with a null pointer.
+	auto_ptr<std::string> p_another_auto = p_auto; 
+
+    p_another_auto->size();
+    (*p_auto).size(); // Bow!! Unpleasant surprise :-(
+}
+}}}
+
+Things to remember:
+
+ * Never, ever, store `auto_ptr`S into STL containers;
+ * Don't do evil things by the return of `scoped_ptr::get()`;
+ * Don't delete the return pointer of `scoped_ptr::get()`;
+ * Don't store the raw pointer in another `scoped_ptr` object;
+
+ ===`scoped_ptr` is NOT the same as const `auto_ptr`===
+
+  * They have different names:-)
+  * A `scoped_ptr` can be reset;
+
+===How smart pointer helps to improve the Pimpl Idiom===
+
+The idea behind the Pimpl Idiom is to insulate class clients from all knowledge about the private parts of a class. Because clients depend on the header file of a class, any changes to the header will affetc clients. So 
+
+==== key approach ====
+
+ * Put private data and functions in a seperate type defined in the implementation file;
+ * Forward declaring the type in the header file;
+
+Then we remove the implementation dependcies from the header file.
+
+The header file:
+
+{{{
+// pimpl_sample.hpp
+
+#if !defined (PIMPL_SAMPLE)
+#define PIMPL_SAMPLE
+
+struct impl; // The forward declaration.
+
+class pimpl_sample {
+    impl* pimpl_;
+public:
+    pimpl_sample();
+    ~pimpl_sample();
+    void do_something();
+};
+
+#endif
+}}}
+
+Put the implementation of _impl_ into the implementation file.
+
+{{{
+// pimpl_sample.cpp 
+
+#include "pimpl_sample.hpp"
+#include <string>
+#include <iostream>
+
+struct pimpl_sample::impl {
+    void do_something_() {
+        std::cout << s_ << "\n";
+    }
+
+    std::string s_;
+};
+
+pimpl_sample::pimpl_sample()
+  : pimpl_(new impl) {
+    pimpl_->s_ = "This is the pimpl idiom";
+}
+
+pimpl_sample::~pimpl_sample() {
+    delete pimpl_;
+}
+
+void pimpl_sample::do_something() {
+    pimpl_->do_something_();
+}  
+}}}
+
+Then any changes in the implementation file will not affect the header and users. Perfect? NO!
+
+The implementation is not exception safe.
+
+The pimple_sample constructor may throw an exception after the `pimpl_` was constructed, then the desctructor will never be called when the stack unwind.
+
+However, `scoped_ptr` comes to the rescue.
+
+{{{
+class pimpl_sample {
+    struct impl;
+	// Neve need to delete pimpl_ in the desctructor.
+    boost::scoped_ptr<impl> pimpl_;
+    ...
+};  
+}}}
+
+It's worth noting that if `pimpl_` can be safely shared between instances of the enclosing class, boost::shared_ptr is the right choice for handling its lifetime.
 
 
 _To be continue..._
