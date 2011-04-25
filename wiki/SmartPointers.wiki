@@ -142,7 +142,7 @@ Things are worth noting:
  * Deference `scoped_ptr` works exactly like raw pointers;
  * No need to manually delete;
 
- ===`boost::scoped_ptr` vs "std::auto_ptr"===
+ ===`boost::scoped_ptr` vs `std::auto_ptr`===
 
  The major difference between them is the treatment of ownership. `auto_ptr` willingly transfer ownership away frm the source `auto_ptr` when be copied, whereas a scoped_ptr cannot be copied. Take look at the example:
 
