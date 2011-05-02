@@ -190,6 +190,12 @@ colorWithRed:green:blue:alpha:
   * UITableViewCellSelectionStyleBlue
   * UITableViewCellSelectionStyleGray
 
+=== Customize our cell ===
+Design aspects and performance constraints:
+  * *Draw appropriate.* Draw the entire cell only when appropriate.
+  * *Avoid transparency.* It will impacts the scrolling performance. Always use opaque subviews.
+  * *Needing display.* Mark the cell as needing display when viewable properties change. Send a setNeedsDisplay message to the cell if the value of the property changes.
+
 == UIButton ==
 
 === Control Events ===
