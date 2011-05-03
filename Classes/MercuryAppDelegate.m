@@ -47,20 +47,27 @@
 	// Create the window object.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Create the login view controller.
+    /* +---------- Here, we should detect whether the app launch first time. ----------+ */
+    
+    // TODO: Judge here.
+    // Check the account if it is nil.
+    
+    // If the app launch first time, we create the login view controller and add it to the window.
 	MercuryLoginViewController *vcTemp = [[MercuryLoginViewController alloc] init];
 	self.mercuryLoginViewController = vcTemp;
 	[vcTemp release];
- 
+    [self.window addSubview:self.mercuryLoginViewController.view];
+    [self.window makeKeyAndVisible];
+    
+    // If the user login before, what should we do here?
+    
+    /* +------------------------------- End of detect. --------------------------------+ */
+    
     // Preload the mainboard.
     MercuryMainboardViewController *boardTemp = 
     [[MercuryMainboardViewController alloc] init];
     self.mercuryMainboardViewController = boardTemp;
     [boardTemp release];
-    
-    // Add login view.
-    [self.window addSubview:self.mercuryLoginViewController.view];
-    [self.window makeKeyAndVisible];
     
     return YES;
 }

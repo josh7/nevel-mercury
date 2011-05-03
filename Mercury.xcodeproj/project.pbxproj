@@ -9,16 +9,24 @@
 /* Begin PBXBuildFile section */
 		003AB1791359494100C6740E /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 003AB1781359494100C6740E /* libCorePlot-CocoaTouch.a */; };
 		003AB2F9135A09D100C6740E /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AB2F8135A09D100C6740E /* SFHFKeychainUtils.m */; };
+		005EDB9A136A5CDC005ADE8E /* MercuryDomainListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */; };
 		006568F5135A98EF00DE9189 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006568F4135A98EF00DE9189 /* Security.framework */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
+		00A63B06136E8467001BB97C /* iconAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A63B04136E8467001BB97C /* iconAlert.png */; };
+		00A63B07136E8467001BB97C /* iconSafe.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A63B05136E8467001BB97C /* iconSafe.png */; };
+		00A63B09136EA58E001BB97C /* domainCell.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00A63B08136EA58E001BB97C /* domainCell.PNG */; };
+		00A63B0B136EB9F5001BB97C /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A63B0A136EB9F5001BB97C /* arrow.png */; };
+		00A63B0E136EE33A001BB97C /* MercuryHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A63B0D136EE339001BB97C /* MercuryHelpViewController.m */; };
 		00CBC4FE134ED54000A82178 /* theme_NevelClassic.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */; };
 		00CBC501134EDA2500A82178 /* theme_Blackhole.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC500134EDA2500A82178 /* theme_Blackhole.png */; };
 		00CBC52C134F045F00A82178 /* MercuryAccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */; };
 		00CBC52F134F282300A82178 /* selected.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC52D134F282300A82178 /* selected.PNG */; };
 		00CBC530134F282300A82178 /* unselected.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00CBC52E134F282300A82178 /* unselected.PNG */; };
 		00CBC539134F42BB00A82178 /* MercuryAccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */; };
+		00D7FAD5137021B50052C14F /* arrowDown.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 00D7FAD4137021B50052C14F /* arrowDown.PNG */; };
+		00DE5DED136C4E5300915156 /* DomainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE5DEC136C4E5300915156 /* DomainListCell.m */; };
 		1D3623260D0F684500981E51 /* MercuryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MercuryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -86,6 +94,8 @@
 		003AB1781359494100C6740E /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = SOURCE_ROOT; };
 		003AB2F7135A09D100C6740E /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		003AB2F8135A09D100C6740E /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		005EDB98136A5CDC005ADE8E /* MercuryDomainListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryDomainListViewController.h; sourceTree = "<group>"; };
+		005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MercuryDomainListViewController.mm; sourceTree = "<group>"; };
 		006568F4135A98EF00DE9189 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		006CB452133CF219003AA54C /* MercurySiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListViewController.h; sourceTree = "<group>"; };
 		0080F864133C1CFF00A7325B /* UIContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContent.h; sourceTree = "<group>"; };
@@ -93,6 +103,12 @@
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
 		00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteListPlotCell.h; sourceTree = "<group>"; };
 		00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteListPlotCell.m; sourceTree = "<group>"; };
+		00A63B04136E8467001BB97C /* iconAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconAlert.png; path = Resources/iconAlert.png; sourceTree = "<group>"; };
+		00A63B05136E8467001BB97C /* iconSafe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSafe.png; path = Resources/iconSafe.png; sourceTree = "<group>"; };
+		00A63B08136EA58E001BB97C /* domainCell.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = domainCell.PNG; path = Resources/domainCell.PNG; sourceTree = "<group>"; };
+		00A63B0A136EB9F5001BB97C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Resources/arrow.png; sourceTree = "<group>"; };
+		00A63B0C136EE338001BB97C /* MercuryHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryHelpViewController.h; sourceTree = "<group>"; };
+		00A63B0D136EE339001BB97C /* MercuryHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryHelpViewController.m; sourceTree = "<group>"; };
 		00AEDD5C134C470D009CB936 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = theme_NevelClassic.png; path = Resources/theme_NevelClassic.png; sourceTree = "<group>"; };
 		00CBC500134EDA2500A82178 /* theme_Blackhole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = theme_Blackhole.png; path = Resources/theme_Blackhole.png; sourceTree = "<group>"; };
@@ -102,6 +118,9 @@
 		00CBC52E134F282300A82178 /* unselected.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselected.PNG; path = Resources/unselected.PNG; sourceTree = "<group>"; };
 		00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAccountSettingsViewController.h; sourceTree = "<group>"; };
 		00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAccountSettingsViewController.m; sourceTree = "<group>"; };
+		00D7FAD4137021B50052C14F /* arrowDown.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowDown.PNG; path = Resources/arrowDown.PNG; sourceTree = "<group>"; };
+		00DE5DEB136C4E5300915156 /* DomainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainListCell.h; sourceTree = "<group>"; };
+		00DE5DEC136C4E5300915156 /* DomainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainListCell.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MercuryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercuryAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MercuryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercuryAppDelegate.m; sourceTree = "<group>"; };
@@ -220,6 +239,8 @@
 				68C5B0551323C27A005843C8 /* MercuryLoginViewController.m */,
 				68D0389C132CE650008B4BEE /* MercuryMainboardViewController.h */,
 				68E99D1C1346AE13009EDAF6 /* MercuryMainboardViewController.mm */,
+				005EDB98136A5CDC005ADE8E /* MercuryDomainListViewController.h */,
+				005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */,
 				006CB452133CF219003AA54C /* MercurySiteListViewController.h */,
 				68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */,
 				68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */,
@@ -228,6 +249,8 @@
 				00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */,
 				00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */,
 				00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */,
+				00A63B0C136EE338001BB97C /* MercuryHelpViewController.h */,
+				00A63B0D136EE339001BB97C /* MercuryHelpViewController.m */,
 				68C98A451346283800165DF6 /* test.cpp */,
 				68C98A461346283800165DF6 /* test.h */,
 				68DEE8F613527AE000A06BC3 /* MercuryNetIO.h */,
@@ -284,6 +307,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00D7FAD4137021B50052C14F /* arrowDown.PNG */,
+				00A63B0A136EB9F5001BB97C /* arrow.png */,
+				00A63B08136EA58E001BB97C /* domainCell.PNG */,
+				00A63B04136E8467001BB97C /* iconAlert.png */,
+				00A63B05136E8467001BB97C /* iconSafe.png */,
 				681FB11F135200D600D97C08 /* SiteList.plist */,
 				00CBC500134EDA2500A82178 /* theme_Blackhole.png */,
 				00CBC4FC134ED54000A82178 /* theme_NevelClassic.png */,
@@ -326,6 +354,8 @@
 				00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */,
 				68E556B2134478E600E2B6CA /* SiteListInfoCell.h */,
 				68E556B3134478E600E2B6CA /* SiteListInfoCell.m */,
+				00DE5DEB136C4E5300915156 /* DomainListCell.h */,
+				00DE5DEC136C4E5300915156 /* DomainListCell.m */,
 			);
 			name = UIHelper;
 			sourceTree = "<group>";
@@ -474,6 +504,11 @@
 				00CBC530134F282300A82178 /* unselected.PNG in Resources */,
 				681FB120135200D600D97C08 /* SiteList.plist in Resources */,
 				68F8EA6D1357CA5A00E9E40C /* temp.xib in Resources */,
+				00A63B06136E8467001BB97C /* iconAlert.png in Resources */,
+				00A63B07136E8467001BB97C /* iconSafe.png in Resources */,
+				00A63B09136EA58E001BB97C /* domainCell.PNG in Resources */,
+				00A63B0B136EB9F5001BB97C /* arrow.png in Resources */,
+				00D7FAD5137021B50052C14F /* arrowDown.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +552,9 @@
 				68DEE94A1352D4BA00A06BC3 /* XMLParser.m in Sources */,
 				68002E9113589CE5006C2FBA /* MercuryPlotDraw.m in Sources */,
 				003AB2F9135A09D100C6740E /* SFHFKeychainUtils.m in Sources */,
+				005EDB9A136A5CDC005ADE8E /* MercuryDomainListViewController.mm in Sources */,
+				00DE5DED136C4E5300915156 /* DomainListCell.m in Sources */,
+				00A63B0E136EE33A001BB97C /* MercuryHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

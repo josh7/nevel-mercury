@@ -25,6 +25,9 @@
     UIImageView *logoImageView;
    	UIControl *loginControlLayer;   // In order to make the background touchable.
 	UITableView *loginTableView;
+    UIToolbar *keyboardAccessoryView;  // To hold buttons of "previous/next/login/".
+    UIBarButtonItem *doneBarButtonItem;
+    UISegmentedControl *segmentBarButtonItem;
     
     // Flag for judging whether the user log out to this login view.
     BOOL didRelogIn;
@@ -40,12 +43,8 @@
     // Object for UI text.
     UIContent *loginUIContent;
     
-    // Objuct for user cnfigurations.
-    AppConfig *loginConfig;
-    int loginType;
-    
     XMLParser *xmlParser;
-    //
+    
     MercuryNetIO *mIO; // "miao~~~" :-)
     
     // Our dearest SFHFKeychainUtils object dealing with account name and password.
@@ -54,27 +53,33 @@
 
 @property (nonatomic, retain) UIImageView *bgImageView;
 @property (nonatomic, retain) UIImageView *logoImageView;
+@property (nonatomic, retain) UIToolbar *keyboardAccessoryView;
+@property (nonatomic, retain) UIBarButtonItem *doneBarButtonItem;
+@property (nonatomic, retain) UISegmentedControl *segmentBarButtonItem;
 @property (nonatomic, retain) UIControl *loginControlLayer;
 @property (nonatomic, retain) UITableView *loginTableView;
 @property (nonatomic, retain) NSMutableArray *userConfigKeys;
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) UIContent *loginUIContent;
-@property (nonatomic, retain) AppConfig *loginConfig;
 @property (nonatomic, retain) XMLParser *xmlParser;
-@property (nonatomic, retain) SFHFKeychainUtils *keyChainWrapper;
 @property BOOL didRelogIn;
 
-
+// Button pressed.
 - (void)loginPressed:(id)sender;
+
 - (void)showUsingBlocks:(id)sender;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (void)loadingTask;
-- (void)backgroundPressed:(id)sender;
-- (void)startLogin:(id)sender withType:(int)loginType;
+- (void)startLogin:(id)sender;
+
+// Textfield pressed.
 - (void)idTextFieldPressed:(UITextField *)sender;
 - (void)passwordTextFieldPressed:(UITextField *)sender;
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender;
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender;
+
+// Segmented control action.
+- (void)segmentedControlPressed:(id)sender;
 
 - (void)metaDataFetchComplete:(ASIHTTPRequest *)request;
 - (void)metaDataFetchFailed:(ASIHTTPRequest *)request;

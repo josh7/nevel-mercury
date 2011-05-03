@@ -13,10 +13,17 @@
 @synthesize down;
 
 
+- (void)dealloc
+{
+    [up release];
+    [down release];
+    [super dealloc];
+}
+
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
         // Initialization code
         CGRect rect = CGRectMake(0, 0, 320, 25);
         UIView *upTemp = [[UIView alloc] initWithFrame:rect];
@@ -42,9 +49,5 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 @end

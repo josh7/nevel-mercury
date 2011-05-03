@@ -22,10 +22,11 @@
 @synthesize hud;
 @synthesize loginUIContent;
 @synthesize userConfigKeys;
-@synthesize loginConfig;
 @synthesize didRelogIn;
 @synthesize xmlParser;
-@synthesize keyChainWrapper;
+@synthesize keyboardAccessoryView;
+@synthesize doneBarButtonItem;
+@synthesize segmentBarButtonItem;
 
 - (void)dealloc {
 	[bgImageView release];
@@ -34,10 +35,11 @@
 	[loginTableView release]; 
     [loginUIContent release];
     [userConfigKeys release];
-    [loginConfig release];
     [xmlParser release];
     [mIO release];
-    [keyChainWrapper release];
+    [keyboardAccessoryView release];
+    [doneBarButtonItem release];
+    [segmentBarButtonItem release];
     [super dealloc];
 }
 
@@ -87,9 +89,6 @@
 															 green:0.000 
 															  blue:0.000 
 															 alpha:0.000];
-    [self.loginControlLayer addTarget:self 
-                               action:@selector(backgroundPressed:) 
-                     forControlEvents:UIControlEventTouchDown];
 	[loginControlLayerTemp release];
     [self.view insertSubview:self.loginControlLayer atIndex:1];
  
@@ -118,10 +117,10 @@
 	[loginButton addTarget:self 
 					action:@selector(loginPressed:) 
 		  forControlEvents:UIControlEventTouchUpInside];
-	[self.loginControlLayer addSubview:loginButton];
+//	[self.loginControlLayer addSubview:loginButton];
     
     // Now we do not need a register button.
-#ifdef VERSION_2
+#ifdef VERSION_2_REGISTER
     // The register button.
 	UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	registerButton.frame = CGRectMake(10, 380, 105, 37);
@@ -143,12 +142,57 @@
 	[UIView animateWithDuration:1.0 animations:^{
 		self.loginTableView.alpha = 1.0;
 		loginButton.alpha = 1.0;
+        
 #ifdef VERSION_2
         registerButton.alpha = 1.0;
 #endif
         
 	}];
     /* +---------------------------- End of he input board ----------------------------+ */
+    
+    /* +---------------------- The keyboard input accessory view ----------------------+ */
+    /*
+     * +----------------------------------- UIToolbar -----------------------------------+
+     * + | UISegmentedControl |  UIBarButtonSystemItemFlexibleSpace  | UIBarButtonItem | +
+     * +---------------------------------------------------------------------------------+
+     */
+    // Our toolbar.
+    UIToolbar *tbTemp = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 100, 320, 44)];
+    tbTemp.barStyle = UIBarStyleBlackTranslucent;
+    self.keyboardAccessoryView = tbTemp;
+    [tbTemp release];
+    
+    // Our segmented conrol to hold "previous" and "Next".
+    NSArray *segmentItems = [NSArray arrayWithObjects:@"Previous", @"Next", nil];
+    UISegmentedControl *scTemp = [[UISegmentedControl alloc] initWithItems:segmentItems];
+    scTemp.frame = CGRectMake(6, 8, 128, 30);
+    scTemp.momentary = NO;
+    scTemp.segmentedControlStyle = UISegmentedControlStyleBar;
+    scTemp.tintColor = [UIColor blackColor];
+    self.segmentBarButtonItem = scTemp;
+    [scTemp release];
+    [self.segmentBarButtonItem addTarget:self 
+                                  action:@selector(segmentedControlPressed:) 
+                        forControlEvents:UIControlEventValueChanged];
+    
+    // The space between two toolbar items.
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    // Our Login button.
+    UIBarButtonItem *bbiTemp = [[UIBarButtonItem alloc] initWithTitle:@"Login" 
+                                                                style:UIBarButtonItemStyleDone 
+                                                               target:self 
+                                                               action:@selector(loginPressed:)];
+    bbiTemp.width = 90;
+    self.doneBarButtonItem = bbiTemp;
+    [bbiTemp release];
+        
+    NSArray *toolbarItems = [NSArray arrayWithObjects:flexItem, self.doneBarButtonItem, nil];
+    [self.keyboardAccessoryView setItems:toolbarItems animated:YES];
+    [self.keyboardAccessoryView addSubview:self.segmentBarButtonItem];
+    
+    /* +------------------- End of the keyboard input accessory view ------------------+ */
+    
 }
 
 /*
@@ -200,13 +244,16 @@
 		cell = [[[LoginTableCell alloc] initWithStyle:style 
 									  reuseIdentifier:CustomerLoginCellIdentifier] autorelease];
 		cell.loginLabel.text = [loginUIContent.uiLoginKeys objectAtIndex:row];
+        
+        // Add the inputAccessoryView to keyborard.
+        cell.loginTextField.inputAccessoryView = self.keyboardAccessoryView; 
 		
         // Specify the ID textfield.
         if (row == 0) {
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
+            cell.loginTextField.clearsOnBeginEditing = NO;
             cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
                                                objectAtIndex:LI_EN_ID_HODER];
-            cell.loginTextField.returnKeyType = UIReturnKeyNext;
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -217,10 +264,12 @@
             [cell.loginTextField addTarget:self
                                     action:@selector(idTextFieldPressedBeforeEditing:) 
                           forControlEvents:UIControlEventEditingDidBegin];
+            [cell.loginTextField becomeFirstResponder];
         }
         
 		// Specify the password textfield.
 		if (row == 1) {
+            cell.loginTextField.keyboardType = UIKeyboardTypeDefault;
 			[cell.loginTextField setSecureTextEntry:YES];
             cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
                                                objectAtIndex:LI_EN_PASSWORD_HODER];
@@ -279,34 +328,6 @@
 
 #pragma mark - Text field pressed methods
 
-- (void)backgroundPressed:(id)sender{
-    #ifdef DEBUG
-    NSLog(@"backgroundPressed");
-    #endif
-    
-    if (scrollup == 1) {
-        CGPoint newPosition = self.loginControlLayer.center;
-        newPosition.y += 215;
-        CGPoint newLogoPosition = self.logoImageView.center;
-        newLogoPosition.y += 215;
-        
-        [UIView animateWithDuration:0.3 animations:^ {
-            self.loginControlLayer.center = newPosition;
-            self.logoImageView.center = newLogoPosition;
-        }];
-        scrollup = 0;
-        
-        // Make the editing textfield resignFirstResponder.
-        LoginTableCell *cellTemp_1 = 
-        (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
-        [cellTemp_1.loginTextField resignFirstResponder];
-        LoginTableCell *cellTemp_2 = 
-        (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
-        [cellTemp_2.loginTextField resignFirstResponder];
-    }
-}
-
-
 - (void)idTextFieldPressed:(UITextField *)sender{
     NSString *idTemp = [[NSString alloc] initWithString:sender.text];
     [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
@@ -315,6 +336,7 @@
 
 
 - (void)passwordTextFieldPressed:(UITextField *)sender{
+    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
     NSString *passwordTemp = [[NSString alloc] initWithString:sender.text];
     [self.userConfigKeys replaceObjectAtIndex:1 withObject:passwordTemp];
     [passwordTemp release];
@@ -322,12 +344,39 @@
 
 
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender{
+    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:0];
+    [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:1];
     [self.userConfigKeys replaceObjectAtIndex:0 withObject:@"0"];
 }
 
 
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender{
+    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
+    [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:0];
     [self.userConfigKeys replaceObjectAtIndex:1 withObject:@"0"];
+}
+
+
+#pragma mark - Segmented control action
+- (void)segmentedControlPressed:(id)sender {
+    // When press the previous/next segment, we change the text field focus.
+    NSUInteger selectSegmentIndex = self.segmentBarButtonItem.selectedSegmentIndex;
+    
+    // We get the textfield object here.
+    LoginTableCell *cellTemp_1 = 
+    (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
+    LoginTableCell *cellTemp_2 = 
+    (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
+    if (selectSegmentIndex == 0) {
+        // We change the textfield focus here.
+        [cellTemp_2.loginTextField resignFirstResponder];
+        [cellTemp_1.loginTextField becomeFirstResponder];
+    }
+    else if (selectSegmentIndex == 1) {
+        // We change the textfield focus here.
+        [cellTemp_1.loginTextField resignFirstResponder];
+        [cellTemp_2.loginTextField becomeFirstResponder];
+    }
 }
 
 
@@ -339,10 +388,10 @@
     #endif
 
     // First, we check the information inputed by user.
-    // If the infromation were not complete, an alert will show.
+    // If the infromation was not complete, an alert will show.
     if ([self.userConfigKeys objectAtIndex:0] == @"0" || 
         [self.userConfigKeys objectAtIndex:1] == @"0") {
-        UIAlertView *alertForTest = [[UIAlertView alloc]
+        UIAlertView *alertForcIncomplete = [[UIAlertView alloc]
                                      initWithTitle:[loginUIContent.uiLoginKeys 
                                                     objectAtIndex:LI_EN_ALERT_TITLE]
                                      message:[loginUIContent.uiLoginKeys 
@@ -351,71 +400,87 @@
                                      cancelButtonTitle:[loginUIContent.uiLoginKeys 
                                                         objectAtIndex:LI_EN_ALERT_BUTTON]
                                      otherButtonTitles:nil];
-        [alertForTest show];
-        [alertForTest release];
-//        UIActionSheet *loginActionSheet = [[UIActionSheet alloc]
-//                                           initWithTitle:nil
-//                                                delegate:self
-//                                       cancelButtonTitle:[loginUIContent.uiLoginKeys 
-//                                                          objectAtIndex:LI_EN_JUST_LOGIN]
-//                                  destructiveButtonTitle:[loginUIContent.uiLoginKeys 
-//                                                          objectAtIndex:LI_EN_AUTO_LOGIN]
-//                                       otherButtonTitles:[loginUIContent.uiLoginKeys 
-//                                                          objectAtIndex:LI_EN_SAVE_PASSWORD], nil];
-////        [loginActionSheet showInView:self.view];
-//        [loginActionSheet release];
+        [alertForcIncomplete show];
+        [alertForcIncomplete release];
     }
     
     else {
-        // I am so sorry that the headache and nausea almost killing me...
-        // I will finish the following tomorrow morning.
-        // Here just put some a temporary code the make Mercury work.
-        [self startLogin:self withType:nil];
+    // Second, we wrap the account name and password with keychain and store them.
+        NSString *accountName = [self.userConfigKeys objectAtIndex:0];
+        NSString *password = [self.userConfigKeys objectAtIndex:1];
+        NSString *serviceName = @"Mercury";
         
-        // Second, we wrap the account name and password with keychain.
-//        NSString *accountName = [self.userConfigKeys objectAtIndex:0];
-//        NSString *password = [self.userConfigKeys objectAtIndex:1];
-//        
-//        SFHFKeychainUtils *kcTemp = [SFHFKeychainUtils alloc];
-//        self.keyChainWrapper = kcTemp;
-//        [kcTemp release];
+        BOOL passwordDidStore = [SFHFKeychainUtils storeUsername:accountName
+                                                         andPassword:password
+                                                      forServiceName:serviceName
+                                                      updateExisting:YES
+                                                               error:nil];
+        // If stored successfully, we sand the ID & password to sever.
+        if (passwordDidStore == YES) {
+            NSLog(@"passwordDidStore == YES");
+            // TODO: send to server.
+        }
+        // If failed to store, we make a record. I guess this will never happens.
+        else {
+#ifdef DEBUG
+            NSLog(@"The ID and Password were failed to store into keychain.");
+#endif
+        }
         
+        // If the sever returns matching.
+        // JUST A TEST HERE.
+        if (!nil) {
+            // We begin to login.
+            [self startLogin:self];
+        }
+        // If the sever returns not matching. we delete the correponding ID & password , 
+        // and display an alert to inform user to try again.
+        else {
+            // First, we delete the correponding ID & password in the keychain.
+            BOOL passwordDidDelete = [SFHFKeychainUtils deleteItemForUsername:accountName
+                                                               andServiceName:serviceName
+                                                                        error:nil];
+                // If deleted successfully, we go back to login view to try again.
+            if (passwordDidDelete != YES) {
+                // Show an alert to inform user that relogin needed.
+                UIAlertView *relogin = [[UIAlertView alloc] initWithTitle:
+                                        @"Oops, we can not find this ID or password."
+                                                                        message:nil
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"Try again" 
+                                                              otherButtonTitles:nil];
+                [relogin show];
+                [relogin release];
+                
+                // Sigh, relogin here.
+                // TODO: the cell come in from right, and do not clear any thing.
+            }
+                // Or if failed to delete, we make a record. I guess this will never happens.
+            else {
+#ifdef DEBUG
+                NSLog(@"The ID and Password were failed to delete from keychain.");
+#endif
+            }
+        }
     }
 }
 
 
+#ifdef VERSION_2_REGISTER
 - (void)registerPressed:(id)sender{
     #ifdef DEBUG
     NSLog(@"register pressed");
     #endif
     
-    // In the future, add the registration here.
+    // In the future, we add the registration here.
 }
+#endif
 
 
 #pragma mark - UIActionSheet delegate
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    // Choose "Just login" button.
-    if (buttonIndex == [actionSheet cancelButtonIndex]) {
-        loginType = JUST_LOGIN;
-        [self startLogin:self withType:loginType];
-    }
-    // Choose "Aoto login" button.
-    else if(buttonIndex == [actionSheet destructiveButtonIndex]) {
-        loginType = AUTO;
-        [self startLogin:self withType:loginType];
-    }
-    // Choose "Remember password" button.
-    else {
-        loginType = REMEMBER_ACCOUNT;
-        [self startLogin:self withType:loginType];
-    }
-}
-
-
-// Start to login when press related button.
-- (void)startLogin:(id)sender withType:(int)loginTypeInt{
+// Start to login when press login button.
+- (void)startLogin:(id)sender {
 #ifdef DEBUG
     NSLog(@"startLogin");
 #endif
@@ -432,13 +497,6 @@
 						 [self.loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
-    
-    // Write user's login configuration into app configuration dictionary.
-    AppConfig *appConfigTemp = [[AppConfig alloc] init];
-    self.loginConfig = appConfigTemp;
-    [appConfigTemp release];
-    [self.loginConfig initWithAppConfig];
-    [self.loginConfig setLoginType:loginTypeInt];
 }
 
 
@@ -497,6 +555,7 @@
 -(void)loadingTask {
 	// Do the background loading here.
 	// Just for demo now...
+    // TODO: Load the domain list here.
 	sleep(1);
 
     mIO = [[MercuryNetIO alloc] init];

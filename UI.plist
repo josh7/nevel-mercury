@@ -4,7 +4,7 @@
 <dict>
 	<key>Account List</key>
 	<array>
-		<string>Account List</string>
+		<string>Account</string>
 		<string>Are you sure to change account?</string>
 		<string>Cancel</string>
 		<string>Sure</string>
@@ -19,13 +19,8 @@
 			<string>Free</string>
 		</array>
 		<array>
-			<string>Remember Account</string>
-			<string>Auto Login</string>
-		</array>
-		<array>
 			<string>Account Name</string>
 			<string>Account Type</string>
-			<string>Login Type</string>
 		</array>
 		<string>Log Out</string>
 		<string>Advanced</string>
@@ -40,8 +35,8 @@
 		<string>Just login this time</string>
 		<string>Auto login next time</string>
 		<string>Save password</string>
-		<string>Tab to edit your ID</string>
-		<string>Tab to edit the password</string>
+		<string>Enter your ID here</string>
+		<string>Enter the password</string>
 		<string>Whoops!</string>
 		<string>Fill it out okay ~~</string>
 		<string>Fine</string>
@@ -50,8 +45,10 @@
 	</array>
 	<key>Mainboard</key>
 	<array>
-		<string>Sites List</string>
+		<string>Domain List</string>
+		<string>Account</string>
 		<string>Settings</string>
+		<string>Help</string>
 	</array>
 	<key>Settings</key>
 	<array>
@@ -64,9 +61,6 @@
 			<string>Sound Alert</string>
 			<string>Vibrator Alert</string>
 			<string>Theme</string>
-		</array>
-		<array>
-			<string>Current Account</string>
 		</array>
 		<array>
 			<string>Version</string>

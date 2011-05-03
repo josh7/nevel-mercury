@@ -30,19 +30,24 @@ Revised files:
   - Changed the appearance of each navigation bar.
 
 - MercurySettingsViewController.h /.m
-  - Removed account settings and relative subviews. 
+  - Removed account settings and relative subviews.
+  - Replaced the accessory view with a blue down arrow.
 
 - XMLParser.m
   - Slightly adjusted the formatting.
-
-- UIContent.h /.m
-  - Added the new UI contents of domain list view.
 
 - LoginTableCell.h /.m
   - Optimized the layout. 
 
 - SiteListPlotCell.m
   - Added release methods to 2 properties: up & down.
+
+- UIContent.h /.m
+  - Added the new UI contents of domain list view.
+  - Organized our app UI data, such as texts/images.
+
+- Common.h
+  - Organized our app common used values which have nothing to do with UI. 
 
 - SiteList.plist
   - Added a new URL for the domain list content.
@@ -66,6 +71,7 @@ Added files:
 
 + New images:
   - arrow.png		: the accessory view of domain list view
+  - arrowDown.PNG	: the accessory view of settings view
   - domainCell.PNG	: the background image of domain cell
   - iconAlert.png	: the icon in the front of domain cell indicated something requires attention
   - iconSafe.png	: the icon in the front of domain cell indicated everything is OK
