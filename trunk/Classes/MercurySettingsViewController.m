@@ -10,7 +10,6 @@
 #import "MercuryAppDelegate.h"
 #import "UIContent.h"
 #import "MercuryAccountTableViewController.h"
-#define themeNevelClassic @"theme_NevelClassic.png"
 
 @implementation MercurySettingsViewController
 @synthesize settingsTable;
@@ -63,8 +62,7 @@
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.settingsUIContent = appDelegate.uiContent;
     textOfCrashReportDetailTextLabel = [[self.settingsUIContent.uiSettingsKeys 
-                                         objectAtIndex:SECTION_REPORT] 
-                                        objectAtIndex:ST_EN_ALWAYS];
+                                         objectAtIndex:SECTION_REPORT] objectAtIndex:ST_EN_ALWAYS];
     
     // Set the app configuration object.
     AppConfig *appConfigTemp = [[AppConfig alloc] init];
@@ -73,7 +71,7 @@
     [self.settingsConfig initWithAppConfig];
     
     // Add the navigation title.
-    self.title = [settingsUIContent.uiMainboardKeys objectAtIndex:MB_EN_SETTING];
+    self.title = [settingsUIContent.uiMainboardKeys objectAtIndex:MB_EN_SETTINGS];
     
     // Add background image.
     
@@ -150,7 +148,7 @@
 #pragma mark - Table view datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 
@@ -164,7 +162,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // We do NOT use reuseIdentifier here in order to avoid disordering table.
-    // May be we can find a way to use reuseIdentifier.
+    // May be we can find a way to use reuseIdentifier, so we keep this for a while.
 //    static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
 //							 SectionsTableIdentifier];
@@ -265,20 +263,14 @@
                     break;
             }
         }
-        
-        // The account section.
-        else if (sectionIndex == SECTION_ACCOUNT) {
-            cell = [self setAccessoryStyleForCell:cell 
-                              withDetailLableText:@"admin"];
-        }
-        
+                
         // The about section.
         else if (sectionIndex == SECTION_ABOUT) {
             NSArray *about = [self.settingsUIContent.uiSettingsKeys 
                               objectAtIndex:SECTION_COPYRIGHT];
             cell = [self setAccessoryStyleForCell:cell 
                               withDetailLableText:[about objectAtIndex:ST_EN_VERSION_NO]];
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryView = nil;
             cell.selectionStyle = UITableViewCellEditingStyleNone;
         }
         /* +------------------------- End of initialize each cell ------------------------+ */
@@ -329,8 +321,11 @@
              reuseIdentifier:SectionsTableIdentifier] autorelease];
     accessoryCell.detailTextLabel.text = detailText;
     accessoryCell.detailTextLabel.backgroundColor = [UIColor clearColor];
-    accessoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     accessoryCell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    UIImageView *blueDownAccessoryView = [[UIImageView alloc] 
+                                      initWithImage:[UIImage imageNamed:arrowDown]];
+    accessoryCell.accessoryView = blueDownAccessoryView;
+    [blueDownAccessoryView release];
     return accessoryCell;
 }
 
@@ -430,25 +425,17 @@
             if (rowIndex == (ST_EN_THEME+1)) {
                 [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
                     [themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC];
-                [self.settingsConfig setTheme:NEVEL_CLASSIC];
+                [self.settingsConfig setTheme:ST_EN_NEVEL_CLASSIC];
             }
             
             else if (rowIndex == (ST_EN_THEME+2)) {
                 [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
                     [themeUIArray objectAtIndex:ST_EN_BLACKHOLE];
-                [self.settingsConfig setTheme:BLACKHOLE];
+                [self.settingsConfig setTheme:ST_EN_BLACKHOLE];
             }
         }
     }
     /* +------------------------- End of onfigure theme type -------------------------+ */
-    
-    /* +-------------------------------- The account ---------------------------------+ */
-    else if (sectionIndex == SECTION_ACCOUNT && rowIndex == ST_EN_CURRENT_ACCOUNT) {
-        MercuryAccountTableViewController *accountTableVC = 
-            [[[MercuryAccountTableViewController alloc] init] autorelease];
-        [[self navigationController] pushViewController:accountTableVC animated:YES];
-    }
-    /* +---------------------------- End of the account ------------------------------+ */
 }
 
 
@@ -493,7 +480,7 @@
 }
 
 
-- (void)sountAlertDidSwitch:(id)sender{
+- (void)sountAlertDidSwitch:(id)sender {
     self.soundAlertSwitch.on == NO ? [self.settingsConfig setSoundAlertType:NO]:
                                      [self.settingsConfig setNotificationType:YES];
 }

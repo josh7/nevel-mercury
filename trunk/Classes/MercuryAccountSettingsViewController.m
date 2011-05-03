@@ -9,12 +9,6 @@
 #import "MercuryAccountSettingsViewController.h"
 #import "MercuryAppDelegate.h"
 #import "UIContent.h"
-#define fontSize 14.0f
-#define cellContentWidth 300.0f
-#define controllersInCell 196, 8, 94, 27
-#define headerFontSize 12.0f
-#define headerHeight 25.0f
-
 
 @implementation MercuryAccountSettingsViewController
 @synthesize currentAccountNameString;
@@ -25,8 +19,6 @@
 @synthesize sectionHeader;
 @synthesize MercuryLoginViewController;
 @synthesize MercuryMainboardViewController;
-@synthesize rememberAccountSwitch;
-@synthesize autoLoginSwitch;
 
 - (void)dealloc
 {
@@ -38,8 +30,6 @@
     [sectionHeader release];
     [MercuryLoginViewController release];
     [MercuryMainboardViewController release];
-    [rememberAccountSwitch release];
-    [autoLoginSwitch release];
     [super dealloc];
 }
 
@@ -99,7 +89,7 @@
 #pragma mark - Table view datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView 
@@ -140,31 +130,7 @@
         else if (sectionIndex == SECTION_ACCOUNT_TYPE && rowIndex == AS_EN_ACCOUNT_TYPE) {
             // TODO: Judge the account type, if advanced, do not show footer.
         }
-        
-        // The login type section.
-        else if (sectionIndex == SECTION_LOGIN_TYPE && rowIndex == AS_EN_REMEMBER_NAME) {
-            UISwitch *spTemp = [[UISwitch alloc] initWithFrame:CGRectMake(controllersInCell)];
-            self.rememberAccountSwitch = spTemp;
-            [spTemp release];
-            // TODO: Config the switch from user's account configurations.
-            self.rememberAccountSwitch.on = YES;
-            [cell.contentView addSubview:self.rememberAccountSwitch];
-            [self.rememberAccountSwitch addTarget:self 
-                                        action:@selector(rememberAccountDidSwitch:) 
-                              forControlEvents:UIControlEventValueChanged];
-        }
-        else if (sectionIndex == SECTION_LOGIN_TYPE && rowIndex == AS_EN_AUTO_LOGIN) {
-            UISwitch *alTemp = [[UISwitch alloc] initWithFrame:CGRectMake(controllersInCell)];
-            self.autoLoginSwitch = alTemp;
-            [alTemp release];
-            self.autoLoginSwitch.on = YES;
-            [cell.contentView addSubview:self.autoLoginSwitch];
-            [self.autoLoginSwitch addTarget:self 
-                                        action:@selector(autoLoginDidSwitch:) 
-                              forControlEvents:UIControlEventValueChanged];
-        }
     }
-    
     return cell;
 }
 
@@ -204,6 +170,12 @@
     return headerHeight;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == SECTION_ACCOUNT_NAME) {
+        return 60;
+    }
+    else return 44;
+}
 
 #pragma mark - Log Out button action
              
@@ -232,36 +204,6 @@
     animation.subtype = kCATransitionFromTop;
     [self.MercuryLoginViewController.view.layer addAnimation:animation forKey:@"animation"];
 }
-     
 
-#pragma mark - Switch action
-
-- (void)rememberAccountDidSwitch:(id)sender {
-    // Clear: If autologin switch is ON, then save password switch should be ON.
-    if (self.rememberAccountSwitch.on == NO) {
-        if (self.autoLoginSwitch.on == YES) {
-            [self.rememberAccountSwitch setOn:YES animated:YES];
-        }
-        else {
-            [self.accountSettingsConfig setLoginType:JUST_LOGIN];
-        }
-    }
-    else if (self.rememberAccountSwitch.on == YES && self.autoLoginSwitch == NO) {
-        [self.accountSettingsConfig setLoginType:REMEMBER_ACCOUNT];
-    }
-}
-
-
-- (void)autoLoginDidSwitch:(id)sender {
-    // Clear: If autologin switch is ON, then save password switch should be ON.
-    if (self.autoLoginSwitch.on == YES) {
-        [self.rememberAccountSwitch setOn:YES animated:YES];
-        [self.accountSettingsConfig setLoginType:AUTO];
-    }
-    else if (self.rememberAccountSwitch.on == YES && self.autoLoginSwitch == NO) {
-        [self.accountSettingsConfig setLoginType:REMEMBER_ACCOUNT];
-    }
-}
-             
 
 @end

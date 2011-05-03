@@ -241,7 +241,8 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 		*error = nil;
 	}
     
-	// Set up a query dictionary with the base query attributes: item type (generic), username, and service
+	// Set up a query dictionary with the base query attributes: 
+//                                                  item type (generic), username, and service
 	
 	NSArray *keys = [[[NSArray alloc] initWithObjects: (NSString *)kSecClass, 
                       kSecAttrAccount, 

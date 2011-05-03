@@ -25,9 +25,6 @@
     MercuryLoginViewController *MercuryLoginViewController;
     MercuryMainboardViewController *MercuryMainboardViewController;
     
-    UISwitch *rememberAccountSwitch;
-    UISwitch *autoLoginSwitch;
-    
     // Object for UI text.
     NSString *currentAccountNameString;
     NSArray *accountSettingsUIContent;
@@ -36,8 +33,6 @@
     AppConfig *accountSettingsConfig;
 }
 
-@property (nonatomic, retain) UISwitch *rememberAccountSwitch;
-@property (nonatomic, retain) UISwitch *autoLoginSwitch;
 @property (nonatomic, retain) UIView *footerView;
 @property (nonatomic, retain) UIView *sectionHeaderView;
 @property (nonatomic, retain) UILabel *sectionHeader;
@@ -49,9 +44,5 @@
 
 // Log out button action.
 - (void)logOutButtonPressed:(id)sender;
-
-// App configuration action.
-- (void)rememberAccountDidSwitch:(id)sender;
-- (void)autoLoginDidSwitch:(id)sender;
 
 @end

@@ -11,7 +11,7 @@
 #define kTextFieldTag 1
 
 @interface LoginTableCell : UITableViewCell {
-    // The UI Controls.
+    // The UI Controllers.
 	UILabel *loginLabel;
 	UITextField *loginTextField;
 }

@@ -41,17 +41,7 @@
 										  &kCFTypeDictionaryValueCallBacks);
     
     /* +----------------- Put various items into the dictionary --------------------+ */
-    
-    /* +------- The main action sheet settings collection -------+ */
-	// The login type.
-	int loginSelectionDefault = 0;
-	CFNumberRef loginSelection = CFNumberCreate(kCFAllocatorDefault, 
-												kCFNumberIntType, 
-												&loginSelectionDefault);
-	CFDictionarySetValue(configDic, CFSTR("loginMethod"), loginSelection);
-	CFRelease(loginSelection);
-    /* +---- End of the main action sheet settings collection ---+ */
-    
+        
 	/* +---------- The main switch settings collection ----------+ */
     // Notification on/off.
     CFBooleanRef notificationDefault = kCFBooleanTrue;
@@ -140,15 +130,6 @@
 
 #pragma mark - User's config methods
 /* +------------- Setting the configurations with user's choices ---------------+ */
-// The login type.
-- (void) setLoginType:(int)iloginType {
-    CFNumberRef cfConfigTemp = CFNumberCreate(kCFAllocatorDefault, 
-                                              kCFNumberIntType, 
-                                              &iloginType);
-	CFDictionaryReplaceValue(configDic, CFSTR("loginMethod"), cfConfigTemp);
-	CFRelease(cfConfigTemp);
-}
-
 
 // Notification on/off.
 - (void) setNotificationType:(BOOL)bNotification {

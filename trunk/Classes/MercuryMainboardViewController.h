@@ -10,22 +10,24 @@
 #import "UIContent.h"
 
 @interface MercuryMainboardViewController : UIViewController <UITabBarControllerDelegate>{
-    // The root view controller of the mainboard (two tabs: site list & settings).
+    // The root view controller of the mainboard.
     UITabBarController *mainboardTabBarController;
     
-    // The sites list tab view controller of the mainboard.
-    UINavigationController *sitesListNavigationController;
-    
-    // The settings tab view controller of the mainboard.
+    // The tab view controllers of the mainboard.
+    UINavigationController *domainListNavigationController;
+    UINavigationController *accountNavigationController;
     UINavigationController *settingsNavigationController;
+    UINavigationController *helpNavigationController;
     
     // Object for UI text.
     UIContent *mainboardUIContent;
 }
-@property (nonatomic, retain) UITabBarController *mainboardTabBarController;
-@property (nonatomic, retain) UINavigationController *sitesListNavigationController;
-@property (nonatomic, retain) UINavigationController *settingsNavigationController;
-@property (nonatomic, retain) UIContent *mainboardUIContent;
 
+@property (nonatomic, retain) UITabBarController *mainboardTabBarController;
+@property (nonatomic, retain) UINavigationController *domainListNavigationController;
+@property (nonatomic, retain) UINavigationController *accountNavigationController;
+@property (nonatomic, retain) UINavigationController *settingsNavigationController;
+@property (nonatomic, retain) UINavigationController *helpNavigationController;
+@property (nonatomic, retain) UIContent *mainboardUIContent;
 
 @end

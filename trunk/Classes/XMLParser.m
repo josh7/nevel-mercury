@@ -34,8 +34,11 @@
     self.siteNames = ddArray1;
 }
 
+
 - (void)parseMonitoring:(NSString *)siteName {
     NSError *err = nil;
     NSArray *ddArray = [xmlDocument nodesForXPath:@"xml/site" error:&err];
 }
+
+
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+/* +------------------------------ Our UI.plist content --------------------------+ */
 // The Login section Englishi version text.
 #define LI_EN_ID                0
 #define LI_EN_PASSWORD          1
@@ -25,8 +26,10 @@
 #define LI_EN_UPDATING_MESSAGE  13
 
 // The Mainboard section English version text.
-#define MB_EN_SITESLIST         0
-#define MB_EN_SETTING           1
+#define MB_EN_DOMAIN_LIST       0
+#define MB_EN_ACCOUNT           1
+#define MB_EN_SETTINGS          2
+#define MB_EN_HELP              3
 
 // The Settings section English version text.
 #define SECTION_NETWORKS      0
@@ -39,22 +42,19 @@
 #define ST_EN_VIBRATOR_ALERT    1
 #define ST_EN_THEME             2
 
-#define SECTION_ACCOUNT       2
-#define ST_EN_CURRENT_ACCOUNT   0
-
-#define SECTION_ABOUT           3
+#define SECTION_ABOUT         2
 #define ST_EN_VERSION           0
 
-#define SECTION_REPORT        4
+#define SECTION_REPORT        3
 #define ST_EN_ALWAYS            0
 #define ST_EN_ASK               1
 #define ST_EN_NEVER             2
 
-#define SECTION_THEME         5
+#define SECTION_THEME         4
 #define ST_EN_NEVEL_CLASSIC     0
 #define ST_EN_BLACKHOLE         1
 
-#define SECTION_COPYRIGHT     6
+#define SECTION_COPYRIGHT     5
 #define ST_EN_VERSION_NO        0
 #define ST_EN_COPYRIGHT         1
 #define ST_EN_FOR_FUN           2
@@ -71,17 +71,40 @@
 #define AS_EN_ACCOUNT_NAME      0
 #define SECTION_ACCOUNT_TYPE  1
 #define AS_EN_ACCOUNT_TYPE      0
-#define SECTION_LOGIN_TYPE    2
-#define AS_EN_REMEMBER_NAME     0
-#define AS_EN_AUTO_LOGIN        1
-#define SECTION_HEADE         3
+#define SECTION_HEADE         2
 #define AS_EN_HEADER_NAME       0
 #define AS_EN_HEADER_FREE_TYPE  1
-#define AS_EN_HEADER_LOGIN_TYPE 2
-#define AS_EN_LOG_OUT         4
-#define AS_EN_ADVANCED        5
-#define AS_EN_FOOTER_ADVANCED 6
+#define AS_EN_LOG_OUT         3
+#define AS_EN_ADVANCED        4
+#define AS_EN_FOOTER_ADVANCED 5
+/* +------------------------- End of the domain list subview ---------------------+ */
 
+/* +------------------------------- The images we needs --------------------------+ */
+#define arrowDown @"arrowDown.PNG"
+#define iconAlert @"iconAlert.png"
+#define iconSafe @"iconSafe.png"
+#define cellBackground @"domainCell.PNG"
+#define blueAccessory @"arrow.png"
+#define MainboardTabbarView @"nevel_icon.png"
+#define themeNevelClassic @"theme_NevelClassic.png"
+#define unselectImage @"unselected.PNG"
+#define selectImage @"selected.PNG"
+/* +------------------------- End of the domain list subview ---------------------+ */
+
+/* +------------------------------ The font size we used -------------------------+ */
+#define normalFontSize 17
+#define smallFontSize 14
+#define largeFontSize 24
+#define headerFontSize 12.0f
+#define headerHeight 25.0f
+/* +-------------------------- End of the font size we used ----------------------+ */
+
+/* +--------------------------------- About cell size ----------------------------+ */
+/* +----------------------------- End of about cell size -------------------------+ */
+#define largeCellHeight 100
+#define cellContentWidth 300
+#define controllersInCell 196, 8, 94, 27
+/* +----------------------------- End of about cell size -------------------------+ */
 
 @interface UIContent : NSObject {
     // For UI Text (we use a plist here for International purpose).

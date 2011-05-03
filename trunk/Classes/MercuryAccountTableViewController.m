@@ -10,8 +10,7 @@
 #import "MercuryAppDelegate.h"
 #import "UIContent.h"
 #import "MercuryAccountSettingsViewController.h"
-#define unselectImage @"unselected.PNG"
-#define selectImage @"selected.PNG"
+
 #define displayCharactersNumBefordAt 10
 #define charactersMaxNum 22
 

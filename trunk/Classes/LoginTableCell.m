@@ -23,15 +23,10 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	self.selectionStyle = UITableViewCellSelectionStyleNone;
-/*    
- Why use if() here? 
- answer: 括号里self是super initWithStyle返回结果，此方法是一个delegate，在需要绘制表格时由iOS调用。
- 那么，当需要重新显示一个已经绘制过的cell的时候，super initWithStyle，就会返回那个曾经已经绘制出来的cell，
- 因此，此时的self就不等于nil了.
-*/
+
     if (self) { 
 		// Create & add the left text in the cell.
-		UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 78, 20)];
+		UILabel *labelTemp = [[UILabel alloc] initWithFrame:CGRectMake(8, 11, 80, 21)];
 		self.loginLabel = labelTemp;
 		[labelTemp release];
 		self.loginLabel.textAlignment = UITextAlignmentRight;
@@ -42,12 +37,15 @@
 
 		// Create & add the right text field control.
 		UITextField *textFieldTemp = 
-			[[UITextField alloc] initWithFrame:CGRectMake(97, 7, 217, 31)];
+			[[UITextField alloc] initWithFrame:CGRectMake(96, 9, 202, 31)];
 		self.loginTextField = textFieldTemp;
 		[textFieldTemp release];
-		self.loginTextField.clearsOnBeginEditing = YES;  
+		self.loginTextField.clearsOnBeginEditing = YES; 
 		self.loginTextField.returnKeyType = UIReturnKeyDone;
-        self.loginTextField.autocapitalizationType = NO;
+        self.loginTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.loginTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.loginTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.loginTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
 		[self.contentView addSubview:self.loginTextField];
     }
     return self;

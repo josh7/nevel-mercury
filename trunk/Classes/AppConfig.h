@@ -8,19 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreFoundation/CoreFoundation.h>
+#import "Common.h"
 
-#define kConfigFileName @"UserConfig.plist"
-// Login type values.
-#define AUTO                0
-#define REMEMBER_ACCOUNT    1
-#define JUST_LOGIN          2
-// Crash report sending type values.
-#define ASK                 0
-#define ALWAYS              1
-#define NEVER               2
-// Theme type values.
-#define NEVEL_CLASSIC       0
-#define BLACKHOLE           1
 
 /* XML sample of mercury configuration file.
  *	<plist version="1.0">
@@ -63,7 +52,6 @@
 - (void)initWithAppConfig;
 
 // Getting app configurations ethods.
-- (void) setLoginType:(int)iloginType;
 - (void) setNotificationType:(BOOL)bNotification;
 - (void) setWifiOnlyType:(BOOL)bWifiOnly;
 - (void) setSoundAlertType:(BOOL)bSoundAlert;

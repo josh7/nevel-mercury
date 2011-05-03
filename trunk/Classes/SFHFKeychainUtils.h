@@ -34,11 +34,11 @@
     
 }
 
-// Get password.
+// Get password. (from a keychain)
 + (NSString *) getPasswordForUsername:(NSString *)username 
                        andServiceName:(NSString *)serviceName 
                                 error:(NSError **)error;
-// Store password.
+// Store password. Also delete the old one & add a new one
 + (BOOL) storeUsername:(NSString *)username 
            andPassword:(NSString *)password 
         forServiceName:(NSString *)serviceName 
