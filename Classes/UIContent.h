@@ -14,11 +14,11 @@
 #define LI_EN_PASSWORD          1
 #define LI_EN_REGISTER          2
 #define LI_EN_LOGIN             3
-#define LI_EN_JUST_LOGIN        4
-#define LI_EN_AUTO_LOGIN        5
-#define LI_EN_SAVE_PASSWORD     6
-#define LI_EN_ID_HODER          7
-#define LI_EN_PASSWORD_HODER    8
+#define LI_EN_PREVIOUS          4
+#define LI_EN_NEXT              5
+#define LI_EN_SERVICE_NAME      6
+#define LI_EN_ID_HOLDER         7
+#define LI_EN_PASSWORD_HOLDER   8
 #define LI_EN_ALERT_TITLE       9
 #define LI_EN_ALERT_CONTENT     10
 #define LI_EN_ALERT_BUTTON      11
@@ -89,6 +89,8 @@
 #define themeNevelClassic @"theme_NevelClassic.png"
 #define unselectImage @"unselected.PNG"
 #define selectImage @"selected.PNG"
+#define loginBg @"Default.png"
+#define loginLogo @"nevelLogoWhite.png"
 /* +------------------------- End of the domain list subview ---------------------+ */
 
 /* +------------------------------ The font size we used -------------------------+ */

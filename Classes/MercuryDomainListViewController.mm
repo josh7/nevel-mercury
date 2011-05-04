@@ -120,9 +120,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Create and push site list view controller.
-    MercurySiteListViewController *siteListVC = [[MercurySiteListViewController alloc] init];
-    [[self navigationController] pushViewController:siteListVC animated:YES];
-    [siteListVC release];
+    MercurySiteListViewController *siteListVC = [[[MercurySiteListViewController alloc] init] autorelease];
+//    [[self navigationController] pushViewController:siteListVC animated:YES];
+    [self.navigationController pushViewController:siteListVC animated:YES];
+//    [siteListVC release];
 }
 
 

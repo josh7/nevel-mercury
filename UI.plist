@@ -32,9 +32,9 @@
 		<string>Password:</string>
 		<string>Register</string>
 		<string>Login</string>
-		<string>Just login this time</string>
-		<string>Auto login next time</string>
-		<string>Save password</string>
+		<string>Previous</string>
+		<string>Next</string>
+		<string>Mercury</string>
 		<string>Enter your ID here</string>
 		<string>Enter the password</string>
 		<string>Whoops!</string>
