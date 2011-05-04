@@ -54,7 +54,7 @@
     
 	scrollup = 0;
     self.didRelogIn = NO;
-    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", nil];
+    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"", @"", nil];
     self.userConfigKeys = arrayTmpt;
     [arrayTmpt release];
 	
@@ -66,14 +66,14 @@
 	
     /* +------------------------- The background images group -------------------------+ */
     // The background at the bottom.
-	UIImage *imageTemp = [UIImage imageNamed:@"Default.png"];
+	UIImage *imageTemp = [UIImage imageNamed:loginBg];
 	UIImageView *ivTemp = [[UIImageView alloc] initWithImage:imageTemp];
 	self.bgImageView = ivTemp;
 	[ivTemp release];
 	[self.view insertSubview:self.bgImageView atIndex:0];
     
     // The logo on the background.
-    UIImage *logoImageTemp = [UIImage imageNamed:@"nevelLogoWhite.png"];
+    UIImage *logoImageTemp = [UIImage imageNamed:loginLogo];
     UIImageView *logoViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(85, 150, 150, 59)];
     self.logoImageView = logoViewTemp;
     [logoViewTemp release];
@@ -103,22 +103,6 @@
 	self.loginTableView.alpha = 0;
 	[self.loginControlLayer addSubview:self.loginTableView];
     
-	// The login button.
-	UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	loginButton.frame = CGRectMake(10, 380, 300, 37);
-	loginButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-	loginButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-	[loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-	[loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [loginButton setTitle:[loginUIContent.uiLoginKeys objectAtIndex:LI_EN_LOGIN] 
-                 forState:UIControlStateNormal];
-	loginButton.titleLabel.font	= [UIFont boldSystemFontOfSize:16.0f];
-	loginButton.alpha = 0;
-	[loginButton addTarget:self 
-					action:@selector(loginPressed:) 
-		  forControlEvents:UIControlEventTouchUpInside];
-//	[self.loginControlLayer addSubview:loginButton];
-    
     // Now we do not need a register button.
 #ifdef VERSION_2_REGISTER
     // The register button.
@@ -141,7 +125,7 @@
     // The emergence animation.
 	[UIView animateWithDuration:1.0 animations:^{
 		self.loginTableView.alpha = 1.0;
-		loginButton.alpha = 1.0;
+//		loginButton.alpha = 1.0;
         
 #ifdef VERSION_2
         registerButton.alpha = 1.0;
@@ -163,7 +147,9 @@
     [tbTemp release];
     
     // Our segmented conrol to hold "previous" and "Next".
-    NSArray *segmentItems = [NSArray arrayWithObjects:@"Previous", @"Next", nil];
+    NSArray *segmentItems = [NSArray arrayWithObjects:
+                             [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_PREVIOUS],
+                             [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_NEXT], nil];
     UISegmentedControl *scTemp = [[UISegmentedControl alloc] initWithItems:segmentItems];
     scTemp.frame = CGRectMake(6, 8, 128, 30);
     scTemp.momentary = NO;
@@ -176,10 +162,14 @@
                         forControlEvents:UIControlEventValueChanged];
     
     // The space between two toolbar items.
-    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] 
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                 target:self 
+                                 action:nil];
     
     // Our Login button.
-    UIBarButtonItem *bbiTemp = [[UIBarButtonItem alloc] initWithTitle:@"Login" 
+    UIBarButtonItem *bbiTemp = [[UIBarButtonItem alloc] initWithTitle:
+                                [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_LOGIN]
                                                                 style:UIBarButtonItemStyleDone 
                                                                target:self 
                                                                action:@selector(loginPressed:)];
@@ -253,7 +243,7 @@
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
             cell.loginTextField.clearsOnBeginEditing = NO;
             cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
-                                               objectAtIndex:LI_EN_ID_HODER];
+                                               objectAtIndex:LI_EN_ID_HOLDER];
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -272,7 +262,7 @@
             cell.loginTextField.keyboardType = UIKeyboardTypeDefault;
 			[cell.loginTextField setSecureTextEntry:YES];
             cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
-                                               objectAtIndex:LI_EN_PASSWORD_HODER];
+                                               objectAtIndex:LI_EN_PASSWORD_HOLDER];
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -346,14 +336,16 @@
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender{
     [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:0];
     [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:1];
-    [self.userConfigKeys replaceObjectAtIndex:0 withObject:@"0"];
+    NSString *idTemp = [[NSString alloc] initWithString:sender.text];
+    [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
+    [idTemp release];
 }
 
 
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender{
     [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
     [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:0];
-    [self.userConfigKeys replaceObjectAtIndex:1 withObject:@"0"];
+    [self.userConfigKeys replaceObjectAtIndex:1 withObject:@""];
 }
 
 
@@ -389,8 +381,8 @@
 
     // First, we check the information inputed by user.
     // If the infromation was not complete, an alert will show.
-    if ([self.userConfigKeys objectAtIndex:0] == @"0" || 
-        [self.userConfigKeys objectAtIndex:1] == @"0") {
+    if ([[self.userConfigKeys objectAtIndex:0] length] == 0 || 
+        [[self.userConfigKeys objectAtIndex:1] length] == 0 ) {
         UIAlertView *alertForcIncomplete = [[UIAlertView alloc]
                                      initWithTitle:[loginUIContent.uiLoginKeys 
                                                     objectAtIndex:LI_EN_ALERT_TITLE]
@@ -408,7 +400,7 @@
     // Second, we wrap the account name and password with keychain and store them.
         NSString *accountName = [self.userConfigKeys objectAtIndex:0];
         NSString *password = [self.userConfigKeys objectAtIndex:1];
-        NSString *serviceName = @"Mercury";
+        NSString *serviceName = [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_SERVICE_NAME];
         
         BOOL passwordDidStore = [SFHFKeychainUtils storeUsername:accountName
                                                          andPassword:password
@@ -417,7 +409,9 @@
                                                                error:nil];
         // If stored successfully, we sand the ID & password to sever.
         if (passwordDidStore == YES) {
+#ifdef DEBUG
             NSLog(@"passwordDidStore == YES");
+#endif
             // TODO: send to server.
         }
         // If failed to store, we make a record. I guess this will never happens.
@@ -585,11 +579,15 @@
 
 #pragma mark - ASIHTTPRequest delegate
 - (void)metaDataFetchComplete:(ASIHTTPRequest *)request {
+#ifdef DEBUG
     NSLog(@"Download successful.");
+#endif
 }
 
 - (void)metaDataFetchFailed:(ASIHTTPRequest *)request {
+#ifdef DEBUG
      NSLog(@"Download failed.");
+#endif
 }
 
 

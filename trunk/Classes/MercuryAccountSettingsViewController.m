@@ -69,7 +69,7 @@
     [viewTemp release];
     UIButton *logOutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     logOutButton.frame = CGRectMake(10, 10, 300, 44);
-    [logOutButton setTitle:[self.accountSettingsUIContent objectAtIndex:4] 
+    [logOutButton setTitle:[self.accountSettingsUIContent objectAtIndex:AS_EN_LOG_OUT] 
                   forState:UIControlStateNormal];
     [logOutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [logOutButton addTarget:self 
