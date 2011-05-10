@@ -101,5 +101,5 @@ For those separately compiled libraries, add them into XCode manually:
 
 == Try it ==
 
-Click [here] to download a simple boost asio demo project to test whether boost can work well with your environment. Good luck 
+Click [http://www.kerneldiy.com/files/asio.zip here] to download a simple boost asio demo project to test whether boost can work well with your environment. Good luck 
 :-)
