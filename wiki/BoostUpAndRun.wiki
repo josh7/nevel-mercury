@@ -13,7 +13,7 @@ Boost library includes two separate parts: Header only and separately-compiled. 
 
 == About version ==
 
-The lastest version of boost is 1.46.1, this tutorial is based on boost 1.44 and XCode 4 or higher. You can get all releases of boost library from [[http://www.boost.org/users/history/ here].
+The lastest version of boost is 1.46.1, this tutorial is based on boost 1.44 and XCode 4 or higher. You can get all releases of boost library from [http://www.boost.org/users/history/ here].
 
 Note:
 
@@ -41,6 +41,7 @@ Bjam will build libraries for both iphone simulator and device.
 
 == Build boost libraries ==
 Then, follow these steps to install:
+
 {{{
 tar xvzf boost_1_44_0.tar.gz
 cd boost_1_44_0
@@ -98,3 +99,7 @@ For those separately compiled libraries, add them into XCode manually:
 
 [http://www.kerneldiy.com/images/boost_complied_lib.png]
 
+== Try it ==
+
+Click [here] to download a simple boost asio demo project to test whether boost can work well with your environment. Good luck 
+:-)
