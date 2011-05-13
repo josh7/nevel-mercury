@@ -41,7 +41,7 @@
 	MBProgressHUD *hud;
     
     // Object for UI text.
-    UIContent *loginUIContent;
+    NSArray *loginUIContent;
     
     XMLParser *xmlParser;
     
@@ -51,16 +51,6 @@
     SFHFKeychainUtils *keyChainWrapper;
 }
 
-@property (nonatomic, retain) UIImageView *bgImageView;
-@property (nonatomic, retain) UIImageView *logoImageView;
-@property (nonatomic, retain) UIToolbar *keyboardAccessoryView;
-@property (nonatomic, retain) UIBarButtonItem *doneBarButtonItem;
-@property (nonatomic, retain) UISegmentedControl *segmentBarButtonItem;
-@property (nonatomic, retain) UIControl *loginControlLayer;
-@property (nonatomic, retain) UITableView *loginTableView;
-@property (nonatomic, retain) NSMutableArray *userConfigKeys;
-@property (nonatomic, retain) MBProgressHUD *hud;
-@property (nonatomic, retain) UIContent *loginUIContent;
 @property (nonatomic, retain) XMLParser *xmlParser;
 @property BOOL didRelogIn;
 

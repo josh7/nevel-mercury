@@ -15,12 +15,6 @@
 
 
 @implementation MercuryMainboardViewController
-@synthesize mainboardTabBarController;
-@synthesize domainListNavigationController;
-@synthesize accountNavigationController;
-@synthesize settingsNavigationController;
-@synthesize helpNavigationController;
-@synthesize mainboardUIContent;
 
 - (void)dealloc {
     [mainboardTabBarController release];
@@ -43,118 +37,109 @@
 
 #pragma mark - View lifecycle
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
     [super loadView];
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.mainboardUIContent = appDelegate.uiContent;
+    mainboardUIContent = appDelegate.uiContent.uiMainboardKeys;
 
     /* +----------------------------- The domain list subview ------------------------+ */
     MercuryDomainListViewController *dlTemp = [[MercuryDomainListViewController alloc] init];
-    dlTemp.title = [self.mainboardUIContent.uiMainboardKeys objectAtIndex:MB_EN_DOMAIN_LIST];
-    UINavigationController *domainListVCTemp = [[UINavigationController alloc] 
-                                                initWithRootViewController:dlTemp];
+    dlTemp.title = [mainboardUIContent objectAtIndex:MB_EN_DOMAIN_LIST];
+    domainListNavigationController = [[UINavigationController alloc] 
+                                           initWithRootViewController:dlTemp];
     [dlTemp release];
-    domainListVCTemp.navigationBar.barStyle = UIBarStyleBlack;
+    domainListNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     // TODO: use a translucent bar here, and fix the site list view.
 //    domainListVCTemp.navigationBar.translucent = YES;
-    self.domainListNavigationController = domainListVCTemp;
-    [domainListVCTemp release];
     
     // TODO: Chage a new tab image here.
     // Set sites list tab bar item of sites list view controller.
     UIImage *domainListTabBarItemImage = [UIImage imageNamed:MainboardTabbarView];
     NSString *domainListTabBarItemTitle = 
-    [self.mainboardUIContent.uiMainboardKeys objectAtIndex:MB_EN_DOMAIN_LIST];
+    [mainboardUIContent objectAtIndex:MB_EN_DOMAIN_LIST];
     UITabBarItem *domainListTabBar = [[UITabBarItem alloc] initWithTitle:domainListTabBarItemTitle
-                                                                  image:domainListTabBarItemImage 
-                                                                    tag:0];
-    self.domainListNavigationController.tabBarItem = domainListTabBar;
+                                                                   image:domainListTabBarItemImage 
+                                                                     tag:0];
+    domainListNavigationController.tabBarItem = domainListTabBar;
     [domainListTabBar release];
     /* +-------------------------- End of domain list subview ------------------------+ */
     
     /* +----------------------------- The account subview ----------------------------+ */
     MercuryAccountTableViewController *atTemp = [[MercuryAccountTableViewController alloc] init];
-    UINavigationController *accountVCTemp = [[UINavigationController alloc]
-                                             initWithRootViewController:atTemp];
+    accountNavigationController = [[UINavigationController alloc]
+                                        initWithRootViewController:atTemp];
+    atTemp.title = [mainboardUIContent objectAtIndex:MB_EN_ACCOUNT];
     [atTemp release];
-    accountVCTemp.navigationBar.barStyle = UIBarStyleBlack;
-    self.accountNavigationController = accountVCTemp;
-    [accountVCTemp release];
+    accountNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // TODO: Chage a new tab image here.
     // Set settings tab bar item of settings view controller.
     UIImage *accountTabBarItemImage = [UIImage imageNamed:MainboardTabbarView];
     NSString *accountTabBarItemTitle = 
-    [self.mainboardUIContent.uiMainboardKeys objectAtIndex:MB_EN_ACCOUNT];
+    [mainboardUIContent objectAtIndex:MB_EN_ACCOUNT];
     UITabBarItem *accountTabBar = [[UITabBarItem alloc] initWithTitle:accountTabBarItemTitle
                                                                  image:accountTabBarItemImage 
                                                                    tag:1];
-    self.accountNavigationController.tabBarItem = accountTabBar;
+    accountNavigationController.tabBarItem = accountTabBar;
     [accountTabBar release];
     /* +-------------------------- End of account subview ----------------------------+ */
 
     /* +----------------------------- The settings subview ---------------------------+ */
     MercurySettingsViewController *sTemp = [[MercurySettingsViewController alloc] init];
-    UINavigationController *settingsVCTemp = [[UINavigationController alloc] 
-                                              initWithRootViewController:sTemp];
+    settingsNavigationController = [[UINavigationController alloc] 
+                                    initWithRootViewController:sTemp];
+    sTemp.title = [mainboardUIContent objectAtIndex:MB_EN_SETTINGS];
     [sTemp release];
-    settingsVCTemp.navigationBar.barStyle = UIBarStyleBlack;
-    self.settingsNavigationController = settingsVCTemp;
-    [settingsVCTemp release];
+    settingsNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // TODO: Chage a new tab image here.
     // Set settings tab bar item of settings view controller.
     UIImage *settingsTabBarItemImage = [UIImage imageNamed:MainboardTabbarView];
-    NSString *settingsTabBarItemTitle = 
-        [self.mainboardUIContent.uiMainboardKeys objectAtIndex:MB_EN_SETTINGS];
+    NSString *settingsTabBarItemTitle = [mainboardUIContent objectAtIndex:MB_EN_SETTINGS];
     UITabBarItem *settingsTabBar = [[UITabBarItem alloc] initWithTitle:settingsTabBarItemTitle
                                                                  image:settingsTabBarItemImage 
                                                                    tag:2];
-    self.settingsNavigationController.tabBarItem = settingsTabBar;
+    settingsNavigationController.tabBarItem = settingsTabBar;
     [settingsTabBar release];
     /* +-------------------------- End of settings subview ---------------------------+ */
     
     /* +------------------------------- The help subview -----------------------------+ */
     MercuryHelpViewController *hTemp = [[MercuryHelpViewController alloc] init];
-    UINavigationController *helpVCTemp = [[UINavigationController alloc] 
-                                          initWithRootViewController:hTemp];
+    helpNavigationController = [[UINavigationController alloc] 
+                                     initWithRootViewController:hTemp];
+    hTemp.title = [mainboardUIContent objectAtIndex:MB_EN_HELP];
     [hTemp release];
-    helpVCTemp.navigationBar.barStyle = UIBarStyleBlack;
-    self.helpNavigationController = helpVCTemp;
-    [helpVCTemp release];
+    helpNavigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // TODO: Chage a new tab image here.
     // Set settings tab bar item of settings view controller.
     UIImage *helpTabBarItemImage = [UIImage imageNamed:MainboardTabbarView];
     NSString *helpTabBarItemTitle = 
-    [self.mainboardUIContent.uiMainboardKeys objectAtIndex:MB_EN_HELP];
+    [mainboardUIContent objectAtIndex:MB_EN_HELP];
     UITabBarItem *helpTabBar = [[UITabBarItem alloc] initWithTitle:helpTabBarItemTitle
                                                                  image:helpTabBarItemImage 
                                                                    tag:3];
-    self.helpNavigationController.tabBarItem = helpTabBar;
+    helpNavigationController.tabBarItem = helpTabBar;
     [helpTabBar release];
     /* +---------------------------- End of help subview -----------------------------+ */
     
     /* +----------------------------- The root tab bar view --------------------------+ */
-    UITabBarController *tabBarTemp = [[UITabBarController alloc] init];
-    self.mainboardTabBarController = tabBarTemp;
-    [tabBarTemp release];
+    mainboardTabBarController = [[UITabBarController alloc] init];
     
-    self.mainboardTabBarController.delegate = self;
+    mainboardTabBarController.delegate = self;
     
     // Add the Navigation Controllers to Tab Bar Controller
     NSArray *controllersArray = [[NSArray alloc] initWithObjects:
-                                 self.domainListNavigationController,
-                                 self.accountNavigationController,
-                                 self.settingsNavigationController,
-                                 self.helpNavigationController, nil];
-    self.mainboardTabBarController.viewControllers = controllersArray;
+                                                                domainListNavigationController,
+                                                                accountNavigationController,
+                                                                settingsNavigationController,
+                                                                helpNavigationController, nil];
+    mainboardTabBarController.viewControllers = controllersArray;
     [controllersArray release];
-
-    [self.view addSubview:self.mainboardTabBarController.view];
+    
+    [self.view addSubview:mainboardTabBarController.view];
     /* +------------------------ End of root tab bar view ---------------------------+ */
 }
 

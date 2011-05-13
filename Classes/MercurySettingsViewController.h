@@ -16,8 +16,8 @@
  * Customize settings root view controller here.
  * Push new view by appDelegate.mercuryMainboardViewcontroller.settingsNavigationController.view.
  */
-@interface MercurySettingsViewController : UIViewController <
-UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
+@interface MercurySettingsViewController : UIViewController 
+<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
     // The UI controls.
     UIImageView *bgImageView;
     UITableView *settingsTable;
@@ -30,7 +30,7 @@ UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
     UISegmentedControl *sendCrashReportSegmentedControl;
     
     // Object for UI text.
-    UIContent *settingsUIContent;
+    NSArray *settingsUIContent;
     NSString *textOfCrashReportDetailTextLabel;
     
     // Objuct for user cnfigurations.
@@ -43,20 +43,6 @@ UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>{
     BOOL themeCellCanBeSelected;
     BOOL sendCrashReportCellCanBeSelected;
 }
-
-// TODO: Clean thses propertise.
-@property (nonatomic, retain) UIImageView *bgImageView;
-@property (nonatomic, retain) UITableView *settingsTable;
-@property (nonatomic, retain) UIView *footerView;
-@property (nonatomic, retain) UISwitch *notificationSwitch;
-@property (nonatomic, retain) UISwitch *wifiOnlySwitch;
-@property (nonatomic, retain) UISwitch *soundAlertSwitch;
-@property (nonatomic, retain) UISwitch *vibtatorAlertSwitch;
-@property (nonatomic, retain) UILabel *copyright;
-@property (nonatomic, retain) UILabel *nevel;
-@property (nonatomic, retain) UISegmentedControl *sendCrashReportSegmentedControl;
-@property (nonatomic, retain) UIContent *settingsUIContent;
-@property (nonatomic, retain) AppConfig *settingsConfig;
 
 // Set two kinds cell uniformly.
 - (id)setSwitchStyleForCell:(UITableViewCell *)switchCell;

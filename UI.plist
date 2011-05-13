@@ -26,6 +26,12 @@
 		<string>Advanced</string>
 		<string>Want an advanced account? All you want are in Nevel website.</string>
 	</array>
+	<key>Domain List</key>
+	<array>
+		<string>Nevel Powered</string>
+		<string>Security Logs</string>
+		<string>Alerts</string>
+	</array>
 	<key>Login</key>
 	<array>
 		<string>Nevel ID:</string>
@@ -79,6 +85,32 @@
 			<string>Nevel All Rights Reserved.</string>
 			<string>Nevel, Never leave you. (For fun~)</string>
 		</array>
+	</array>
+	<key>Site</key>
+	<array>
+		<string>Settings</string>
+	</array>
+	<key>Site List</key>
+	<array/>
+	<key>Site Settings</key>
+	<array>
+		<array>
+			<string>Enable Nevel</string>
+			<string>High Security Level</string>
+			<string>Cache Dynamic Content</string>
+			<string>WAF Security</string>
+			<string>Email Obfuscation</string>
+			<string>Always Online</string>
+			<string>Hotlink Prevension</string>
+			<string>Purge Cache</string>
+		</array>
+		<string>Delete This Site.</string>
+		<string>Alert</string>
+		<string>Are you sure to disable Nevel that may lead to some bad influence?</string>
+		<string>Are you sure to purge cache?</string>
+		<string>Are you sure to delete this site?</string>
+		<string>YES</string>
+		<string>NO</string>
 	</array>
 </dict>
 </plist>

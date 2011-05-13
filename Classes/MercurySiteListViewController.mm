@@ -32,6 +32,7 @@
     [plotHolders release];
     [paraTitle release];
     [plotColor release];
+    [siteViewController release];
     [super dealloc];
 }
 
@@ -298,6 +299,8 @@
         scrollView.scrollEnabled = YES;
     }
 }
+
+
 #pragma mark - UITableView Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #ifdef DEBUG
@@ -307,10 +310,10 @@
     return NSITES;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView 
-  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
+//- (NSIndexPath *)tableView:(UITableView *)tableView 
+//  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return nil;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -363,6 +366,14 @@
         } // End of if (cell == nil)
         return cell;
     } // End of if (tableView == generalInfoTable)
+}
+
+
+#pragma mark - UITableView Delegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    siteViewController = [[MercurySiteViewController alloc] init];
+    siteViewController.hidesBottomBarWhenPushed = YES;
+    [[self navigationController] pushViewController:siteViewController animated:YES];
 }
 
 #pragma mark - private members

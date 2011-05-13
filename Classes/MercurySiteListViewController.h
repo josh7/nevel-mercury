@@ -13,6 +13,7 @@
 #import "MercuryLoginViewController.h"
 #import "MercuryAppDelegate.h"
 #import "MercuryPlotDraw.h"
+#import "MercurySiteViewController.h"
 
 /* 
  * Customize site list root view controller here.
@@ -63,6 +64,9 @@ UIViewController<UITableViewDelegate,
     
     // Just for data comminication
     MercuryLoginViewController *mercuryLoginViewController;
+                     
+    // The details of each site.
+    MercurySiteViewController *siteViewController;
     
 @private
     /* 

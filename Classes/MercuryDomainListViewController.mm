@@ -8,7 +8,6 @@
 
 #import "MercuryDomainListViewController.h"
 #import "DomainListCell.h"
-#import "MercurySiteListViewController.h"
 #import "UIContent.h"
 
 #define noticeValueOfPowered @"OFF"
@@ -16,9 +15,12 @@
 #define noticeValueOfAlerts @"0"
 
 @implementation MercuryDomainListViewController
+//@synthesize domainName;
 
 
 - (void)dealloc {
+//    [domainName release];
+    [siteListViewController release];
     [super dealloc];
 }
 
@@ -32,10 +34,6 @@
     
     // TODO: load the xml data to these array.
     // We pretent to loading info from a xml, and we put them in arrays.
-    domainName = [NSArray arrayWithObjects:@"nevel.com", @"kerneldiy.com", @"btpao.com", nil];
-    nevelPowered = [NSArray arrayWithObjects:@"ON", @"OFF", @"ON", nil];
-    securityLogs = [NSArray arrayWithObjects:@"0", @"5", @"20", nil];
-    alerts = [NSArray arrayWithObjects:@"8", @"20", @"0", nil];
     
     return self;
 }
@@ -59,7 +57,7 @@
 
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // TODO: count the sections from xml.
+    // TODO: count the sections from xml, here is just for test.
     return 3;
 }
 
@@ -71,6 +69,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger sectionIndex = indexPath.section;
+    
+    // TODO: load the xml data to these array.
+    // We pretent to loading info from a xml, and we put them in arrays.
+    NSArray *domainName = [NSArray arrayWithObjects:
+                           @"nevel.com", 
+                           @"kerneldiy.com", 
+                           @"btpao.com", 
+                           nil];
+    NSArray *nevelPowered = [NSArray arrayWithObjects:@"ON", @"OFF", @"ON", nil];
+    NSArray *securityLogs = [NSArray arrayWithObjects:@"0", @"5", @"20", nil];
+    NSArray *alerts = [NSArray arrayWithObjects:@"8", @"20", @"0", nil];
     
     static NSString *customerDomainCellIdentifier = @"CustomerDomainCellIdentifier";
     
@@ -120,10 +129,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Create and push site list view controller.
-    MercurySiteListViewController *siteListVC = [[[MercurySiteListViewController alloc] init] autorelease];
-//    [[self navigationController] pushViewController:siteListVC animated:YES];
-    [self.navigationController pushViewController:siteListVC animated:YES];
-//    [siteListVC release];
+    siteListViewController = [[MercurySiteListViewController alloc] init];
+    [[self navigationController] pushViewController:siteListViewController animated:YES];
 }
 
 

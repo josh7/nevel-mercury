@@ -11,6 +11,8 @@
 		003AB2F9135A09D100C6740E /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AB2F8135A09D100C6740E /* SFHFKeychainUtils.m */; };
 		005EDB9A136A5CDC005ADE8E /* MercuryDomainListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */; };
 		006568F5135A98EF00DE9189 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006568F4135A98EF00DE9189 /* Security.framework */; };
+		0073C71B137BFA2300B7FCE9 /* MercurySiteSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0073C71A137BFA2200B7FCE9 /* MercurySiteSettingsViewController.m */; };
+		0073C71E137C14AA00B7FCE9 /* MercurySiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0073C71D137C14A900B7FCE9 /* MercurySiteViewController.m */; };
 		0080F866133C1CFF00A7325B /* UIContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0080F865133C1CFF00A7325B /* UIContent.m */; };
 		00A00CD3133CDDFD00504CCD /* AccountData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A00CD2133CDDFD00504CCD /* AccountData.plist */; };
 		00A00CDC133CEB4C00504CCD /* SiteListPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */; };
@@ -98,6 +100,10 @@
 		005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MercuryDomainListViewController.mm; sourceTree = "<group>"; };
 		006568F4135A98EF00DE9189 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		006CB452133CF219003AA54C /* MercurySiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteListViewController.h; sourceTree = "<group>"; };
+		0073C719137BFA2200B7FCE9 /* MercurySiteSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteSettingsViewController.h; sourceTree = "<group>"; };
+		0073C71A137BFA2200B7FCE9 /* MercurySiteSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySiteSettingsViewController.m; sourceTree = "<group>"; };
+		0073C71C137C14A900B7FCE9 /* MercurySiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercurySiteViewController.h; sourceTree = "<group>"; };
+		0073C71D137C14A900B7FCE9 /* MercurySiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercurySiteViewController.m; sourceTree = "<group>"; };
 		0080F864133C1CFF00A7325B /* UIContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIContent.h; sourceTree = "<group>"; };
 		0080F865133C1CFF00A7325B /* UIContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIContent.m; sourceTree = "<group>"; };
 		00A00CD2133CDDFD00504CCD /* AccountData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountData.plist; sourceTree = "<group>"; };
@@ -243,12 +249,16 @@
 				005EDB99136A5CDC005ADE8E /* MercuryDomainListViewController.mm */,
 				006CB452133CF219003AA54C /* MercurySiteListViewController.h */,
 				68C98A4113461E0000165DF6 /* MercurySiteListViewController.mm */,
-				68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */,
-				68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */,
+				0073C71C137C14A900B7FCE9 /* MercurySiteViewController.h */,
+				0073C71D137C14A900B7FCE9 /* MercurySiteViewController.m */,
+				0073C719137BFA2200B7FCE9 /* MercurySiteSettingsViewController.h */,
+				0073C71A137BFA2200B7FCE9 /* MercurySiteSettingsViewController.m */,
 				00CBC52A134F045F00A82178 /* MercuryAccountTableViewController.h */,
 				00CBC52B134F045F00A82178 /* MercuryAccountTableViewController.m */,
 				00CBC537134F42BA00A82178 /* MercuryAccountSettingsViewController.h */,
 				00CBC538134F42BA00A82178 /* MercuryAccountSettingsViewController.m */,
+				68DBFAF6133F6E3F00C8356A /* MercurySettingsViewController.h */,
+				68DBFAF7133F6E3F00C8356A /* MercurySettingsViewController.m */,
 				00A63B0C136EE338001BB97C /* MercuryHelpViewController.h */,
 				00A63B0D136EE339001BB97C /* MercuryHelpViewController.m */,
 				68C98A451346283800165DF6 /* test.cpp */,
@@ -555,6 +565,8 @@
 				005EDB9A136A5CDC005ADE8E /* MercuryDomainListViewController.mm in Sources */,
 				00DE5DED136C4E5300915156 /* DomainListCell.m in Sources */,
 				00A63B0E136EE33A001BB97C /* MercuryHelpViewController.m in Sources */,
+				0073C71B137BFA2300B7FCE9 /* MercurySiteSettingsViewController.m in Sources */,
+				0073C71E137C14AA00B7FCE9 /* MercurySiteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

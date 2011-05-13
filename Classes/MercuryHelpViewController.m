@@ -28,8 +28,7 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-    // Add the navigation title.
-    self.title = @"Help";
+    
 }
 
 

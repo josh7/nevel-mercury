@@ -128,7 +128,7 @@
 }
 
 
-#pragma mark - User's config methods
+#pragma mark - app config methods
 /* +------------- Setting the configurations with user's choices ---------------+ */
 
 // Notification on/off.
