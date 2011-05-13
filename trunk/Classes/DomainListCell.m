@@ -7,7 +7,7 @@
 //
 
 #import "DomainListCell.h"
-#import "UIContent.h"
+#import "MercuryAppDelegate.h"
 
 // The frame of each view and lable in cell.
 #define frameOfCell           0,   0, 300, 100
@@ -22,6 +22,7 @@
 
 
 @implementation DomainListCell
+
 @synthesize stateIconView;
 @synthesize domainNameLabel;
 @synthesize nevelPoweredValue;
@@ -37,11 +38,9 @@
     [alertsValue release];
     
     [cellView release];
-    [cellBackgroundView release];
     [nevelPoweredLabel release];
     [securityLogsLabel release];
     [alertsLabel release];
-    [blueAccessoryView release];
     
     [super dealloc];
 }
@@ -61,13 +60,18 @@
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    // Load the global UI helper object.
+    MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    domainListUIContent = appDelegate.uiContent.uiDomainListKeys;
+    
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
         
     if (self) {
         // Customize our accessory view.
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
-        blueAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:blueAccessory]];
+        UIImageView *blueAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:blueAccessory]];
         self.accessoryView = blueAccessoryView;
+        [blueAccessoryView release];
 
         // Set the rect of cell.
         cellView = [[UIView alloc] initWithFrame:CGRectMake(frameOfCell)];
@@ -80,16 +84,18 @@
         [cellView addSubview:self.stateIconView];
         
         // Add domain name label to the cell.
-        domainNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(frameOfDomainName)];
-        domainNameLabel.textAlignment = UITextAlignmentLeft;
-        domainNameLabel.textColor = [UIColor whiteColor];
-        domainNameLabel.backgroundColor = [UIColor clearColor];
-        domainNameLabel.font = [UIFont boldSystemFontOfSize:normalFontSize];
-        [cellView addSubview:domainNameLabel];
+        UILabel *dnTemp = [[UILabel alloc] initWithFrame:CGRectMake(frameOfDomainName)];
+        self.domainNameLabel = dnTemp;
+        [dnTemp release];
+        self.domainNameLabel.textAlignment = UITextAlignmentLeft;
+        self.domainNameLabel.textColor = [UIColor whiteColor];
+        self.domainNameLabel.backgroundColor = [UIColor clearColor];
+        self.domainNameLabel.font = [UIFont boldSystemFontOfSize:normalFontSize];
+        [cellView addSubview:self.domainNameLabel];
         
         // Add the static label: nevel powered / security logs / alerts in the cell.
         nevelPoweredLabel = [[UILabel alloc] initWithFrame:CGRectMake(frameOfNevelPowered)];
-        nevelPoweredLabel.text = @"Nevel Powered";
+        nevelPoweredLabel.text = [domainListUIContent objectAtIndex:DL_EN_NEVEL_POWERED];
         nevelPoweredLabel.textAlignment = UITextAlignmentLeft;
         nevelPoweredLabel.textColor = [UIColor lightGrayColor];
         nevelPoweredLabel.backgroundColor = [UIColor clearColor];
@@ -97,7 +103,7 @@
         [cellView addSubview:nevelPoweredLabel];
         
         securityLogsLabel = [[UILabel alloc] initWithFrame:CGRectMake(frameOfSecurityLogs)];
-        securityLogsLabel.text = @"Security Logs";
+        securityLogsLabel.text = [domainListUIContent objectAtIndex:DL_EN_SECURITY_LOGS];
         securityLogsLabel.textAlignment = UITextAlignmentLeft;
         securityLogsLabel.textColor = [UIColor lightGrayColor];
         securityLogsLabel.backgroundColor = [UIColor clearColor];
@@ -105,7 +111,7 @@
         [cellView addSubview:securityLogsLabel];
         
         alertsLabel = [[UILabel alloc] initWithFrame:CGRectMake(frameOFAlerts)];
-        alertsLabel.text = @"Alerts";
+        alertsLabel.text = [domainListUIContent objectAtIndex:DL_EN_ALERTS];;
         alertsLabel.textAlignment = UITextAlignmentLeft;
         alertsLabel.textColor = [UIColor lightGrayColor];
         alertsLabel.backgroundColor = [UIColor clearColor];
@@ -113,33 +119,41 @@
         [cellView addSubview:alertsLabel];
         
         // Add the variable label: nevel powered ON/OFF / logs num. / alerts num. in the cell.
-        nevelPoweredValue = [[UILabel alloc] initWithFrame:CGRectMake(frameOFPoweredValue)];
-        nevelPoweredValue.textAlignment = UITextAlignmentLeft;
-        nevelPoweredValue.textColor = [UIColor greenColor];
-        nevelPoweredValue.backgroundColor = [UIColor clearColor];
-        nevelPoweredValue.font = [UIFont boldSystemFontOfSize:smallFontSize];
-        [cellView addSubview:nevelPoweredValue];
+        UILabel *npvTemp = [[UILabel alloc] initWithFrame:CGRectMake(frameOFPoweredValue)];
+        self.nevelPoweredValue = npvTemp;
+        [npvTemp release];
+        self.nevelPoweredValue.textAlignment = UITextAlignmentLeft;
+        self.nevelPoweredValue.textColor = [UIColor greenColor];
+        self.nevelPoweredValue.backgroundColor = [UIColor clearColor];
+        self.nevelPoweredValue.font = [UIFont boldSystemFontOfSize:smallFontSize];
+        [cellView addSubview:self.nevelPoweredValue];
 
-        securityLogsValue = [[UILabel alloc] initWithFrame:CGRectMake(frameOfLogsValue)];
-        securityLogsValue.textAlignment = UITextAlignmentLeft;
-        securityLogsValue.textColor = [UIColor greenColor];
-        securityLogsValue.backgroundColor = [UIColor clearColor];
-        securityLogsValue.font = [UIFont boldSystemFontOfSize:smallFontSize];
-        [cellView addSubview:securityLogsValue];
+        UILabel *slvTemp = [[UILabel alloc] initWithFrame:CGRectMake(frameOfLogsValue)];
+        self.securityLogsValue = slvTemp;
+        [slvTemp release];
+        self.securityLogsValue.textAlignment = UITextAlignmentLeft;
+        self.securityLogsValue.textColor = [UIColor greenColor];
+        self.securityLogsValue.backgroundColor = [UIColor clearColor];
+        self.securityLogsValue.font = [UIFont boldSystemFontOfSize:smallFontSize];
+        [cellView addSubview:self.securityLogsValue];
 
-        alertsValue = [[UILabel alloc] initWithFrame:CGRectMake(frameOfAlertsValue)];
-        alertsValue.textAlignment = UITextAlignmentLeft;
-        alertsValue.textColor = [UIColor orangeColor];
-        alertsValue.backgroundColor = [UIColor clearColor];
-        alertsValue.font = [UIFont boldSystemFontOfSize:largeFontSize];
-        [cellView addSubview:alertsValue];
+        UILabel *avTemp = [[UILabel alloc] initWithFrame:CGRectMake(frameOfAlertsValue)];
+        self.alertsValue = avTemp;
+        [avTemp release];
+        self.alertsValue.textAlignment = UITextAlignmentLeft;
+        self.alertsValue.textColor = [UIColor orangeColor];
+        self.alertsValue.backgroundColor = [UIColor clearColor];
+        self.alertsValue.font = [UIFont boldSystemFontOfSize:largeFontSize];
+        [cellView addSubview:self.alertsValue];
         
         // Add our customized view to the cell content view and add our super background view.
         [self.contentView addSubview:cellView];
         
-        cellBackgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(frameOfCell)];
+        UIImageView *cellBackgroundView = [[UIImageView alloc] 
+                                           initWithFrame:CGRectMake(frameOfCell)];
         cellBackgroundView.image = [UIImage imageNamed:cellBackground];
         self.backgroundView = cellBackgroundView;
+        [cellBackgroundView release];
     }
     return self;
 }

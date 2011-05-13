@@ -8,22 +8,13 @@
 
 #import "MercurySettingsViewController.h"
 #import "MercuryAppDelegate.h"
-#import "UIContent.h"
-#import "MercuryAccountTableViewController.h"
+#define frameOfFooterView         0,   0, 320, 68
+#define frameOfNevel              0,  10, 320, 24
+#define frameOfCopyright          0,  44, 320, 24
+#define frameOfSegmentedControl   0, -10, 300, 54
+#define frameOfUISwitch         196,   8,  94, 27
 
 @implementation MercurySettingsViewController
-@synthesize settingsTable;
-@synthesize settingsUIContent;
-@synthesize footerView;
-@synthesize bgImageView;
-@synthesize notificationSwitch;
-@synthesize wifiOnlySwitch;
-@synthesize soundAlertSwitch;
-@synthesize vibtatorAlertSwitch;
-@synthesize copyright;
-@synthesize nevel;
-@synthesize sendCrashReportSegmentedControl;
-@synthesize settingsConfig;
 
 
 - (void)dealloc {
@@ -60,18 +51,13 @@
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.settingsUIContent = appDelegate.uiContent;
-    textOfCrashReportDetailTextLabel = [[self.settingsUIContent.uiSettingsKeys 
-                                         objectAtIndex:SECTION_REPORT] objectAtIndex:ST_EN_ALWAYS];
+    settingsUIContent = appDelegate.uiContent.uiSettingsKeys;
     
     // Set the app configuration object.
-    AppConfig *appConfigTemp = [[AppConfig alloc] init];
-    self.settingsConfig = appConfigTemp;
-    [appConfigTemp release];
-    [self.settingsConfig initWithAppConfig];
+    settingsConfig = [[AppConfig alloc] init];
+    [settingsConfig initWithAppConfig];
     
     // Add the navigation title.
-    self.title = [settingsUIContent.uiMainboardKeys objectAtIndex:MB_EN_SETTINGS];
     
     // Add background image.
     
@@ -82,50 +68,43 @@
     displayRect.origin.y = 0.0f;
     displayRect.size.width = SCREEN_WIDTH;
     displayRect.size.height = SCREEN_HEIGHT - DEFAULT_TABBAR_HEIGHT - DEFAULT_NAVBAR_HEIGHT;
-    UITableView *tvTemp = [[UITableView alloc] initWithFrame:displayRect 
-                                                       style:UITableViewStyleGrouped];
-    self.settingsTable = tvTemp;
-    [tvTemp release];
-    self.settingsTable.backgroundColor = [UIColor clearColor];
-    self.settingsTable.delegate = self;
-    self.settingsTable.dataSource = self;
+    settingsTable = [[UITableView alloc] initWithFrame:displayRect 
+                                                      style:UITableViewStyleGrouped];
+    settingsTable.backgroundColor = [UIColor clearColor];
+    settingsTable.delegate = self;
+    settingsTable.dataSource = self;
     
     // Add a footer to the table view to display copyright.
-    NSArray *footer = [self.settingsUIContent.uiSettingsKeys 
-                      objectAtIndex:SECTION_COPYRIGHT];
-    UIView *viewTemp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 68)];
-    self.footerView = viewTemp;
-    [viewTemp release];
+    NSArray *footer = [settingsUIContent objectAtIndex:SECTION_COPYRIGHT];
+    footerView = [[UIView alloc] initWithFrame:CGRectMake(frameOfFooterView)];
     
     // The lable to disply a fun text in table footer. (Tempt)
-    UILabel *nevelTemp = [[UILabel alloc] 
-                          initWithFrame:CGRectMake(0, 10, 320, 24)];
-    self.nevel = nevelTemp;
-    [nevelTemp release];
-    self.nevel.backgroundColor = [UIColor clearColor];
-    self.nevel.textAlignment = UITextAlignmentCenter;
+    nevel = [[UILabel alloc] initWithFrame:CGRectMake(frameOfNevel)];
+    nevel.backgroundColor = [UIColor clearColor];
+    nevel.textAlignment = UITextAlignmentCenter;
     // TODO: We can try more elegant text shadow here. 
-    self.nevel.shadowColor = [UIColor lightGrayColor];
-    self.nevel.shadowOffset = CGSizeMake(0, 1);
-    self.nevel.font = [UIFont fontWithName:@"Verdana" size:14];
-    self.nevel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
-    self.nevel.text = [footer objectAtIndex:ST_EN_FOR_FUN];
-    [self.footerView addSubview:nevel];
+    nevel.shadowColor = [UIColor lightGrayColor];
+    nevel.shadowOffset = CGSizeMake(0, 1);
+    nevel.font = [UIFont fontWithName:subFont size:smallFontSize];
+    nevel.textColor = [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
+    nevel.text = [footer objectAtIndex:ST_EN_FOR_FUN];
+    [footerView addSubview:nevel];
     
     // The lable to display nevel copyright in table footer.
-    UILabel *lbTemp = [[UILabel alloc] 
-                       initWithFrame:CGRectMake(0, 44, 320, 24)];
-    self.copyright = lbTemp;
-    [lbTemp release];
-    self.copyright.backgroundColor = [UIColor clearColor];
-    self.copyright.textAlignment = UITextAlignmentCenter;
-    self.copyright.font = [UIFont fontWithName:@"Verdana" size:12];
-    self.copyright.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
-    self.copyright.text = [footer objectAtIndex:ST_EN_COPYRIGHT];
-    [self.footerView addSubview:copyright];
+    copyright = [[UILabel alloc] initWithFrame:CGRectMake(frameOfCopyright)];
+    copyright.backgroundColor = [UIColor clearColor];
+    copyright.textAlignment = UITextAlignmentCenter;
+    copyright.font = [UIFont fontWithName:subFont size:miniFontSize];
+    copyright.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
+    copyright.text = [footer objectAtIndex:ST_EN_COPYRIGHT];
+    [footerView addSubview:copyright];
 
-    self.settingsTable.tableFooterView = self.footerView;
-    [self.view addSubview:self.settingsTable];
+    settingsTable.tableFooterView = footerView;
+    
+    textOfCrashReportDetailTextLabel = [[settingsUIContent objectAtIndex:SECTION_REPORT] 
+                                        objectAtIndex:ST_EN_ALWAYS];
+
+    [self.view addSubview:settingsTable];
     /* +------------------------ End of nitialize each cell --------------------------+ */
 }
 
@@ -154,7 +133,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section {
-    NSArray *keyObject = [self.settingsUIContent.uiSettingsKeys objectAtIndex:section];
+    NSArray *keyObject = [settingsUIContent objectAtIndex:section];
     return [keyObject count];
 }
 
@@ -181,22 +160,22 @@
         if (sectionIndex == SECTION_NETWORKS) {
             switch (rowIndex) {
                 case ST_EN_NOTIFICATIONS: {
-                    self.notificationSwitch = [self setSwitchStyleForCell:cell];
-                    self.notificationSwitch.on = YES;
-                    [cell.contentView addSubview:self.notificationSwitch];
-                    [self.notificationSwitch addTarget:self
-                                                action:@selector(notificationDidSwitch:) 
-                                      forControlEvents:UIControlEventValueChanged];
+                    notificationSwitch = [self setSwitchStyleForCell:cell];
+                    notificationSwitch.on = YES;
+                    [cell.contentView addSubview:notificationSwitch];
+                    [notificationSwitch addTarget:self
+                                           action:@selector(notificationDidSwitch:) 
+                                 forControlEvents:UIControlEventValueChanged];
                 }
                     break;
                     
                 case ST_EN_WIFI_ONLY: {
-                    self.wifiOnlySwitch = [self setSwitchStyleForCell:cell];
-                    self.wifiOnlySwitch.on = NO;
-                    [cell.contentView addSubview:self.wifiOnlySwitch];
-                    [self.wifiOnlySwitch addTarget:self
-                                            action:@selector(wifiDidSwitch:) 
-                                  forControlEvents:UIControlEventValueChanged];
+                    wifiOnlySwitch = [self setSwitchStyleForCell:cell];
+                    wifiOnlySwitch.on = NO;
+                    [cell.contentView addSubview:wifiOnlySwitch];
+                    [wifiOnlySwitch addTarget:self
+                                       action:@selector(wifiDidSwitch:) 
+                             forControlEvents:UIControlEventValueChanged];
                 }
                     break;
                     
@@ -212,19 +191,17 @@
                     // We add the segmented control to the new cell here.
                     // Initialize segmented control.
                     NSArray *segmentedControlArray =
-                    [self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_REPORT];
-                    UISegmentedControl *scTemp = [[UISegmentedControl alloc] 
-                                                  initWithItems:segmentedControlArray];
-                    self.sendCrashReportSegmentedControl = scTemp;
-                    [scTemp release];
-                    self.sendCrashReportSegmentedControl.selectedSegmentIndex = 
+                    [settingsUIContent objectAtIndex:SECTION_REPORT];
+                    sendCrashReportSegmentedControl = [[UISegmentedControl alloc] 
+                                                       initWithItems:segmentedControlArray];
+                    sendCrashReportSegmentedControl.selectedSegmentIndex = 
                         [segmentedControlArray indexOfObject:textOfCrashReportDetailTextLabel];
-                    self.sendCrashReportSegmentedControl.frame = CGRectMake(0, -10, 300, 54);
-                    [self.sendCrashReportSegmentedControl 
+                    sendCrashReportSegmentedControl.frame = CGRectMake(frameOfSegmentedControl);
+                    [sendCrashReportSegmentedControl 
                                                 addTarget:self 
                                                    action:@selector(segmentedControlPressed:) 
                                          forControlEvents:UIControlEventValueChanged];
-                    [cell.contentView addSubview:self.sendCrashReportSegmentedControl];
+                    [cell.contentView addSubview:sendCrashReportSegmentedControl];
                 }
                     break;
                     
@@ -237,22 +214,21 @@
         else if (sectionIndex == SECTION_EXTERNAL) {
             switch (rowIndex) {
                 case ST_EN_SOUND_ALERT: {
-                    self.soundAlertSwitch = [self setSwitchStyleForCell:cell];
-                    self.soundAlertSwitch.on = YES;
-                    [cell.contentView addSubview:self.soundAlertSwitch];
+                    soundAlertSwitch = [self setSwitchStyleForCell:cell];
+                    soundAlertSwitch.on = YES;
+                    [cell.contentView addSubview:soundAlertSwitch];
                 }
                     break;
                         
                 case ST_EN_VIBRATOR_ALERT: {
-                    self.vibtatorAlertSwitch = [self setSwitchStyleForCell:cell];
-                    self.vibtatorAlertSwitch.on = NO;
-                    [cell.contentView addSubview:self.vibtatorAlertSwitch];
+                    vibtatorAlertSwitch = [self setSwitchStyleForCell:cell];
+                    vibtatorAlertSwitch.on = NO;
+                    [cell.contentView addSubview:vibtatorAlertSwitch];
                 }
                     break;
                     
                 case ST_EN_THEME: {
-                    NSArray *theme = [self.settingsUIContent.uiSettingsKeys 
-                                            objectAtIndex:SECTION_THEME];
+                    NSArray *theme = [settingsUIContent objectAtIndex:SECTION_THEME];
                     cell = [self setAccessoryStyleForCell:cell 
                                       withDetailLableText:[theme 
                                                            objectAtIndex:ST_EN_NEVEL_CLASSIC]];
@@ -266,8 +242,7 @@
                 
         // The about section.
         else if (sectionIndex == SECTION_ABOUT) {
-            NSArray *about = [self.settingsUIContent.uiSettingsKeys 
-                              objectAtIndex:SECTION_COPYRIGHT];
+            NSArray *about = [settingsUIContent objectAtIndex:SECTION_COPYRIGHT];
             cell = [self setAccessoryStyleForCell:cell 
                               withDetailLableText:[about objectAtIndex:ST_EN_VERSION_NO]];
             cell.accessoryView = nil;
@@ -276,7 +251,7 @@
         /* +------------------------- End of initialize each cell ------------------------+ */
         
         // Display text and set colors in each cell.
-        NSArray *section = [self.settingsUIContent.uiSettingsKeys objectAtIndex:sectionIndex];
+        NSArray *section = [settingsUIContent objectAtIndex:sectionIndex];
         NSString *row = [section objectAtIndex:rowIndex];
         cell.textLabel.text = row;
         cell.textLabel.backgroundColor = [UIColor clearColor];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -307,7 +282,7 @@
 // Set the style of switch cell uniformly.
 - (id)setSwitchStyleForCell:(UITableViewCell *)switchCell {
     UISwitch *switchTemp = [[[UISwitch alloc] 
-                            initWithFrame:CGRectMake(196, 8, 94, 27)] autorelease];
+                            initWithFrame:CGRectMake(frameOfUISwitch)] autorelease];
     return switchTemp;
 }
 
@@ -337,37 +312,37 @@
     
     /* +-------------------- Configure crash report sending type ---------------------+ */
     // We insert a cell to hold our crash report sending type when press the cell.
-    if (sectionIndex == SECTION_NETWORKS && 
-        rowIndex == ST_EN_SEND_REPORT) {
+    if (sectionIndex == SECTION_NETWORKS && rowIndex == ST_EN_SEND_REPORT) {
         NSIndexPath *ipSendCrashReport = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
                                                             inSection:SECTION_NETWORKS];
         if (sendCrashReportCellCanBeSelected ==YES) {
             // Prepare the a new array that are the data source of insert row.
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS] 
+            [[settingsUIContent objectAtIndex:SECTION_NETWORKS] 
              insertObject:@"" 
-             atIndex:(ST_EN_SEND_REPORT+1)];
+                  atIndex:(ST_EN_SEND_REPORT+1)];
             NSArray *insertSendReportArray = [NSArray arrayWithObject:ipSendCrashReport];
+            [insertSendReportArray retain];
             
             // Insert the theme row.
-            [self.settingsTable beginUpdates];
-            [self.settingsTable insertRowsAtIndexPaths:insertSendReportArray 
-                                      withRowAnimation:UITableViewRowAnimationTop];
+            [settingsTable beginUpdates];
+            [settingsTable insertRowsAtIndexPaths:insertSendReportArray 
+                                 withRowAnimation:UITableViewRowAnimationTop];
             sendCrashReportCellCanBeSelected = NO;
-            [self.settingsTable endUpdates];
+            [settingsTable endUpdates];
         }
         
         // We delete the cell holding segmented control when press the cell.
         else {
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
+            [[settingsUIContent objectAtIndex:SECTION_NETWORKS]
              removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
             NSArray *deleteReportArray = [NSArray arrayWithObject:ipSendCrashReport];
             
             // Delete the theme rows.
-            [self.settingsTable beginUpdates];
-            [self.settingsTable deleteRowsAtIndexPaths:deleteReportArray 
+            [settingsTable beginUpdates];
+            [settingsTable deleteRowsAtIndexPaths:deleteReportArray 
                                       withRowAnimation:UITableViewRowAnimationTop];
             sendCrashReportCellCanBeSelected = YES;
-            [self.settingsTable endUpdates];
+            [settingsTable endUpdates];
         }        
     }
     
@@ -375,16 +350,15 @@
 
     /* +---------------------------- Configure theme type ----------------------------+ */
     else if (sectionIndex == SECTION_EXTERNAL) {
-        NSArray *themeUIArray = [self.settingsUIContent.uiSettingsKeys 
-                                 objectAtIndex:SECTION_THEME];
+        NSArray *themeUIArray = [settingsUIContent objectAtIndex:SECTION_THEME];
         
         // We insert a cell to hold our themes when press the themecell.
         if (rowIndex == ST_EN_THEME && themeCellCanBeSelected ==YES) {
             // Prepare the a new array that are the data source of insert row.
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+            [[settingsUIContent objectAtIndex:SECTION_EXTERNAL] 
                 insertObject:[themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC] 
                      atIndex:(ST_EN_THEME+1)];
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
+            [[settingsUIContent objectAtIndex:SECTION_EXTERNAL] 
                 insertObject:[themeUIArray objectAtIndex:ST_EN_BLACKHOLE]
                      atIndex:(ST_EN_THEME+2)];
             NSArray *insertThemeArray = [NSArray arrayWithObjects:
@@ -392,11 +366,11 @@
                 [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
             
             // Insert the theme row.
-            [self.settingsTable beginUpdates];
-            [self.settingsTable insertRowsAtIndexPaths:insertThemeArray 
+            [settingsTable beginUpdates];
+            [settingsTable insertRowsAtIndexPaths:insertThemeArray 
                                       withRowAnimation:UITableViewRowAnimationTop];
             themeCellCanBeSelected = NO;
-            [self.settingsTable endUpdates];
+            [settingsTable endUpdates];
         }
         
         // We delete the cells holding our themes after chooseing a theme.
@@ -404,34 +378,34 @@
         else if ((rowIndex == ST_EN_THEME && themeCellCanBeSelected == NO) ||
                   rowIndex == (ST_EN_THEME+1) ||
                   rowIndex == (ST_EN_THEME+2)) {
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL]
-                removeObjectAtIndex:(ST_EN_THEME+1)];
-            [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_EXTERNAL] 
-                removeObjectAtIndex:(ST_EN_THEME+1)];
+            [[settingsUIContent objectAtIndex:SECTION_EXTERNAL]
+             removeObjectAtIndex:(ST_EN_THEME+1)];
+            [[settingsUIContent objectAtIndex:SECTION_EXTERNAL] 
+             removeObjectAtIndex:(ST_EN_THEME+1)];
             NSArray *deleteThemeArray = [NSArray arrayWithObjects:
                 [NSIndexPath indexPathForRow:(ST_EN_THEME+1) inSection:SECTION_EXTERNAL],
                 [NSIndexPath indexPathForRow:(ST_EN_THEME+2) inSection:SECTION_EXTERNAL], nil];
             
             // Delete the theme rows.
-            [self.settingsTable beginUpdates];
-            [self.settingsTable deleteRowsAtIndexPaths:deleteThemeArray 
+            [settingsTable beginUpdates];
+            [settingsTable deleteRowsAtIndexPaths:deleteThemeArray 
                                       withRowAnimation:UITableViewRowAnimationTop];
             themeCellCanBeSelected = YES;
-            [self.settingsTable endUpdates];
+            [settingsTable endUpdates];
             
             // Update the text of detail text lable in real time.
             NSIndexPath *ipTheme = [NSIndexPath indexPathForRow:ST_EN_THEME 
                                                       inSection:SECTION_EXTERNAL];
             if (rowIndex == (ST_EN_THEME+1)) {
-                [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                [settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
                     [themeUIArray objectAtIndex:ST_EN_NEVEL_CLASSIC];
-                [self.settingsConfig setTheme:ST_EN_NEVEL_CLASSIC];
+                [settingsConfig setTheme:ST_EN_NEVEL_CLASSIC];
             }
             
             else if (rowIndex == (ST_EN_THEME+2)) {
-                [self.settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
+                [settingsTable cellForRowAtIndexPath:ipTheme].detailTextLabel.text = 
                     [themeUIArray objectAtIndex:ST_EN_BLACKHOLE];
-                [self.settingsConfig setTheme:ST_EN_BLACKHOLE];
+                [settingsConfig setTheme:ST_EN_BLACKHOLE];
             }
         }
     }
@@ -442,53 +416,53 @@
 #pragma mark - Segmented control action
 - (void)segmentedControlPressed:(id)sender {
     // Pass the crash report sending type to app configuration detailed label of cell.
-    NSUInteger selectSegmentIndex = self.sendCrashReportSegmentedControl.selectedSegmentIndex;
-    [self.settingsConfig setCrashReportSendingType:selectSegmentIndex];
-    textOfCrashReportDetailTextLabel = [self.sendCrashReportSegmentedControl 
+    NSUInteger selectSegmentIndex = sendCrashReportSegmentedControl.selectedSegmentIndex;
+    [settingsConfig setCrashReportSendingType:selectSegmentIndex];
+    textOfCrashReportDetailTextLabel = [sendCrashReportSegmentedControl 
                                         titleForSegmentAtIndex:selectSegmentIndex];
     NSIndexPath *ipSendCrashReport = [NSIndexPath indexPathForRow:ST_EN_SEND_REPORT 
                                                         inSection:SECTION_NETWORKS];
-    UITableViewCell *selectCell = [self.settingsTable 
+    UITableViewCell *selectCell = [settingsTable 
                                    cellForRowAtIndexPath:ipSendCrashReport];
     selectCell.detailTextLabel.text = textOfCrashReportDetailTextLabel;
     
     // Delete the theme rows.
     NSIndexPath *ipSendCrashReportSegment = [NSIndexPath indexPathForRow:(ST_EN_SEND_REPORT+1) 
                                                         inSection:SECTION_NETWORKS];
-    [[self.settingsUIContent.uiSettingsKeys objectAtIndex:SECTION_NETWORKS]
+    [[settingsUIContent objectAtIndex:SECTION_NETWORKS]
      removeObjectAtIndex:(ST_EN_SEND_REPORT+1)];
     NSArray *deleteReportArrayByPressing = [NSArray arrayWithObject:ipSendCrashReportSegment];
     
-    [self.settingsTable beginUpdates];
-    [self.settingsTable deleteRowsAtIndexPaths:deleteReportArrayByPressing 
+    [settingsTable beginUpdates];
+    [settingsTable deleteRowsAtIndexPaths:deleteReportArrayByPressing 
                               withRowAnimation:UITableViewRowAnimationTop];
     sendCrashReportCellCanBeSelected = YES;
-    [self.settingsTable endUpdates];
+    [settingsTable endUpdates];
 }
 
 
 #pragma mark - AppConfig methods
 - (void)notificationDidSwitch:(id)sender {
-    self.notificationSwitch.on == NO ? [self.settingsConfig setNotificationType:NO]:
-                                       [self.settingsConfig setNotificationType:YES];
+    notificationSwitch.on == NO ? [settingsConfig setNotificationType:NO]:
+                                  [settingsConfig setNotificationType:YES];
 }
 
 
 - (void)wifiDidSwitch:(id)sender {
-    self.wifiOnlySwitch.on == YES ? [self.settingsConfig setWifiOnlyType:YES]:
-                                    [self.settingsConfig setNotificationType:NO];
+    wifiOnlySwitch.on == YES ? [settingsConfig setWifiOnlyType:YES]:
+                               [settingsConfig setNotificationType:NO];
 }
 
 
 - (void)sountAlertDidSwitch:(id)sender {
-    self.soundAlertSwitch.on == NO ? [self.settingsConfig setSoundAlertType:NO]:
-                                     [self.settingsConfig setNotificationType:YES];
+    soundAlertSwitch.on == NO ? [settingsConfig setSoundAlertType:NO]:
+                                [settingsConfig setNotificationType:YES];
 }
 
 
 - (void)vibtatorAlertDidSwitch:(id)sender {
-    self.vibtatorAlertSwitch.on == YES ? [self.settingsConfig setVibratorAlertType:YES]:
-                                         [self.settingsConfig setNotificationType:NO];
+    vibtatorAlertSwitch.on == YES ? [settingsConfig setVibratorAlertType:YES]:
+                                    [settingsConfig setNotificationType:NO];
 }
 
 

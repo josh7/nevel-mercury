@@ -31,6 +31,32 @@
 #define MB_EN_SETTINGS          2
 #define MB_EN_HELP              3
 
+// The Domain List section English version text.
+#define DL_EN_NEVEL_POWERED     0
+#define DL_EN_SECURITY_LOGS     1
+#define DL_EN_ALERTS            2
+
+// The Site section English version text.
+#define SI_EN_SETTINGS          0
+
+// The Site Settings section English version text.
+#define SECTION_ITEMS         0
+#define SS_EN_ENABLE_NEVEL      0
+#define SS_EN_HIGH_SECURITY     1
+#define SS_EN_CACHE_DYNAMIC     2
+#define SS_EN_WAF_SECURITY      3
+#define SS_EN_EMAIL_OBFUSCATION 4
+#define SS_EN_ALWAYS_ONLINE     5
+#define SS_EN_HOTLINK           6
+#define SS_EN_PURGE_CACHE       7
+#define SS_EN_DELETE            1
+#define SS_EN_ALERT             2
+#define SS_EN_DISABLE_NEVEL_MSG 3
+#define SS_EN_PURGE_CACHE_MSG   4
+#define SS_EN_DELETE_MSG        5  
+#define SS_EN_YES               6
+#define SS_EN_NO                7
+
 // The Settings section English version text.
 #define SECTION_NETWORKS      0
 #define ST_EN_NOTIFICATIONS     0
@@ -77,7 +103,8 @@
 #define AS_EN_LOG_OUT         3
 #define AS_EN_ADVANCED        4
 #define AS_EN_FOOTER_ADVANCED 5
-/* +------------------------- End of the domain list subview ---------------------+ */
+
+/* +--------------------------- End of our UI.plist content ----------------------+ */
 
 /* +------------------------------- The images we needs --------------------------+ */
 #define arrowDown @"arrowDown.PNG"
@@ -93,16 +120,17 @@
 #define loginLogo @"nevelLogoWhite.png"
 /* +------------------------- End of the domain list subview ---------------------+ */
 
-/* +------------------------------ The font size we used -------------------------+ */
-#define normalFontSize 17
-#define smallFontSize 14
-#define largeFontSize 24
-#define headerFontSize 12.0f
-#define headerHeight 25.0f
-/* +-------------------------- End of the font size we used ----------------------+ */
+/* +----------------------------- The font & size we used ------------------------+ */
+#define subFont         @"Verdana"
+#define miniFontSize    12
+#define smallFontSize   14
+#define normalFontSize  17
+#define largeFontSize   24
+#define headerFontSize  12.0f
+#define headerHeight    25.0f
+/* +------------------------- End of the font & size we used ---------------------+ */
 
 /* +--------------------------------- About cell size ----------------------------+ */
-/* +----------------------------- End of about cell size -------------------------+ */
 #define largeCellHeight 100
 #define cellContentWidth 300
 #define controllersInCell 196, 8, 94, 27
@@ -116,6 +144,10 @@
     NSMutableArray *uiSettingsKeys;
     NSArray *uiAccountListKeys;
     NSArray *uiAccountSettingsKeys;
+    NSArray *uiDomainListKeys;
+    NSArray *uiSiteListKeys;
+    NSArray *uiSiteKeys;
+    NSArray *uiSiteSettingsKeys;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *uiDictionary;
@@ -124,6 +156,10 @@
 @property (nonatomic, retain) NSMutableArray *uiSettingsKeys;
 @property (nonatomic, retain) NSArray *uiAccountListKeys;
 @property (nonatomic, retain) NSArray *uiAccountSettingsKeys;
+@property (nonatomic, retain) NSArray *uiDomainListKeys;
+@property (nonatomic, retain) NSArray *uiSiteListKeys;
+@property (nonatomic, retain) NSArray *uiSiteKeys;
+@property (nonatomic, retain) NSArray *uiSiteSettingsKeys;
 
 - (void)initWithUIContent;
 

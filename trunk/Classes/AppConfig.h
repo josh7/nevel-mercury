@@ -14,10 +14,6 @@
 /* XML sample of mercury configuration file.
  *	<plist version="1.0">
  *		<configDic>
- *			<key>loginMethod</key>
- *			<!--Login type selection: auto / remember account / just login -->
- *			<integer>0</integer>
- *			<key>
  *
  *			<key>mainSwithSettings<key>
  *			<array>
@@ -51,7 +47,7 @@
 // Initialization method.
 - (void)initWithAppConfig;
 
-// Getting app configurations ethods.
+// Getting app configurations methods.
 - (void) setNotificationType:(BOOL)bNotification;
 - (void) setWifiOnlyType:(BOOL)bWifiOnly;
 - (void) setSoundAlertType:(BOOL)bSoundAlert;

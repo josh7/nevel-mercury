@@ -15,18 +15,8 @@
 
 
 @implementation MercuryLoginViewController
-@synthesize bgImageView;
-@synthesize logoImageView;
-@synthesize loginControlLayer;
-@synthesize loginTableView;
-@synthesize hud;
-@synthesize loginUIContent;
-@synthesize userConfigKeys;
 @synthesize didRelogIn;
 @synthesize xmlParser;
-@synthesize keyboardAccessoryView;
-@synthesize doneBarButtonItem;
-@synthesize segmentBarButtonItem;
 
 - (void)dealloc {
 	[bgImageView release];
@@ -50,13 +40,11 @@
 
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.loginUIContent = appDelegate.uiContent;
+    loginUIContent = appDelegate.uiContent.uiLoginKeys;
     
 	scrollup = 0;
     self.didRelogIn = NO;
-    NSMutableArray *arrayTmpt = [[NSMutableArray alloc] initWithObjects:@"", @"", nil];
-    self.userConfigKeys = arrayTmpt;
-    [arrayTmpt release];
+    userConfigKeys = [[NSMutableArray alloc] initWithObjects:@"", @"", nil];
 	
 	// Create the root UIView object.
 	CGRect viewRect = [[UIScreen mainScreen] bounds];
@@ -67,41 +55,33 @@
     /* +------------------------- The background images group -------------------------+ */
     // The background at the bottom.
 	UIImage *imageTemp = [UIImage imageNamed:loginBg];
-	UIImageView *ivTemp = [[UIImageView alloc] initWithImage:imageTemp];
-	self.bgImageView = ivTemp;
-	[ivTemp release];
-	[self.view insertSubview:self.bgImageView atIndex:0];
+	bgImageView = [[UIImageView alloc] initWithImage:imageTemp];
+	[self.view insertSubview:bgImageView atIndex:0];
     
     // The logo on the background.
     UIImage *logoImageTemp = [UIImage imageNamed:loginLogo];
-    UIImageView *logoViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(85, 150, 150, 59)];
-    self.logoImageView = logoViewTemp;
-    [logoViewTemp release];
-    self.logoImageView.image = logoImageTemp;
-    [self.view insertSubview:self.logoImageView atIndex:1];
+    logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(85, 150, 150, 59)];
+    logoImageView.image = logoImageTemp;
+    [self.view insertSubview:logoImageView atIndex:1];
     /* +--------------------- End of the background images group ----------------------+ */
     
     /* +------------------------------- The input board -------------------------------+ */
 	// Create an additional layer to hold login controls.
-    UIControl *loginControlLayerTemp = [[UIControl alloc] initWithFrame:viewRect];
-	self.loginControlLayer = loginControlLayerTemp;
-	self.loginControlLayer.backgroundColor = [UIColor colorWithRed:0.000 
-															 green:0.000 
-															  blue:0.000 
-															 alpha:0.000];
-	[loginControlLayerTemp release];
-    [self.view insertSubview:self.loginControlLayer atIndex:1];
+	loginControlLayer = [[UIControl alloc] initWithFrame:viewRect];
+	loginControlLayer.backgroundColor = [UIColor colorWithRed:0.000 
+                                                        green:0.000 
+                                                         blue:0.000 
+                                                        alpha:0.000];
+    [self.view insertSubview:loginControlLayer atIndex:1];
  
 	// Create the login table view.
-	UITableView *tableViewTemp = [[UITableView alloc] initWithFrame:CGRectMake(0, 266, 320, 153) 
-															  style:UITableViewStyleGrouped];
-	self.loginTableView = tableViewTemp;
-	[tableViewTemp release];
-	self.loginTableView.backgroundColor = [UIColor clearColor];
-	self.loginTableView.delegate = self;
-	self.loginTableView.dataSource = self;
-	self.loginTableView.alpha = 0;
-	[self.loginControlLayer addSubview:self.loginTableView];
+	loginTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 266, 320, 153) 
+                                                  style:UITableViewStyleGrouped];
+	loginTableView.backgroundColor = [UIColor clearColor];
+	loginTableView.delegate = self;
+	loginTableView.dataSource = self;
+	loginTableView.alpha = 0;
+	[loginControlLayer addSubview:loginTableView];
     
     // Now we do not need a register button.
 #ifdef VERSION_2_REGISTER
@@ -124,8 +104,7 @@
     
     // The emergence animation.
 	[UIView animateWithDuration:1.0 animations:^{
-		self.loginTableView.alpha = 1.0;
-//		loginButton.alpha = 1.0;
+		loginTableView.alpha = 1.0;
         
 #ifdef VERSION_2
         registerButton.alpha = 1.0;
@@ -141,23 +120,19 @@
      * +---------------------------------------------------------------------------------+
      */
     // Our toolbar.
-    UIToolbar *tbTemp = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 100, 320, 44)];
-    tbTemp.barStyle = UIBarStyleBlackTranslucent;
-    self.keyboardAccessoryView = tbTemp;
-    [tbTemp release];
+    keyboardAccessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 100, 320, 44)];
+    keyboardAccessoryView.barStyle = UIBarStyleBlackTranslucent;
     
     // Our segmented conrol to hold "previous" and "Next".
     NSArray *segmentItems = [NSArray arrayWithObjects:
-                             [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_PREVIOUS],
-                             [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_NEXT], nil];
-    UISegmentedControl *scTemp = [[UISegmentedControl alloc] initWithItems:segmentItems];
-    scTemp.frame = CGRectMake(6, 8, 128, 30);
-    scTemp.momentary = NO;
-    scTemp.segmentedControlStyle = UISegmentedControlStyleBar;
-    scTemp.tintColor = [UIColor blackColor];
-    self.segmentBarButtonItem = scTemp;
-    [scTemp release];
-    [self.segmentBarButtonItem addTarget:self 
+                             [loginUIContent objectAtIndex:LI_EN_PREVIOUS],
+                             [loginUIContent objectAtIndex:LI_EN_NEXT], nil];
+    segmentBarButtonItem = [[UISegmentedControl alloc] initWithItems:segmentItems];
+    segmentBarButtonItem.frame = CGRectMake(6, 8, 128, 30);
+    segmentBarButtonItem.momentary = NO;
+    segmentBarButtonItem.segmentedControlStyle = UISegmentedControlStyleBar;
+    segmentBarButtonItem.tintColor = [UIColor blackColor];
+    [segmentBarButtonItem addTarget:self 
                                   action:@selector(segmentedControlPressed:) 
                         forControlEvents:UIControlEventValueChanged];
     
@@ -168,18 +143,16 @@
                                  action:nil];
     
     // Our Login button.
-    UIBarButtonItem *bbiTemp = [[UIBarButtonItem alloc] initWithTitle:
-                                [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_LOGIN]
-                                                                style:UIBarButtonItemStyleDone 
-                                                               target:self 
-                                                               action:@selector(loginPressed:)];
-    bbiTemp.width = 90;
-    self.doneBarButtonItem = bbiTemp;
-    [bbiTemp release];
+    doneBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:
+                              [loginUIContent objectAtIndex:LI_EN_LOGIN]
+                                                      style:UIBarButtonItemStyleDone 
+                                                     target:self 
+                                                     action:@selector(loginPressed:)];
+    doneBarButtonItem.width = 90;
         
-    NSArray *toolbarItems = [NSArray arrayWithObjects:flexItem, self.doneBarButtonItem, nil];
-    [self.keyboardAccessoryView setItems:toolbarItems animated:YES];
-    [self.keyboardAccessoryView addSubview:self.segmentBarButtonItem];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:flexItem, doneBarButtonItem, nil];
+    [keyboardAccessoryView setItems:toolbarItems animated:YES];
+    [keyboardAccessoryView addSubview:segmentBarButtonItem];
     
     /* +------------------- End of the keyboard input accessory view ------------------+ */
     
@@ -196,7 +169,6 @@
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
     // Release any cached data, images, etc. that aren't in use.
 }
 
@@ -233,17 +205,16 @@
 	if (cell == nil) {
 		cell = [[[LoginTableCell alloc] initWithStyle:style 
 									  reuseIdentifier:CustomerLoginCellIdentifier] autorelease];
-		cell.loginLabel.text = [loginUIContent.uiLoginKeys objectAtIndex:row];
+		cell.loginLabel.text = [loginUIContent objectAtIndex:row];
         
         // Add the inputAccessoryView to keyborard.
-        cell.loginTextField.inputAccessoryView = self.keyboardAccessoryView; 
+        cell.loginTextField.inputAccessoryView = keyboardAccessoryView; 
 		
         // Specify the ID textfield.
         if (row == 0) {
             cell.loginTextField.keyboardType = UIKeyboardTypeEmailAddress;
             cell.loginTextField.clearsOnBeginEditing = NO;
-            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
-                                               objectAtIndex:LI_EN_ID_HOLDER];
+            cell.loginTextField.placeholder = [loginUIContent objectAtIndex:LI_EN_ID_HOLDER];
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -261,8 +232,7 @@
 		if (row == 1) {
             cell.loginTextField.keyboardType = UIKeyboardTypeDefault;
 			[cell.loginTextField setSecureTextEntry:YES];
-            cell.loginTextField.placeholder = [self.loginUIContent.uiLoginKeys 
-                                               objectAtIndex:LI_EN_PASSWORD_HOLDER];
+            cell.loginTextField.placeholder = [loginUIContent objectAtIndex:LI_EN_PASSWORD_HOLDER];
             
             // Add actions to textfield.
             [cell.loginTextField setDelegate:self];
@@ -283,14 +253,14 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
 	if (scrollup == 0) {
-		CGPoint newPosition = self.loginControlLayer.center;
+		CGPoint newPosition = loginControlLayer.center;
 		newPosition.y -= 215;
-        CGPoint newLogoPosition = self.logoImageView.center;
+        CGPoint newLogoPosition = logoImageView.center;
         newLogoPosition.y -= 215;
 	
 		[UIView animateWithDuration:0.3 animations:^ {
-			self.loginControlLayer.center = newPosition;
-            self.logoImageView.center = newLogoPosition;
+			loginControlLayer.center = newPosition;
+            logoImageView.center = newLogoPosition;
 		}];
 		scrollup = 1;
 	}
@@ -299,14 +269,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
         if (scrollup == 1) {
-        CGPoint newPosition = self.loginControlLayer.center;
+        CGPoint newPosition = loginControlLayer.center;
         newPosition.y += 215;
-        CGPoint newLogoPosition = self.logoImageView.center;
+        CGPoint newLogoPosition = logoImageView.center;
         newLogoPosition.y += 215;
         
         [UIView animateWithDuration:0.3 animations:^ {
-            self.loginControlLayer.center = newPosition;
-            self.logoImageView.center = newLogoPosition;
+            loginControlLayer.center = newPosition;
+            logoImageView.center = newLogoPosition;
         }];
         scrollup = 0;
     }
@@ -320,45 +290,45 @@
 
 - (void)idTextFieldPressed:(UITextField *)sender{
     NSString *idTemp = [[NSString alloc] initWithString:sender.text];
-    [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
+    [userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
     [idTemp release];
 }
 
 
 - (void)passwordTextFieldPressed:(UITextField *)sender{
-    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
+    [segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
     NSString *passwordTemp = [[NSString alloc] initWithString:sender.text];
-    [self.userConfigKeys replaceObjectAtIndex:1 withObject:passwordTemp];
+    [userConfigKeys replaceObjectAtIndex:1 withObject:passwordTemp];
     [passwordTemp release];
 }
 
 
 - (void)idTextFieldPressedBeforeEditing:(UITextField *)sender{
-    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:0];
-    [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:1];
+    [segmentBarButtonItem setEnabled:NO forSegmentAtIndex:0];
+    [segmentBarButtonItem setEnabled:YES forSegmentAtIndex:1];
     NSString *idTemp = [[NSString alloc] initWithString:sender.text];
-    [self.userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
+    [userConfigKeys replaceObjectAtIndex:0 withObject:idTemp];
     [idTemp release];
 }
 
 
 - (void)passwordTextFieldPressedBeforeEditing:(UITextField *)sender{
-    [self.segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
-    [self.segmentBarButtonItem setEnabled:YES forSegmentAtIndex:0];
-    [self.userConfigKeys replaceObjectAtIndex:1 withObject:@""];
+    [segmentBarButtonItem setEnabled:NO forSegmentAtIndex:1];
+    [segmentBarButtonItem setEnabled:YES forSegmentAtIndex:0];
+    [userConfigKeys replaceObjectAtIndex:1 withObject:@""];
 }
 
 
 #pragma mark - Segmented control action
 - (void)segmentedControlPressed:(id)sender {
     // When press the previous/next segment, we change the text field focus.
-    NSUInteger selectSegmentIndex = self.segmentBarButtonItem.selectedSegmentIndex;
+    NSUInteger selectSegmentIndex = segmentBarButtonItem.selectedSegmentIndex;
     
     // We get the textfield object here.
     LoginTableCell *cellTemp_1 = 
-    (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:0];
+    (LoginTableCell *)[[loginTableView visibleCells] objectAtIndex:0];
     LoginTableCell *cellTemp_2 = 
-    (LoginTableCell *)[[self.loginTableView visibleCells] objectAtIndex:1];
+    (LoginTableCell *)[[loginTableView visibleCells] objectAtIndex:1];
     if (selectSegmentIndex == 0) {
         // We change the textfield focus here.
         [cellTemp_2.loginTextField resignFirstResponder];
@@ -381,15 +351,13 @@
 
     // First, we check the information inputed by user.
     // If the infromation was not complete, an alert will show.
-    if ([[self.userConfigKeys objectAtIndex:0] length] == 0 || 
-        [[self.userConfigKeys objectAtIndex:1] length] == 0 ) {
+    if ([[userConfigKeys objectAtIndex:0] length] == 0 || 
+        [[userConfigKeys objectAtIndex:1] length] == 0 ) {
         UIAlertView *alertForcIncomplete = [[UIAlertView alloc]
-                                     initWithTitle:[loginUIContent.uiLoginKeys 
-                                                    objectAtIndex:LI_EN_ALERT_TITLE]
-                                     message:[loginUIContent.uiLoginKeys 
-                                              objectAtIndex:LI_EN_ALERT_CONTENT]
+                                     initWithTitle:[loginUIContent objectAtIndex:LI_EN_ALERT_TITLE]
+                                     message:[loginUIContent objectAtIndex:LI_EN_ALERT_CONTENT]
                                      delegate:self
-                                     cancelButtonTitle:[loginUIContent.uiLoginKeys 
+                                     cancelButtonTitle:[loginUIContent 
                                                         objectAtIndex:LI_EN_ALERT_BUTTON]
                                      otherButtonTitles:nil];
         [alertForcIncomplete show];
@@ -398,15 +366,15 @@
     
     else {
     // Second, we wrap the account name and password with keychain and store them.
-        NSString *accountName = [self.userConfigKeys objectAtIndex:0];
-        NSString *password = [self.userConfigKeys objectAtIndex:1];
-        NSString *serviceName = [self.loginUIContent.uiLoginKeys objectAtIndex:LI_EN_SERVICE_NAME];
+        NSString *accountName = [userConfigKeys objectAtIndex:0];
+        NSString *password = [userConfigKeys objectAtIndex:1];
+        NSString *serviceName = [loginUIContent objectAtIndex:LI_EN_SERVICE_NAME];
         
         BOOL passwordDidStore = [SFHFKeychainUtils storeUsername:accountName
-                                                         andPassword:password
-                                                      forServiceName:serviceName
-                                                      updateExisting:YES
-                                                               error:nil];
+                                                     andPassword:password
+                                                  forServiceName:serviceName
+                                                  updateExisting:YES
+                                                           error:nil];
         // If stored successfully, we sand the ID & password to sever.
         if (passwordDidStore == YES) {
 #ifdef DEBUG
@@ -479,16 +447,16 @@
     NSLog(@"startLogin");
 #endif
     
-    CGPoint newPosition = self.loginControlLayer.center;
+    CGPoint newPosition = loginControlLayer.center;
 	newPosition.x = -160;
     
 	[UIView animateWithDuration:0.5 
 					 animations:^ { 
-                         self.loginControlLayer.center = newPosition; 
+                         loginControlLayer.center = newPosition; 
                      }
 					 completion:^ (BOOL finished) { 
                          // Get rid of all login controls and show the sync hud.
-						 [self.loginControlLayer removeFromSuperview]; 
+						 [loginControlLayer removeFromSuperview]; 
 						 [self showUsingBlocks:sender];
 					 }];
 }
@@ -501,8 +469,8 @@
         
 		// Show the HUD in the main thread.
 		dispatch_async(dispatch_get_main_queue(), ^ {
-			self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-			self.hud.labelText = [loginUIContent.uiLoginKeys objectAtIndex:12];
+			hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.labelText = [loginUIContent objectAtIndex:12];
 		});
 		
 		// Do the background loading here.
@@ -540,7 +508,6 @@
                 [reloginMercuryMainboardViewController.view.layer addAnimation:animation 
                                                                         forKey:@"animation"];                
             }
-            
         });
 	});
 }

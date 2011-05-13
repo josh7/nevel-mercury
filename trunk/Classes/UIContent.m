@@ -16,6 +16,10 @@
 #define SETTINGS            @"Settings"
 #define ACCOUNT_LIST        @"Account List"
 #define ACCOUNT_SETTINGS    @"Account Settings"
+#define DOMAIN_LIST         @"Domain List"
+#define SITE_LIST           @"Site List"
+#define SITE                @"Site"
+#define SITE_SETTINGS       @"Site Settings"
 
 
 @implementation UIContent
@@ -25,6 +29,10 @@
 @synthesize uiSettingsKeys;
 @synthesize uiAccountListKeys;
 @synthesize uiAccountSettingsKeys;
+@synthesize uiDomainListKeys;
+@synthesize uiSiteListKeys;
+@synthesize uiSiteKeys;
+@synthesize uiSiteSettingsKeys;
 
 - (void)dealloc {
     [uiDictionary release];
@@ -33,6 +41,10 @@
     [uiSettingsKeys release];
     [uiAccountListKeys release];
     [uiAccountSettingsKeys release];
+    [uiDomainListKeys release];
+    [uiSiteListKeys release];
+    [uiSiteKeys release];
+    [uiSiteSettingsKeys release];
     [super dealloc];
 }
 
@@ -50,6 +62,10 @@
     self.uiSettingsKeys = [uiDictionary objectForKey:SETTINGS];
     self.uiAccountListKeys = [uiDictionary objectForKey:ACCOUNT_LIST];
     self.uiAccountSettingsKeys = [uiDictionary objectForKey:ACCOUNT_SETTINGS];
+    self.uiDomainListKeys = [uiDictionary objectForKey:DOMAIN_LIST];
+    self.uiSiteListKeys = [uiDictionary objectForKey:SITE_LIST];
+    self.uiSiteSettingsKeys = [uiDictionary objectForKey:SITE_SETTINGS];
+    self.uiSiteKeys = [uiDictionary objectForKey:SITE];
 }
 
 

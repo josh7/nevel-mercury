@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MercurySiteListViewController.h"
 
 
 @interface MercuryDomainListViewController : UITableViewController {
     // The arrays to keep domain info from XML.
-    NSArray *domainName;
-    NSArray *nevelPowered;
-    NSArray *securityLogs;
-    NSArray *alerts;
+//    NSArray *domainName;
+    
+    // The pushed site list controller.
+    MercurySiteListViewController *siteListViewController;
 }
 
 @end

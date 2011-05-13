@@ -15,7 +15,6 @@
 #define charactersMaxNum 22
 
 @implementation MercuryAccountTableViewController
-@synthesize accountListUIContent;
 @synthesize accountList;
 
 - (void)dealloc {
@@ -41,9 +40,8 @@
     
     // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.accountListUIContent = appDelegate.uiContent.uiAccountListKeys;
+    accountListUIContent = appDelegate.uiContent.uiAccountListKeys;
     
-    self.title = [self.accountListUIContent objectAtIndex:AC_EN_ACCOUNT_LIST];
     self.view.backgroundColor = [UIColor blackColor];
     
     // TODO: read the accounts from UserConfig.plist.
@@ -119,11 +117,11 @@
     willSelectedAccountIndex = indexPath.row;
     if (willSelectedAccountIndex != selectedAccountIndex) {
         UIAlertView *changeAccountAlert  = [[UIAlertView alloc] 
-                        initWithTitle:[self.accountListUIContent objectAtIndex:AC_EN_MESSAGE] 
+                        initWithTitle:[accountListUIContent objectAtIndex:AC_EN_MESSAGE] 
                               message:nil 
                              delegate:self 
-                    cancelButtonTitle:[self.accountListUIContent objectAtIndex:AC_EN_CANCEL] 
-                    otherButtonTitles:[self.accountListUIContent objectAtIndex:AC_EN_SURE], nil];
+                    cancelButtonTitle:[accountListUIContent objectAtIndex:AC_EN_CANCEL] 
+                    otherButtonTitles:[accountListUIContent objectAtIndex:AC_EN_SURE], nil];
         [changeAccountAlert show];
         [changeAccountAlert release];
     }
@@ -135,8 +133,8 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     MercuryAccountSettingsViewController *accountSettingsVC = 
         [[[MercuryAccountSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped] 
          autorelease];
-    
-    accountSettingsVC.title = [self.accountListUIContent objectAtIndex:AC_EN_ACCOUNT_SETTINGS];
+    [accountSettingsVC retain];
+    accountSettingsVC.title = [accountListUIContent objectAtIndex:AC_EN_ACCOUNT_SETTINGS];
     accountSettingsVC.currentAccountNameString = [self.accountList objectAtIndex:indexPath.row];
     [[self navigationController] pushViewController:accountSettingsVC animated:YES];
 }
@@ -159,7 +157,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
                                                             inSection:0]];
         deselectCell.imageView.image = [UIImage imageNamed:unselectImage];
         
-        // We load the new account info here.
+        // TODO: We load the new account info here.
     }
 }
 

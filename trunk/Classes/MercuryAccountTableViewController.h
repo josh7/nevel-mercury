@@ -24,7 +24,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *accountList;
-@property (nonatomic, retain) NSArray *accountListUIContent;
+//@property (nonatomic, retain) NSArray *accountListUIContent;
 
 - (NSString *)shortenAccountName:(NSString *)accountName withSeparator:(NSCharacterSet *)separator;
 

@@ -13,15 +13,17 @@
     // The UI controllers.
     UIView *cellView;
     UIImageView *stateIconView;
-    UIImageView *cellBackgroundView;
-    UIImageView *blueAccessoryView;
     UILabel *domainNameLabel;
+    
     UILabel *nevelPoweredLabel;
-    UILabel *nevelPoweredValue;
     UILabel *securityLogsLabel;
-    UILabel *securityLogsValue;
     UILabel *alertsLabel;
+    UILabel *nevelPoweredValue;
+    UILabel *securityLogsValue;
     UILabel *alertsValue;
+    
+    // Object for UI text.
+    NSArray *domainListUIContent;
 }
 
 @property (nonatomic, retain) UIImageView *stateIconView;
