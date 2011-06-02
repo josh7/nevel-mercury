@@ -91,7 +91,10 @@
 		<string>Settings</string>
 	</array>
 	<key>Site List</key>
-	<array/>
+	<array>
+		<string>Settings</string>
+		<string>Done</string>
+	</array>
 	<key>Site Settings</key>
 	<array>
 		<array>
@@ -104,7 +107,7 @@
 			<string>Hotlink Prevension</string>
 			<string>Purge Cache</string>
 		</array>
-		<string>Delete This Site.</string>
+		<string>Delete This Domain.</string>
 		<string>Alert</string>
 		<string>Are you sure to disable Nevel that may lead to some bad influence?</string>
 		<string>Are you sure to purge cache?</string>

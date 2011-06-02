@@ -360,12 +360,12 @@
 				0080F865133C1CFF00A7325B /* UIContent.m */,
 				682BB6F013260C380054CEC9 /* LoginTableCell.h */,
 				682BB6F113260C380054CEC9 /* LoginTableCell.m */,
+				00DE5DEB136C4E5300915156 /* DomainListCell.h */,
+				00DE5DEC136C4E5300915156 /* DomainListCell.m */,
 				00A00CDA133CEB4C00504CCD /* SiteListPlotCell.h */,
 				00A00CDB133CEB4C00504CCD /* SiteListPlotCell.m */,
 				68E556B2134478E600E2B6CA /* SiteListInfoCell.h */,
 				68E556B3134478E600E2B6CA /* SiteListInfoCell.m */,
-				00DE5DEB136C4E5300915156 /* DomainListCell.h */,
-				00DE5DEC136C4E5300915156 /* DomainListCell.m */,
 			);
 			name = UIHelper;
 			sourceTree = "<group>";
@@ -589,12 +589,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Mercury_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/Users/Jeffrey/boost_1_44_0,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Mercury-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,11 +626,15 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Mercury_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/Users/Jeffrey/boost_1_44_0,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Mercury-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,6 +13,7 @@
 #import "MercurySettingsViewController.h"
 #import "MercuryHelpViewController.h"
 
+#include <iostream>
 
 @implementation MercuryMainboardViewController
 
@@ -46,6 +47,7 @@
 
     /* +----------------------------- The domain list subview ------------------------+ */
     MercuryDomainListViewController *dlTemp = [[MercuryDomainListViewController alloc] init];
+    
     dlTemp.title = [mainboardUIContent objectAtIndex:MB_EN_DOMAIN_LIST];
     domainListNavigationController = [[UINavigationController alloc] 
                                            initWithRootViewController:dlTemp];
@@ -57,6 +59,7 @@
     // TODO: Chage a new tab image here.
     // Set sites list tab bar item of sites list view controller.
     UIImage *domainListTabBarItemImage = [UIImage imageNamed:MainboardTabbarView];
+    
     NSString *domainListTabBarItemTitle = 
     [mainboardUIContent objectAtIndex:MB_EN_DOMAIN_LIST];
     UITabBarItem *domainListTabBar = [[UITabBarItem alloc] initWithTitle:domainListTabBarItemTitle

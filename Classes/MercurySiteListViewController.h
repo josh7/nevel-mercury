@@ -14,6 +14,8 @@
 #import "MercuryAppDelegate.h"
 #import "MercuryPlotDraw.h"
 #import "MercurySiteViewController.h"
+#import "MercurySiteSettingsViewController.h"
+
 
 /* 
  * Customize site list root view controller here.
@@ -67,6 +69,14 @@ UIViewController<UITableViewDelegate,
                      
     // The details of each site.
     MercurySiteViewController *siteViewController;
+                     
+    // The domain settings navigation bar button item.
+    UIBarButtonItem *settingsBarButton;
+    UIBarButtonItem *settingsDoneBarButton;
+    MercurySiteSettingsViewController *siteSettingsViewController;
+    
+    // Object for UI text.
+    NSArray *siteListUIContent;
     
 @private
     /* 
@@ -92,4 +102,9 @@ UIViewController<UITableViewDelegate,
 @property (nonatomic, retain) MercuryLoginViewController *mercuryLoginViewController;
 
 - (void)tableTurn:(UIPageControl *)pageControl;
+
+// The site settings button action.
+- (void)siteSettingsButtonPressed:(id)sender;
+- (void)settingsDoneBarButtonPressed:(id)sender;
+
 @end

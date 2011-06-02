@@ -130,7 +130,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Create and push site list view controller.
     siteListViewController = [[MercurySiteListViewController alloc] init];
+    siteListViewController.hidesBottomBarWhenPushed = YES;
     [[self navigationController] pushViewController:siteListViewController animated:YES];
+    
+    // Manage the cell highlighting after selection.
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
