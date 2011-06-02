@@ -317,3 +317,10 @@ deleteSections:withRowAnimation:
 {{{
 NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:myRow inSection:mySection];
 }}}
+
+== Table view cell highlighting cancellation ==
+*ideas*: Deselect the row which was selected jest now, and use animation to delay the highlighting cancellation.
+{{{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
