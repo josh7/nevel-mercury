@@ -36,8 +36,12 @@
 #define DL_EN_SECURITY_LOGS     1
 #define DL_EN_ALERTS            2
 
+// The Site List English version text.
+#define SL_EN_SETTINGS          0
+#define SL_EN_DONE              1
+
 // The Site section English version text.
-#define SI_EN_SETTINGS          0
+
 
 // The Site Settings section English version text.
 #define SECTION_ITEMS         0
@@ -47,7 +51,7 @@
 #define SS_EN_WAF_SECURITY      3
 #define SS_EN_EMAIL_OBFUSCATION 4
 #define SS_EN_ALWAYS_ONLINE     5
-#define SS_EN_HOTLINK           6
+#define SS_EN_HOTLINK           6   
 #define SS_EN_PURGE_CACHE       7
 #define SS_EN_DELETE            1
 #define SS_EN_ALERT             2

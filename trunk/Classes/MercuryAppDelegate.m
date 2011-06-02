@@ -9,6 +9,7 @@
 #import "MercuryAppDelegate.h"
 
 
+
 @implementation MercuryAppDelegate
 @synthesize window;
 @synthesize uiContent;
@@ -31,6 +32,9 @@
 - (BOOL)application:(UIApplication *)application 
 	didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     UIContent *contentTemp = [[UIContent alloc] init];
+    
+    
+    
     // Create the UI text object.
     self.uiContent = contentTemp;
     [contentTemp release];

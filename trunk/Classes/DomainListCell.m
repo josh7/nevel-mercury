@@ -148,12 +148,14 @@
         
         // Add our customized view to the cell content view and add our super background view.
         [self.contentView addSubview:cellView];
-        
         UIImageView *cellBackgroundView = [[UIImageView alloc] 
                                            initWithFrame:CGRectMake(frameOfCell)];
         cellBackgroundView.image = [UIImage imageNamed:cellBackground];
         self.backgroundView = cellBackgroundView;
         [cellBackgroundView release];
+        
+        // Managing cell selection and highlighting.
+        
     }
     return self;
 }

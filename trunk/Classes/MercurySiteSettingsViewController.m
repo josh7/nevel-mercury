@@ -185,14 +185,14 @@
 
 - (void)enableNevelDidSwitch:(id)sender {
     if (enableNevelSwitch.on == YES) {
-        UIAlertView *disbleNevelAlert  = [[UIAlertView alloc] 
+        UIAlertView *disableNevelAlert  = [[UIAlertView alloc] 
                     initWithTitle:[siteSettingsUIContent objectAtIndex:SS_EN_ALERT] 
                           message:[siteSettingsUIContent objectAtIndex:SS_EN_DISABLE_NEVEL_MSG] 
                          delegate:self 
                 cancelButtonTitle:[siteSettingsUIContent objectAtIndex:SS_EN_NO] 
                 otherButtonTitles:[siteSettingsUIContent objectAtIndex:SS_EN_YES], nil];
-        [disbleNevelAlert show];
-        [disbleNevelAlert release];
+        [disableNevelAlert show];
+        [disableNevelAlert release];
     }
 }
 

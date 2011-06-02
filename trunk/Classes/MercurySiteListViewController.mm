@@ -24,6 +24,8 @@
     delete corePlotList;
     delete barVector;
     
+    [settingsBarButton release];
+    [settingsDoneBarButton release];
     [paraIndicator release];
     [siteScroll release];
     [paramaterScroll release];
@@ -33,6 +35,7 @@
     [paraTitle release];
     [plotColor release];
     [siteViewController release];
+    [siteListUIContent release];
     [super dealloc];
 }
 
@@ -87,8 +90,24 @@
 - (void)loadView
 {
     [super loadView];
+    
+    // Load the global UI helper object.
     MercuryAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.mercuryLoginViewController = appDelegate.mercuryLoginViewController;
+    siteListUIContent = appDelegate.uiContent.uiSiteListKeys;
+    
+    // Add settings button to navigation controller.
+    settingsBarButton = [[UIBarButtonItem alloc] 
+                         initWithTitle:[siteListUIContent objectAtIndex:SL_EN_SETTINGS]  
+                         style:UIBarButtonItemStyleDone 
+                         target:self 
+                         action:@selector(siteSettingsButtonPressed:)];
+    settingsDoneBarButton = [[UIBarButtonItem alloc] 
+                             initWithTitle:[siteListUIContent objectAtIndex:SL_EN_DONE]  
+                             style:UIBarButtonItemStyleDone 
+                             target:self 
+                             action:@selector(settingsDoneBarButtonPressed:)];
+    [self navigationItem].rightBarButtonItem = settingsBarButton;
     
     // TODO: Just for demo here, load the UI text from UI.plist.
     paraTitle = [[NSArray alloc] initWithObjects:@"Monitoring", @"Availability", @"Page View", 
@@ -241,6 +260,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView 
                   willDecelerate:(BOOL)decelerate {
@@ -249,6 +269,7 @@
         scrollView.scrollEnabled = NO;
     }
 }
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 
@@ -376,6 +397,7 @@
     [[self navigationController] pushViewController:siteViewController animated:YES];
 }
 
+
 #pragma mark - private members
 - (void)tableTurn:(UIPageControl *)pageControl {
     
@@ -395,7 +417,6 @@
         currentTableIndex--;
     }
     else {
-        
     }
 #ifdef DEBUG
     NSLog(@"[currentTableIndex: ]%d", currentTableIndex);
@@ -405,7 +426,32 @@
 
 }
 
+
 #pragma mark - Coreplot Data Source Methods
 
 
+#pragma mark - Site Settings button action
+- (void)siteSettingsButtonPressed:(id)sender {
+    siteSettingsViewController = [[MercurySiteSettingsViewController alloc] init];
+//    [[self navigationController] pushViewController:siteSettingsViewController animated:YES];
+    
+    [UIView transitionFromView:self.view 
+                        toView:siteSettingsViewController.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    completion:^ (BOOL finished) {
+                        [self navigationItem].rightBarButtonItem = settingsDoneBarButton;
+                    }];
+}
+
+
+- (void)settingsDoneBarButtonPressed:(id)sender {
+    [UIView transitionFromView:siteSettingsViewController.view
+                        toView:self.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    completion:^ (BOOL finished) {
+                        [self navigationItem].rightBarButtonItem = settingsBarButton;
+                    }];
+}
 @end
